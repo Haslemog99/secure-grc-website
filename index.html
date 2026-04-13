@@ -1,759 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SecureGRC - Quantum-Safe AI Compliance | ISO 42001 and EU AI Act Automation</title>
-  <meta name="description" content="SecureGRC automates ISO 42001 and EU AI Act compliance with CRYSTALS-Dilithium post-quantum cryptography. Metadata-only AI assessment. Auditor-ready in days, not months.">
-  <meta name="keywords" content="quantum-safe compliance, AI compliance automation, ISO 42001, EU AI Act compliance, post-quantum cryptography, CRYSTALS-Dilithium, AI governance, ML-BOM, MITRE ATLAS, AI security, quantum computing security, AI risk assessment, GRC automation, AI audit, quantum-resistant encryption, AI supply chain security">
-  <meta name="author" content="SecureGRC Ltd">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  <link rel="canonical" href="https://www.securegrc.io">
-  <meta property="og:title" content="SecureGRC - Quantum-Safe AI Compliance Automation">
-  <meta property="og:description" content="Prove your AI is compliant. Quantum-safe. Automate ISO 42001 and EU AI Act compliance with post-quantum cryptographic proof.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.securegrc.io">
-  <meta property="og:site_name" content="SecureGRC">
-  <meta property="og:locale" content="en_GB">
-  <meta property="og:image" content="https://www.securegrc.io/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="SecureGRC - Quantum-Safe AI Compliance">
-  <meta name="twitter:description" content="Automate ISO 42001 compliance with post-quantum cryptographic verification.">
-  <meta name="twitter:image" content="https://www.securegrc.io/og-image.png">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "SecureGRC",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web",
-    "description": "Quantum-safe AI compliance automation platform. Automates ISO 42001 and EU AI Act compliance using post-quantum cryptography with a metadata-only architecture.",
-    "url": "https://www.securegrc.io",
-    "author": {
-      "@type": "Organization",
-      "name": "SecureGRC Ltd",
-      "url": "https://www.securegrc.io",
-      "address": {"@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB"}
-    },
-    "offers": {"@type": "Offer", "description": "Free AI Compliance Assessment", "price": "0", "priceCurrency": "GBP"}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "SecureGRC Ltd",
-    "url": "https://www.securegrc.io",
-    "contactPoint": {"@type": "ContactPoint", "email": "hello@securegrc.io", "contactType": "sales"},
-    "sameAs": ["https://www.linkedin.com/company/securegrc"],
-    "address": {"@type": "PostalAddress", "addressLocality": "London", "addressRegion": "England", "addressCountry": "GB"}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {"@type": "Question", "name": "What is ISO 42001 compliance?", "acceptedAnswer": {"@type": "Answer", "text": "ISO/IEC 42001:2023 is the first international standard for AI management systems. SecureGRC automates ISO 42001 compliance assessment."}},
-      {"@type": "Question", "name": "What is post-quantum cryptography?", "acceptedAnswer": {"@type": "Answer", "text": "Post-quantum cryptography uses algorithms resistant to quantum computer attacks. SecureGRC uses CRYSTALS-Dilithium (NIST FIPS 204)."}},
-      {"@type": "Question", "name": "How does SecureGRC assess AI compliance without accessing model data?", "acceptedAnswer": {"@type": "Answer", "text": "SecureGRC uses a metadata-only architecture. We extract model metadata without ever accessing model weights, training data, or production environments."}},
-      {"@type": "Question", "name": "What is the EU AI Act deadline?", "acceptedAnswer": {"@type": "Answer", "text": "The EU AI Act enforcement deadline for high-risk AI systems is August 2, 2026. Fines reach up to 35 million euros or 7 percent of global revenue."}}
-    ]
-  }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SecureGRC — Quantum-Safe AI Compliance | ISO 42001 & EU AI Act Automation</title>
+<meta name="description" content="SecureGRC automates ISO 42001 and EU AI Act compliance with CRYSTALS-Dilithium post-quantum cryptography. Metadata-only AI assessment — your model IP stays untouched. Auditor-ready in days, not months.">
+<meta name="keywords" content="quantum-safe compliance, AI compliance automation, ISO 42001, EU AI Act compliance, post-quantum cryptography, CRYSTALS-Dilithium, AI governance, ML-BOM, MITRE ATLAS, AI security, quantum computing security, AI risk assessment, GRC automation, AI audit, quantum-resistant encryption, AI supply chain security">
+<meta name="author" content="SecureGRC Ltd">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://www.securegrc.io">
+<meta property="og:title" content="SecureGRC — Quantum-Safe AI Compliance Automation">
+<meta property="og:description" content="Prove your AI is compliant. Quantum-safe. Automate ISO 42001 and EU AI Act compliance with post-quantum cryptographic proof.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.securegrc.io">
+<meta property="og:site_name" content="SecureGRC">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SecureGRC — Quantum-Safe AI Compliance">
+<meta name="twitter:description" content="Automate ISO 42001 compliance with post-quantum cryptographic verification. Your AI model IP stays untouched.">
+<meta property="og:image" content="https://www.securegrc.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://www.securegrc.io/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SecureGRC","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Quantum-safe AI compliance automation platform. Automates ISO 42001 and EU AI Act compliance using post-quantum cryptography (CRYSTALS-Dilithium) with a metadata-only architecture that never accesses model weights.","url":"https://www.securegrc.io","author":{"@type":"Organization","name":"SecureGRC Ltd","url":"https://www.securegrc.io","address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"}},"offers":{"@type":"Offer","description":"Free AI Compliance Assessment","price":"0","priceCurrency":"GBP"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"SecureGRC Ltd","url":"https://www.securegrc.io","contactPoint":{"@type":"ContactPoint","email":"hello@securegrc.io","contactType":"sales"},"sameAs":["https://www.linkedin.com/company/securegrc"],"address":{"@type":"PostalAddress","addressLocality":"London","addressRegion":"England","addressCountry":"GB"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is ISO 42001 compliance?","acceptedAnswer":{"@type":"Answer","text":"ISO/IEC 42001:2023 is the world's first international standard for AI management systems. It establishes requirements for responsible AI governance, risk management, and compliance. SecureGRC automates ISO 42001 compliance assessment."}},{"@type":"Question","name":"What is post-quantum cryptography?","acceptedAnswer":{"@type":"Answer","text":"Post-quantum cryptography uses algorithms resistant to quantum computer attacks. SecureGRC uses CRYSTALS-Dilithium (NIST FIPS 204), ensuring compliance evidence remains verifiable even as quantum computing advances."}},{"@type":"Question","name":"How does SecureGRC assess AI compliance without accessing model data?","acceptedAnswer":{"@type":"Answer","text":"SecureGRC uses a metadata-only architecture. We extract model metadata without ever accessing model weights, training data, or production environments."}},{"@type":"Question","name":"What is the EU AI Act deadline?","acceptedAnswer":{"@type":"Answer","text":"The EU AI Act enforcement deadline for high-risk AI systems is August 2, 2026. Companies must demonstrate compliance or face fines up to 35 million euros or 7 percent of global revenue."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#030608;--surface:#080c14;--surface-2:#0d1320;--border:rgba(139,92,246,0.12);--border-b:rgba(139,92,246,0.06);--text:#e2e8f0;--muted:#8b95a8;--dim:#5a6478;--accent:#7c3aed;--accent2:#a855f7;--cyan:#06b6d4;--success:#10b981;--danger:#ef4444;--warning:#f59e0b}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(rgba(139,92,246,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,0.03) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
 
-    :root {
-      --bg: #030608;
-      --surface: #080c14;
-      --surface-2: #0d1320;
-      --border: rgba(139,92,246,0.12);
-      --border-b: rgba(139,92,246,0.06);
-      --text: #e2e8f0;
-      --muted: #8b95a8;
-      --dim: #5a6478;
-      --accent: #7c3aed;
-      --accent2: #a855f7;
-      --cyan: #06b6d4;
-      --success: #10b981;
-      --danger: #ef4444;
-      --warning: #f59e0b;
-    }
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;background:rgba(3,6,8,0.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--border-b);display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.25rem;color:#fff;text-decoration:none;position:relative}
+.nav-logo span{color:var(--accent2)}
+.nav-logo::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--cyan));border-radius:2px}
+.nav-links{display:flex;gap:1.5rem;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:linear-gradient(135deg,var(--accent),var(--accent2))!important;color:#fff!important;padding:0.5rem 1.25rem;border-radius:6px;font-weight:600!important;font-size:0.85rem!important;transition:all 0.3s;box-shadow:0 0 20px rgba(139,92,246,0.2)}
+.nav-cta:hover{box-shadow:0 0 30px rgba(139,92,246,0.4);transform:translateY(-1px)}
 
-    html { scroll-behavior: smooth; }
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 4rem;position:relative;z-index:1}
+.hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(ellipse,rgba(124,58,237,0.12) 0%,rgba(6,182,212,0.05) 40%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;top:30%;right:10%;width:300px;height:300px;background:radial-gradient(circle,rgba(6,182,212,0.08) 0%,transparent 60%);pointer-events:none}
 
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+.particles{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden}
+.particle{position:absolute;border-radius:50%;opacity:0;animation:float linear infinite}
+.particle.purple{background:var(--accent2);box-shadow:0 0 6px var(--accent2)}
+.particle.cyan{background:var(--cyan);box-shadow:0 0 6px var(--cyan)}
+.particle.white{background:rgba(255,255,255,0.6);box-shadow:0 0 4px rgba(255,255,255,0.3)}
+.particle:nth-child(1){width:3px;height:3px;left:8%;top:15%;animation-delay:0s;animation-duration:9s}
+.particle:nth-child(2){width:2px;height:2px;left:22%;top:55%;animation-delay:1.2s;animation-duration:7s}
+.particle:nth-child(3){width:3px;height:3px;left:42%;top:25%;animation-delay:2.5s;animation-duration:11s}
+.particle:nth-child(4){width:2px;height:2px;left:58%;top:65%;animation-delay:0.8s;animation-duration:8s}
+.particle:nth-child(5){width:4px;height:4px;left:75%;top:20%;animation-delay:3.5s;animation-duration:10s}
+.particle:nth-child(6){width:2px;height:2px;left:88%;top:45%;animation-delay:1.8s;animation-duration:6s}
+.particle:nth-child(7){width:3px;height:3px;left:15%;top:75%;animation-delay:4s;animation-duration:9.5s}
+.particle:nth-child(8){width:2px;height:2px;left:35%;top:85%;animation-delay:2s;animation-duration:7.5s}
+.particle:nth-child(9){width:3px;height:3px;left:65%;top:40%;animation-delay:5s;animation-duration:8.5s}
+.particle:nth-child(10){width:2px;height:2px;left:50%;top:10%;animation-delay:0.5s;animation-duration:12s}
+.particle:nth-child(11){width:4px;height:4px;left:92%;top:70%;animation-delay:3s;animation-duration:10.5s}
+.particle:nth-child(12){width:2px;height:2px;left:5%;top:40%;animation-delay:6s;animation-duration:8s}
+@keyframes float{0%{opacity:0;transform:translateY(30px) translateX(0)}15%{opacity:0.7}50%{transform:translateY(-60px) translateX(20px)}85%{opacity:0.3}100%{opacity:0;transform:translateY(-120px) translateX(-10px)}}
 
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image:
-        linear-gradient(rgba(139,92,246,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139,92,246,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
-    }
+.hero-badge{display:inline-flex;align-items:center;gap:0.6rem;padding:0.45rem 1.2rem;border-radius:99px;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.2);font-size:0.8rem;color:var(--accent2);margin-bottom:2rem;font-family:'JetBrains Mono',monospace}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 8px var(--cyan)}50%{opacity:0.4;box-shadow:0 0 2px var(--cyan)}}
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1rem 2rem;
-      background: rgba(3,6,8,0.9);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid var(--border-b);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'JetBrains Mono', monospace;
-      font-weight: 700; font-size: 1.25rem; color: #fff;
-      text-decoration: none; position: relative;
-    }
-    .nav-logo span { color: var(--accent2); }
-    .nav-logo::after {
-      content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-      height: 2px; background: linear-gradient(90deg, var(--accent), var(--cyan)); border-radius: 2px;
-    }
-    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .nav-links a:hover { color: #fff; }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--accent), var(--accent2)) !important;
-      color: #fff !important; padding: 0.5rem 1.25rem; border-radius: 6px;
-      font-weight: 600 !important; font-size: 0.85rem !important;
-      transition: all 0.3s; box-shadow: 0 0 20px rgba(139,92,246,0.2);
-    }
-    .nav-cta:hover { box-shadow: 0 0 30px rgba(139,92,246,0.4); transform: translateY(-1px); }
+h1{font-size:clamp(2.5rem,6.5vw,5rem);font-weight:800;line-height:1.05;max-width:850px;letter-spacing:-2.5px;margin-bottom:1.5rem}
+h1 .line1{display:block;color:#fff}
+h1 .line2{display:block;background:linear-gradient(135deg,var(--accent2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.15rem;color:var(--muted);max-width:620px;margin-bottom:2.5rem;line-height:1.7}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:0.9rem 2.2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.95rem;transition:all 0.3s;border:none;cursor:pointer;display:inline-block;box-shadow:0 4px 20px rgba(124,58,237,0.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,58,237,0.5)}
+.btn-secondary{background:transparent;color:var(--text);padding:0.9rem 2.2rem;border-radius:8px;text-decoration:none;font-weight:500;font-size:0.95rem;border:1px solid var(--border);transition:all 0.2s;display:inline-block}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent2)}
 
-    /* HERO */
-    .hero {
-      min-height: 100vh; display: flex; flex-direction: column;
-      justify-content: center; align-items: center; text-align: center;
-      padding: 8rem 2rem 4rem; position: relative; z-index: 1;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
-      width: 900px; height: 900px;
-      background: radial-gradient(ellipse, rgba(124,58,237,0.12) 0%, rgba(6,182,212,0.05) 40%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: ''; position: absolute; top: 30%; right: 10%;
-      width: 300px; height: 300px;
-      background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 60%);
-      pointer-events: none;
-    }
+.trust{padding:3rem 2rem;text-align:center;border-top:1px solid var(--border-b);border-bottom:1px solid var(--border-b);position:relative;z-index:1}
+.trust p{font-size:0.75rem;color:var(--dim);text-transform:uppercase;letter-spacing:3px;margin-bottom:1.5rem;font-family:'JetBrains Mono',monospace}
+.trust-items{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;align-items:center}
+.trust-item{color:var(--dim);font-size:0.78rem;font-family:'JetBrains Mono',monospace;font-weight:500;padding:0.3rem 0.8rem;border:1px solid rgba(139,92,246,0.1);border-radius:4px;background:rgba(139,92,246,0.03)}
 
-    /* PARTICLES */
-    .particles { position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; overflow: hidden; }
-    .p { position: absolute; border-radius: 50%; opacity: 0; }
-    .p-purple { background: var(--accent2); box-shadow: 0 0 6px var(--accent2); }
-    .p-cyan { background: var(--cyan); box-shadow: 0 0 6px var(--cyan); }
-    .p-white { background: rgba(255,255,255,0.6); box-shadow: 0 0 4px rgba(255,255,255,0.3); }
-    .p1 { width:3px;height:3px;left:8%;top:15%;animation:fl 9s linear 0s infinite }
-    .p2 { width:2px;height:2px;left:22%;top:55%;animation:fl 7s linear 1.2s infinite }
-    .p3 { width:3px;height:3px;left:42%;top:25%;animation:fl 11s linear 2.5s infinite }
-    .p4 { width:2px;height:2px;left:58%;top:65%;animation:fl 8s linear 0.8s infinite }
-    .p5 { width:4px;height:4px;left:75%;top:20%;animation:fl 10s linear 3.5s infinite }
-    .p6 { width:2px;height:2px;left:88%;top:45%;animation:fl 6s linear 1.8s infinite }
-    .p7 { width:3px;height:3px;left:15%;top:75%;animation:fl 9.5s linear 4s infinite }
-    .p8 { width:2px;height:2px;left:35%;top:85%;animation:fl 7.5s linear 2s infinite }
-    .p9 { width:3px;height:3px;left:65%;top:40%;animation:fl 8.5s linear 5s infinite }
-    .p10 { width:2px;height:2px;left:50%;top:10%;animation:fl 12s linear 0.5s infinite }
-    .p11 { width:4px;height:4px;left:92%;top:70%;animation:fl 10.5s linear 3s infinite }
-    .p12 { width:2px;height:2px;left:5%;top:40%;animation:fl 8s linear 6s infinite }
-    .p13 { width:3px;height:3px;left:30%;top:30%;animation:fl 9s linear 1s infinite }
-    .p14 { width:2px;height:2px;left:70%;top:80%;animation:fl 7s linear 4.5s infinite }
-    .p15 { width:3px;height:3px;left:48%;top:50%;animation:fl 11s linear 2s infinite }
-    .p16 { width:2px;height:2px;left:82%;top:15%;animation:fl 8s linear 3.2s infinite }
+section{padding:6rem 2rem;position:relative;z-index:1}
+.container{max-width:1100px;margin:0 auto}
+.section-label{font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--cyan);text-transform:uppercase;letter-spacing:4px;margin-bottom:1rem}
+.section-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-1.5px;margin-bottom:1rem;line-height:1.15;color:#fff}
+.section-title .hl{color:var(--accent2)}
+.section-desc{color:var(--muted);font-size:1.05rem;max-width:600px;margin-bottom:3rem;line-height:1.7}
 
-    @keyframes fl {
-      0% { opacity:0; transform:translateY(30px) translateX(0) }
-      15% { opacity:0.7 }
-      50% { transform:translateY(-60px) translateX(20px) }
-      85% { opacity:0.3 }
-      100% { opacity:0; transform:translateY(-120px) translateX(-10px) }
-    }
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
 
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      padding: 0.45rem 1.2rem; border-radius: 99px;
-      background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.2);
-      font-size: 0.8rem; color: var(--accent2); margin-bottom: 2rem;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .hero-badge .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--cyan); box-shadow: 0 0 8px var(--cyan);
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%,100% { opacity:1; box-shadow:0 0 8px var(--cyan) } 50% { opacity:0.4; box-shadow:0 0 2px var(--cyan) } }
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:2rem;transition:all 0.3s;position:relative;overflow:hidden}
+.card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity 0.3s}
+.card:hover{border-color:rgba(139,92,246,0.3);transform:translateY(-2px)}.card:hover::before{opacity:1}
+.card .num{font-family:'JetBrains Mono',monospace;font-size:2.2rem;font-weight:700;margin-bottom:0.5rem;background:linear-gradient(135deg,var(--accent2),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.card .icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.3rem;background:rgba(124,58,237,0.08);border:1px solid rgba(124,58,237,0.12)}
+.card h3{font-size:1.05rem;font-weight:600;margin-bottom:0.5rem;color:#fff}
+.card p{color:var(--muted);font-size:0.88rem;line-height:1.6}
+.card a{color:var(--cyan);font-size:0.8rem;font-family:'JetBrains Mono',monospace;text-decoration:none;display:inline-block;margin-top:0.5rem}
+.card-link{text-decoration:none;display:block}
 
-    h1 {
-      font-size: clamp(2.5rem, 6.5vw, 5rem); font-weight: 800;
-      line-height: 1.05; max-width: 850px; letter-spacing: -2.5px; margin-bottom: 1.5rem;
-    }
-    .line1 { display: block; color: #fff; }
-    .line2 {
-      display: block;
-      background: linear-gradient(135deg, var(--accent2), var(--cyan));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin-bottom: 2.5rem; line-height: 1.7; }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+.steps{display:grid;gap:0}
+.step{display:grid;grid-template-columns:80px 1fr;gap:1.5rem;padding:2.5rem 0;border-bottom:1px solid var(--border-b)}
+.step:last-child{border-bottom:none}
+.step-num{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1rem;background:rgba(124,58,237,0.08);color:var(--accent2);border:1px solid rgba(124,58,237,0.15)}
+.step h3{font-size:1.15rem;font-weight:600;margin-bottom:0.5rem;color:#fff}
+.step p{color:var(--muted);font-size:0.95rem;line-height:1.6}
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      color: #fff; padding: 0.9rem 2.2rem; border-radius: 8px;
-      text-decoration: none; font-weight: 600; font-size: 0.95rem;
-      transition: all 0.3s; border: none; cursor: pointer;
-      display: inline-block; box-shadow: 0 4px 20px rgba(124,58,237,0.3);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,58,237,0.5); }
+.comparison-table{width:100%;border-collapse:collapse;margin-top:2rem;font-size:0.88rem}
+.comparison-table th{text-align:left;padding:1rem;border-bottom:2px solid rgba(124,58,237,0.15);font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--dim);text-transform:uppercase;letter-spacing:1.5px}
+.comparison-table td{padding:1rem;border-bottom:1px solid var(--border-b)}
+.comparison-table tr:hover td{background:rgba(124,58,237,0.03)}
+.comparison-table .hl{color:var(--accent2);font-weight:600}
+.check{color:var(--cyan);font-weight:700;text-shadow:0 0 8px rgba(6,182,212,0.3)}
+.cross{color:var(--dim)}
 
-    .btn-secondary {
-      background: transparent; color: var(--text); padding: 0.9rem 2.2rem;
-      border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.95rem;
-      border: 1px solid var(--border); transition: all 0.2s; display: inline-block;
-    }
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent2); }
+.urgency{background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(6,182,212,0.04));border:1px solid rgba(124,58,237,0.15);border-radius:16px;padding:3rem;text-align:center;margin-top:3rem;position:relative;overflow:hidden}
+.urgency h3{font-size:1.4rem;font-weight:700;margin-bottom:0.75rem;color:#fff}
+.urgency p{color:var(--muted);font-size:0.95rem;max-width:600px;margin:0 auto}
+.urgency .date{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-weight:700;font-size:1.1rem;text-shadow:0 0 12px rgba(6,182,212,0.3)}
 
-    /* TRUST BAR */
-    .trust {
-      padding: 3rem 2rem; text-align: center;
-      border-top: 1px solid var(--border-b); border-bottom: 1px solid var(--border-b);
-      position: relative; z-index: 1;
-    }
-    .trust p {
-      font-size: 0.75rem; color: var(--dim); text-transform: uppercase;
-      letter-spacing: 3px; margin-bottom: 1.5rem;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .trust-items { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-    .trust-item {
-      color: var(--dim); font-size: 0.78rem;
-      font-family: 'JetBrains Mono', monospace; font-weight: 500;
-      padding: 0.3rem 0.8rem; border: 1px solid rgba(139,92,246,0.1);
-      border-radius: 4px; background: rgba(139,92,246,0.03);
-    }
+.faq{max-width:700px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--border-b);padding:1.5rem 0}
+.faq-item h3{font-size:1rem;font-weight:600;color:#fff;margin-bottom:0.6rem}
+.faq-item p{color:var(--muted);font-size:0.9rem;line-height:1.7}
 
-    /* SECTIONS */
-    section { padding: 6rem 2rem; position: relative; z-index: 1; }
-    .container { max-width: 1100px; margin: 0 auto; }
-    .section-label {
-      font-family: 'JetBrains Mono', monospace; font-size: 0.7rem;
-      color: var(--cyan); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 1rem;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700;
-      letter-spacing: -1.5px; margin-bottom: 1rem; line-height: 1.15; color: #fff;
-    }
-    .hl { color: var(--accent2); }
-    .section-desc { color: var(--muted); font-size: 1.05rem; max-width: 600px; margin-bottom: 3rem; line-height: 1.7; }
+.cta-section{text-align:center;padding:8rem 2rem;position:relative;z-index:1}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(ellipse,rgba(124,58,237,0.1) 0%,rgba(6,182,212,0.04) 40%,transparent 60%);pointer-events:none}
+.cta-section h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-2px;margin-bottom:1rem;position:relative;color:#fff}
+.cta-section p{color:var(--muted);font-size:1.1rem;margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto;position:relative}
 
-    /* GRIDS */
-    .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-    .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+footer{padding:3rem 2rem;border-top:1px solid var(--border-b);position:relative;z-index:1}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.footer-left .footer-brand{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1rem;color:#fff;margin-bottom:0.4rem}
+.footer-left .footer-brand span{color:var(--accent2)}
+.footer-left p{color:var(--dim);font-size:0.8rem}
+.footer-right{display:flex;gap:2rem;align-items:center}
+.footer-right a{color:var(--dim);text-decoration:none;font-size:0.85rem;transition:color 0.2s}
+.footer-right a:hover{color:var(--accent2)}
+.footer-copy{width:100%;text-align:center;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border-b);color:var(--dim);font-size:0.7rem;font-family:'JetBrains Mono',monospace}
 
-    /* CARDS */
-    .card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 2rem; transition: all 0.3s;
-      position: relative; overflow: hidden;
-    }
-    .card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .card:hover { border-color: rgba(139,92,246,0.3); transform: translateY(-2px); }
-    .card:hover::before { opacity: 1; }
-    .card .num {
-      font-family: 'JetBrains Mono', monospace; font-size: 2.2rem; font-weight: 700;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(135deg, var(--accent2), var(--cyan));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-    .card .icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.2rem; font-size: 1.3rem;
-      background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.12);
-    }
-    .card h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.5rem; color: #fff; }
-    .card p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
-    .card-link { text-decoration: none; display: block; }
-    .card-tag {
-      color: var(--cyan); font-size: 0.8rem;
-      font-family: 'JetBrains Mono', monospace;
-      display: inline-block; margin-top: 0.5rem;
-    }
-
-    /* STEPS */
-    .steps { display: grid; gap: 0; }
-    .step {
-      display: grid; grid-template-columns: 80px 1fr; gap: 1.5rem;
-      padding: 2.5rem 0; border-bottom: 1px solid var(--border-b);
-    }
-    .step:last-child { border-bottom: none; }
-    .step-num {
-      width: 56px; height: 56px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1rem;
-      background: rgba(124,58,237,0.08); color: var(--accent2);
-      border: 1px solid rgba(124,58,237,0.15);
-    }
-    .step h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.5rem; color: #fff; }
-    .step p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
-
-    /* TABLE */
-    .comparison-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.88rem; }
-    .comparison-table th {
-      text-align: left; padding: 1rem; border-bottom: 2px solid rgba(124,58,237,0.15);
-      font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
-      color: var(--dim); text-transform: uppercase; letter-spacing: 1.5px;
-    }
-    .comparison-table td { padding: 1rem; border-bottom: 1px solid var(--border-b); }
-    .comparison-table tr:hover td { background: rgba(124,58,237,0.03); }
-    .comparison-table .hl { color: var(--accent2); font-weight: 600; }
-    .check { color: var(--cyan); font-weight: 700; text-shadow: 0 0 8px rgba(6,182,212,0.3); }
-    .cross { color: var(--dim); }
-
-    /* URGENCY */
-    .urgency {
-      background: linear-gradient(135deg, rgba(124,58,237,0.06), rgba(6,182,212,0.04));
-      border: 1px solid rgba(124,58,237,0.15); border-radius: 16px;
-      padding: 3rem; text-align: center; margin-top: 3rem;
-    }
-    .urgency h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.75rem; color: #fff; }
-    .urgency p { color: var(--muted); font-size: 0.95rem; max-width: 600px; margin: 0 auto; }
-    .urgency .date {
-      font-family: 'JetBrains Mono', monospace; color: var(--cyan);
-      font-weight: 700; font-size: 1.1rem; text-shadow: 0 0 12px rgba(6,182,212,0.3);
-    }
-
-    /* FAQ */
-    .faq { max-width: 700px; margin: 0 auto; }
-    .faq-item { border-bottom: 1px solid var(--border-b); padding: 1.5rem 0; }
-    .faq-item h3 { font-size: 1rem; font-weight: 600; color: #fff; margin-bottom: 0.6rem; }
-    .faq-item p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
-
-    /* CTA */
-    .cta-section {
-      text-align: center; padding: 8rem 2rem; position: relative; z-index: 1;
-    }
-    .cta-section::before {
-      content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-      width: 700px; height: 700px;
-      background: radial-gradient(ellipse, rgba(124,58,237,0.1) 0%, rgba(6,182,212,0.04) 40%, transparent 60%);
-      pointer-events: none;
-    }
-    .cta-section h2 {
-      font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800;
-      letter-spacing: -2px; margin-bottom: 1rem; position: relative; color: #fff;
-    }
-    .cta-section p {
-      color: var(--muted); font-size: 1.1rem; margin-bottom: 2.5rem;
-      max-width: 500px; margin-left: auto; margin-right: auto; position: relative;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 3rem 2rem; border-top: 1px solid var(--border-b);
-      position: relative; z-index: 1;
-    }
-    .footer-inner {
-      max-width: 1100px; margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1.5rem;
-    }
-    .footer-left .footer-brand {
-      font-family: 'JetBrains Mono', monospace; font-weight: 700;
-      font-size: 1rem; color: #fff; margin-bottom: 0.4rem;
-    }
-    .footer-left .footer-brand span { color: var(--accent2); }
-    .footer-left p { color: var(--dim); font-size: 0.8rem; }
-    .footer-right { display: flex; gap: 2rem; align-items: center; }
-    .footer-right a { color: var(--dim); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-    .footer-right a:hover { color: var(--accent2); }
-    .footer-copy {
-      width: 100%; text-align: center; margin-top: 2rem; padding-top: 1.5rem;
-      border-top: 1px solid var(--border-b); color: var(--dim); font-size: 0.7rem;
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 1rem; }
-      .nav-links { display: none; }
-      .hero { padding: 7rem 1.5rem 3rem; }
-      section { padding: 4rem 1.5rem; }
-      .step { grid-template-columns: 1fr; gap: 1rem; }
-      .step-num { width: 40px; height: 40px; font-size: 0.85rem; }
-      .comparison-table { font-size: 0.7rem; }
-      .comparison-table th, .comparison-table td { padding: 0.5rem; }
-      .footer-inner { flex-direction: column; text-align: center; }
-      .footer-right { justify-content: center; }
-      .trust-items { gap: 0.8rem; }
-    }
-
-    /* ANIMATIONS */
-    .fade-in {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    @media (prefers-reduced-motion: reduce) {
-      .p { animation: none !important; }
-      .fade-in { opacity: 1; transform: none; }
-    }
-  </style>
+@media(max-width:768px){nav{padding:1rem}.nav-links{display:none}.hero{padding:7rem 1.5rem 3rem}section{padding:4rem 1.5rem}.step{grid-template-columns:1fr;gap:1rem}.step-num{width:40px;height:40px;font-size:0.85rem}.comparison-table{font-size:0.7rem}.comparison-table th,.comparison-table td{padding:0.5rem}.footer-inner{flex-direction:column;text-align:center}.footer-right{justify-content:center}.trust-items{gap:0.8rem}}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}.fade-in.visible{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.particle{animation:none}.fade-in{opacity:1;transform:none}}
+</style>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- Nav -->
 <nav>
-  <a href="/" class="nav-logo">Secure<span>GRC</span></a>
-  <div class="nav-links">
-    <a href="#problem">Problem</a>
-    <a href="#how">How it works</a>
-    <a href="#features">Capabilities</a>
-    <a href="#compare">Compare</a>
-    <a href="#press">Press</a>
-    <a href="#blog">Insights</a>
-    <a href="#faq">FAQ</a>
-    <a href="mailto:hello@securegrc.io?subject=Request%20a%20Demo" class="nav-cta">Request Demo</a>
-  </div>
+<a href="/" class="nav-logo">Secure<span>GRC</span></a>
+<div class="nav-links">
+<a href="#problem">Problem</a>
+<a href="#how">How it works</a>
+<a href="#features">Capabilities</a>
+<a href="#compare">Compare</a>
+<a href="#press">Press</a>
+<a href="#blog">Insights</a>
+<a href="#faq">FAQ</a>
+<a href="/cdn-cgi/l/email-protection#7119141d1d1e310214120403141603125f181e4e0204131b1412054c231400041402055443411054434135141c1e" class="nav-cta">Request Demo</a>
+</div>
 </nav>
 
-<!-- HERO -->
+<!-- Hero -->
 <header class="hero">
-  <div class="particles">
-    <div class="p p-purple p1"></div>
-    <div class="p p-cyan p2"></div>
-    <div class="p p-white p3"></div>
-    <div class="p p-purple p4"></div>
-    <div class="p p-cyan p5"></div>
-    <div class="p p-white p6"></div>
-    <div class="p p-purple p7"></div>
-    <div class="p p-cyan p8"></div>
-    <div class="p p-purple p9"></div>
-    <div class="p p-white p10"></div>
-    <div class="p p-cyan p11"></div>
-    <div class="p p-purple p12"></div>
-    <div class="p p-cyan p13"></div>
-    <div class="p p-white p14"></div>
-    <div class="p p-purple p15"></div>
-    <div class="p p-cyan p16"></div>
-  </div>
-  <div class="hero-badge">
-    <span class="dot"></span>
-    <span>EU AI Act enforcement: August 2026</span>
-  </div>
-  <h1>
-    <span class="line1">Prove your AI is compliant.</span>
-    <span class="line2">Quantum-safe.</span>
-  </h1>
-  <p class="hero-sub">Automate ISO 42001 and EU AI Act compliance with post-quantum cryptographic verification &#8212; without ever accessing your proprietary model data or production environment.</p>
-  <div class="hero-actions">
-    <a href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" class="btn-primary">Get a free assessment</a>
-    <a href="mailto:hello@securegrc.io?subject=Request%20a%20Demo" class="btn-secondary">Request a demo &#8594;</a>
-  </div>
+<div class="particles">
+<div class="particle purple"></div>
+<div class="particle cyan"></div>
+<div class="particle white"></div>
+<div class="particle purple"></div>
+<div class="particle cyan"></div>
+<div class="particle white"></div>
+<div class="particle purple"></div>
+<div class="particle cyan"></div>
+<div class="particle purple"></div>
+<div class="particle white"></div>
+<div class="particle cyan"></div>
+<div class="particle purple"></div>
+</div>
+<div class="hero-badge"><span class="dot"></span><span>EU AI Act enforcement: August 2026</span></div>
+<h1><span class="line1">Prove your AI is compliant.</span><span class="line2">Quantum-safe.</span></h1>
+<p class="hero-sub">Automate ISO 42001 and EU AI Act compliance with post-quantum cryptographic verification — without ever accessing your proprietary model data or production environment.</p>
+<div class="hero-actions">
+<a href="/cdn-cgi/l/email-protection#93fbf6fffffcd3e0f6f0e6e1f6f4e1f0bdfafcace0e6f1f9f6f0e7aed5e1f6f6b6a1a3d2dab6a1a3d0fcfee3fffaf2fdf0f6b6a1a3d2e0e0f6e0e0fef6fde7" class="btn-primary">Get a free assessment</a>
+<a href="/cdn-cgi/l/email-protection#e68e838a8a89a6958385939483819485c88f89d99593848c838592dbb4839793839592c3d4d687c3d4d6a2838b89" class="btn-secondary">Request a demo &#8594;</a>
+</div>
 </header>
 
-<!-- TRUST BAR -->
+<!-- Trust -->
 <div class="trust">
-  <p>Built on internationally recognised standards</p>
-  <div class="trust-items">
-    <span class="trust-item">ISO/IEC 42001</span>
-    <span class="trust-item">NIST FIPS 204</span>
-    <span class="trust-item">MITRE ATLAS</span>
-    <span class="trust-item">EU AI Act</span>
-    <span class="trust-item">CRYSTALS-Dilithium</span>
-    <span class="trust-item">SHA-3-256</span>
-    <span class="trust-item">OWASP Top 10 LLM</span>
-  </div>
+<p>Built on internationally recognised standards</p>
+<div class="trust-items">
+<span class="trust-item">ISO/IEC 42001</span>
+<span class="trust-item">NIST FIPS 204</span>
+<span class="trust-item">MITRE ATLAS</span>
+<span class="trust-item">EU AI Act</span>
+<span class="trust-item">CRYSTALS-Dilithium</span>
+<span class="trust-item">SHA-3-256</span>
+<span class="trust-item">OWASP Top 10 LLM</span>
+</div>
 </div>
 
-<!-- PROBLEM -->
+<!-- Problem -->
 <section id="problem">
-  <div class="container fade-in">
-    <div class="section-label">The problem</div>
-    <h2 class="section-title">AI compliance is manual, expensive, and <span class="hl">not quantum-safe.</span></h2>
-    <p class="section-desc">Companies deploying AI face a growing regulatory burden &#8212; the EU AI Act, ISO 42001, and increasing board-level scrutiny of AI governance. Manual compliance does not scale.</p>
-    <div class="grid4">
-      <div class="card">
-        <div class="num">6&#8211;18 mo</div>
-        <p>Average time to achieve ISO 42001 certification with traditional consultants</p>
-      </div>
-      <div class="card">
-        <div class="num">&#163;150&#8211;650K</div>
-        <p>Cost of enterprise AI compliance assessment and certification</p>
-      </div>
-      <div class="card">
-        <div class="num">Aug 2026</div>
-        <p>EU AI Act enforcement deadline &#8212; fines up to &#8364;35M or 7% of global revenue</p>
-      </div>
-      <div class="card">
-        <div class="num">~50</div>
-        <p>Companies worldwide with ISO 42001 certification today &#8212; the market is wide open</p>
-      </div>
-    </div>
-  </div>
+<div class="container fade-in">
+<div class="section-label">The problem</div>
+<h2 class="section-title">AI compliance is manual, expensive, and <span class="hl">not quantum-safe.</span></h2>
+<p class="section-desc">Companies deploying AI face a growing regulatory burden — the EU AI Act, ISO 42001, and increasing board-level scrutiny of AI governance. Manual compliance doesn't scale.</p>
+<div class="grid4">
+<div class="card"><div class="num">6&#8211;18 mo</div><p>Average time to achieve ISO 42001 certification with traditional consultants</p></div>
+<div class="card"><div class="num">&#163;150&#8211;650K</div><p>Cost of enterprise AI compliance assessment and certification</p></div>
+<div class="card"><div class="num">Aug 2026</div><p>EU AI Act enforcement deadline &#8212; fines up to &#8364;35M or 7% of global revenue</p></div>
+<div class="card"><div class="num">~50</div><p>Companies worldwide with ISO 42001 certification today &#8212; the market is wide open</p></div>
+</div>
+</div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section id="how" style="background: var(--surface);">
-  <div class="container fade-in">
-    <div class="section-label">How it works</div>
-    <h2 class="section-title">From model ingestion to <span class="hl">quantum-safe compliance proof.</span></h2>
-    <p class="section-desc">No access to your model weights or production environment required. Assessment runs entirely on metadata.</p>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">01</div>
-        <div>
-          <h3>Connect your AI models</h3>
-          <p>Point SecureGRC at your model registry or provide model details. We extract metadata only &#8212; your model weights, training data, and intellectual property never enter our system.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">02</div>
-        <div>
-          <h3>Automated compliance assessment</h3>
-          <p>Our engine identifies AI-specific risks, maps findings to ISO 42001 controls, and generates a prioritised compliance report with actionable remediation guidance.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">03</div>
-        <div>
-          <h3>Quantum-safe cryptographic verification</h3>
-          <p>Every compliance artifact is signed with post-quantum cryptography and anchored in a provenance chain. Evidence remains independently verifiable for decades to come.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div>
-          <h3>Enforce, report, and remediate</h3>
-          <p>Integrate compliance checks into your deployment pipeline. Generate auditor-ready reports. Receive tailored remediation plans with ISO 42001 compliance document templates.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- How it works -->
+<section id="how" style="background:var(--surface)">
+<div class="container fade-in">
+<div class="section-label">How it works</div>
+<h2 class="section-title">From model ingestion to <span class="hl">quantum-safe compliance proof.</span></h2>
+<p class="section-desc">No access to your model weights or production environment required. Assessment runs entirely on metadata.</p>
+<div class="steps">
+<div class="step"><div class="step-num">01</div><div><h3>Connect your AI models</h3><p>Point SecureGRC at your model registry or provide model details. We extract metadata only &#8212; your model weights, training data, and intellectual property never enter our system.</p></div></div>
+<div class="step"><div class="step-num">02</div><div><h3>Automated compliance assessment</h3><p>Our engine identifies AI-specific risks, maps findings to ISO 42001 controls, and generates a prioritised compliance report with actionable remediation guidance.</p></div></div>
+<div class="step"><div class="step-num">03</div><div><h3>Quantum-safe cryptographic verification</h3><p>Every compliance artifact is signed with post-quantum cryptography and anchored in a provenance chain. Evidence remains independently verifiable for decades to come.</p></div></div>
+<div class="step"><div class="step-num">04</div><div><h3>Enforce, report, and remediate</h3><p>Integrate compliance checks into your deployment pipeline. Generate auditor-ready reports. Receive tailored remediation plans with ISO 42001 compliance document templates.</p></div></div>
+</div>
+</div>
 </section>
 
-<!-- FEATURES -->
+<!-- Features -->
 <section id="features">
-  <div class="container fade-in">
-    <div class="section-label">Platform capabilities</div>
-    <h2 class="section-title">Purpose-built for <span class="hl">AI compliance.</span></h2>
-    <p class="section-desc">Not a generic GRC tool with AI bolted on. Every capability is designed for the unique challenges of governing AI systems at scale.</p>
-    <div class="grid3">
-      <div class="card">
-        <div class="icon">&#128274;</div>
-        <h3>Metadata-only architecture</h3>
-        <p>Your model weights, training data, and production environment stay untouched. CISOs approve deployment in one meeting, not six months of security review.</p>
-      </div>
-      <div class="card">
-        <div class="icon">&#128737;</div>
-        <h3>Post-quantum cryptographic proof</h3>
-        <p>Every compliance artifact is signed with quantum-resistant cryptography (NIST FIPS 204). Evidence integrity is guaranteed against current and future quantum threats.</p>
-      </div>
-      <div class="card">
-        <div class="icon">&#128203;</div>
-        <h3>AI model inventory</h3>
-        <p>Auto-generate comprehensive Bills of Materials covering model identity, architecture, lineage, dependencies, and training provenance across your AI estate.</p>
-      </div>
-      <div class="card">
-        <div class="icon">&#9889;</div>
-        <h3>Deployment enforcement</h3>
-        <p>Integrate compliance checks into CI/CD pipelines. Non-compliant AI systems are automatically flagged or blocked before reaching production environments.</p>
-      </div>
-      <div class="card">
-        <div class="icon">&#128269;</div>
-        <h3>Supply chain vulnerability scanning</h3>
-        <p>Real-time dependency analysis identifies known vulnerabilities across your AI model supply chain, from ML frameworks to training libraries.</p>
-      </div>
-      <div class="card">
-        <div class="icon">&#128196;</div>
-        <h3>Auditor-ready documentation</h3>
-        <p>Generate ISO 42001 compliance templates auto-populated with your actual model data. AI Policy, Risk Assessment, Supply Chain Audit, and more.</p>
-      </div>
-    </div>
-    <div class="urgency">
-      <h3>The EU AI Act enforcement deadline is <span class="date">August 2, 2026</span></h3>
-      <p>Companies deploying high-risk AI systems in the EU must demonstrate compliance. Fines reach up to &#8364;35 million or 7% of global annual revenue. Manual compliance takes 6&#8211;18 months. The window to prepare is closing.</p>
-    </div>
-  </div>
+<div class="container fade-in">
+<div class="section-label">Platform capabilities</div>
+<h2 class="section-title">Purpose-built for <span class="hl">AI compliance.</span></h2>
+<p class="section-desc">Not a generic GRC tool with AI bolted on. Every capability is designed for the unique challenges of governing AI systems at scale.</p>
+<div class="grid3">
+<div class="card"><div class="icon">&#128274;</div><h3>Metadata-only architecture</h3><p>Your model weights, training data, and production environment stay untouched. CISOs approve deployment in one meeting, not six months of security review.</p></div>
+<div class="card"><div class="icon">&#128737;</div><h3>Post-quantum cryptographic proof</h3><p>Every compliance artifact is signed with quantum-resistant cryptography (NIST FIPS 204). Evidence integrity is guaranteed against current and future quantum threats.</p></div>
+<div class="card"><div class="icon">&#128203;</div><h3>AI model inventory</h3><p>Auto-generate comprehensive Bills of Materials covering model identity, architecture, lineage, dependencies, and training provenance across your AI estate.</p></div>
+<div class="card"><div class="icon">&#9889;</div><h3>Deployment enforcement</h3><p>Integrate compliance checks into CI/CD pipelines. Non-compliant AI systems are automatically flagged or blocked before reaching production environments.</p></div>
+<div class="card"><div class="icon">&#128269;</div><h3>Supply chain vulnerability scanning</h3><p>Real-time dependency analysis identifies known vulnerabilities across your AI model supply chain, from ML frameworks to training libraries.</p></div>
+<div class="card"><div class="icon">&#128196;</div><h3>Auditor-ready documentation</h3><p>Generate ISO 42001 compliance templates auto-populated with your actual model data. AI Policy, Risk Assessment, Supply Chain Audit, and more.</p></div>
+</div>
+<div class="urgency">
+<h3>The EU AI Act enforcement deadline is <span class="date">August 2, 2026</span></h3>
+<p>Companies deploying high-risk AI systems in the EU must demonstrate compliance. Fines reach up to &#8364;35 million or 7% of global annual revenue. Manual compliance takes 6&#8211;18 months. The window to prepare is closing.</p>
+</div>
+</div>
 </section>
 
-<!-- COMPARE -->
-<section id="compare" style="background: var(--surface);">
-  <div class="container fade-in">
-    <div class="section-label">Why SecureGRC</div>
-    <h2 class="section-title">The only platform combining AI compliance with <span class="hl">quantum-safe verification.</span></h2>
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Capability</th>
-          <th class="hl">SecureGRC</th>
-          <th>Vanta</th>
-          <th>Drata</th>
-          <th>OneTrust</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>AI-specific compliance (ISO 42001)</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="check">&#10003;</td></tr>
-        <tr><td>Post-quantum cryptographic signatures</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td></tr>
-        <tr><td>AI model inventory (ML-BOM)</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td></tr>
-        <tr><td>No access to model weights or IP</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td></tr>
-        <tr><td>AI-specific threat intelligence</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td></tr>
-        <tr><td>CI/CD deployment enforcement</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td></tr>
-      </tbody>
-    </table>
-  </div>
+<!-- Compare -->
+<section id="compare" style="background:var(--surface)">
+<div class="container fade-in">
+<div class="section-label">Why SecureGRC</div>
+<h2 class="section-title">The only platform combining AI compliance with <span class="hl">quantum-safe verification.</span></h2>
+<table class="comparison-table">
+<thead><tr><th>Capability</th><th class="hl">SecureGRC</th><th>Vanta</th><th>Drata</th><th>OneTrust</th></tr></thead>
+<tbody>
+<tr><td>AI-specific compliance (ISO 42001)</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="check">&#10003;</td></tr>
+<tr><td>Post-quantum cryptographic signatures</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td></tr>
+<tr><td>AI model inventory (ML-BOM)</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td></tr>
+<tr><td>No access to model weights or IP</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td></tr>
+<tr><td>AI-specific threat intelligence</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td></tr>
+<tr><td>CI/CD deployment enforcement</td><td class="check">&#10003;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td><td class="cross">&#8212;</td></tr>
+</tbody>
+</table>
+</div>
 </section>
 
-<!-- PRESS -->
+<!-- Press -->
 <section id="press">
-  <div class="container fade-in">
-    <div class="section-label">Featured in</div>
-    <h2 class="section-title">SecureGRC in the <span class="hl">press.</span></h2>
-    <div class="grid3">
-      <a href="https://techcabal.com/2026/01/26/securegrc-clinton-abadaike/" target="_blank" rel="noopener noreferrer" class="card-link">
-        <div class="card">
-          <div class="icon">&#128240;</div>
-          <h3>TechCabal</h3>
-          <p>"SecureGRC is solving the White House's $7.1B threat for AI startups" &#8212; Building quantum-resistant compliance infrastructure.</p>
-          <span class="card-tag">Read article &#8594;</span>
-        </div>
-      </a>
-      <a href="https://www.linkedin.com/posts/plexalcyber_seems-like-only-last-week-we-welcomed-our-activity-7407706329655488512-gglb" target="_blank" rel="noopener noreferrer" class="card-link">
-        <div class="card">
-          <div class="icon">&#127942;</div>
-          <h3>DISH Accelerator</h3>
-          <p>Selected for Cohort 6 of the DISH Accelerator (Barclays x Plexal) &#8212; fast-tracking digital startup growth in the UK.</p>
-          <span class="card-tag">View on LinkedIn &#8594;</span>
-        </div>
-      </a>
-      <div class="card">
-        <div class="icon">&#127891;</div>
-        <h3>Academic Research</h3>
-        <p>IEEE paper in preparation: "Post-Quantum Cryptographic Verification for AI Supply Chain Security" &#8212; targeting arXiv submission.</p>
-        <span class="card-tag">Coming soon</span>
-      </div>
-    </div>
-  </div>
+<div class="container fade-in">
+<div class="section-label">Featured in</div>
+<h2 class="section-title">SecureGRC in the <span class="hl">press.</span></h2>
+<div class="grid3">
+<a href="https://techcabal.com/2026/01/26/securegrc-clinton-abadaike/" target="_blank" rel="noopener noreferrer" class="card-link">
+<div class="card"><div class="icon">&#128240;</div><h3>TechCabal</h3><p>"SecureGRC is solving the White House's $7.1B threat for AI startups" &#8212; How SecureGRC is building quantum-resistant compliance infrastructure.</p><span style="color:var(--cyan);font-size:0.8rem;font-family:'JetBrains Mono',monospace">Read article &#8594;</span></div>
+</a>
+<div class="card"><div class="icon">&#127942;</div><h3>DISH Accelerator</h3><p>Selected for Cohort 6 of the DISH Accelerator (Barclays x Plexal) &#8212; a programme designed to fast-track the growth of digital startups in the UK.</p><span style="color:var(--cyan);font-size:0.8rem;font-family:'JetBrains Mono',monospace">Barclays Eagle Labs</span></div>
+<div class="card"><div class="icon">&#127891;</div><h3>Academic Research</h3><p>IEEE paper in preparation: "Post-Quantum Cryptographic Verification for AI Supply Chain Security" &#8212; targeting arXiv submission and peer review.</p><span style="color:var(--cyan);font-size:0.8rem;font-family:'JetBrains Mono',monospace">Coming soon</span></div>
+</div>
+</div>
 </section>
 
-<!-- BLOG -->
-<section id="blog" style="background: var(--surface);">
-  <div class="container fade-in">
-    <div class="section-label">Insights</div>
-    <h2 class="section-title">Quantum-safe AI compliance <span class="hl">insights.</span></h2>
-    <p class="section-desc">Expert perspectives on AI governance, post-quantum cryptography, and the regulatory landscape.</p>
-    <div class="grid3">
-      <article class="card">
-        <h3>Why ISO 42001 certification costs &#163;150K+ and how to reduce it</h3>
-        <p>Manual ISO 42001 compliance requires consultants, months of documentation, and expensive audits. Automation changes the economics entirely.</p>
-        <span class="card-tag">Coming soon</span>
-      </article>
-      <article class="card">
-        <h3>The EU AI Act deadline: what companies need to do before August 2026</h3>
-        <p>High-risk AI systems must demonstrate compliance by August 2, 2026. Here is what that means for your business and how to prepare.</p>
-        <span class="card-tag">Coming soon</span>
-      </article>
-      <article class="card">
-        <h3>Post-quantum cryptography: why your compliance evidence is at risk today</h3>
-        <p>Mosca's Theorem shows that data harvested today can be decrypted by future quantum computers. Your compliance evidence needs quantum-safe protection now.</p>
-        <span class="card-tag">Coming soon</span>
-      </article>
-    </div>
-  </div>
+<!-- Blog -->
+<section id="blog" style="background:var(--surface)">
+<div class="container fade-in">
+<div class="section-label">Insights</div>
+<h2 class="section-title">Quantum-safe AI compliance <span class="hl">insights.</span></h2>
+<p class="section-desc">Expert perspectives on AI governance, post-quantum cryptography, and the regulatory landscape.</p>
+<div class="grid3">
+<article class="card"><h3>Why ISO 42001 certification costs &#163;150K+ and how to reduce it</h3><p>Manual ISO 42001 compliance requires consultants, months of documentation, and expensive audits. Automation changes the economics entirely.</p><span style="color:var(--cyan);font-size:0.8rem;font-family:'JetBrains Mono',monospace">Coming soon</span></article>
+<article class="card"><h3>The EU AI Act deadline: what companies need to do before August 2026</h3><p>High-risk AI systems must demonstrate compliance by August 2, 2026. Here's what that means for your business and how to prepare.</p><span style="color:var(--cyan);font-size:0.8rem;font-family:'JetBrains Mono',monospace">Coming soon</span></article>
+<article class="card"><h3>Post-quantum cryptography: why your compliance evidence is at risk today</h3><p>Mosca's Theorem shows that data harvested today can be decrypted by future quantum computers. Your compliance evidence needs quantum-safe protection now.</p><span style="color:var(--cyan);font-size:0.8rem;font-family:'JetBrains Mono',monospace">Coming soon</span></article>
+</div>
+</div>
 </section>
 
 <!-- FAQ -->
 <section id="faq">
-  <div class="container fade-in">
-    <div class="section-label">Frequently asked questions</div>
-    <h2 class="section-title">Common questions about <span class="hl">quantum-safe AI compliance.</span></h2>
-    <div class="faq">
-      <div class="faq-item">
-        <h3>What is ISO 42001 and why does it matter?</h3>
-        <p>ISO/IEC 42001:2023 is the world's first international standard for AI management systems. It provides a framework for responsible AI governance, risk management, and compliance. With the EU AI Act enforcement beginning August 2026, ISO 42001 certification is becoming essential for companies deploying AI in regulated markets.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Why is post-quantum cryptography important for compliance?</h3>
-        <p>Current encryption (RSA, ECDSA) will be broken by quantum computers. Under Mosca's Theorem, if your compliance evidence needs to remain valid for 10+ years and quantum computers arrive within that window, your evidence is at risk today. SecureGRC uses CRYSTALS-Dilithium (NIST FIPS 204) to future-proof all compliance evidence.</p>
-      </div>
-      <div class="faq-item">
-        <h3>How can you assess compliance without accessing our AI models?</h3>
-        <p>SecureGRC uses a metadata-only architecture. We extract model metadata &#8212; name, framework, dependencies, lineage, documentation, training provenance &#8212; without ever accessing model weights, training data, or production environments. This means zero attack surface, zero IP exposure, and CISO approval in days rather than months.</p>
-      </div>
-      <div class="faq-item">
-        <h3>What is an ML-BOM and why do I need one?</h3>
-        <p>A Machine Learning Bill of Materials (ML-BOM) is a comprehensive inventory of every component in your AI system &#8212; similar to how an SBOM catalogues software dependencies. It covers model identity, architecture, training data lineage, framework dependencies, and known vulnerabilities. Without an ML-BOM, you have no visibility into your AI supply chain risk.</p>
-      </div>
-      <div class="faq-item">
-        <h3>How does the EU AI Act affect my business?</h3>
-        <p>The EU AI Act classifies AI systems by risk level. High-risk systems (healthcare, finance, HR, critical infrastructure) must demonstrate compliance by August 2, 2026. Non-compliance penalties reach up to &#8364;35 million or 7% of global annual revenue. If you deploy AI in the EU market, you need to prepare now.</p>
-      </div>
-    </div>
-  </div>
+<div class="container fade-in">
+<div class="section-label">Frequently asked questions</div>
+<h2 class="section-title">Common questions about <span class="hl">quantum-safe AI compliance.</span></h2>
+<div class="faq">
+<div class="faq-item"><h3>What is ISO 42001 and why does it matter?</h3><p>ISO/IEC 42001:2023 is the world's first international standard for AI management systems. It provides a framework for responsible AI governance, risk management, and compliance. With the EU AI Act enforcement beginning August 2026, ISO 42001 certification is becoming essential for companies deploying AI in regulated markets.</p></div>
+<div class="faq-item"><h3>Why is post-quantum cryptography important for compliance?</h3><p>Current encryption (RSA, ECDSA) will be broken by quantum computers. Under Mosca's Theorem, if your compliance evidence needs to remain valid for 10+ years and quantum computers arrive within that window, your evidence is at risk today. SecureGRC uses CRYSTALS-Dilithium (NIST FIPS 204) to future-proof all compliance evidence.</p></div>
+<div class="faq-item"><h3>How can you assess compliance without accessing our AI models?</h3><p>SecureGRC uses a metadata-only architecture. We extract model metadata &#8212; name, framework, dependencies, lineage, documentation, training provenance &#8212; without ever accessing model weights, training data, or production environments. This means zero attack surface, zero IP exposure, and CISO approval in days rather than months.</p></div>
+<div class="faq-item"><h3>What is an ML-BOM and why do I need one?</h3><p>A Machine Learning Bill of Materials (ML-BOM) is a comprehensive inventory of every component in your AI system &#8212; similar to how an SBOM catalogues software dependencies. It covers model identity, architecture, training data lineage, framework dependencies, and known vulnerabilities. Without an ML-BOM, you have no visibility into your AI supply chain risk.</p></div>
+<div class="faq-item"><h3>How does the EU AI Act affect my business?</h3><p>The EU AI Act classifies AI systems by risk level. High-risk systems (healthcare, finance, HR, critical infrastructure) must demonstrate compliance by August 2, 2026. Non-compliance penalties reach up to &#8364;35 million or 7% of global annual revenue. If you deploy AI in the EU market, you need to prepare now.</p></div>
+</div>
+</div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-  <h2>Ready to prove your AI is compliant?</h2>
-  <p>Get a free compliance assessment. We will assess your AI models and deliver a risk report within 24 hours. No access to your model data required.</p>
-  <div class="hero-actions" style="justify-content: center; position: relative;">
-    <a href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" class="btn-primary">Get a free assessment</a>
-    <a href="mailto:hello@securegrc.io?subject=Request%20a%20Demo" class="btn-secondary">Request a demo &#8594;</a>
-  </div>
+<h2>Ready to prove your AI is compliant?</h2>
+<p>Get a free compliance assessment. We'll assess your AI models and deliver a risk report within 24 hours. No access to your model data required.</p>
+<div class="hero-actions" style="justify-content:center;position:relative">
+<a href="/cdn-cgi/l/email-protection#5b333e3737341b283e382e293e3c293875323464282e39313e382f661d293e3e7e696b1a127e696b1834362b37323a35383e7e696b1a28283e2828363e352f" class="btn-primary">Get a free assessment</a>
+<a href="/cdn-cgi/l/email-protection#137b767f7f7c536076706661767461703d7a7c2c606671797670672e417662667660673621237236212357767e7c" class="btn-secondary">Request a demo &#8594;</a>
+</div>
 </section>
 
-<!-- FOOTER -->
+<!-- Footer -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-left">
-      <div class="footer-brand">Secure<span>GRC</span></div>
-      <p>Quantum-safe AI compliance automation</p>
-    </div>
-    <div class="footer-right">
-      <a href="mailto:hello@securegrc.io">Contact</a>
-      <a href="https://www.linkedin.com/company/securegrc" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-  </div>
-  <div class="footer-copy">&#169; 2026 SecureGRC Ltd &#183; London, United Kingdom</div>
-</footer>
-
-<script>
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.08 });
-
-  var fadeElements = document.querySelectorAll('.fade-in');
-  for (var i = 0; i < fadeElements.length; i++) {
-    observer.observe(fadeElements[i]);
-  }
-</script>
-
-</body>
-</html>
+<div class="footer-inner">
+<div class="footer-left"><div class="footer-brand">Secure<span>GRC</span></div><p>Quantum-safe AI compliance automation</p></div>
+<div class="footer-right"><a href="/cdn-cgi/l/email-protection#650d0009090a251600061017000217064b0c0a">Contact</a><a href="https://www.linkedin.com/company/securegrc"
