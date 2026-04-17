@@ -5,31 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SecureGRC — AI Trust Infrastructure</title>
 <meta name="description" content="Prove your AI is compliant. Quantum-safe ISO 42001 and EU AI Act compliance automation — without ever accessing your model data.">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta name="keywords" content="ISO 42001, AI compliance, EU AI Act, CRYSTALS-Dilithium, ML-BOM, AI governance, MITRE ATLAS, post-quantum cryptography">
+<meta property="og:title" content="SecureGRC — AI Trust Infrastructure">
+<meta property="og:description" content="Verify your AI models against ISO 42001 with quantum-safe cryptographic proof. Metadata-only. No model access required.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.securegrc.io">
+<link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
+<!-- CookieYes: Sign up at cookieyes.com, replace YOUR_ID with your site ID -->
+<script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/YOUR_COOKIEYES_ID/script.js"></script>
+<!-- Google Analytics: Go to analytics.google.com, create property, replace G-XXXXXXXXXX -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
   --navy:#0B1120;
-  --navy-mid:#111827;
-  --navy-light:#1E293B;
-  --teal:#14B8A6;
-  --teal-dim:#0D9488;
-  --mint:#5EEAD4;
-  --white:#F1F5F9;
-  --grey:#94A3B8;
-  --grey-dim:#64748B;
-  --border:#1E293B;
-  --sans:'DM Sans',system-ui,sans-serif;
-  --serif:'DM Serif Display',Georgia,serif;
+  --navy-mid:#1E293B;
+  --teal:#0D9488;
+  --teal-bright:#14B8A6;
+  --teal-bg:#F0FDFA;
+  --white:#ffffff;
+  --off-white:#F8FAFC;
+  --text:#1E293B;
+  --text-secondary:#64748B;
+  --text-light:#94A3B8;
+  --border:#E2E8F0;
+  --border-light:#F1F5F9;
 }
 html{scroll-behavior:smooth;font-size:16px}
 body{
-  background:var(--navy);
-  color:var(--white);
-  font-family:var(--sans);
+  background:var(--white);
+  color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
@@ -41,301 +51,377 @@ nav{
   padding:0 clamp(24px,4vw,80px);
   height:64px;
   display:flex;align-items:center;justify-content:space-between;
-  background:rgba(11,17,32,0.85);
+  background:rgba(255,255,255,0.92);
   backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(30,41,59,0.5);
+  border-bottom:1px solid var(--border);
 }
-.nav-logo{font-family:var(--sans);font-weight:600;font-size:18px;letter-spacing:-0.02em}
+.nav-logo{font-weight:700;font-size:20px;letter-spacing:-0.03em;color:var(--navy)}
 .nav-logo span{color:var(--teal)}
-.nav-links{display:flex;gap:32px;font-size:14px;color:var(--grey)}
-.nav-links a:hover{color:var(--white)}
+.nav-links{display:flex;gap:32px;font-size:14px;font-weight:500;color:var(--text-secondary)}
+.nav-links a:hover{color:var(--text)}
 .nav-cta{
-  font-size:13px;font-weight:500;
-  padding:8px 20px;
-  border:1px solid var(--teal-dim);
-  border-radius:6px;
-  color:var(--teal);
+  font-size:13px;font-weight:600;
+  padding:9px 20px;
+  background:var(--navy);
+  color:white;
+  border-radius:8px;
   transition:all 0.2s;
 }
-.nav-cta:hover{background:var(--teal);color:var(--navy)}
+.nav-cta:hover{background:#162033}
 @media(max-width:768px){.nav-links{display:none}}
+
+/* LAYOUT */
+.container{max-width:1120px;margin:0 auto;padding:0 clamp(24px,4vw,80px)}
 
 /* HERO */
 .hero{
-  padding:160px clamp(24px,4vw,80px) 100px;
-  max-width:1200px;margin:0 auto;
+  padding:140px 0 80px;
+  text-align:center;
 }
-.hero-eyebrow{
+.hero-badge{
   display:inline-flex;align-items:center;gap:8px;
-  font-size:13px;font-weight:500;
+  padding:6px 14px;
+  background:var(--teal-bg);
+  border:1px solid #99F6E4;
+  border-radius:100px;
+  font-size:13px;font-weight:600;
   color:var(--teal);
-  margin-bottom:28px;
-  letter-spacing:0.04em;
-  text-transform:uppercase;
+  margin-bottom:24px;
 }
-.hero-eyebrow::before{
-  content:'';display:block;
-  width:8px;height:8px;
-  background:var(--teal);
-  border-radius:50%;
+.hero-badge::before{
+  content:'';width:6px;height:6px;
+  background:var(--teal-bright);border-radius:50%;
   animation:pulse 2s ease-in-out infinite;
 }
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
 .hero h1{
-  font-family:var(--serif);
-  font-size:clamp(42px,5.5vw,72px);
-  line-height:1.08;
+  font-size:clamp(36px,5vw,56px);
+  font-weight:700;
+  line-height:1.12;
   letter-spacing:-0.03em;
-  font-weight:400;
-  max-width:800px;
-  margin-bottom:28px;
+  max-width:720px;
+  margin:0 auto 20px;
+  color:var(--navy);
 }
 .hero h1 em{font-style:normal;color:var(--teal)}
 .hero-sub{
   font-size:18px;line-height:1.7;
-  color:var(--grey);
-  max-width:540px;
-  margin-bottom:40px;
+  color:var(--text-secondary);
+  max-width:520px;
+  margin:0 auto 36px;
 }
-.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:64px}
+.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
 .btn-primary{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 28px;
-  background:var(--teal);color:var(--navy);
+  display:inline-flex;align-items:center;gap:6px;
+  padding:13px 24px;
+  background:var(--navy);color:white;
   font-weight:600;font-size:15px;
-  border-radius:8px;
-  transition:all 0.2s;
+  border-radius:10px;
+  transition:all 0.15s;
 }
-.btn-primary:hover{background:var(--mint);transform:translateY(-1px)}
+.btn-primary:hover{background:#162033;transform:translateY(-1px)}
 .btn-secondary{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 28px;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:13px 24px;
+  background:var(--white);
   border:1px solid var(--border);
-  color:var(--grey);
+  color:var(--text);
   font-weight:500;font-size:15px;
-  border-radius:8px;
-  transition:all 0.2s;
+  border-radius:10px;
+  transition:all 0.15s;
 }
-.btn-secondary:hover{border-color:var(--grey-dim);color:var(--white)}
-.hero-proof{display:flex;gap:40px;flex-wrap:wrap}
-.hero-proof-item{font-size:13px;color:var(--grey-dim)}
-.hero-proof-item strong{display:block;font-size:15px;color:var(--grey);font-weight:500}
+.btn-secondary:hover{border-color:var(--text-light);background:var(--off-white)}
 
-/* DIVIDER */
-.divider{
-  max-width:1200px;margin:0 auto;
-  padding:0 clamp(24px,4vw,80px);
+/* TRUST BAR */
+.trust-bar{
+  padding:24px 0;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
 }
-.divider-line{
-  height:1px;
-  background:linear-gradient(90deg,transparent,var(--border),transparent);
+.trust-items{
+  display:flex;justify-content:center;gap:36px;flex-wrap:wrap;
+  font-size:13px;font-weight:500;color:var(--text-light);
 }
+.trust-items span{display:flex;align-items:center;gap:6px}
+.trust-items .dot{width:4px;height:4px;background:var(--teal-bright);border-radius:50%}
 
-/* STATS BAR */
-.stats{
-  max-width:1200px;margin:0 auto;
-  padding:80px clamp(24px,4vw,80px);
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  border-radius:12px;
+/* PRODUCT MOCKUP */
+.mockup-section{padding:80px 0}
+.mockup-frame{
+  background:var(--navy);
+  border-radius:16px;
+  padding:3px;
+  box-shadow:0 25px 50px -12px rgba(0,0,0,0.15);
   overflow:hidden;
 }
-.stat{
-  background:var(--navy);
-  padding:36px 32px;
-  text-align:center;
+.mockup-topbar{
+  padding:10px 16px;
+  display:flex;align-items:center;gap:6px;
 }
-.stat-num{
-  font-family:var(--serif);
-  font-size:36px;
-  color:var(--teal);
-  margin-bottom:8px;
+.mockup-dot{width:10px;height:10px;border-radius:50%}
+.mockup-dot.r{background:#EF4444}
+.mockup-dot.y{background:#F59E0B}
+.mockup-dot.g{background:#22C55E}
+.mockup-url{
+  margin-left:12px;
+  padding:4px 12px;
+  background:rgba(255,255,255,0.08);
+  border-radius:4px;
+  font-size:11px;color:var(--text-light);
+  font-family:monospace;
 }
-.stat-label{font-size:13px;color:var(--grey-dim);line-height:1.4}
-@media(max-width:768px){.stats{grid-template-columns:repeat(2,1fr)}}
+.mockup-body{
+  background:var(--off-white);
+  padding:32px;
+  min-height:340px;
+  display:grid;
+  grid-template-columns:200px 1fr;
+  gap:24px;
+  font-size:13px;
+}
+.mockup-sidebar{
+  background:white;
+  border-radius:10px;
+  padding:16px;
+  border:1px solid var(--border);
+}
+.mockup-sidebar-item{
+  padding:8px 10px;
+  border-radius:6px;
+  margin-bottom:4px;
+  color:var(--text-secondary);
+  font-weight:500;
+  font-size:12px;
+}
+.mockup-sidebar-item.active{background:var(--teal-bg);color:var(--teal)}
+.mockup-main{display:flex;flex-direction:column;gap:16px}
+.mockup-card{
+  background:white;
+  border-radius:10px;
+  padding:20px;
+  border:1px solid var(--border);
+}
+.mockup-card h4{font-size:13px;font-weight:600;margin-bottom:8px;color:var(--navy)}
+.mockup-score{
+  display:flex;align-items:baseline;gap:8px;
+  margin-bottom:12px;
+}
+.mockup-score-num{font-size:36px;font-weight:700;color:var(--navy)}
+.mockup-score-label{font-size:12px;color:var(--text-secondary)}
+.mockup-bar{height:6px;border-radius:3px;background:var(--border-light)}
+.mockup-bar-fill{height:100%;border-radius:3px;background:var(--teal-bright)}
+.mockup-controls{
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+}
+.mockup-control{
+  padding:8px 10px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:500;
+  display:flex;justify-content:space-between;
+}
+.mockup-control.pass{background:#F0FDF4;color:#166534}
+.mockup-control.gap{background:#FEF2F2;color:#991B1B}
+.mockup-threats{display:flex;gap:6px;flex-wrap:wrap}
+.mockup-threat{
+  padding:3px 8px;border-radius:4px;
+  font-size:10px;font-weight:600;
+  background:var(--off-white);border:1px solid var(--border);
+  color:var(--text-secondary);
+}
+@media(max-width:768px){.mockup-body{grid-template-columns:1fr}.mockup-sidebar{display:none}}
 
 /* SECTION */
-section{
-  max-width:1200px;margin:0 auto;
-  padding:100px clamp(24px,4vw,80px);
-}
-.section-label{
-  font-size:12px;font-weight:600;
-  color:var(--teal-dim);
+section{padding:100px 0}
+section.alt{background:var(--off-white)}
+.section-eyebrow{
+  font-size:13px;font-weight:600;
+  color:var(--teal);
   text-transform:uppercase;
-  letter-spacing:0.08em;
-  margin-bottom:16px;
+  letter-spacing:0.05em;
+  margin-bottom:12px;
 }
 .section-title{
-  font-family:var(--serif);
-  font-size:clamp(32px,4vw,48px);
-  line-height:1.15;
+  font-size:clamp(28px,3.5vw,40px);
+  font-weight:700;
+  line-height:1.2;
   letter-spacing:-0.02em;
-  margin-bottom:20px;
-  max-width:600px;
+  margin-bottom:16px;
+  max-width:560px;
+  color:var(--navy);
 }
 .section-desc{
   font-size:17px;line-height:1.7;
-  color:var(--grey);
-  max-width:540px;
-  margin-bottom:56px;
+  color:var(--text-secondary);
+  max-width:520px;
+  margin-bottom:48px;
 }
 
 /* PROBLEM */
 .problem-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:start;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:start;
 }
-.problem-points{display:flex;flex-direction:column;gap:32px}
-.problem-point{
-  padding-left:20px;
-  border-left:2px solid var(--border);
+.problem-cards{display:flex;flex-direction:column;gap:20px}
+.problem-card{
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  transition:all 0.2s;
 }
-.problem-point:hover{border-color:var(--teal)}
-.problem-point h3{font-size:16px;font-weight:600;margin-bottom:6px}
-.problem-point p{font-size:14px;color:var(--grey-dim);line-height:1.6}
-@media(max-width:768px){.problem-grid{grid-template-columns:1fr;gap:48px}}
-
-/* HOW IT WORKS */
-.steps{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:0;
-  counter-reset:step;
-}
-.step{
-  display:grid;
-  grid-template-columns:80px 1fr;
-  gap:32px;
-  padding:40px 0;
-  border-bottom:1px solid var(--border);
-  counter-increment:step;
-  align-items:start;
-}
-.step:last-child{border-bottom:none}
-.step-num{
-  font-family:var(--serif);
-  font-size:42px;
-  color:var(--border);
-  line-height:1;
-}
-.step h3{font-size:18px;font-weight:600;margin-bottom:8px}
-.step p{font-size:15px;color:var(--grey-dim);line-height:1.6;max-width:560px}
-@media(max-width:768px){.step{grid-template-columns:48px 1fr;gap:20px}.step-num{font-size:32px}}
+.problem-card:hover{border-color:var(--teal-bright);box-shadow:0 4px 12px rgba(13,148,136,0.06)}
+.problem-card h3{font-size:15px;font-weight:600;margin-bottom:6px}
+.problem-card p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+@media(max-width:768px){.problem-grid{grid-template-columns:1fr;gap:40px}}
 
 /* PILLARS */
 .pillars{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  border-radius:12px;
-  overflow:hidden;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:20px;
 }
 .pillar{
-  background:var(--navy);
-  padding:48px 36px;
+  padding:32px 28px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  transition:all 0.2s;
 }
-.pillar-label{
-  font-size:11px;font-weight:600;
-  color:var(--teal-dim);
-  text-transform:uppercase;
-  letter-spacing:0.1em;
+.pillar:hover{border-color:var(--teal-bright);box-shadow:0 4px 12px rgba(13,148,136,0.06)}
+.pillar-icon{
+  width:40px;height:40px;
+  background:var(--teal-bg);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
   margin-bottom:16px;
+  font-size:18px;font-weight:700;color:var(--teal);
 }
-.pillar h3{
-  font-family:var(--serif);
-  font-size:24px;
-  margin-bottom:14px;
-  letter-spacing:-0.01em;
-}
-.pillar p{font-size:14px;color:var(--grey-dim);line-height:1.7}
+.pillar h3{font-size:17px;font-weight:600;margin-bottom:8px;color:var(--navy)}
+.pillar p{font-size:14px;color:var(--text-secondary);line-height:1.6}
 @media(max-width:768px){.pillars{grid-template-columns:1fr}}
 
-/* COMPARISON TABLE */
-.table-wrap{overflow-x:auto;margin-top:40px}
-table{
-  width:100%;
-  border-collapse:collapse;
-  font-size:14px;
+/* STEPS */
+.steps{counter-reset:step}
+.step{
+  display:grid;grid-template-columns:56px 1fr;
+  gap:24px;
+  padding:32px 0;
+  border-bottom:1px solid var(--border);
+  counter-increment:step;
 }
+.step:last-child{border-bottom:none}
+.step-num{
+  width:40px;height:40px;
+  background:var(--off-white);
+  border:1px solid var(--border);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:700;
+  color:var(--text-light);
+}
+.step h3{font-size:16px;font-weight:600;margin-bottom:4px;color:var(--navy)}
+.step p{font-size:14px;color:var(--text-secondary);line-height:1.6;max-width:540px}
+
+/* COMPARISON */
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px}
 thead th{
-  text-align:left;
-  padding:14px 20px;
-  font-weight:600;
-  font-size:13px;
-  color:var(--grey-dim);
-  border-bottom:1px solid var(--border);
-  white-space:nowrap;
+  text-align:left;padding:12px 16px;
+  font-weight:600;font-size:13px;
+  color:var(--text-secondary);
+  border-bottom:2px solid var(--border);
 }
-thead th:first-child{color:var(--grey)}
 tbody td{
-  padding:14px 20px;
-  border-bottom:1px solid var(--border);
-  color:var(--grey-dim);
+  padding:14px 16px;
+  border-bottom:1px solid var(--border-light);
+  color:var(--text-secondary);
 }
-tbody td:first-child{color:var(--white);font-weight:500}
-tbody tr:hover{background:rgba(30,41,59,0.3)}
+tbody td:first-child{color:var(--text);font-weight:500}
+tbody tr:hover{background:var(--off-white)}
 .check{color:var(--teal);font-weight:600}
 .dash{color:var(--border)}
 
-/* PRESS */
-.press-grid{display:flex;gap:24px;flex-wrap:wrap}
-.press-item{
-  flex:1;min-width:260px;
-  padding:32px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  transition:border-color 0.2s;
+/* STATS */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:24px;
+  margin-bottom:48px;
 }
-.press-item:hover{border-color:var(--grey-dim)}
+.stat{
+  text-align:center;
+  padding:28px 20px;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;
+}
+.stat-num{font-size:32px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.stat-label{font-size:13px;color:var(--text-secondary)}
+@media(max-width:768px){.stats{grid-template-columns:1fr 1fr}}
+
+/* PRESS */
+.press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.press-item{
+  padding:28px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  transition:all 0.2s;
+}
+.press-item:hover{border-color:var(--text-light)}
 .press-source{
   font-size:12px;font-weight:600;
-  color:var(--teal-dim);
+  color:var(--teal);
   text-transform:uppercase;
-  letter-spacing:0.06em;
-  margin-bottom:12px;
+  letter-spacing:0.04em;
+  margin-bottom:10px;
 }
-.press-item h3{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.4}
-.press-item p{font-size:13px;color:var(--grey-dim);line-height:1.5}
+.press-item h3{font-size:15px;font-weight:600;margin-bottom:6px;line-height:1.4;color:var(--navy)}
+.press-item p{font-size:13px;color:var(--text-secondary);line-height:1.5}
+@media(max-width:768px){.press-grid{grid-template-columns:1fr}}
 
 /* CTA */
 .cta-section{
+  background:var(--navy);
+  border-radius:20px;
+  padding:64px;
   text-align:center;
-  padding:100px clamp(24px,4vw,80px) 120px;
+  margin:0 auto;
 }
-.cta-section .section-title{
-  margin:0 auto 16px;
-  max-width:700px;
+.cta-section .section-eyebrow{color:var(--teal-bright)}
+.cta-section .section-title{color:white;margin:0 auto 12px;max-width:600px}
+.cta-section .section-desc{color:var(--text-light);margin:0 auto 32px;text-align:center}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-white{
+  display:inline-flex;align-items:center;
+  padding:13px 24px;
+  background:white;color:var(--navy);
+  font-weight:600;font-size:15px;
+  border-radius:10px;
+  transition:all 0.15s;
 }
-.cta-section .section-desc{
-  margin:0 auto 40px;
-  max-width:500px;
-  text-align:center;
+.btn-white:hover{background:var(--off-white);transform:translateY(-1px)}
+.btn-ghost{
+  display:inline-flex;align-items:center;
+  padding:13px 24px;
+  border:1px solid rgba(255,255,255,0.2);
+  color:white;
+  font-weight:500;font-size:15px;
+  border-radius:10px;
+  transition:all 0.15s;
 }
-.cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.4)}
 
 /* FOOTER */
 footer{
+  padding:48px 0;
   border-top:1px solid var(--border);
-  padding:48px clamp(24px,4vw,80px);
-  max-width:1200px;margin:0 auto;
   display:flex;justify-content:space-between;align-items:center;
   flex-wrap:wrap;gap:16px;
 }
-.footer-left{font-size:13px;color:var(--grey-dim)}
-.footer-left strong{color:var(--grey);font-weight:500}
-.footer-links{display:flex;gap:24px;font-size:13px;color:var(--grey-dim)}
-.footer-links a:hover{color:var(--white)}
+.footer-left{font-size:13px;color:var(--text-light)}
+.footer-left strong{color:var(--text-secondary);font-weight:600}
+.footer-links{display:flex;gap:24px;font-size:13px;color:var(--text-light)}
+.footer-links a:hover{color:var(--text)}
 
-/* SCROLL REVEAL */
-.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s}
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.5s,transform 0.5s}
 .reveal.visible{opacity:1;transform:translateY(0)}
 </style>
 </head>
@@ -345,209 +431,204 @@ footer{
   <a href="/" class="nav-logo">Secure<span>GRC</span></a>
   <div class="nav-links">
     <a href="#problem">Problem</a>
+    <a href="#platform">Platform</a>
     <a href="#how">How it works</a>
-    <a href="#capabilities">Capabilities</a>
     <a href="#compare">Compare</a>
   </div>
-  <a href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" class="nav-cta">Get assessment</a>
+  <a href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" class="nav-cta">Get free assessment</a>
 </nav>
+
+<div class="container">
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">EU AI Act enforcement — August 2026</div>
-  <h1>AI compliance that's <em>cryptographically verified</em></h1>
-  <p class="hero-sub">Automate ISO 42001 compliance and sign every evidence artifact with post-quantum cryptography. Without ever accessing your model data.</p>
+  <h1>Your AI models need <em>compliance proof</em>, not more checklists</h1>
+  <p class="hero-sub">SecureGRC verifies your AI models against ISO 42001, generates a complete inventory, and signs every artifact with quantum-safe cryptography.</p>
   <div class="hero-actions">
     <a href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" class="btn-primary">Get a free assessment</a>
-    <a href="mailto:hello@securegrc.io?subject=Request%20a%20Demo" class="btn-secondary">Request a demo &rarr;</a>
-  </div>
-  <div class="hero-proof">
-    <div class="hero-proof-item"><strong>ISO 42001</strong>36 Annex A controls</div>
-    <div class="hero-proof-item"><strong>NIST FIPS 204</strong>CRYSTALS-Dilithium</div>
-    <div class="hero-proof-item"><strong>MITRE ATLAS</strong>13 threat vectors</div>
-    <div class="hero-proof-item"><strong>UK Patent Filed</strong>Metadata-only architecture</div>
+    <a href="mailto:hello@securegrc.io?subject=Request%20a%20Demo" class="btn-secondary">See a demo →</a>
   </div>
 </div>
 
-<div class="divider"><div class="divider-line"></div></div>
+</div><!-- container -->
 
-<!-- STATS -->
-<div class="stats reveal">
-  <div class="stat">
-    <div class="stat-num">6-18mo</div>
-    <div class="stat-label">Average time to certify ISO 42001 manually</div>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-items">
+    <span><span class="dot"></span>ISO 42001 · 36 Annex A controls</span>
+    <span><span class="dot"></span>FIPS 204 · CRYSTALS-Dilithium</span>
+    <span><span class="dot"></span>FIPS 202 · SHA-3 verification</span>
+    <span><span class="dot"></span>MITRE ATLAS · 13 threat vectors</span>
+    <span><span class="dot"></span>UK patent filed</span>
   </div>
-  <div class="stat">
-    <div class="stat-num">£650K</div>
-    <div class="stat-label">Enterprise compliance assessment cost</div>
+</div>
+
+<!-- PRODUCT MOCKUP -->
+<div class="container">
+<div class="mockup-section reveal">
+  <div class="mockup-frame">
+    <div class="mockup-topbar">
+      <span class="mockup-dot r"></span>
+      <span class="mockup-dot y"></span>
+      <span class="mockup-dot g"></span>
+      <span class="mockup-url">app.securegrc.io</span>
+    </div>
+    <div class="mockup-body">
+      <div class="mockup-sidebar">
+        <div class="mockup-sidebar-item active">Dashboard</div>
+        <div class="mockup-sidebar-item">Models</div>
+        <div class="mockup-sidebar-item">Threats</div>
+        <div class="mockup-sidebar-item">Compliance</div>
+        <div class="mockup-sidebar-item">Remediation</div>
+        <div class="mockup-sidebar-item">Evidence</div>
+        <div class="mockup-sidebar-item">Questionnaire</div>
+        <div class="mockup-sidebar-item">Audit Trail</div>
+      </div>
+      <div class="mockup-main">
+        <div class="mockup-card">
+          <h4>google-bert/bert-base-uncased</h4>
+          <div class="mockup-score">
+            <span class="mockup-score-num">83.3%</span>
+            <span class="mockup-score-label">Compliance · Compliant</span>
+          </div>
+          <div class="mockup-bar"><div class="mockup-bar-fill" style="width:83.3%"></div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="mockup-card">
+            <h4>Controls (25/30)</h4>
+            <div class="mockup-controls">
+              <div class="mockup-control pass">A.6.2.2 Risk ID ✓</div>
+              <div class="mockup-control pass">A.6.2.3 Inventory ✓</div>
+              <div class="mockup-control pass">A.7.3 Provenance ✓</div>
+              <div class="mockup-control pass">A.8.4 Audit trail ✓</div>
+              <div class="mockup-control gap">A.8.2 User info ✗</div>
+              <div class="mockup-control gap">A.6.2.5 Objectives ✗</div>
+            </div>
+          </div>
+          <div class="mockup-card">
+            <h4>Active threats</h4>
+            <div class="mockup-threats">
+              <span class="mockup-threat">T01 Prompt injection</span>
+              <span class="mockup-threat">T02 Data poisoning</span>
+              <span class="mockup-threat">T06 Supply chain</span>
+              <span class="mockup-threat">T07 Bias</span>
+              <span class="mockup-threat">T12 Regulatory</span>
+              <span class="mockup-threat">T13 Quantum</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="stat">
-    <div class="stat-num">Aug '26</div>
-    <div class="stat-label">EU AI Act enforcement deadline</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">~50</div>
-    <div class="stat-label">Companies worldwide with ISO 42001 certification</div>
-  </div>
+</div>
 </div>
 
 <!-- PROBLEM -->
 <section id="problem">
+<div class="container">
   <div class="problem-grid">
     <div>
-      <div class="section-label">The problem</div>
-      <h2 class="section-title">AI compliance is manual, expensive, and not built for AI.</h2>
-      <p class="section-desc">Vanta and Drata handle IT compliance. But ISO 42001 requires 36 AI-specific controls they don't cover — bias assessment, model provenance, AI-specific threat mapping, explainability. The gap is a business risk.</p>
+      <div class="section-eyebrow">The problem</div>
+      <h2 class="section-title">Compliance tools manage paperwork. They don't verify your models.</h2>
+      <p class="section-desc">Vanta, Drata, and OneTrust handle IT compliance well. But ISO 42001 has 36 AI-specific controls that require model-level data no existing platform collects.</p>
     </div>
-    <div class="problem-points">
-      <div class="problem-point">
-        <h3>Generic tools miss AI risks</h3>
-        <p>Existing GRC platforms cross-map IT controls to AI standards. They can't distinguish a text-generation model from an image classifier, or map prompt injection to the correct ISO 42001 clause.</p>
+    <div class="problem-cards">
+      <div class="problem-card">
+        <h3>Every model treated the same</h3>
+        <p>A text-generation model faces prompt injection. An image classifier doesn't. If your compliance tool can't tell the difference, your risk assessment is wrong.</p>
       </div>
-      <div class="problem-point">
-        <h3>Evidence won't survive quantum</h3>
-        <p>Every compliance report signed with RSA or ECDSA today becomes unverifiable when quantum computers arrive. Your audit trail has an expiry date.</p>
+      <div class="problem-card">
+        <h3>No model inventory</h3>
+        <p>ISO 42001 requires a documented inventory of every AI system. Most companies can't list what models they run, let alone their training data, dependencies, and lineage.</p>
       </div>
-      <div class="problem-point">
-        <h3>Model access is a dealbreaker</h3>
-        <p>Traditional compliance tools need admin access to infrastructure. CISOs spend months reviewing security before approving them. That's a barrier you can't afford.</p>
+      <div class="problem-card">
+        <h3>Evidence won't last</h3>
+        <p>Every compliance artifact signed with RSA or ECDSA today becomes unverifiable when quantum computers arrive. Your audit trail has an expiry date.</p>
       </div>
     </div>
   </div>
+</div>
 </section>
 
-<div class="divider"><div class="divider-line"></div></div>
+<!-- STATS -->
+<section class="alt">
+<div class="container">
+  <div class="stats reveal">
+    <div class="stat"><div class="stat-num">6-18mo</div><div class="stat-label">To certify ISO 42001 manually</div></div>
+    <div class="stat"><div class="stat-num">£650K</div><div class="stat-label">Enterprise assessment cost</div></div>
+    <div class="stat"><div class="stat-num">Aug '26</div><div class="stat-label">EU AI Act deadline</div></div>
+    <div class="stat"><div class="stat-num">~50</div><div class="stat-label">Companies ISO 42001 certified</div></div>
+  </div>
+</div>
+</section>
 
 <!-- PILLARS -->
-<section id="capabilities">
-  <div class="section-label">AI trust infrastructure</div>
+<section id="platform">
+<div class="container">
+  <div class="section-eyebrow">AI trust infrastructure</div>
   <h2 class="section-title">Three pillars. One trust layer.</h2>
-  <p class="section-desc">SecureGRC doesn't just check boxes. It creates a cryptographic chain of trust across your entire AI estate.</p>
+  <p class="section-desc">SecureGRC doesn't manage paperwork. It verifies your actual AI models and creates a cryptographic chain of trust.</p>
   <div class="pillars reveal">
     <div class="pillar">
-      <div class="pillar-label">Transparency</div>
-      <h3>ML-BOM</h3>
-      <p>Automated 67-field inventory of every AI model — identity, architecture, training data lineage, framework dependencies, and known vulnerabilities. The ingredients label for AI.</p>
+      <div class="pillar-icon">T</div>
+      <h3>Transparency — ML-BOM</h3>
+      <p>Automated 67-field inventory of every AI model. Identity, architecture, training data lineage, framework dependencies, and known vulnerabilities. The ingredients label for AI.</p>
     </div>
     <div class="pillar">
-      <div class="pillar-label">Verification</div>
-      <h3>TCCE Engine</h3>
-      <p>13 threat vectors mapped to exact ISO 42001 Annex A controls with task-aware filtering. BERT gets different threats than GPT-4. Every severity weight is documented with ISO 27005 rationale.</p>
+      <div class="pillar-icon">V</div>
+      <h3>Verification — TCCE Engine</h3>
+      <p>13 threat vectors mapped to exact ISO 42001 Annex A controls with task-aware filtering. Different model types get different assessments. Every weight has documented rationale.</p>
     </div>
     <div class="pillar">
-      <div class="pillar-label">Continuity</div>
-      <h3>Quantum-safe signatures</h3>
-      <p>Every compliance artifact signed with CRYSTALS-Dilithium (NIST FIPS 204) and anchored in a SHA-3 Merkle tree. Evidence remains independently verifiable for decades.</p>
+      <div class="pillar-icon">C</div>
+      <h3>Continuity — Quantum-safe</h3>
+      <p>Every artifact signed with FIPS 204 (CRYSTALS-Dilithium) and anchored in a FIPS 202 (SHA-3) Merkle tree. Evidence remains independently verifiable for decades.</p>
     </div>
   </div>
+</div>
 </section>
 
 <!-- HOW IT WORKS -->
-<section id="how">
-  <div class="section-label">How it works</div>
-  <h2 class="section-title">From model ingestion to signed compliance proof.</h2>
-  <p class="section-desc">No access to model weights or production environment. Assessment runs entirely on metadata.</p>
+<section class="alt" id="how">
+<div class="container">
+  <div class="section-eyebrow">How it works</div>
+  <h2 class="section-title">From model to signed compliance proof.</h2>
+  <p class="section-desc">No access to model weights or production environment. Metadata only. Approved in one security review.</p>
   <div class="steps reveal">
-    <div class="step">
-      <div class="step-num">01</div>
-      <div>
-        <h3>Connect your AI models</h3>
-        <p>Point SecureGRC at HuggingFace, SageMaker, or provide model details directly. We extract metadata only — your model weights, training data, and IP never enter our system.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">02</div>
-      <div>
-        <h3>Automated threat and compliance assessment</h3>
-        <p>The TCCE engine identifies AI-specific risks with task-aware filtering, maps findings to 36 ISO 42001 Annex A controls, and produces a four-dimension risk score.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">03</div>
-      <div>
-        <h3>Quantum-safe cryptographic verification</h3>
-        <p>Every artifact — ML-BOM, compliance report, evidence record — is signed with CRYSTALS-Dilithium and anchored in a Merkle provenance tree. Independently verifiable.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">04</div>
-      <div>
-        <h3>Enforce, report, and remediate</h3>
-        <p>CI/CD enforcement gate blocks non-compliant models from production. Auditor-ready PDF reports generated automatically. Prioritised remediation plans with ISO 42001 templates.</p>
-      </div>
-    </div>
+    <div class="step"><div class="step-num">01</div><div><h3>Connect your AI models</h3><p>Point at HuggingFace, SageMaker, or provide model details directly. We extract metadata only — your weights, training data, and IP never enter our system.</p></div></div>
+    <div class="step"><div class="step-num">02</div><div><h3>Automated threat and compliance assessment</h3><p>The TCCE engine identifies AI-specific risks with task-aware filtering, maps to 36 ISO 42001 Annex A controls, and produces a four-dimension risk score.</p></div></div>
+    <div class="step"><div class="step-num">03</div><div><h3>Quantum-safe cryptographic signing</h3><p>Every artifact — ML-BOM, compliance report, evidence record — is signed with CRYSTALS-Dilithium and anchored in a Merkle provenance tree.</p></div></div>
+    <div class="step"><div class="step-num">04</div><div><h3>Enforce, report, remediate</h3><p>CI/CD enforcement gate blocks non-compliant models. Auditor-ready PDFs generated automatically. Prioritised remediation plans with ISO 42001 templates.</p></div></div>
   </div>
+</div>
 </section>
-
-<div class="divider"><div class="divider-line"></div></div>
 
 <!-- COMPARE -->
 <section id="compare">
-  <div class="section-label">Why SecureGRC</div>
-  <h2 class="section-title">Built for AI. Not bolted on.</h2>
+<div class="container">
+  <div class="section-eyebrow">Why SecureGRC</div>
+  <h2 class="section-title">Built for AI models. Not bolted onto IT compliance.</h2>
   <div class="table-wrap reveal">
     <table>
-      <thead>
-        <tr>
-          <th>Capability</th>
-          <th>SecureGRC</th>
-          <th>Vanta</th>
-          <th>Drata</th>
-          <th>OneTrust</th>
-        </tr>
-      </thead>
+      <thead><tr><th>Capability</th><th>SecureGRC</th><th>Vanta</th><th>Drata</th><th>Credo AI</th></tr></thead>
       <tbody>
-        <tr>
-          <td>AI-specific compliance (ISO 42001 Annex A)</td>
-          <td class="check">36 controls</td>
-          <td class="dash">—</td>
-          <td class="dash">—</td>
-          <td class="dash">Partial</td>
-        </tr>
-        <tr>
-          <td>Post-quantum cryptographic signatures</td>
-          <td class="check">FIPS 204</td>
-          <td class="dash">—</td>
-          <td class="dash">—</td>
-          <td class="dash">—</td>
-        </tr>
-        <tr>
-          <td>AI model inventory (ML-BOM)</td>
-          <td class="check">67-field</td>
-          <td class="dash">—</td>
-          <td class="dash">—</td>
-          <td class="dash">—</td>
-        </tr>
-        <tr>
-          <td>No access to model weights or IP</td>
-          <td class="check">Metadata-only</td>
-          <td class="dash">Agent-based</td>
-          <td class="dash">Agent-based</td>
-          <td class="dash">—</td>
-        </tr>
-        <tr>
-          <td>Task-aware threat intelligence</td>
-          <td class="check">MITRE ATLAS</td>
-          <td class="dash">—</td>
-          <td class="dash">—</td>
-          <td class="dash">—</td>
-        </tr>
-        <tr>
-          <td>CI/CD deployment enforcement</td>
-          <td class="check">7 policies</td>
-          <td class="dash">—</td>
-          <td class="dash">—</td>
-          <td class="dash">—</td>
-        </tr>
+        <tr><td>ISO 42001 Annex A model-level assessment</td><td class="check">36 controls</td><td class="dash">Programme only</td><td class="dash">—</td><td class="dash">Governance only</td></tr>
+        <tr><td>Post-quantum cryptographic signatures</td><td class="check">FIPS 204</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr>
+        <tr><td>Automated AI model inventory (ML-BOM)</td><td class="check">67-field</td><td class="dash">—</td><td class="dash">—</td><td class="dash">Manual</td></tr>
+        <tr><td>No access to model weights or IP</td><td class="check">Metadata-only</td><td class="dash">Agent-based</td><td class="dash">Agent-based</td><td class="dash">Varies</td></tr>
+        <tr><td>Task-aware threat intelligence</td><td class="check">MITRE ATLAS</td><td class="dash">—</td><td class="dash">—</td><td class="dash">Generic</td></tr>
+        <tr><td>CI/CD deployment enforcement</td><td class="check">7 policies</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr>
       </tbody>
     </table>
   </div>
+</div>
 </section>
 
 <!-- PRESS -->
-<section>
-  <div class="section-label">Recognition</div>
-  <h2 class="section-title" style="margin-bottom:40px">In the press.</h2>
+<section class="alt">
+<div class="container">
+  <div class="section-eyebrow">Recognition</div>
+  <h2 class="section-title" style="margin-bottom:32px">In the press.</h2>
   <div class="press-grid reveal">
     <a href="https://techcabal.com/2026/01/26/securegrc-clinton-abadaike/" class="press-item" target="_blank">
       <div class="press-source">TechCabal</div>
@@ -556,35 +637,39 @@ footer{
     </a>
     <a href="https://www.linkedin.com/posts/plexalcyber_seems-like-only-last-week-we-welcomed-our-activity-7407706329655488512-gglb" class="press-item" target="_blank">
       <div class="press-source">DISH Accelerator</div>
-      <h3>Selected for Cohort 6 — Barclays x Plexal</h3>
+      <h3>Selected for Cohort 6 — Barclays × Plexal</h3>
       <p>Fast-tracking digital startup growth in the UK cybersecurity ecosystem.</p>
     </a>
     <div class="press-item">
       <div class="press-source">Academic Research</div>
       <h3>Post-Quantum Cryptographic Verification for AI Supply Chain Security</h3>
-      <p>IEEE paper targeting arXiv submission — CRYSTALS-Dilithium, Merkle tree provenance, TCCE framework.</p>
+      <p>IEEE paper — CRYSTALS-Dilithium, Merkle tree provenance, TCCE framework validation.</p>
     </div>
   </div>
+</div>
 </section>
 
-<div class="divider"><div class="divider-line"></div></div>
-
 <!-- CTA -->
-<section class="cta-section">
-  <div class="section-label">Get started</div>
-  <h2 class="section-title">Ready to prove your AI is compliant?</h2>
-  <p class="section-desc">Free compliance assessment. We'll analyse your AI models and deliver a risk report within 48 hours. No model access required.</p>
-  <div class="cta-actions">
-    <a href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" class="btn-primary">Get a free assessment</a>
-    <a href="mailto:hello@securegrc.io?subject=Request%20a%20Demo" class="btn-secondary">Request a demo &rarr;</a>
+<section>
+<div class="container">
+  <div class="cta-section">
+    <div class="section-eyebrow">Get started</div>
+    <h2 class="section-title">Find out what's actually in your AI models.</h2>
+    <p class="section-desc">Free compliance assessment. We'll analyse your AI models and show you the gaps. No model access required.</p>
+    <div class="cta-actions">
+      <a href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" class="btn-white">Get a free assessment</a>
+      <a href="mailto:hello@securegrc.io?subject=Request%20a%20Demo" class="btn-ghost">Request a demo →</a>
+    </div>
   </div>
+</div>
 </section>
 
 <!-- FOOTER -->
+<div class="container">
 <footer>
   <div class="footer-left">
-    <strong>SecureGRC Ltd</strong> &middot; London, United Kingdom<br>
-    &copy; 2026 SecureGRC Ltd. All rights reserved.
+    <strong>SecureGRC Ltd</strong> · London, United Kingdom<br>
+    © 2026 SecureGRC Ltd. All rights reserved.
   </div>
   <div class="footer-links">
     <a href="mailto:hello@securegrc.io">Contact</a>
@@ -592,11 +677,12 @@ footer{
     <a href="https://app.securegrc.io" target="_blank">Platform</a>
   </div>
 </footer>
+</div>
 
 <script>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') })
-}, {threshold:0.15})
+}, {threshold:0.1})
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 </script>
 </body>
