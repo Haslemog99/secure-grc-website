@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureGRC vs Holistic AI: AI Risk Platforms Compared</title>
+  <meta name="description" content="Fair comparison of SecureGRC vs Holistic AI: bias audit depth and EU AI Act tooling vs metadata-only ML-BOMs, MITRE ATLAS mapping, quantum-safe evidence." />
+  <link rel="canonical" href="https://www.securegrc.io/vs/holistic-ai/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+  <!-- Cookiebot consent management -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
+<!-- Vercel Web Analytics -->
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="SecureGRC" />
+  <meta property="og:title" content="SecureGRC vs Holistic AI: AI Risk Platforms Compared" />
+  <meta property="og:description" content="Fair comparison of SecureGRC vs Holistic AI: bias audit depth and EU AI Act tooling vs metadata-only ML-BOMs, MITRE ATLAS mapping, quantum-safe evidence." />
+  <meta property="og:url" content="https://www.securegrc.io/vs/holistic-ai/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="SecureGRC vs Holistic AI: AI Risk Platforms Compared" />
+  <meta name="twitter:description" content="Fair comparison of SecureGRC vs Holistic AI: bias audit depth and EU AI Act tooling vs metadata-only ML-BOMs, MITRE ATLAS mapping, quantum-safe evidence." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.securegrc.io/#organization",
+        "name": "SecureGRC",
+        "url": "https://www.securegrc.io"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://www.securegrc.io/vs/holistic-ai/#article",
+        "headline": "SecureGRC vs Holistic AI: AI Risk Platforms Compared",
+        "description": "A fair, factual comparison of SecureGRC and Holistic AI for AI governance and compliance: bias auditing depth and regulatory research versus metadata-only ML-BOMs, MITRE ATLAS threat mapping, and post-quantum-signed evidence.",
+        "url": "https://www.securegrc.io/vs/holistic-ai/",
+        "mainEntityOfPage": "https://www.securegrc.io/vs/holistic-ai/",
+        "datePublished": "2026-07-17",
+        "dateModified": "2026-07-17",
+        "author": { "@id": "https://www.securegrc.io/#organization" },
+        "publisher": { "@id": "https://www.securegrc.io/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.securegrc.io/vs/holistic-ai/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is SecureGRC a direct replacement for Holistic AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not exactly — the platforms overlap on AI governance but have different centers of gravity. Holistic AI is a scaled, end-to-end governance platform whose depth is in auditing: bias and fairness testing, efficacy and robustness assessment, and regulatory readiness across frameworks such as the EU AI Act and NYC Local Law 144. SecureGRC is an early-stage platform focused on compliance evidence engineering: ML-BOM generation, MITRE ATLAS threat mapping, ISO/IEC 42001 gap analysis, and post-quantum-signed audit trails, all computed from metadata alone. Some teams will need one, some the other, and some genuinely both."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Holistic AI support ISO/IEC 42001?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Holistic AI lists ISO/IEC 42001 among the frameworks its platform maps to, alongside the EU AI Act and the NIST AI Risk Management Framework. The difference is architectural: for Holistic AI, ISO/IEC 42001 is one supported framework within a broad governance suite, while SecureGRC's control library is built around ISO/IEC 42001 specifically, with every control connected to MITRE ATLAS threat profiles and cryptographically signed evidence through the TCCE pipeline."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does SecureGRC perform bias audits like Holistic AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Statistical bias and fairness auditing — measuring selection rates, impact ratios, and disparate outcomes across protected groups — is a Holistic AI strength and is not what SecureGRC does. SecureGRC evaluates compliance posture from system metadata: which threats apply, which ISO/IEC 42001 controls counter them, where the gaps are, and what evidence proves the controls exist. If a bias audit is a legal requirement for your use case, as under NYC Local Law 144, you need a bias-auditing capability; SecureGRC would document and evidence that control rather than execute the statistical test itself."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I have to share model weights or training data with SecureGRC?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. SecureGRC's architecture is metadata-only: model weights, training data, and proprietary IP never enter the platform. All analysis — threat assessment, control mapping, compliance evaluation, and evidence linking — runs on extracted metadata such as architecture descriptors, dataset provenance, and dependency and deployment context, captured in an ML-BOM aligned with CycloneDX and SPDX."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does post-quantum cryptography matter for compliance evidence?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Because compliance evidence must stay verifiable for years, sometimes a decade or more, and classical digital signatures are exactly what a future quantum computer is expected to break. Records signed today with classical algorithms could become unverifiable — or forgeable — within their own retention window. SecureGRC signs every artifact with CRYSTALS-Dilithium, the lattice-based signature scheme standardized by NIST as FIPS 204 (ML-DSA) in August 2024, hashes it with SHA-3, and anchors it in a Merkle tree, so evidence remains verifiable with public keys alone."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can SecureGRC and Holistic AI be used together?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In principle, yes, because they concentrate on different layers. Holistic AI's auditing and testing produce findings about model behavior; SecureGRC's TCCE pipeline produces threat-mapped, control-linked, cryptographically signed evidence about compliance posture. An organization could run behavioral audits in one and maintain its ISO/IEC 42001 evidence chain in the other. SecureGRC is in early access in 2026, so integration today means exporting and importing artifacts rather than a native connector."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.securegrc.io/vs/holistic-ai/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.securegrc.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Holistic AI",
+            "item": "https://www.securegrc.io/vs/holistic-ai/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
+      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
+      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+    .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
+    .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
+    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+
+    .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .breadcrumbs a { color: var(--dim); }
+    .breadcrumbs a:hover { color: var(--accent); }
+
+    main { max-width: 800px; margin: 0 auto; padding: 20px 24px 64px; }
+    article header.page-hero { margin: 16px 0 36px; }
+    .kicker { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--quantum); margin-bottom: 10px; }
+    h1 { font-size: 34px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; margin-bottom: 14px; }
+    .subtitle { color: var(--muted); font-size: 17.5px; max-width: 640px; }
+    h2 { font-size: 24px; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: -.01em; }
+    h3 { font-size: 18.5px; margin: 28px 0 10px; }
+    p { margin: 0 0 16px; color: var(--text); }
+    p.lead { font-size: 17.5px; }
+    ul, ol { margin: 0 0 18px 22px; }
+    li { margin-bottom: 8px; }
+    strong { color: #fff; }
+
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
+    th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    td:first-child { color: var(--text); }
+    tr:hover td { background: rgba(26,35,50,.5); }
+    .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
+
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    pre code { background: none; border: none; padding: 0; }
+
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
+    .callout.quantum { border-left-color: var(--quantum); }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; background: var(--surface); }
+    .faq-item summary { padding: 16px 20px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .faq-item summary::after { content: '+'; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
+    .faq-item .faq-body p:last-child { margin-bottom: 0; }
+
+    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
+    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+    .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-bottom: 28px; }
+    .footer-grid h4 { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 12px; }
+    .footer-grid ul { list-style: none; margin: 0; }
+    .footer-grid li { margin-bottom: 8px; }
+    .footer-grid a { color: var(--muted); font-size: 13.5px; }
+    .footer-grid a:hover { color: var(--text); }
+    .footer-meta { border-top: 1px solid var(--border); padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 27px; }
+      h2 { font-size: 21px; }
+      .site-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="logo" aria-label="SecureGRC home">
+        <span class="logo-mark" aria-hidden="true">⬡</span>
+        <span>SecureGRC</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/what-is-ml-bom/">ML-BOM Guide</a>
+        <a href="/iso-42001-explained/">ISO 42001</a>
+        <a href="/quantum-safe-compliance/">Quantum-Safe</a>
+        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> / vs / <span>Holistic AI</span>
+  </nav>
+
+  <main>
+    <article>
+      <header class="page-hero">
+        <p class="kicker">Comparison</p>
+        <h1>SecureGRC vs Holistic AI: AI Risk Platforms Compared</h1>
+        <p class="subtitle">A fair, factual comparison of two very different answers to AI governance — a scaled auditing-first platform with deep regulatory research roots, and an early-stage compliance engine built around metadata-only analysis and post-quantum evidence.</p>
+      </header>
+
+      <p class="lead"><strong>Holistic AI</strong> is a London-founded AI governance platform, started in 2020 with origins at University College London, best known for algorithmic bias audits, AI risk assessment, and regulatory readiness tooling spanning the EU AI Act, NIST AI RMF, ISO/IEC 42001, and NYC Local Law 144. <strong>SecureGRC</strong> is a purpose-built, early-stage quantum-safe AI compliance automation platform: it generates ML-BOMs, maps threats to MITRE ATLAS, evaluates ISO/IEC 42001 compliance posture, and signs every piece of evidence with post-quantum cryptography — all without ever ingesting model weights or training data. This page compares them honestly: what each does well, where they differ architecturally, and which teams each one actually fits.</p>
+
+      <div class="callout">
+        <p class="label">TL;DR verdict</p>
+        <p><strong>Choose Holistic AI</strong> if you need a mature, end-to-end AI governance suite with deep auditing capability — statistical bias and fairness testing, model efficacy assessment, and regulatory research tooling — from a vendor with years of operating history and a policy-research pedigree. <strong>Choose SecureGRC</strong> if your priority is verifiable compliance evidence under strict IP constraints: metadata-only analysis that never touches your model weights or training data, ML-BOMs aligned with CycloneDX and SPDX, MITRE ATLAS threat mapping, and an audit trail signed with NIST-standardized post-quantum cryptography. They overlap on AI governance; they are architecturally very different products.</p>
+      </div>
+
+      <h2>What is Holistic AI?</h2>
+      <p>Holistic AI is an AI governance company founded in 2020 by Adriano Koshiyama and Emre Kazim, headquartered in London, with roots in research at University College London. That academic origin still shows in the product and the company's public footprint: Holistic AI maintains an open-source Python library for measuring and mitigating bias in machine-learning models — listed in the UK government's portfolio of AI assurance techniques and in the OECD.AI tools catalogue — and publishes the Holistic AI Tracker, a real-time knowledge hub monitoring AI legislation, regulation, enforcement, and incidents worldwide.</p>
+      <p>The commercial platform is an end-to-end AI governance suite. Its documented capabilities include an AI inventory for discovering and registering AI systems across an organization, risk assessments across dimensions such as bias, efficacy, robustness, and privacy, and compliance mapping against frameworks including the EU AI Act, the NIST AI Risk Management Framework, ISO/IEC 42001, and NYC Local Law 144. The company built an early reputation on algorithmic bias audits — including audits of automated employment decision tools under NYC Local Law 144, which requires independent bias audits with published selection rates and impact ratios — and has since broadened into full-lifecycle governance, including safety and robustness testing for LLM-based systems.</p>
+      <p>Those are real strengths, and this comparison does not pretend otherwise. If your immediate problem is "we need a defensible bias audit of a hiring algorithm" or "we need a governance program stood up across hundreds of AI systems with regulatory intelligence behind it," Holistic AI is a credible, established answer.</p>
+
+      <h2>What is SecureGRC?</h2>
+      <p>SecureGRC is a quantum-safe AI compliance automation platform, currently an MVP in early access in 2026. It is deliberately narrow where incumbents are broad. Instead of an all-purpose governance suite, it runs one pipeline — the <a href="/glossary/tcce/">TCCE engine</a> — through four sequential, independently testable and auditable stages: <strong>Threat assessment</strong> (profiling each AI system against MITRE ATLAS adversarial tactics and techniques), <strong>Control mapping</strong> (connecting those threats to an ISO/IEC 42001 control library), <strong>Compliance evaluation</strong> (gap analysis and compliance posture reporting), and <strong>Evidence linking</strong> (binding every satisfied control to verifiable artifacts).</p>
+      <p>Two architectural decisions define the product. First, <strong>metadata-only analysis</strong>: model weights, training data, and proprietary IP never enter SecureGRC. Everything the platform computes is derived from extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in a <a href="/what-is-ml-bom/">Machine Learning Bill of Materials</a> aligned with the CycloneDX (which has supported ML-BOMs since v1.5) and SPDX standards. Second, <strong>post-quantum evidence integrity</strong>: every artifact is signed with CRYSTALS-Dilithium (standardized by NIST as FIPS 204, also known as ML-DSA, in August 2024), hashed with SHA-3, and anchored in a Merkle tree. An auditor or regulator can verify the entire evidence chain with public keys alone.</p>
+      <p>The product surfaces are a React dashboard, an ML-BOM Explorer, and a cryptographically verified audit trail, on a FastAPI and PostgreSQL backend. SecureGRC is honest about its stage: it is new, it has no decade of enterprise deployments behind it, and it is not trying to be a broad governance suite. It is purpose-built for one job — producing threat-mapped, control-linked, cryptographically verifiable ISO/IEC 42001 compliance evidence from metadata alone.</p>
+
+      <h2>How do SecureGRC and Holistic AI compare feature by feature?</h2>
+      <p>The table below uses the same rows as our other comparison pages — <a href="/vs/credo-ai/">SecureGRC vs Credo AI</a> and <a href="/vs/onetrust/">SecureGRC vs OneTrust</a> — so you can read all three side by side. Where a capability is not documented in a vendor's public materials, the table says so rather than asserting its absence.</p>
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>SecureGRC</th><th>Holistic AI</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Company stage</td>
+            <td><span class="warn">Early-stage</span> — MVP in early access, 2026</td>
+            <td><span class="yes">Established</span> — founded 2020, London; scaled enterprise platform</td>
+          </tr>
+          <tr>
+            <td>Primary focus</td>
+            <td>Compliance evidence engineering: ML-BOMs, threat-to-control mapping, signed audit trails</td>
+            <td>End-to-end AI governance: inventory, risk assessment, auditing, regulatory readiness</td>
+          </tr>
+          <tr>
+            <td>Bias &amp; fairness auditing</td>
+            <td><span class="no">No</span> — documents and evidences bias controls; does not run statistical tests</td>
+            <td><span class="yes">Yes</span> — core strength, incl. NYC Local Law 144 bias audits; open-source bias library</td>
+          </tr>
+          <tr>
+            <td>ISO/IEC 42001 support</td>
+            <td><span class="yes">Native</span> — dedicated control library with gap analysis and posture reporting</td>
+            <td><span class="yes">Yes</span> — one of several supported frameworks</td>
+          </tr>
+          <tr>
+            <td>EU AI Act readiness</td>
+            <td><span class="warn">Indirect</span> — via ISO/IEC 42001 alignment and evidence documentation</td>
+            <td><span class="yes">Yes</span> — dedicated readiness tooling plus the Holistic AI regulatory Tracker</td>
+          </tr>
+          <tr>
+            <td>Threat modeling (MITRE ATLAS)</td>
+            <td><span class="yes">Yes</span> — every system profiled against ATLAS tactics and techniques</td>
+            <td><span class="no">Not documented</span> — risk taxonomy is not publicly ATLAS-mapped</td>
+          </tr>
+          <tr>
+            <td>ML-BOM generation (CycloneDX / SPDX)</td>
+            <td><span class="yes">Yes</span> — core artifact, with a dedicated ML-BOM Explorer</td>
+            <td><span class="no">Not documented</span> — inventory-centric rather than BOM-standard-centric</td>
+          </tr>
+          <tr>
+            <td>Metadata-only architecture</td>
+            <td><span class="yes">Yes</span> — weights, training data, and IP never enter the platform</td>
+            <td><span class="no">No</span> — audits and technical testing analyze model outputs and decision data</td>
+          </tr>
+          <tr>
+            <td>Post-quantum signed evidence</td>
+            <td><span class="yes">Yes</span> — CRYSTALS-Dilithium (FIPS 204), SHA-3, Merkle-anchored</td>
+            <td><span class="no">Not documented</span></td>
+          </tr>
+          <tr>
+            <td>Regulatory research tooling</td>
+            <td><span class="no">No</span> — focused control library, not a policy intelligence hub</td>
+            <td><span class="yes">Yes</span> — Holistic AI Tracker, active policy research team</td>
+          </tr>
+          <tr>
+            <td>Best fit</td>
+            <td>Teams needing verifiable ISO/IEC 42001 evidence without exposing model IP</td>
+            <td>Enterprises needing broad governance with deep auditing and regulatory intelligence</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Read the two "Not documented" rows carefully rather than as gotchas. Holistic AI's platform predates the mainstreaming of ML-BOM standards and MITRE ATLAS-based compliance mapping; its architecture reflects a different, equally coherent thesis — that governance should be grounded in measured model behavior. SecureGRC's thesis is that governance should be grounded in verifiable system composition and threat exposure. Which thesis you need depends on the question your auditor, regulator, or customer is actually asking.</p>
+
+      <h2>When should you choose Holistic AI over SecureGRC?</h2>
+      <h3>Choose Holistic AI if…</h3>
+      <ul>
+        <li><strong>You need statistical bias and fairness audits.</strong> If you operate automated employment decision tools under NYC Local Law 144, or face any obligation requiring measured selection rates and impact ratios across protected groups, you need an auditing capability. This is Holistic AI's home turf, backed by an open-source bias library recognized in the UK government's AI assurance portfolio and the OECD.AI catalogue.</li>
+        <li><strong>You want one governance suite across many frameworks.</strong> Holistic AI maps to the EU AI Act, NIST AI RMF, ISO/IEC 42001, and NYC Local Law 144 in a single platform, with AI inventory and risk workflows designed for large, heterogeneous AI estates.</li>
+        <li><strong>Regulatory intelligence matters to your program.</strong> The Holistic AI Tracker monitors AI legislation, enforcement, and incidents globally — genuinely useful for policy and legal teams that must anticipate rules, not just comply with today's.</li>
+        <li><strong>Vendor maturity is a hard requirement.</strong> Holistic AI has operated since 2020 with enterprise deployments; SecureGRC is an early-access MVP. If your procurement process demands years of operating history, that decides it today.</li>
+      </ul>
+      <h3>Choose SecureGRC if…</h3>
+      <ul>
+        <li><strong>Your models cannot leave your environment.</strong> SecureGRC's <a href="/blog/metadata-only-compliance/">metadata-only architecture</a> means weights, training data, and proprietary IP never enter the platform — the compliance workflow runs entirely on extracted metadata. For frontier labs, defense contractors, and IP-sensitive enterprises, this removes the biggest blocker to adopting any compliance tool.</li>
+        <li><strong>You need standards-aligned ML-BOMs.</strong> SecureGRC generates Machine Learning Bills of Materials aligned with CycloneDX and SPDX as a first-class artifact, browsable in the ML-BOM Explorer — the supply-chain transparency format customers and regulators increasingly request.</li>
+        <li><strong>You want threat-driven compliance, not checklist compliance.</strong> Every ISO/IEC 42001 control mapping starts from a MITRE ATLAS threat profile, so gap analysis answers "which named adversary behaviors are we exposed to?" — see our <a href="/iso-42001-vs-mitre-atlas/">ATLAS-to-ISO-42001 crosswalk</a> for how that mapping works.</li>
+        <li><strong>Your evidence must outlive today's cryptography.</strong> Compliance records retained for five to ten years will live into the era of cryptographically relevant quantum computers. SecureGRC signs everything with FIPS 204 CRYSTALS-Dilithium now, so the audit trail stays verifiable — and forgery-resistant — for its whole retention window.</li>
+        <li><strong>ISO/IEC 42001 is your anchor standard.</strong> If your program centers on the AI management system standard — increasingly the organizational backbone for EU AI Act readiness — SecureGRC's control library, gap analysis, and posture reporting are built around it specifically. Our guide to <a href="/iso-42001-explained/">ISO/IEC 42001</a> explains the standard in depth.</li>
+      </ul>
+
+      <h2>What makes SecureGRC's post-quantum evidence different?</h2>
+      <p>Most governance platforms treat evidence storage as a solved problem: documents in a database, maybe classically signed, access-controlled and logged. That is fine until you consider the lifespan of compliance evidence. An ISO/IEC 42001 certification cycle, an EU AI Act conformity file, or a regulator's records-retention requirement can keep an artifact legally significant for a decade. Classical signature schemes such as RSA and ECDSA are precisely the algorithms a sufficiently capable quantum computer is expected to break — which means evidence signed with them today could become forgeable within its own retention window. An adversary, or a motivated litigant, could then manufacture "historical" records indistinguishable from real ones.</p>
+      <p>SecureGRC's answer is to make evidence integrity quantum-resistant from day one:</p>
+      <ul>
+        <li><strong>CRYSTALS-Dilithium signatures.</strong> Every artifact — threat profile, control mapping, evaluation result, ML-BOM — is signed with the lattice-based scheme NIST standardized as FIPS 204 (ML-DSA) in August 2024.</li>
+        <li><strong>SHA-3 hashing.</strong> Artifact contents are digested with SHA-3, giving conservative security margins against both classical and quantum attacks on hash functions.</li>
+        <li><strong>Merkle tree anchoring.</strong> Signed hashes are anchored in a Merkle tree, so tampering with any single artifact breaks the chain visibly, and any artifact's inclusion can be proven independently.</li>
+        <li><strong>Public-key-only verification.</strong> A third party — auditor, regulator, customer — verifies the entire trail with public keys alone. No SecureGRC account, no platform trust, no access to your systems required.</li>
+      </ul>
+      <p>To be fair to the other side of this comparison: Holistic AI's public materials do not document a comparable cryptographic evidence layer, but signature schemes are also not the problem Holistic AI set out to solve. Its assurance value lives in the rigor of the audits themselves. The distinction matters when the question shifts from "was this system assessed?" to "can you prove, years from now, that this exact record existed in this exact form?" Our <a href="/quantum-safe-compliance/">quantum-safe compliance guide</a> covers the harvest-now-decrypt-later threat model behind this design in detail.</p>
+
+      <h2>Why does metadata-only architecture matter?</h2>
+      <p>Every AI compliance tool faces the same cold-start question from security teams: <em>what do we have to send you?</em> For platforms that test model behavior directly, the honest answer involves meaningful access — model outputs at minimum, and often historical decision data, evaluation datasets, or API access to the model itself. That is not a criticism; you cannot measure disparate impact without decision data, and you cannot red-team an LLM without querying it. Behavioral auditing has an irreducible access requirement.</p>
+      <p>SecureGRC starts from the opposite constraint: assume the model can never be shared. The platform's entire analysis — ATLAS threat profiling, ISO/IEC 42001 control mapping, gap analysis, evidence linking — operates on extracted metadata: model family and architecture descriptors, training approach, dataset provenance records, dependency inventories, and deployment context. That metadata is captured in an ML-BOM, and the ML-BOM is what SecureGRC analyzes. The consequences are practical:</p>
+      <ul>
+        <li><strong>No IP exposure.</strong> Weights, training corpora, and proprietary methods stay inside your perimeter. There is nothing sensitive for a vendor breach to leak, because nothing sensitive was ever transferred.</li>
+        <li><strong>Faster security review.</strong> A tool that ingests metadata files clears vendor risk assessment on very different terms than one that requires model access.</li>
+        <li><strong>Regeneration per release.</strong> Because the input is an ML-BOM rather than a live testing engagement, the full compliance pipeline re-runs automatically whenever the system changes — retraining, dataset swap, dependency bump — rather than per audit cycle.</li>
+      </ul>
+      <p>The trade-off is symmetrical and worth stating plainly: metadata-only analysis cannot detect a biased output distribution, and behavioral testing cannot produce a supply-chain bill of materials. The two architectures answer different questions, which is why some organizations will legitimately run both.</p>
+
+      <h2>Frequently asked questions</h2>
+
+      <details class="faq-item">
+        <summary>Is SecureGRC a direct replacement for Holistic AI?</summary>
+        <div class="faq-body">
+          <p>Not exactly — the platforms overlap on AI governance but have different centers of gravity. Holistic AI is a scaled, end-to-end governance platform whose depth is in auditing: bias and fairness testing, efficacy and robustness assessment, and regulatory readiness across frameworks such as the EU AI Act and NYC Local Law 144. SecureGRC is an early-stage platform focused on compliance evidence engineering: ML-BOM generation, MITRE ATLAS threat mapping, ISO/IEC 42001 gap analysis, and post-quantum-signed audit trails, all computed from metadata alone. Some teams will need one, some the other, and some genuinely both.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does Holistic AI support ISO/IEC 42001?</summary>
+        <div class="faq-body">
+          <p>Yes. Holistic AI lists ISO/IEC 42001 among the frameworks its platform maps to, alongside the EU AI Act and the NIST AI Risk Management Framework. The difference is architectural: for Holistic AI, ISO/IEC 42001 is one supported framework within a broad governance suite, while SecureGRC's control library is built around ISO/IEC 42001 specifically, with every control connected to MITRE ATLAS threat profiles and cryptographically signed evidence through the TCCE pipeline.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does SecureGRC perform bias audits like Holistic AI?</summary>
+        <div class="faq-body">
+          <p>No. Statistical bias and fairness auditing — measuring selection rates, impact ratios, and disparate outcomes across protected groups — is a Holistic AI strength and is not what SecureGRC does. SecureGRC evaluates compliance posture from system metadata: which threats apply, which ISO/IEC 42001 controls counter them, where the gaps are, and what evidence proves the controls exist. If a bias audit is a legal requirement for your use case, as under NYC Local Law 144, you need a bias-auditing capability; SecureGRC would document and evidence that control rather than execute the statistical test itself.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I have to share model weights or training data with SecureGRC?</summary>
+        <div class="faq-body">
+          <p>No. SecureGRC's architecture is metadata-only: model weights, training data, and proprietary IP never enter the platform. All analysis — threat assessment, control mapping, compliance evaluation, and evidence linking — runs on extracted metadata such as architecture descriptors, dataset provenance, and dependency and deployment context, captured in an ML-BOM aligned with CycloneDX and SPDX.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Why does post-quantum cryptography matter for compliance evidence?</summary>
+        <div class="faq-body">
+          <p>Because compliance evidence must stay verifiable for years, sometimes a decade or more, and classical digital signatures are exactly what a future quantum computer is expected to break. Records signed today with classical algorithms could become unverifiable — or forgeable — within their own retention window. SecureGRC signs every artifact with CRYSTALS-Dilithium, the lattice-based signature scheme standardized by NIST as FIPS 204 (ML-DSA) in August 2024, hashes it with SHA-3, and anchors it in a Merkle tree, so evidence remains verifiable with public keys alone.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can SecureGRC and Holistic AI be used together?</summary>
+        <div class="faq-body">
+          <p>In principle, yes, because they concentrate on different layers. Holistic AI's auditing and testing produce findings about model behavior; SecureGRC's TCCE pipeline produces threat-mapped, control-linked, cryptographically signed evidence about compliance posture. An organization could run behavioral audits in one and maintain its ISO/IEC 42001 evidence chain in the other. SecureGRC is in early access in 2026, so integration today means exporting and importing artifacts rather than a native connector.</p>
+        </div>
+      </details>
+
+      <aside class="cta">
+        <h2>See metadata-only compliance in action</h2>
+        <p>SecureGRC's TCCE engine turns system metadata into ATLAS-mapped threat profiles, ISO/IEC 42001 gap analysis, and post-quantum-signed evidence — without your models ever leaving your environment.</p>
+        <a class="btn" href="/">Explore the platform</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="footer-grid">
+        <div>
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="/what-is-ml-bom/">What is an ML-BOM?</a></li>
+            <li><a href="/iso-42001-explained/">ISO/IEC 42001 explained</a></li>
+            <li><a href="/iso-42001-vs-mitre-atlas/">ISO 42001 ↔ MITRE ATLAS crosswalk</a></li>
+            <li><a href="/quantum-safe-compliance/">Quantum-safe compliance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <ul>
+            <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
+            <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
+            <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/glossary/tcce/">TCCE framework</a></li>
+            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>© 2026 SecureGRC · securegrc.io</span>
+        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

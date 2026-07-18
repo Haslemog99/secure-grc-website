@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureGRC vs OneTrust: AI Governance Compared (2026)</title>
+  <meta name="description" content="Honest comparison of SecureGRC and OneTrust for AI governance: suite breadth and enterprise reach vs metadata-only analysis, ML-BOMs, and PQC-signed evidence." />
+  <link rel="canonical" href="https://www.securegrc.io/vs/onetrust/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+  <!-- Cookiebot consent management -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
+<!-- Vercel Web Analytics -->
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="SecureGRC" />
+  <meta property="og:title" content="SecureGRC vs OneTrust: AI Governance Compared (2026)" />
+  <meta property="og:description" content="Honest comparison of SecureGRC and OneTrust for AI governance: suite breadth and enterprise reach vs metadata-only analysis, ML-BOMs, and PQC-signed evidence." />
+  <meta property="og:url" content="https://www.securegrc.io/vs/onetrust/" />
+  <meta property="og:image" content="https://www.securegrc.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SecureGRC vs OneTrust: AI Governance Compared (2026)" />
+  <meta name="twitter:description" content="Honest comparison of SecureGRC and OneTrust for AI governance: suite breadth and enterprise reach vs metadata-only analysis, ML-BOMs, and PQC-signed evidence." />
+  <meta name="twitter:image" content="https://www.securegrc.io/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.securegrc.io/#organization",
+        "name": "SecureGRC",
+        "url": "https://www.securegrc.io"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://www.securegrc.io/vs/onetrust/#article",
+        "headline": "SecureGRC vs OneTrust: AI Governance Compared",
+        "description": "A fair, dimension-by-dimension comparison of SecureGRC and OneTrust for AI governance: OneTrust's suite breadth and enterprise integrations versus SecureGRC's AI-specific evidence integrity — ML-BOMs, MITRE ATLAS threat mapping, metadata-only analysis, and post-quantum-signed audit trails.",
+        "url": "https://www.securegrc.io/vs/onetrust/",
+        "mainEntityOfPage": "https://www.securegrc.io/vs/onetrust/",
+        "datePublished": "2026-07-17",
+        "dateModified": "2026-07-17",
+        "author": { "@id": "https://www.securegrc.io/#organization" },
+        "publisher": { "@id": "https://www.securegrc.io/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.securegrc.io/vs/onetrust/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is OneTrust good for AI governance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For organizations already running privacy, consent, and risk programs on OneTrust, yes — its AI Governance module, introduced in 2023, adds AI system inventory, risk assessments aligned to frameworks such as the EU AI Act, NIST AI RMF, and ISO/IEC 42001, and approval workflows inside a suite those teams already use. Its strength is breadth and program integration rather than AI-specific technical depth such as ML-BOM generation or adversarial threat mapping."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does SecureGRC do that OneTrust does not?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SecureGRC generates ML-BOMs aligned with CycloneDX and SPDX, maps each AI system's threat profile to MITRE ATLAS, and signs every compliance artifact with CRYSTALS-Dilithium (NIST FIPS 204) post-quantum signatures, hashed with SHA-3 and anchored in a Merkle tree so evidence is verifiable with public keys alone. Its analysis is also metadata-only: model weights, training data, and proprietary IP never enter the platform. None of these are advertised capabilities of OneTrust's AI Governance module."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does SecureGRC replace OneTrust?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. OneTrust covers privacy automation, consent and preference management, data subject requests, third-party risk, and broader GRC — domains SecureGRC does not address. SecureGRC is a focused specialist for AI-specific compliance evidence: ML-BOM inventory, ATLAS-mapped threat profiles, ISO/IEC 42001 gap analysis, and cryptographically verifiable audit trails. Many organizations would run it alongside a suite like OneTrust rather than instead of it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is SecureGRC production-ready in 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "SecureGRC is an early-stage MVP available through early access in 2026. It does not claim customer counts, revenue, awards, or certifications, and buyers should evaluate it as a purpose-built specialist rather than an established suite. The trade-off is deliberate: an architecture designed from the first commit around AI-specific evidence — metadata-only ingestion, the TCCE pipeline, and post-quantum signing — rather than an AI module added to a decade-old platform."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do post-quantum signatures matter for compliance evidence?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Compliance evidence must stay verifiable for multi-year retention windows, and signatures made with classical algorithms today may become forgeable once large-scale quantum computers arrive. NIST finalized FIPS 204 (ML-DSA, based on CRYSTALS-Dilithium) in August 2024 precisely for this transition. SecureGRC signs every artifact with CRYSTALS-Dilithium, hashes with SHA-3, and anchors records in a Merkle tree, so an audit trail written today remains trustworthy at the end of its retention period."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does SecureGRC need access to model weights or training data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. SecureGRC's architecture is metadata-only: model weights, training data, and proprietary IP never enter the platform. Threat assessment, control mapping, compliance evaluation, and evidence linking all run on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in an ML-BOM. Verification of the resulting signed evidence requires only public keys."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.securegrc.io/vs/onetrust/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.securegrc.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "vs"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "OneTrust",
+            "item": "https://www.securegrc.io/vs/onetrust/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
+      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
+      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+    .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
+    .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
+    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+
+    .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .breadcrumbs a { color: var(--dim); }
+    .breadcrumbs a:hover { color: var(--accent); }
+
+    main { max-width: 800px; margin: 0 auto; padding: 20px 24px 64px; }
+    article header.page-hero { margin: 16px 0 36px; }
+    .kicker { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--quantum); margin-bottom: 10px; }
+    h1 { font-size: 34px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; margin-bottom: 14px; }
+    .subtitle { color: var(--muted); font-size: 17.5px; max-width: 640px; }
+    h2 { font-size: 24px; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: -.01em; }
+    h3 { font-size: 18.5px; margin: 28px 0 10px; }
+    p { margin: 0 0 16px; color: var(--text); }
+    p.lead { font-size: 17.5px; }
+    ul, ol { margin: 0 0 18px 22px; }
+    li { margin-bottom: 8px; }
+    strong { color: #fff; }
+
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
+    th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    td:first-child { color: var(--text); }
+    tr:hover td { background: rgba(26,35,50,.5); }
+    .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
+
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    pre code { background: none; border: none; padding: 0; }
+
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
+    .callout.quantum { border-left-color: var(--quantum); }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; background: var(--surface); }
+    .faq-item summary { padding: 16px 20px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .faq-item summary::after { content: '+'; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
+    .faq-item .faq-body p:last-child { margin-bottom: 0; }
+
+    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
+    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+    .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-bottom: 28px; }
+    .footer-grid h4 { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 12px; }
+    .footer-grid ul { list-style: none; margin: 0; }
+    .footer-grid li { margin-bottom: 8px; }
+    .footer-grid a { color: var(--muted); font-size: 13.5px; }
+    .footer-grid a:hover { color: var(--text); }
+    .footer-meta { border-top: 1px solid var(--border); padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 27px; }
+      h2 { font-size: 21px; }
+      .site-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="logo" aria-label="SecureGRC home">
+        <span class="logo-mark" aria-hidden="true">⬡</span>
+        <span>SecureGRC</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/what-is-ml-bom/">ML-BOM Guide</a>
+        <a href="/iso-42001-explained/">ISO 42001</a>
+        <a href="/quantum-safe-compliance/">Quantum-Safe</a>
+        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> / vs / <span>OneTrust</span>
+  </nav>
+
+  <main>
+    <article>
+      <header class="page-hero">
+        <p class="kicker">Comparison</p>
+        <h1>SecureGRC vs OneTrust: AI Governance Compared</h1>
+        <p class="subtitle">Suite breadth versus AI-native depth. A fair, dimension-by-dimension comparison of a 14,000-customer trust platform and a purpose-built, early-stage AI compliance specialist.</p>
+      </header>
+
+      <p class="lead"><strong>SecureGRC</strong> is an early-stage, quantum-safe AI compliance automation platform: it generates <a href="/what-is-ml-bom/">ML-BOMs</a> aligned with CycloneDX and SPDX, maps AI threat profiles to MITRE ATLAS, evaluates ISO/IEC 42001 controls, and signs every piece of evidence with post-quantum cryptography — all from metadata alone. <strong>OneTrust</strong> is a large, established trust intelligence suite spanning privacy automation, consent management, data subject requests, third-party risk, and GRC, which introduced an AI Governance module in 2023. The honest summary: OneTrust wins on suite breadth, enterprise integrations, and organizational maturity; SecureGRC is a focused specialist built around one problem OneTrust does not center — cryptographically verifiable, AI-specific compliance evidence.</p>
+
+      <h2>What is OneTrust and what is its AI Governance module?</h2>
+      <p>OneTrust, founded in 2016, grew into one of the largest platforms in the privacy and trust management market on the strength of privacy program automation: cookie consent and preference management, data subject access request (DSAR) automation, data discovery and mapping, privacy impact assessments, third-party risk management, and broader governance, risk, and compliance workflows. The company reports serving more than 14,000 customers, and for many large enterprises OneTrust is already the system of record for privacy and risk operations.</p>
+      <p>In 2023, OneTrust introduced its AI Governance solution — a module designed to help organizations inventory AI systems, assess and tier their risks against frameworks such as the EU AI Act, the NIST AI Risk Management Framework, and ISO/IEC 42001, and gate deployments behind approvals and attestations. Because it sits inside the wider suite, the module inherits OneTrust's real advantage: an AI use case that touches personal data can be connected to the privacy assessments, consent records, data maps, and vendor risk workflows the organization already maintains in the same platform.</p>
+      <p>That positioning matters for a fair comparison. OneTrust's AI Governance is a breadth play — AI as one more governed domain inside an enterprise trust program — and for organizations that live in OneTrust daily, that continuity is genuinely valuable.</p>
+
+      <h2>What is SecureGRC?</h2>
+      <p>SecureGRC is a quantum-safe AI compliance automation platform, currently an MVP in early access in 2026. It does one job and states it plainly: produce AI-specific compliance evidence that a third party can verify cryptographically, without the platform ever touching your models or data.</p>
+      <p>Four architectural decisions define it:</p>
+      <ul>
+        <li><strong>Metadata-only analysis.</strong> Model weights, training data, and proprietary IP never enter SecureGRC. Every analysis runs on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context. The reasoning is covered in depth in our <a href="/blog/metadata-only-compliance/">metadata-only compliance</a> deep dive.</li>
+        <li><strong>The TCCE engine.</strong> A sequential pipeline — Threat assessment, Control mapping, Compliance evaluation, Evidence linking — in which each stage is independently testable and auditable. See the <a href="/glossary/tcce/">TCCE glossary entry</a> for the full breakdown.</li>
+        <li><strong>Standards-native inventory.</strong> Every AI system is described by an ML-BOM aligned with CycloneDX (which has supported ML-BOMs since v1.5) and SPDX, threat profiles are mapped to MITRE ATLAS, and controls are drawn from an ISO/IEC 42001 library with gap analysis and compliance posture reporting.</li>
+        <li><strong>Post-quantum evidence integrity.</strong> Every artifact is signed with CRYSTALS-Dilithium (NIST FIPS 204, also known as ML-DSA), hashed with SHA-3, and anchored in a Merkle tree. Verification requires only public keys — an auditor never needs access to your systems.</li>
+      </ul>
+      <p>The product surfaces are a React dashboard, an ML-BOM Explorer, and a cryptographically verified audit trail, backed by FastAPI and PostgreSQL. SecureGRC is deliberately narrow: it does not do consent management, DSARs, privacy assessments, or general third-party risk, and it does not pretend to.</p>
+
+      <h2>SecureGRC vs OneTrust: feature-by-feature comparison</h2>
+      <p>The table below compares the two platforms on the dimensions that decide AI governance purchases. "Not advertised" means the capability is not a promoted feature of the vendor's public product positioning — vendor roadmaps change, so verify current capabilities directly during evaluation.</p>
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>SecureGRC</th><th>OneTrust</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Company stage</td>
+            <td class="warn">Early-stage MVP; early access in 2026</td>
+            <td class="yes">Founded 2016; reports 14,000+ customers</td>
+          </tr>
+          <tr>
+            <td>Primary focus</td>
+            <td>AI-specific compliance evidence integrity</td>
+            <td>Trust suite: privacy, consent, DSR, third-party risk, GRC — plus an AI Governance module (2023)</td>
+          </tr>
+          <tr>
+            <td>AI system inventory format</td>
+            <td class="yes">ML-BOMs aligned with CycloneDX (v1.5+) and SPDX</td>
+            <td>Proprietary AI inventory and registry records within the suite</td>
+          </tr>
+          <tr>
+            <td>Adversarial threat mapping</td>
+            <td class="yes">Threat profiles mapped to MITRE ATLAS per system</td>
+            <td class="no">Framework-aligned risk assessments; ATLAS mapping not advertised</td>
+          </tr>
+          <tr>
+            <td>ISO/IEC 42001 support</td>
+            <td class="yes">Dedicated control library with gap analysis and posture reporting</td>
+            <td class="yes">Supported among multiple assessment frameworks (EU AI Act, NIST AI RMF, ISO/IEC 42001)</td>
+          </tr>
+          <tr>
+            <td>Evidence integrity</td>
+            <td class="yes">CRYSTALS-Dilithium (FIPS 204) signatures, SHA-3 hashing, Merkle-tree anchoring; public-key verifiable</td>
+            <td>Conventional audit logs and access-controlled records</td>
+          </tr>
+          <tr>
+            <td>Post-quantum cryptography</td>
+            <td class="yes">Yes — every artifact signed with ML-DSA</td>
+            <td class="no">Not advertised</td>
+          </tr>
+          <tr>
+            <td>Data required from customer</td>
+            <td class="yes">Metadata only; weights, training data, and IP never ingested</td>
+            <td>Connector- and assessment-based; data discovery scans connected systems</td>
+          </tr>
+          <tr>
+            <td>Privacy, consent &amp; DSAR automation</td>
+            <td class="no">No — out of scope by design</td>
+            <td class="yes">Core strength; market-leading breadth</td>
+          </tr>
+          <tr>
+            <td>Third-party risk management</td>
+            <td class="no">No standalone TPRM; supplier provenance captured in the ML-BOM</td>
+            <td class="yes">Yes — dedicated module</td>
+          </tr>
+          <tr>
+            <td>Enterprise integration ecosystem</td>
+            <td class="warn">Focused, early-stage surface (React dashboard, ML-BOM Explorer, API)</td>
+            <td class="yes">Extensive integrations across enterprise privacy and risk stacks</td>
+          </tr>
+          <tr>
+            <td>Best fit</td>
+            <td>Teams shipping AI who need verifiable, AI-specific evidence</td>
+            <td>Enterprises consolidating privacy, risk, and AI governance in one suite</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Which is better for AI governance: OneTrust or SecureGRC?</h2>
+      <p>It depends on what "AI governance" means in your organization, and the honest answer differs by buyer.</p>
+      <p>If AI governance means <strong>extending an existing trust program</strong> — registering AI use cases, routing them through risk assessments, tying them to the privacy reviews and vendor assessments you already run — OneTrust is the stronger choice today. It is mature, widely deployed, and its AI Governance module plugs into workflows thousands of enterprises already operate. A privacy team that manages GDPR and CCPA obligations in OneTrust gains real leverage from governing AI in the same place.</p>
+      <p>If AI governance means <strong>proving, technically and verifiably, that specific AI systems are inventoried, threat-modeled, and controlled</strong>, the calculus changes. Questionnaire-driven assessments produce documents; they do not produce a machine-readable bill of materials for each model, a threat profile grounded in MITRE ATLAS adversarial techniques, or evidence an external auditor can verify with public keys alone. That is the layer SecureGRC is built for — and it is a layer, not a suite. The comparison is closer to "ERP versus supply-chain scanner" than to two interchangeable products.</p>
+      <div class="callout">
+        <p class="label">The one-sentence verdict</p>
+        <p>Choose OneTrust to govern AI inside a broad enterprise trust program; choose SecureGRC to generate AI-specific, cryptographically verifiable compliance evidence — and note that the two answers are not mutually exclusive.</p>
+      </div>
+
+      <h2>Does OneTrust generate ML-BOMs or map threats to MITRE ATLAS?</h2>
+      <p>Neither capability appears in OneTrust's advertised AI Governance feature set, and this is the clearest technical divergence between the two platforms.</p>
+      <p>A <strong>Machine Learning Bill of Materials</strong> is a structured, machine-readable inventory of everything an AI system is made of — base models, fine-tuning datasets, dependencies, deployment context. CycloneDX has supported ML-BOMs since version 1.5, and SPDX provides a parallel path, which means an ML-BOM is portable evidence: any downstream tool, customer, or regulator can parse it. SecureGRC generates ML-BOMs as the core unit of analysis; every threat profile, control mapping, and gap finding hangs off ML-BOM components. OneTrust's AI inventory, by contrast, is a registry inside its own suite — excellent for workflow, not designed as a standards-aligned artifact you hand to an auditor. Our guide to <a href="/what-is-ml-bom/">what an ML-BOM is</a> covers why the distinction matters.</p>
+      <p><strong>MITRE ATLAS</strong> is the adversarial threat knowledge base for AI systems — prompt injection, model poisoning, model extraction, evasion — and it is how SecureGRC's threat assessment stage names the threats a system actually faces before mapping them to ISO/IEC 42001 control themes (a crosswalk we publish at <a href="/iso-42001-vs-mitre-atlas/">ISO 42001 vs MITRE ATLAS</a>). OneTrust's assessments are framework-aligned and regulation-driven; adversarial threat modeling is not their center of gravity. If your risk conversation is "which attacks apply to this model and which controls counter them," that is SecureGRC's native language.</p>
+
+      <h2>How do the platforms differ on evidence integrity?</h2>
+      <p>This is SecureGRC's core differentiator, so it deserves scrutiny rather than slogans.</p>
+      <p>Most GRC platforms — OneTrust included — establish evidence trustworthiness operationally: role-based access, audit logs, timestamps, vendor attestations. That model works, but its guarantees are only as strong as the platform's own operational security, and verifying evidence generally means trusting or auditing the platform itself.</p>
+      <p>SecureGRC's model is cryptographic. Every artifact the TCCE pipeline produces — threat profiles, control mappings, evaluation results, linked evidence — is hashed with SHA-3, signed with CRYSTALS-Dilithium, and anchored in a Merkle tree. Three properties follow:</p>
+      <ul>
+        <li><strong>Independent verifiability.</strong> Anyone holding the public keys can confirm an artifact is authentic and unmodified — no platform access, no trust in SecureGRC's operations required.</li>
+        <li><strong>Tamper evidence.</strong> Altering any historical artifact breaks the Merkle chain visibly. The audit trail cannot be quietly rewritten, even by an insider.</li>
+        <li><strong>Quantum resistance.</strong> CRYSTALS-Dilithium was finalized as NIST FIPS 204 (ML-DSA) in August 2024 specifically because classical signatures are expected to fail against future quantum computers. Compliance evidence lives for multi-year retention windows — long enough for that future to arrive while your records still matter. Our <a href="/quantum-safe-compliance/">quantum-safe compliance guide</a> works through the harvest-now-decrypt-later timeline.</li>
+      </ul>
+      <p>Whether this matters to you depends on your auditors and regulators. If a signed PDF export satisfies them, conventional logs suffice. If you expect AI evidence to face adversarial scrutiny — litigation, regulatory challenge, supply-chain due diligence — verifiability that survives the platform is a different class of guarantee.</p>
+
+      <h2>What data does each platform need access to?</h2>
+      <p>Procurement teams should ask this question first, because it drives security review scope more than any feature list.</p>
+      <p>OneTrust's power comes partly from connection: its data discovery and governance capabilities scan and classify data across connected enterprise systems, and its assessments gather detail about processing activities from across the business. For a privacy platform, that reach is the point — you cannot map data you cannot see.</p>
+      <p>SecureGRC inverts the model. Because analysis is metadata-only, model weights, training data, and proprietary IP never leave your environment; the platform receives extracted descriptors, and everything downstream — ATLAS threat mapping, ISO/IEC 42001 evaluation through the <a href="/glossary/tcce/">TCCE pipeline</a>, evidence signing — operates on that metadata. For teams whose models <em>are</em> the crown jewels (frontier labs, quant funds, defense, healthcare AI), this removes the hardest question in vendor review: "why does a compliance tool need access to our most valuable assets?" It never has them.</p>
+
+      <h2>When should you choose OneTrust?</h2>
+      <p>Choose OneTrust when the following describe you:</p>
+      <ul>
+        <li>You already run privacy, consent, or third-party risk programs on OneTrust, and adding AI governance to an existing deployment beats introducing a new vendor.</li>
+        <li>Your AI governance need is primarily <strong>organizational</strong>: intake, risk tiering, approvals, policy attestation, and regulator-facing assessment records across many business units.</li>
+        <li>You need one platform to span GDPR, CCPA, the EU AI Act (in force since August 2024, with obligations phasing in over subsequent years), and vendor risk in a single pane.</li>
+        <li>Vendor maturity, a large customer community, and an established integration ecosystem are hard requirements from your procurement process.</li>
+      </ul>
+      <p>These are real advantages, and an early-stage specialist cannot match them. SecureGRC does not have OneTrust's breadth, customer base, or integration surface, and this page will not pretend otherwise.</p>
+
+      <h2>When should you choose SecureGRC?</h2>
+      <p>Choose SecureGRC when your requirements are AI-specific and evidence-centric:</p>
+      <ul>
+        <li>You need a <strong>standards-aligned ML-BOM</strong> (CycloneDX/SPDX) for every AI system — for customers, auditors, or AI supply-chain due diligence — not a registry entry locked in a suite.</li>
+        <li>You want threat modeling grounded in <strong>MITRE ATLAS</strong> and mapped to an <a href="/iso-42001-explained/">ISO/IEC 42001</a> control library with automated gap analysis, rather than questionnaire-driven risk scoring.</li>
+        <li>Your evidence must be <strong>independently verifiable for years</strong> — post-quantum signatures, SHA-3 hashes, and Merkle anchoring that outlive both the platform and the classical-cryptography era.</li>
+        <li>Your models and data <strong>cannot leave your environment</strong>, ruling out connector-heavy platforms at security review.</li>
+        <li>You are comfortable adopting a purpose-built, early-stage product in early access, and you value an architecture designed for AI compliance from the first commit over an AI module added to a broad suite.</li>
+      </ul>
+      <p>And to be explicit: the two are complementary more often than they compete. A realistic enterprise pattern is OneTrust as the program-level system of record with SecureGRC supplying the AI-specific, cryptographically verifiable evidence layer beneath it. If you are evaluating AI-native specialists instead of suites, our comparisons against <a href="/vs/credo-ai/">Credo AI</a> and <a href="/vs/holistic-ai/">Holistic AI</a> cover the closer head-to-heads.</p>
+
+      <h2>Frequently asked questions</h2>
+
+      <details class="faq-item">
+        <summary>Is OneTrust good for AI governance?</summary>
+        <div class="faq-body">
+          <p>For organizations already running privacy, consent, and risk programs on OneTrust, yes — its AI Governance module, introduced in 2023, adds AI system inventory, risk assessments aligned to frameworks such as the EU AI Act, NIST AI RMF, and ISO/IEC 42001, and approval workflows inside a suite those teams already use. Its strength is breadth and program integration rather than AI-specific technical depth such as ML-BOM generation or adversarial threat mapping.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What does SecureGRC do that OneTrust does not?</summary>
+        <div class="faq-body">
+          <p>SecureGRC generates ML-BOMs aligned with CycloneDX and SPDX, maps each AI system's threat profile to MITRE ATLAS, and signs every compliance artifact with CRYSTALS-Dilithium (NIST FIPS 204) post-quantum signatures, hashed with SHA-3 and anchored in a Merkle tree so evidence is verifiable with public keys alone. Its analysis is also metadata-only: model weights, training data, and proprietary IP never enter the platform. None of these are advertised capabilities of OneTrust's AI Governance module.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does SecureGRC replace OneTrust?</summary>
+        <div class="faq-body">
+          <p>No. OneTrust covers privacy automation, consent and preference management, data subject requests, third-party risk, and broader GRC — domains SecureGRC does not address. SecureGRC is a focused specialist for AI-specific compliance evidence: ML-BOM inventory, ATLAS-mapped threat profiles, ISO/IEC 42001 gap analysis, and cryptographically verifiable audit trails. Many organizations would run it alongside a suite like OneTrust rather than instead of it.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is SecureGRC production-ready in 2026?</summary>
+        <div class="faq-body">
+          <p>SecureGRC is an early-stage MVP available through early access in 2026. It does not claim customer counts, revenue, awards, or certifications, and buyers should evaluate it as a purpose-built specialist rather than an established suite. The trade-off is deliberate: an architecture designed from the first commit around AI-specific evidence — metadata-only ingestion, the TCCE pipeline, and post-quantum signing — rather than an AI module added to a decade-old platform.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Why do post-quantum signatures matter for compliance evidence?</summary>
+        <div class="faq-body">
+          <p>Compliance evidence must stay verifiable for multi-year retention windows, and signatures made with classical algorithms today may become forgeable once large-scale quantum computers arrive. NIST finalized FIPS 204 (ML-DSA, based on CRYSTALS-Dilithium) in August 2024 precisely for this transition. SecureGRC signs every artifact with CRYSTALS-Dilithium, hashes with SHA-3, and anchors records in a Merkle tree, so an audit trail written today remains trustworthy at the end of its retention period.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does SecureGRC need access to model weights or training data?</summary>
+        <div class="faq-body">
+          <p>No. SecureGRC's architecture is metadata-only: model weights, training data, and proprietary IP never enter the platform. Threat assessment, control mapping, compliance evaluation, and evidence linking all run on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in an ML-BOM. Verification of the resulting signed evidence requires only public keys.</p>
+        </div>
+      </details>
+
+      <aside class="cta">
+        <h2>See the evidence layer for yourself</h2>
+        <p>SecureGRC is in early access: ML-BOMs, ATLAS-mapped threat profiles, ISO/IEC 42001 gap analysis, and post-quantum-signed audit trails — from metadata alone.</p>
+        <a class="btn" href="/">Explore the platform</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="footer-grid">
+        <div>
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="/what-is-ml-bom/">What is an ML-BOM?</a></li>
+            <li><a href="/iso-42001-explained/">ISO/IEC 42001 explained</a></li>
+            <li><a href="/iso-42001-vs-mitre-atlas/">ISO 42001 ↔ MITRE ATLAS crosswalk</a></li>
+            <li><a href="/quantum-safe-compliance/">Quantum-safe compliance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <ul>
+            <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
+            <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
+            <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/glossary/tcce/">TCCE framework</a></li>
+            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>© 2026 SecureGRC · securegrc.io</span>
+        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

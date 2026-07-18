@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureGRC FAQ: AI Compliance, ML-BOM &amp; ISO 42001 Answers</title>
+  <meta name="description" content="Answers to common questions about SecureGRC: metadata-only AI compliance, ML-BOMs, ISO/IEC 42001 certification, MITRE ATLAS, and post-quantum audit evidence." />
+  <link rel="canonical" href="https://www.securegrc.io/faq/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+  <!-- Cookiebot consent management -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
+<!-- Vercel Web Analytics -->
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="SecureGRC" />
+  <meta property="og:title" content="SecureGRC FAQ: AI Compliance, ML-BOM &amp; ISO 42001 Answers" />
+  <meta property="og:description" content="Answers to common questions about SecureGRC: metadata-only AI compliance, ML-BOMs, ISO/IEC 42001 certification, MITRE ATLAS, and post-quantum audit evidence." />
+  <meta property="og:url" content="https://www.securegrc.io/faq/" />
+  <meta property="og:image" content="https://www.securegrc.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SecureGRC FAQ: AI Compliance, ML-BOM &amp; ISO 42001 Answers" />
+  <meta name="twitter:description" content="Answers to common questions about SecureGRC: metadata-only AI compliance, ML-BOMs, ISO/IEC 42001 certification, MITRE ATLAS, and post-quantum audit evidence." />
+  <meta name="twitter:image" content="https://www.securegrc.io/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.securegrc.io/faq/#webpage",
+      "name": "SecureGRC FAQ: AI Compliance, ML-BOM & ISO 42001 Answers",
+      "headline": "SecureGRC FAQ: AI Compliance, ML-BOM & ISO 42001 Answers",
+      "description": "Answers to common questions about SecureGRC: metadata-only AI compliance, ML-BOMs, ISO/IEC 42001 certification, MITRE ATLAS, and post-quantum audit evidence.",
+      "url": "https://www.securegrc.io/faq/",
+      "mainEntityOfPage": "https://www.securegrc.io/faq/",
+      "datePublished": "2026-07-17",
+      "dateModified": "2026-07-17",
+      "author": {
+        "@type": "Organization",
+        "name": "SecureGRC",
+        "url": "https://www.securegrc.io"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "SecureGRC",
+        "url": "https://www.securegrc.io"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.securegrc.io/faq/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is SecureGRC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SecureGRC is a quantum-safe AI compliance automation platform that assesses AI systems against ISO/IEC 42001, maps threats to MITRE ATLAS, and generates cryptographically verifiable audit evidence. It runs on a metadata-only architecture, meaning model weights, training data, and proprietary IP never enter the platform — every analysis is performed on extracted metadata. Each artifact it produces, from threat profiles to ML-BOMs, is signed with CRYSTALS-Dilithium (NIST FIPS 204), hashed with SHA-3, and anchored in a Merkle tree so tampering is mathematically detectable. SecureGRC is a purpose-built, early-stage platform opening early access in 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the TCCE pipeline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TCCE is SecureGRC's core analysis engine: a sequential pipeline of Threat assessment, Control mapping, Compliance evaluation, and Evidence linking. Each stage is independently testable and auditable, so a reviewer can trace exactly how an identified threat led to a mapped control, how that control was evaluated for compliance, and which signed evidence supports the conclusion. Because the stages run in a fixed order and record their outputs separately, the pipeline produces an audit trail of the analysis itself, not just of its results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is SecureGRC different from Credo AI or OneTrust?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Credo AI and Holistic AI are AI governance platforms, and OneTrust is a broad privacy and GRC suite; SecureGRC is a purpose-built, early-stage platform organized around three things incumbents were not designed for: a metadata-only architecture that never ingests model weights or training data, ML-BOM generation aligned with the CycloneDX and SPDX standards, and post-quantum signed audit evidence that anyone can verify with public keys alone. SecureGRC does not attempt to match incumbent breadth — it opens early access in 2026 and is deliberately narrow and deep on AI compliance evidence. The detailed comparisons cover SecureGRC vs Credo AI, SecureGRC vs Holistic AI, and SecureGRC vs OneTrust."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the SecureGRC platform include?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SecureGRC has three main product surfaces: a React dashboard for compliance posture reporting, an ML-BOM Explorer for browsing and inspecting machine learning bills of materials, and a cryptographically verified audit trail in which every artifact carries a CRYSTALS-Dilithium signature and a Merkle inclusion proof. The backend runs on FastAPI and PostgreSQL. All analysis flows through the TCCE pipeline against an ISO/IEC 42001 control library that supports gap analysis and compliance posture reporting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is SecureGRC generally available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SecureGRC is an MVP opening early access in 2026. It is an early-stage product: it does not claim existing customers, revenue, awards, or certifications, and it positions itself honestly as a purpose-built alternative to broad incumbent GRC suites rather than a like-for-like replacement. Teams that want to evaluate metadata-only AI compliance and post-quantum evidence early can start from the platform overview."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is ISO 42001 and is it certifiable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ISO/IEC 42001:2023 is the international standard for AI management systems (AIMS), published in December 2023. It follows the same management-system structure as ISO 27001 — organizational context, leadership, planning, support, operation, performance evaluation, and improvement — plus Annex A controls covering themes such as AI policy, AI system impact assessment, data governance, and lifecycle documentation. Yes, it is certifiable: accredited certification bodies audit organizations against the standard and issue certificates on multi-year cycles. Our guide ISO/IEC 42001 explained walks through the full structure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is MITRE ATLAS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MITRE ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) is the public knowledge base of adversarial tactics and techniques that target AI systems, modeled on the MITRE ATT&CK framework. It documents real-world attack classes such as data poisoning, model evasion, model extraction, and prompt injection. SecureGRC maps every threat profile it generates to MITRE ATLAS techniques, and the ISO 42001 vs MITRE ATLAS crosswalk explains how those adversarial techniques relate to management-system controls."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does SecureGRC map threats to controls?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Threat-to-control mapping happens in the first two stages of the TCCE pipeline. Threat assessment builds a threat profile for the AI system from its extracted metadata and maps each threat to MITRE ATLAS techniques; control mapping then links those threats to the relevant controls in SecureGRC's ISO/IEC 42001 control library. The later stages — compliance evaluation and evidence linking — score each mapped control for gaps and bind the result to signed evidence, so every control recommendation traces back to a specific, documented threat rather than to a generic checklist."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SecureGRC help with the EU AI Act?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The EU AI Act entered into force in August 2024, with obligations phasing in over the following years, including technical documentation and record-keeping duties for high-risk AI systems. SecureGRC's control library is built on ISO/IEC 42001 rather than on the Act itself, but the artifacts it generates — ML-BOMs, MITRE ATLAS threat profiles, gap analyses, and a tamper-evident quantum-safe audit trail — are the kind of verifiable technical documentation those duties call for. Many organizations treat an ISO/IEC 42001-aligned management system as practical scaffolding for EU AI Act readiness."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is an ML-BOM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An ML-BOM, or Machine Learning Bill of Materials, is a structured inventory of every component that makes up a machine learning system: the model and its architecture, datasets and their provenance, software dependencies, and licenses. It extends the established software bill of materials (SBOM) concept to AI — CycloneDX has supported ML-BOMs since version 1.5, and SPDX likewise models AI systems and datasets. An ML-BOM answers the question \"what is actually inside this AI system?\" in a machine-readable form that tools, auditors, and regulators can consume. The full guide What is an ML-BOM? covers structure, formats, and examples."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What ML-BOM formats does SecureGRC support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SecureGRC generates ML-BOMs aligned with the CycloneDX and SPDX standards, so its output stays interoperable with the wider SBOM tooling ecosystem instead of being a proprietary export. Generated ML-BOMs are browsable in the ML-BOM Explorer, and every version is SHA-3 hashed, signed with CRYSTALS-Dilithium, and anchored in the Merkle-tree audit trail. As a result, an ML-BOM handed to an auditor, customer, or regulator can be independently verified as authentic and unmodified using only public keys."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I share an ML-BOM without exposing my model?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — that is one of the main reasons ML-BOMs exist. Because SecureGRC is metadata-only, an ML-BOM describes a system's components, datasets, dependencies, and licenses without containing model weights, training data, or proprietary code, so sharing it discloses composition rather than intellectual property. The post-quantum signature travels with the document, which means recipients can verify its integrity without any access to your systems. The article on metadata-only compliance explains why this separation works."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is CRYSTALS-Dilithium?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CRYSTALS-Dilithium is a lattice-based digital signature algorithm that NIST standardized as ML-DSA (Module-Lattice-Based Digital Signature Algorithm) in FIPS 204, finalized in August 2024. It is NIST's primary post-quantum signature standard: its security rests on structured-lattice problems that neither classical computers nor known quantum algorithms — including Shor's algorithm, which breaks RSA and ECDSA — can solve efficiently. SecureGRC signs every artifact it produces with CRYSTALS-Dilithium; the quantum-safe compliance guide covers the algorithm and its trade-offs in depth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do audit trails need post-quantum signatures?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because compliance evidence must outlive the safe lifetime of classical cryptography. Regulators commonly require records to be retained for 7–10 years, and a future cryptographically relevant quantum computer running Shor's algorithm would make RSA and ECDSA signatures forgeable — including signatures created years earlier — so classically signed evidence would lose its integrity guarantee inside its own retention window. Signing evidence with a post-quantum algorithm such as ML-DSA today removes that expiry date, which is why SecureGRC treats post-quantum signatures as a baseline property of the audit trail rather than a future upgrade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does SecureGRC's cryptographic audit trail work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every artifact SecureGRC produces is hashed with SHA-3, signed with CRYSTALS-Dilithium (FIPS 204), and anchored as a leaf in a Merkle tree. The signature proves who produced the artifact and that it has not changed; the Merkle root commits to the entire history, so altering any past record invalidates the tree and is immediately detectable. Verification requires only public keys — an auditor checks the signature and a short Merkle inclusion proof offline, without an account on the platform and without trusting its database."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SecureGRC see my model weights or training data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Model weights, training data, and proprietary IP never enter SecureGRC — this is the platform's core architectural guarantee, not a configuration option. All analysis, from threat assessment through ML-BOM generation, runs on extracted metadata such as architecture descriptors, dataset provenance, dependency lists, and license information. The practical consequence is that a compliance review cannot become an IP-exposure event, a design choice explored further in the metadata-only compliance article."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do auditors need to verify SecureGRC evidence?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An auditor needs the artifact, its CRYSTALS-Dilithium signature, its Merkle inclusion proof, and the signer's public key — nothing else. FIPS 204 is a public specification with open-source implementations, so verification runs offline on the auditor's own machine, with no platform account, no API access, and no reliance on SecureGRC's continued existence. The evidence stands on mathematics rather than on the vendor's word."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.securegrc.io/faq/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.securegrc.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://www.securegrc.io/faq/"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
+      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
+      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+    .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
+    .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
+    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+
+    .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .breadcrumbs a { color: var(--dim); }
+    .breadcrumbs a:hover { color: var(--accent); }
+
+    main { max-width: 800px; margin: 0 auto; padding: 20px 24px 64px; }
+    article header.page-hero { margin: 16px 0 36px; }
+    .kicker { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--quantum); margin-bottom: 10px; }
+    h1 { font-size: 34px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; margin-bottom: 14px; }
+    .subtitle { color: var(--muted); font-size: 17.5px; max-width: 640px; }
+    h2 { font-size: 24px; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: -.01em; }
+    h3 { font-size: 18.5px; margin: 28px 0 10px; }
+    p { margin: 0 0 16px; color: var(--text); }
+    p.lead { font-size: 17.5px; }
+    ul, ol { margin: 0 0 18px 22px; }
+    li { margin-bottom: 8px; }
+    strong { color: #fff; }
+
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
+    th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    td:first-child { color: var(--text); }
+    tr:hover td { background: rgba(26,35,50,.5); }
+    .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
+
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    pre code { background: none; border: none; padding: 0; }
+
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
+    .callout.quantum { border-left-color: var(--quantum); }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; background: var(--surface); }
+    .faq-item summary { padding: 16px 20px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .faq-item summary::after { content: '+'; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
+    .faq-item .faq-body p:last-child { margin-bottom: 0; }
+
+    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
+    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+    .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-bottom: 28px; }
+    .footer-grid h4 { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 12px; }
+    .footer-grid ul { list-style: none; margin: 0; }
+    .footer-grid li { margin-bottom: 8px; }
+    .footer-grid a { color: var(--muted); font-size: 13.5px; }
+    .footer-grid a:hover { color: var(--text); }
+    .footer-meta { border-top: 1px solid var(--border); padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 27px; }
+      h2 { font-size: 21px; }
+      .site-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="logo" aria-label="SecureGRC home">
+        <span class="logo-mark" aria-hidden="true">⬡</span>
+        <span>SecureGRC</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/what-is-ml-bom/">ML-BOM Guide</a>
+        <a href="/iso-42001-explained/">ISO 42001</a>
+        <a href="/quantum-safe-compliance/">Quantum-Safe</a>
+        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/faq/" class="active">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <span>FAQ</span>
+  </nav>
+
+  <main>
+    <article>
+      <header class="page-hero">
+        <p class="kicker">FAQ</p>
+        <h1>SecureGRC FAQ: AI Compliance, ML-BOM &amp; ISO 42001</h1>
+        <p class="subtitle">Direct answers on what SecureGRC is, how ISO/IEC 42001 certification works, what an ML-BOM contains, why audit trails need post-quantum signatures, and what data the platform does — and does not — see.</p>
+      </header>
+
+      <p class="lead">This FAQ answers the questions people most often ask about <strong>SecureGRC</strong>, a quantum-safe AI compliance automation platform that assesses AI systems against <a href="/iso-42001-explained/">ISO/IEC 42001</a>, maps threats to MITRE ATLAS, generates CycloneDX- and SPDX-aligned <a href="/what-is-ml-bom/">ML-BOMs</a>, and signs every artifact with post-quantum cryptography. Three facts frame almost every answer below: SecureGRC is <strong>metadata-only</strong> (model weights and training data never enter the platform), its analysis runs through the four-stage <a href="/glossary/tcce/">TCCE pipeline</a>, and its audit trail is signed with CRYSTALS-Dilithium (FIPS 204) and anchored in a Merkle tree. SecureGRC is an early-stage platform opening early access in 2026.</p>
+
+      <table>
+        <thead>
+          <tr><th>Attribute</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Platform type</td><td>Quantum-safe AI compliance automation</td></tr>
+          <tr><td>Data handling</td><td>Metadata-only — model weights, training data, and proprietary IP never enter the platform</td></tr>
+          <tr><td>Analysis engine</td><td>TCCE: Threat assessment → Control mapping → Compliance evaluation → Evidence linking</td></tr>
+          <tr><td>Standards alignment</td><td>ISO/IEC 42001:2023, MITRE ATLAS, CycloneDX (ML-BOM since v1.5), SPDX</td></tr>
+          <tr><td>Cryptography</td><td>CRYSTALS-Dilithium / ML-DSA (NIST FIPS 204), SHA-3, Merkle-tree anchoring</td></tr>
+          <tr><td>Product surfaces</td><td>React dashboard, ML-BOM Explorer, cryptographically verified audit trail</td></tr>
+          <tr><td>Backend</td><td>FastAPI + PostgreSQL</td></tr>
+          <tr><td>Status</td><td>MVP — early access in 2026</td></tr>
+        </tbody>
+      </table>
+
+      <h2>About SecureGRC</h2>
+      <p>Start here if you are evaluating the platform: what SecureGRC is, how its TCCE engine works, and how a purpose-built, early-stage tool compares with incumbent governance suites.</p>
+
+      <details class="faq-item">
+        <summary>What is SecureGRC?</summary>
+        <div class="faq-body"><p>SecureGRC is a quantum-safe AI compliance automation platform that assesses AI systems against ISO/IEC 42001, maps threats to MITRE ATLAS, and generates cryptographically verifiable audit evidence. It runs on a metadata-only architecture, meaning model weights, training data, and proprietary IP never enter the platform — every analysis is performed on extracted metadata. Each artifact it produces, from threat profiles to ML-BOMs, is signed with CRYSTALS-Dilithium (NIST FIPS 204), hashed with SHA-3, and anchored in a Merkle tree so tampering is mathematically detectable. SecureGRC is a purpose-built, early-stage platform opening early access in 2026.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the TCCE pipeline?</summary>
+        <div class="faq-body"><p><a href="/glossary/tcce/">TCCE</a> is SecureGRC's core analysis engine: a sequential pipeline of Threat assessment, Control mapping, Compliance evaluation, and Evidence linking. Each stage is independently testable and auditable, so a reviewer can trace exactly how an identified threat led to a mapped control, how that control was evaluated for compliance, and which signed evidence supports the conclusion. Because the stages run in a fixed order and record their outputs separately, the pipeline produces an audit trail of the analysis itself, not just of its results.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How is SecureGRC different from Credo AI or OneTrust?</summary>
+        <div class="faq-body"><p>Credo AI and Holistic AI are AI governance platforms, and OneTrust is a broad privacy and GRC suite; SecureGRC is a purpose-built, early-stage platform organized around three things incumbents were not designed for: a metadata-only architecture that never ingests model weights or training data, ML-BOM generation aligned with the CycloneDX and SPDX standards, and post-quantum signed audit evidence that anyone can verify with public keys alone. SecureGRC does not attempt to match incumbent breadth — it opens early access in 2026 and is deliberately narrow and deep on AI compliance evidence. The detailed comparisons cover <a href="/vs/credo-ai/">SecureGRC vs Credo AI</a>, <a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a>, and <a href="/vs/onetrust/">SecureGRC vs OneTrust</a>.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What does the SecureGRC platform include?</summary>
+        <div class="faq-body"><p>SecureGRC has three main product surfaces: a React dashboard for compliance posture reporting, an ML-BOM Explorer for browsing and inspecting machine learning bills of materials, and a cryptographically verified audit trail in which every artifact carries a CRYSTALS-Dilithium signature and a Merkle inclusion proof. The backend runs on FastAPI and PostgreSQL. All analysis flows through the TCCE pipeline against an ISO/IEC 42001 control library that supports gap analysis and compliance posture reporting.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is SecureGRC generally available?</summary>
+        <div class="faq-body"><p>SecureGRC is an MVP opening early access in 2026. It is an early-stage product: it does not claim existing customers, revenue, awards, or certifications, and it positions itself honestly as a purpose-built alternative to broad incumbent GRC suites rather than a like-for-like replacement. Teams that want to evaluate metadata-only AI compliance and post-quantum evidence early can start from the <a href="/">platform overview</a>.</p></div>
+      </details>
+
+      <h2>ISO 42001 &amp; standards</h2>
+      <p>SecureGRC's control library is built on ISO/IEC 42001:2023, with threat profiles mapped to MITRE ATLAS. These questions cover the standards themselves and how the platform applies them.</p>
+
+      <details class="faq-item">
+        <summary>What is ISO 42001 and is it certifiable?</summary>
+        <div class="faq-body"><p>ISO/IEC 42001:2023 is the international standard for AI management systems (AIMS), published in December 2023. It follows the same management-system structure as ISO 27001 — organizational context, leadership, planning, support, operation, performance evaluation, and improvement — plus Annex A controls covering themes such as AI policy, AI system impact assessment, data governance, and lifecycle documentation. Yes, it is certifiable: accredited certification bodies audit organizations against the standard and issue certificates on multi-year cycles. Our guide <a href="/iso-42001-explained/">ISO/IEC 42001 explained</a> walks through the full structure.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is MITRE ATLAS?</summary>
+        <div class="faq-body"><p>MITRE ATLAS (Adversarial Threat Landscape for Artificial-Intelligence Systems) is the public knowledge base of adversarial tactics and techniques that target AI systems, modeled on the MITRE ATT&CK framework. It documents real-world attack classes such as data poisoning, model evasion, model extraction, and prompt injection. SecureGRC maps every threat profile it generates to MITRE ATLAS techniques, and the <a href="/iso-42001-vs-mitre-atlas/">ISO 42001 vs MITRE ATLAS crosswalk</a> explains how those adversarial techniques relate to management-system controls.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How does SecureGRC map threats to controls?</summary>
+        <div class="faq-body"><p>Threat-to-control mapping happens in the first two stages of the TCCE pipeline. Threat assessment builds a threat profile for the AI system from its extracted metadata and maps each threat to MITRE ATLAS techniques; control mapping then links those threats to the relevant controls in SecureGRC's ISO/IEC 42001 control library. The later stages — compliance evaluation and evidence linking — score each mapped control for gaps and bind the result to signed evidence, so every control recommendation traces back to a specific, documented threat rather than to a generic checklist.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does SecureGRC help with the EU AI Act?</summary>
+        <div class="faq-body"><p>The EU AI Act entered into force in August 2024, with obligations phasing in over the following years, including technical documentation and record-keeping duties for high-risk AI systems. SecureGRC's control library is built on ISO/IEC 42001 rather than on the Act itself, but the artifacts it generates — ML-BOMs, MITRE ATLAS threat profiles, gap analyses, and a tamper-evident <a href="/quantum-safe-compliance/">quantum-safe audit trail</a> — are the kind of verifiable technical documentation those duties call for. Many organizations treat an ISO/IEC 42001-aligned management system as practical scaffolding for EU AI Act readiness.</p></div>
+      </details>
+
+      <h2>ML-BOM</h2>
+      <p>The machine learning bill of materials is the inventory layer of AI compliance. These questions cover what an ML-BOM is, the formats SecureGRC generates, and what sharing one does — and does not — expose.</p>
+
+      <details class="faq-item">
+        <summary>What is an ML-BOM?</summary>
+        <div class="faq-body"><p>An ML-BOM, or Machine Learning Bill of Materials, is a structured inventory of every component that makes up a machine learning system: the model and its architecture, datasets and their provenance, software dependencies, and licenses. It extends the established software bill of materials (SBOM) concept to AI — CycloneDX has supported ML-BOMs since version 1.5, and SPDX likewise models AI systems and datasets. An ML-BOM answers the question "what is actually inside this AI system?" in a machine-readable form that tools, auditors, and regulators can consume. The full guide <a href="/what-is-ml-bom/">What is an ML-BOM?</a> covers structure, formats, and examples.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What ML-BOM formats does SecureGRC support?</summary>
+        <div class="faq-body"><p>SecureGRC generates ML-BOMs aligned with the CycloneDX and SPDX standards, so its output stays interoperable with the wider SBOM tooling ecosystem instead of being a proprietary export. Generated ML-BOMs are browsable in the ML-BOM Explorer, and every version is SHA-3 hashed, signed with CRYSTALS-Dilithium, and anchored in the Merkle-tree audit trail. As a result, an ML-BOM handed to an auditor, customer, or regulator can be independently verified as authentic and unmodified using only public keys.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I share an ML-BOM without exposing my model?</summary>
+        <div class="faq-body"><p>Yes — that is one of the main reasons ML-BOMs exist. Because SecureGRC is metadata-only, an ML-BOM describes a system's components, datasets, dependencies, and licenses without containing model weights, training data, or proprietary code, so sharing it discloses composition rather than intellectual property. The post-quantum signature travels with the document, which means recipients can verify its integrity without any access to your systems. The article on <a href="/blog/metadata-only-compliance/">metadata-only compliance</a> explains why this separation works.</p></div>
+      </details>
+
+      <h2>Quantum-safe evidence</h2>
+      <p>Every SecureGRC artifact is post-quantum signed from day one. These questions explain the cryptography and why it matters for evidence with long retention windows.</p>
+
+      <details class="faq-item">
+        <summary>What is CRYSTALS-Dilithium?</summary>
+        <div class="faq-body"><p>CRYSTALS-Dilithium is a lattice-based digital signature algorithm that NIST standardized as ML-DSA (Module-Lattice-Based Digital Signature Algorithm) in FIPS 204, finalized in August 2024. It is NIST's primary post-quantum signature standard: its security rests on structured-lattice problems that neither classical computers nor known quantum algorithms — including Shor's algorithm, which breaks RSA and ECDSA — can solve efficiently. SecureGRC signs every artifact it produces with CRYSTALS-Dilithium; the <a href="/quantum-safe-compliance/">quantum-safe compliance guide</a> covers the algorithm and its trade-offs in depth.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Why do audit trails need post-quantum signatures?</summary>
+        <div class="faq-body"><p>Because compliance evidence must outlive the safe lifetime of classical cryptography. Regulators commonly require records to be retained for 7–10 years, and a future cryptographically relevant quantum computer running Shor's algorithm would make RSA and ECDSA signatures forgeable — including signatures created years earlier — so classically signed evidence would lose its integrity guarantee inside its own retention window. Signing evidence with a post-quantum algorithm such as ML-DSA today removes that expiry date, which is why SecureGRC treats post-quantum signatures as a baseline property of the audit trail rather than a future upgrade.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How does SecureGRC's cryptographic audit trail work?</summary>
+        <div class="faq-body"><p>Every artifact SecureGRC produces is hashed with SHA-3, signed with CRYSTALS-Dilithium (FIPS 204), and anchored as a leaf in a Merkle tree. The signature proves who produced the artifact and that it has not changed; the Merkle root commits to the entire history, so altering any past record invalidates the tree and is immediately detectable. Verification requires only public keys — an auditor checks the signature and a short Merkle inclusion proof offline, without an account on the platform and without trusting its database.</p></div>
+      </details>
+
+      <h2>Security &amp; data handling</h2>
+      <p>The questions security teams ask first: what data the platform actually sees, and what independent verification of its evidence requires.</p>
+
+      <details class="faq-item">
+        <summary>Does SecureGRC see my model weights or training data?</summary>
+        <div class="faq-body"><p>No. Model weights, training data, and proprietary IP never enter SecureGRC — this is the platform's core architectural guarantee, not a configuration option. All analysis, from threat assessment through ML-BOM generation, runs on extracted metadata such as architecture descriptors, dataset provenance, dependency lists, and license information. The practical consequence is that a compliance review cannot become an IP-exposure event, a design choice explored further in <a href="/blog/metadata-only-compliance/">the metadata-only compliance article</a>.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What do auditors need to verify SecureGRC evidence?</summary>
+        <div class="faq-body"><p>An auditor needs the artifact, its CRYSTALS-Dilithium signature, its Merkle inclusion proof, and the signer's public key — nothing else. FIPS 204 is a public specification with open-source implementations, so verification runs offline on the auditor's own machine, with no platform account, no API access, and no reliance on SecureGRC's continued existence. The evidence stands on mathematics rather than on the vendor's word.</p></div>
+      </details>
+
+      <aside class="cta">
+        <h2>Still have questions?</h2>
+        <p>SecureGRC is opening early access in 2026. Explore the platform, or go deeper with the guides on ML-BOMs, ISO/IEC 42001, and quantum-safe audit evidence.</p>
+        <a class="btn" href="/">Explore the platform</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="footer-grid">
+        <div>
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="/what-is-ml-bom/">What is an ML-BOM?</a></li>
+            <li><a href="/iso-42001-explained/">ISO/IEC 42001 explained</a></li>
+            <li><a href="/iso-42001-vs-mitre-atlas/">ISO 42001 ↔ MITRE ATLAS crosswalk</a></li>
+            <li><a href="/quantum-safe-compliance/">Quantum-safe compliance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <ul>
+            <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
+            <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
+            <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/glossary/tcce/">TCCE framework</a></li>
+            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>© 2026 SecureGRC · securegrc.io</span>
+        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

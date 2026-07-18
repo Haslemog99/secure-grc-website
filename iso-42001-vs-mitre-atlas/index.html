@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MITRE ATLAS to ISO 42001 Mapping: AI Threat Crosswalk</title>
+  <meta name="description" content="Crosswalk mapping MITRE ATLAS tactics to ISO/IEC 42001 control themes, with a worked model-poisoning example and how to automate threat-to-control mapping." />
+  <link rel="canonical" href="https://www.securegrc.io/iso-42001-vs-mitre-atlas/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+  <!-- Cookiebot consent management -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
+<!-- Vercel Web Analytics -->
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="SecureGRC" />
+  <meta property="og:title" content="MITRE ATLAS to ISO 42001 Mapping: AI Threat Crosswalk" />
+  <meta property="og:description" content="Crosswalk mapping MITRE ATLAS tactics to ISO/IEC 42001 control themes, with a worked model-poisoning example and how to automate threat-to-control mapping." />
+  <meta property="og:url" content="https://www.securegrc.io/iso-42001-vs-mitre-atlas/" />
+  <meta property="og:image" content="https://www.securegrc.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MITRE ATLAS to ISO 42001 Mapping: AI Threat Crosswalk" />
+  <meta name="twitter:description" content="Crosswalk mapping MITRE ATLAS tactics to ISO/IEC 42001 control themes, with a worked model-poisoning example and how to automate threat-to-control mapping." />
+  <meta name="twitter:image" content="https://www.securegrc.io/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.securegrc.io/#organization",
+        "name": "SecureGRC",
+        "url": "https://www.securegrc.io"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/#article",
+        "headline": "ISO 42001 & MITRE ATLAS: Mapping AI Threats to Controls",
+        "description": "A practical crosswalk mapping MITRE ATLAS adversarial tactics to ISO/IEC 42001 control themes, with a worked model-poisoning example and guidance on automating AI threat-to-control mapping.",
+        "url": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/",
+        "mainEntityOfPage": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/",
+        "datePublished": "2026-07-17",
+        "dateModified": "2026-07-17",
+        "author": { "@id": "https://www.securegrc.io/#organization" },
+        "publisher": { "@id": "https://www.securegrc.io/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is MITRE ATLAS a compliance framework?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. MITRE ATLAS is a knowledge base of adversarial tactics and techniques against AI systems, modeled after MITRE ATT&CK. It describes how AI systems are attacked, not how organizations must govern them. It carries no certification, audit, or legal obligation. Its value in compliance work is as a threat model that gives risk-driven meaning to the controls a standard like ISO/IEC 42001 requires."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does ISO/IEC 42001 require the use of MITRE ATLAS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. ISO/IEC 42001 requires organizations to assess AI risks and treat them with appropriate controls, but it does not mandate any particular threat catalog. MITRE ATLAS is simply the most established public knowledge base of AI-specific adversarial threats, which makes it a natural evidence source for the risk assessment an ISO/IEC 42001 management system must perform."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between MITRE ATLAS and MITRE ATT&CK?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MITRE ATT&CK catalogs adversary behavior against traditional enterprise IT — networks, endpoints, cloud. MITRE ATLAS applies the same tactic-and-technique structure to AI systems specifically, covering attacks such as prompt injection, model poisoning, model extraction, and adversarial evasion that have no direct equivalent in ATT&CK. ATLAS reuses familiar tactic names like Reconnaissance and Exfiltration while adding AI-specific ones such as ML Model Access and ML Attack Staging."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can an ATLAS-to-ISO-42001 crosswalk help with EU AI Act compliance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Indirectly, yes. The EU AI Act, in force since August 2024 with staged obligations, expects providers of high-risk AI systems to manage risks, ensure robustness, and maintain technical documentation. A crosswalk that ties concrete ATLAS threats to ISO/IEC 42001 control themes produces exactly the kind of risk-driven, evidence-backed documentation those obligations favor, and ISO/IEC 42001 is widely viewed as a strong organizational foundation for AI Act readiness."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should a threat-to-control mapping be updated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Whenever either side changes. MITRE ATLAS is a living knowledge base that adds techniques as new attack classes emerge, and your AI inventory changes every time a model, dataset, or dependency is added or retrained. In practice that means the mapping should be re-run per release rather than per annual audit, which is only realistic when it is automated rather than maintained by hand in a spreadsheet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does SecureGRC need access to model weights to map threats to controls?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. SecureGRC's analysis is metadata-only: model weights, training data, and proprietary IP never enter the platform. Threat profiling, control mapping, and gap analysis run on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in an ML-BOM. Every resulting artifact is signed with CRYSTALS-Dilithium (NIST FIPS 204), so third parties can verify evidence using public keys alone."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.securegrc.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ISO 42001 ↔ MITRE ATLAS",
+            "item": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
+      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
+      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+    .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
+    .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
+    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+
+    .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .breadcrumbs a { color: var(--dim); }
+    .breadcrumbs a:hover { color: var(--accent); }
+
+    main { max-width: 800px; margin: 0 auto; padding: 20px 24px 64px; }
+    article header.page-hero { margin: 16px 0 36px; }
+    .kicker { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--quantum); margin-bottom: 10px; }
+    h1 { font-size: 34px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; margin-bottom: 14px; }
+    .subtitle { color: var(--muted); font-size: 17.5px; max-width: 640px; }
+    h2 { font-size: 24px; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: -.01em; }
+    h3 { font-size: 18.5px; margin: 28px 0 10px; }
+    p { margin: 0 0 16px; color: var(--text); }
+    p.lead { font-size: 17.5px; }
+    ul, ol { margin: 0 0 18px 22px; }
+    li { margin-bottom: 8px; }
+    strong { color: #fff; }
+
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
+    th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    td:first-child { color: var(--text); }
+    tr:hover td { background: rgba(26,35,50,.5); }
+    .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
+
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    pre code { background: none; border: none; padding: 0; }
+
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
+    .callout.quantum { border-left-color: var(--quantum); }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; background: var(--surface); }
+    .faq-item summary { padding: 16px 20px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .faq-item summary::after { content: '+'; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
+    .faq-item .faq-body p:last-child { margin-bottom: 0; }
+
+    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
+    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+    .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-bottom: 28px; }
+    .footer-grid h4 { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 12px; }
+    .footer-grid ul { list-style: none; margin: 0; }
+    .footer-grid li { margin-bottom: 8px; }
+    .footer-grid a { color: var(--muted); font-size: 13.5px; }
+    .footer-grid a:hover { color: var(--text); }
+    .footer-meta { border-top: 1px solid var(--border); padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 27px; }
+      h2 { font-size: 21px; }
+      .site-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="logo" aria-label="SecureGRC home">
+        <span class="logo-mark" aria-hidden="true">⬡</span>
+        <span>SecureGRC</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/what-is-ml-bom/">ML-BOM Guide</a>
+        <a href="/iso-42001-explained/">ISO 42001</a>
+        <a href="/quantum-safe-compliance/">Quantum-Safe</a>
+        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <span>ISO 42001 ↔ MITRE ATLAS</span>
+  </nav>
+
+  <main>
+    <article>
+      <header class="page-hero">
+        <p class="kicker">Resource · Crosswalk</p>
+        <h1>ISO 42001 &amp; MITRE ATLAS: Mapping AI Threats to Controls</h1>
+        <p class="subtitle">A practical crosswalk between the adversarial threat landscape for AI and the AI management system standard — the mapping resource that connects "how AI gets attacked" to "how AI must be governed."</p>
+      </header>
+
+      <p class="lead"><strong>MITRE ATLAS</strong> (Adversarial Threat Landscape for Artificial-Intelligence Systems) is MITRE's open knowledge base of adversary tactics and techniques targeting AI systems — attacks like prompt injection, model poisoning, model extraction, and adversarial evasion. <strong>ISO/IEC 42001:2023</strong> is the international standard for AI management systems, published in December 2023, defining the governance requirements and Annex A controls an organization needs to run AI responsibly. One framework describes threats; the other prescribes controls. This page maps them to each other: ATLAS tactic by ATLAS tactic, matched to the ISO/IEC 42001 control themes that counter it, with a worked example showing how a single threat travels from identification to auditable evidence.</p>
+
+      <h2>What is MITRE ATLAS?</h2>
+      <p>MITRE ATLAS is a curated, continuously updated knowledge base of adversarial tactics, techniques, and real-world case studies for attacks on AI-enabled systems. It is deliberately modeled after MITRE ATT&amp;CK, the de facto reference for enterprise cyber threats, and it reuses ATT&amp;CK's core structure: <strong>tactics</strong> describe the adversary's goal at each stage of an attack (the "why"), and <strong>techniques</strong> describe the concrete methods used to achieve that goal (the "how").</p>
+      <p>What makes ATLAS distinct is its AI-specific coverage. Alongside familiar tactic categories shared with ATT&amp;CK — Reconnaissance, Resource Development, Initial Access, Exfiltration, Impact — ATLAS adds tactics that only make sense for machine learning systems, most notably <strong>ML Model Access</strong> (gaining some level of access to a model, from a public inference API to full weights) and <strong>ML Attack Staging</strong> (preparing AI-specific attacks such as crafting adversarial examples, poisoning datasets, or training proxy models). The techniques cataloged under these tactics include the attack classes security teams now encounter in production:</p>
+      <ul>
+        <li><strong>Prompt injection</strong> — embedding adversarial instructions in inputs so an LLM-backed system executes the attacker's intent instead of the operator's.</li>
+        <li><strong>Model poisoning / data poisoning</strong> — corrupting training data or checkpoints so the trained model carries hidden backdoors or degraded behavior.</li>
+        <li><strong>Model extraction</strong> — systematically querying a model to reconstruct a functional copy of proprietary weights or decision boundaries.</li>
+        <li><strong>Evasion</strong> — crafting inputs that cause a deployed model to misclassify or bypass a safety filter while appearing benign.</li>
+      </ul>
+      <p>Because ATLAS entries are grounded in observed incidents and published research rather than hypotheticals, the knowledge base functions as the closest thing the industry has to a shared, named vocabulary for AI threats — which is exactly what a compliance program needs to anchor its risk assessments.</p>
+
+      <h2>What is ISO/IEC 42001 and what does it cover?</h2>
+      <p>ISO/IEC 42001:2023 is the first certifiable international management system standard for artificial intelligence, published in December 2023. Like ISO/IEC 27001 for information security, it defines requirements for establishing, implementing, maintaining, and continually improving a management system — here, an AI management system (AIMS) — plus an Annex A catalog of controls covering themes such as AI policy and governance, roles and responsibilities, AI system impact assessment, lifecycle management, data governance and provenance, third-party and supplier management, transparency and documentation, and incident response. We cover the standard in depth in our guide to <a href="/iso-42001-explained/">ISO/IEC 42001 explained</a>.</p>
+      <p>Crucially, ISO/IEC 42001 is risk-driven: it requires organizations to identify AI risks and select controls proportionate to them. It does not, however, tell you <em>what the threats are</em>. That is the gap ATLAS fills.</p>
+
+      <h2>Why does a compliance standard need a threat model?</h2>
+      <p>Controls without threats are paperwork. An organization can adopt every control theme in ISO/IEC 42001, write policies for each, and still be defenseless — because a control that isn't aimed at a concrete, named adversary behavior is a filing exercise, not a defense. The reverse failure is just as common: security teams track ATLAS techniques in isolation, with no management system to assign ownership, verify implementation, or produce evidence an auditor can trust.</p>
+      <p>The two frameworks are complementary precisely because they answer different questions:</p>
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>ISO/IEC 42001</th><th>MITRE ATLAS</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>What it is</td><td>Certifiable AI management system standard (published Dec 2023)</td><td>Open knowledge base of adversarial AI tactics and techniques</td></tr>
+          <tr><td>Question answered</td><td>"Is our AI governed responsibly?"</td><td>"How will our AI systems be attacked?"</td></tr>
+          <tr><td>Unit of content</td><td>Management requirements and Annex A control themes</td><td>Tactics, techniques, case studies, mitigations</td></tr>
+          <tr><td>Orientation</td><td>Organizational and process-oriented</td><td>Adversarial and technical</td></tr>
+          <tr><td>Certification</td><td class="yes">Yes — auditable and certifiable</td><td class="no">No — reference knowledge base</td></tr>
+          <tr><td>Update cadence</td><td>Formal standards cycle</td><td>Living, continuously updated</td></tr>
+          <tr><td>Modeled after</td><td>ISO management system standards (e.g. ISO/IEC 27001)</td><td>MITRE ATT&amp;CK</td></tr>
+        </tbody>
+      </table>
+      <p>A threat-to-control crosswalk turns "we implemented the controls" into "we implemented these controls <em>because</em> they counter these named adversary behaviors, and here is the evidence." That sentence is what regulators increasingly expect — the EU AI Act, in force since August 2024 with staged obligations, frames provider duties for high-risk systems around exactly this kind of risk-driven, documented justification.</p>
+
+      <h2>How do MITRE ATLAS tactics map to ISO 42001 controls?</h2>
+      <p>The crosswalk below maps ATLAS tactic categories to ISO/IEC 42001 control <em>themes</em>. Two honesty notes before you read it. First, this is a many-to-many mapping: one tactic is typically countered by several control themes, and one control theme counters several tactics — the table shows the strongest pairings, not the only ones. Second, we describe Annex A controls by theme rather than by clause number, because theme-level mapping survives standard revisions and avoids false precision. Neither MITRE nor ISO publishes an official crosswalk; this is an interpretive mapping intended as a working starting point.</p>
+      <table>
+        <thead>
+          <tr><th>ATLAS tactic</th><th>Adversary goal</th><th>ISO/IEC 42001 control theme</th><th>Why it maps</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Reconnaissance</td>
+            <td>Research the target's AI systems, publications, model cards, and public endpoints</td>
+            <td>AI system inventory, documentation, and transparency management</td>
+            <td>Controlling what you disclose — and knowing precisely what you have deployed — limits what an adversary can learn from the outside.</td>
+          </tr>
+          <tr>
+            <td>Resource Development</td>
+            <td>Acquire or build attack capabilities: datasets, proxy models, accounts, tooling</td>
+            <td>Supplier and third-party management; provenance of acquired data and models</td>
+            <td>Vetting the components you ingest — pre-trained models, datasets, dependencies — cuts off the attacker resources most likely to reach you: poisoned ones in your own supply chain.</td>
+          </tr>
+          <tr>
+            <td>Initial Access</td>
+            <td>Get a first foothold in the ML pipeline via exposed APIs, compromised dependencies, or stolen credentials</td>
+            <td>Secure AI system lifecycle and development practices</td>
+            <td>Hardening the entry points to training and deployment infrastructure is the direct counter to pipeline compromise.</td>
+          </tr>
+          <tr>
+            <td>ML Model Access</td>
+            <td>Obtain a level of access to the model itself — inference API, artifacts, or full weights</td>
+            <td>Access control and documentation of AI system resources</td>
+            <td>Deciding, recording, and enforcing who and what may query, download, or modify each model bounds the blast radius of every downstream tactic.</td>
+          </tr>
+          <tr>
+            <td>Execution</td>
+            <td>Run adversary-controlled instructions inside the AI system, e.g. prompt injection driving tool use</td>
+            <td>Operational planning, defined operating criteria, and human oversight</td>
+            <td>Constraining what a deployed AI system is permitted to do — and keeping humans in the loop for consequential actions — limits what injected instructions can achieve.</td>
+          </tr>
+          <tr>
+            <td>Persistence</td>
+            <td>Maintain a foothold via backdoored models, poisoned checkpoints, or tampered pipelines</td>
+            <td>AI system lifecycle, change management, and artifact integrity verification</td>
+            <td>Versioned, integrity-verified artifacts make an implanted backdoor detectable at rebuild, retraining, or re-validation time.</td>
+          </tr>
+          <tr>
+            <td>Defense Evasion</td>
+            <td>Avoid detection with inputs crafted to slip past filters, monitors, and classifiers</td>
+            <td>Monitoring, logging, and performance evaluation of AI systems in operation</td>
+            <td>Continuous behavioral monitoring against defined baselines is the control that notices when evasion is succeeding.</td>
+          </tr>
+          <tr>
+            <td>ML Attack Staging</td>
+            <td>Prepare AI-specific attacks: craft adversarial examples, poison datasets, train proxy models against the target</td>
+            <td>AI system impact assessment and risk treatment</td>
+            <td>Impact assessment obliges you to model these staged attacks — and their consequences — before an adversary runs them, so treatments exist in advance.</td>
+          </tr>
+          <tr>
+            <td>Exfiltration</td>
+            <td>Steal model weights, training data, or sensitive information via extraction or inference attacks</td>
+            <td>Data governance, data protection, and intellectual property safeguards</td>
+            <td>Controls over where data and models live, how they are protected, and how access is rate-limited and logged directly counter theft of the assets ATLAS says attackers target.</td>
+          </tr>
+          <tr>
+            <td>Impact</td>
+            <td>Degrade, disrupt, or manipulate the AI system's outputs and the decisions built on them</td>
+            <td>Incident response, impact assessment, and continual improvement</td>
+            <td>When an attack lands, response procedures plus a pre-existing impact assessment determine whether the result is a contained incident or an ungoverned failure.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Read column three as a checklist generator: for each AI system in your inventory, each row asks "which of our implemented controls counters this tactic, and where is the evidence?" Rows with no answer are your genuine gap analysis — a far sharper instrument than a generic control checklist. For how the two frameworks' roles differ at the program level, see also our comparison pages against incumbent GRC suites such as <a href="/vs/onetrust/">SecureGRC vs OneTrust</a>, where breadth-first control libraries meet threat-first AI coverage.</p>
+
+      <h2>Worked example: model poisoning from threat to evidence</h2>
+      <p>Abstract mappings become concrete when you walk a single threat through a full pipeline. Here is model poisoning — an ATLAS-cataloged attack in which an adversary corrupts training data or checkpoints so the resulting model misbehaves on demand — traced through the four stages of SecureGRC's <a href="/glossary/tcce/">TCCE engine</a>: Threat assessment → Control mapping → Compliance evaluation → Evidence linking. Each stage is independently testable and auditable.</p>
+      <h3>Stage 1 — Threat assessment</h3>
+      <p>The system builds a threat profile for the AI system from its metadata: model family, training approach, data sources, and dependencies. A model fine-tuned on externally sourced data matches poisoning-related ATLAS techniques staged under Resource Development and ML Attack Staging. The output is a named, ATLAS-mapped threat: <em>training data poisoning via third-party dataset</em>.</p>
+      <h3>Stage 2 — Control mapping</h3>
+      <p>The named threat is mapped to the ISO/IEC 42001 control themes that counter it — data governance and provenance controls (do we know where every training dataset came from, and is its integrity verified?) and supplier management controls (was the dataset provider assessed?). This is the crosswalk table above, executed programmatically for one threat.</p>
+      <h3>Stage 3 — Compliance evaluation</h3>
+      <p>Each mapped control is evaluated against what the organization has actually implemented. If dataset provenance is recorded and integrity-checked, the control is satisfied; if the fine-tuning dataset has no recorded origin, a gap is raised with the specific threat that makes it dangerous attached. Gap analysis output feeds the overall compliance posture report.</p>
+      <h3>Stage 4 — Evidence linking</h3>
+      <p>Finally, every satisfied control is linked to verifiable evidence: the dataset's provenance entry and hash in the system's <a href="/what-is-ml-bom/">ML-BOM</a> (aligned with CycloneDX, which has supported ML-BOMs since v1.5, and SPDX), the supplier assessment record, the evaluation result itself. Each artifact is hashed with SHA-3, signed with CRYSTALS-Dilithium (NIST FIPS 204), and anchored in a Merkle tree, so an auditor can verify the chain with public keys alone — no access to your models or data required.</p>
+      <div class="callout quantum">
+        <p class="label">Why this matters</p>
+        <p>The end state is a sentence an auditor can verify cryptographically: "This system faces ATLAS-mapped poisoning threats; these ISO/IEC 42001 controls counter them; here is signed, timestamped evidence that the controls are real." Threat, control, compliance, and evidence — connected, not siloed.</p>
+      </div>
+
+      <h2>How does automated threat-to-control mapping work in practice?</h2>
+      <p>Manual crosswalks decay. ATLAS is a living knowledge base, models are retrained, datasets are swapped, and dependencies are updated — a spreadsheet mapping maintained by hand is stale within a quarter. Automation changes the economics in three ways.</p>
+      <p><strong>Metadata-only analysis.</strong> Automated mapping does not require access to model internals. SecureGRC's <a href="/blog/metadata-only-compliance/">metadata-only architecture</a> means model weights, training data, and proprietary IP never enter the platform; threat profiling and control mapping run entirely on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context. That removes the single biggest blocker to adopting a compliance tool: shipping your most sensitive assets to a third party.</p>
+      <p><strong>The ML-BOM as the unit of analysis.</strong> A Machine Learning Bill of Materials gives the mapping engine a standardized, machine-readable inventory of every component in an AI system. Because the ML-BOM regenerates whenever the system changes, the threat profile and control mapping regenerate with it — per release, not per annual audit.</p>
+      <p><strong>Cryptographically verifiable output.</strong> Every mapping result is signed and Merkle-anchored using post-quantum cryptography, so the evidence trail remains verifiable — and resistant to harvest-now-decrypt-later attacks — over the multi-year retention windows compliance demands. Our guide to <a href="/quantum-safe-compliance/">quantum-safe compliance</a> covers why signature longevity matters for audit evidence specifically.</p>
+      <p>SecureGRC is early-stage and purpose-built for exactly this workflow — an MVP in early access in 2026, not a decade-old GRC suite retrofitted with an AI module. The trade-off is honest: incumbents offer breadth across every compliance domain; SecureGRC offers a pipeline designed from the first commit around AI threats, AI controls, and cryptographically verifiable AI evidence. More common questions are answered in our <a href="/faq/">FAQ</a>.</p>
+
+      <h2>Frequently asked questions</h2>
+
+      <details class="faq-item">
+        <summary>Is MITRE ATLAS a compliance framework?</summary>
+        <div class="faq-body">
+          <p>No. MITRE ATLAS is a knowledge base of adversarial tactics and techniques against AI systems, modeled after MITRE ATT&amp;CK. It describes how AI systems are attacked, not how organizations must govern them. It carries no certification, audit, or legal obligation. Its value in compliance work is as a threat model that gives risk-driven meaning to the controls a standard like ISO/IEC 42001 requires.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does ISO/IEC 42001 require the use of MITRE ATLAS?</summary>
+        <div class="faq-body">
+          <p>No. ISO/IEC 42001 requires organizations to assess AI risks and treat them with appropriate controls, but it does not mandate any particular threat catalog. MITRE ATLAS is simply the most established public knowledge base of AI-specific adversarial threats, which makes it a natural evidence source for the risk assessment an ISO/IEC 42001 management system must perform.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the difference between MITRE ATLAS and MITRE ATT&amp;CK?</summary>
+        <div class="faq-body">
+          <p>MITRE ATT&amp;CK catalogs adversary behavior against traditional enterprise IT — networks, endpoints, cloud. MITRE ATLAS applies the same tactic-and-technique structure to AI systems specifically, covering attacks such as prompt injection, model poisoning, model extraction, and adversarial evasion that have no direct equivalent in ATT&amp;CK. ATLAS reuses familiar tactic names like Reconnaissance and Exfiltration while adding AI-specific ones such as ML Model Access and ML Attack Staging.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can an ATLAS-to-ISO-42001 crosswalk help with EU AI Act compliance?</summary>
+        <div class="faq-body">
+          <p>Indirectly, yes. The EU AI Act, in force since August 2024 with staged obligations, expects providers of high-risk AI systems to manage risks, ensure robustness, and maintain technical documentation. A crosswalk that ties concrete ATLAS threats to ISO/IEC 42001 control themes produces exactly the kind of risk-driven, evidence-backed documentation those obligations favor, and ISO/IEC 42001 is widely viewed as a strong organizational foundation for AI Act readiness.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How often should a threat-to-control mapping be updated?</summary>
+        <div class="faq-body">
+          <p>Whenever either side changes. MITRE ATLAS is a living knowledge base that adds techniques as new attack classes emerge, and your AI inventory changes every time a model, dataset, or dependency is added or retrained. In practice that means the mapping should be re-run per release rather than per annual audit, which is only realistic when it is automated rather than maintained by hand in a spreadsheet.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does SecureGRC need access to model weights to map threats to controls?</summary>
+        <div class="faq-body">
+          <p>No. SecureGRC's analysis is metadata-only: model weights, training data, and proprietary IP never enter the platform. Threat profiling, control mapping, and gap analysis run on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in an ML-BOM. Every resulting artifact is signed with CRYSTALS-Dilithium (NIST FIPS 204), so third parties can verify evidence using public keys alone.</p>
+        </div>
+      </details>
+
+      <aside class="cta">
+        <h2>Automate this with SecureGRC</h2>
+        <p>SecureGRC's TCCE engine runs this crosswalk automatically — ATLAS-mapped threat profiles, ISO/IEC 42001 control mapping, gap analysis, and post-quantum-signed evidence, all from metadata alone.</p>
+        <a class="btn" href="/">Explore the platform</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="footer-grid">
+        <div>
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="/what-is-ml-bom/">What is an ML-BOM?</a></li>
+            <li><a href="/iso-42001-explained/">ISO/IEC 42001 explained</a></li>
+            <li><a href="/iso-42001-vs-mitre-atlas/">ISO 42001 ↔ MITRE ATLAS crosswalk</a></li>
+            <li><a href="/quantum-safe-compliance/">Quantum-safe compliance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <ul>
+            <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
+            <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
+            <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/glossary/tcce/">TCCE framework</a></li>
+            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>© 2026 SecureGRC · securegrc.io</span>
+        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

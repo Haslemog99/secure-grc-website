@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantum-Safe Compliance: Post-Quantum Audit Evidence</title>
+  <meta name="description" content="Quantum-safe compliance explained: harvest-now-decrypt-later risk, FIPS 204 ML-DSA (CRYSTALS-Dilithium) signatures, and Merkle-anchored audit evidence." />
+  <link rel="canonical" href="https://www.securegrc.io/quantum-safe-compliance/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+  <!-- Cookiebot consent management -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
+<!-- Vercel Web Analytics -->
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="SecureGRC" />
+  <meta property="og:title" content="Quantum-Safe Compliance: Post-Quantum Audit Evidence" />
+  <meta property="og:description" content="Quantum-safe compliance explained: harvest-now-decrypt-later risk, FIPS 204 ML-DSA (CRYSTALS-Dilithium) signatures, and Merkle-anchored audit evidence." />
+  <meta property="og:url" content="https://www.securegrc.io/quantum-safe-compliance/" />
+  <meta property="og:image" content="https://www.securegrc.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Quantum-Safe Compliance: Post-Quantum Audit Evidence" />
+  <meta name="twitter:description" content="Quantum-safe compliance explained: harvest-now-decrypt-later risk, FIPS 204 ML-DSA (CRYSTALS-Dilithium) signatures, and Merkle-anchored audit evidence." />
+  <meta name="twitter:image" content="https://www.securegrc.io/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://www.securegrc.io/quantum-safe-compliance/#article",
+        "headline": "Quantum-Safe Compliance: Post-Quantum Audit Evidence",
+        "description": "Quantum-safe compliance explained: harvest-now-decrypt-later risk, FIPS 204 ML-DSA (CRYSTALS-Dilithium) signatures, and Merkle-anchored audit evidence.",
+        "url": "https://www.securegrc.io/quantum-safe-compliance/",
+        "mainEntityOfPage": "https://www.securegrc.io/quantum-safe-compliance/",
+        "datePublished": "2026-07-17",
+        "dateModified": "2026-07-17",
+        "author": {
+          "@type": "Organization",
+          "name": "SecureGRC",
+          "url": "https://www.securegrc.io"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SecureGRC",
+          "url": "https://www.securegrc.io"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.securegrc.io/quantum-safe-compliance/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does harvest now, decrypt later mean?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Harvest now, decrypt later is an attack strategy in which an adversary records encrypted data today and stores it until a quantum computer capable of breaking the encryption exists, then decrypts everything retroactively. The signature analog matters just as much for compliance: evidence signed today with RSA or ECDSA remains verifiable only until those algorithms fall, after which historical signatures can be forged and the evidence loses its integrity guarantee inside its own retention window."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is ML-DSA the same as CRYSTALS-Dilithium?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ML-DSA (Module-Lattice-Based Digital Signature Algorithm) is the name NIST gave the standardized form of CRYSTALS-Dilithium when it published FIPS 204 in August 2024. The two names refer to the same lattice-based signature scheme; ML-DSA is the final specification with fixed parameter sets ML-DSA-44, ML-DSA-65, and ML-DSA-87, while Dilithium was the name used during the NIST post-quantum competition."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When will a quantum computer actually break RSA and ECDSA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No one knows the exact date, and credible estimates range from roughly a decade to considerably longer. The date is also the wrong question for compliance. Evidence retained for 7 to 10 years must remain trustworthy at the end of that window, so the relevant test is whether retention period plus migration time exceeds the time to a cryptographically relevant quantum computer. NIST's draft transition guidance already proposes deprecating classical public-key algorithms around 2030 and disallowing them by 2035, which puts long-retention evidence signed today inside the risk window."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can auditors verify post-quantum signatures without special infrastructure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. FIPS 204 is a public specification, and open-source ML-DSA implementations exist across major languages. Verifying a Dilithium signature requires only the signed artifact, the signature, and the signer's public key — no account on the signing platform, no proprietary tooling, and no network access. In a Merkle-anchored design, an auditor additionally checks an inclusion proof, which is a short chain of hash computations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why use SHA-3 instead of SHA-256 for hashing evidence?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both SHA-2 and SHA-3 are considered quantum-resistant at adequate output lengths, because Grover's algorithm only halves effective preimage security. SHA-3 is chosen for defense in depth: it is built on the Keccak sponge construction, which is structurally unrelated to the Merkle-Damgard design of SHA-2, so a future cryptanalytic break of one family is unlikely to affect the other. It is also the most recently standardized NIST hash family and is immune to length-extension attacks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do larger Dilithium signatures cause performance problems?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not for compliance workloads. An ML-DSA-65 signature is about 3.3 KB versus 64 bytes for ECDSA P-256, which matters in constrained environments like IoT packets but is negligible attached to an audit artifact, an ML-BOM, or a report. Dilithium signing and verification are fast on commodity hardware, and Merkle batching keeps per-artifact overhead low because one anchored root can cover thousands of individually provable artifacts."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.securegrc.io/quantum-safe-compliance/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.securegrc.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Quantum-Safe Compliance",
+            "item": "https://www.securegrc.io/quantum-safe-compliance/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
+      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
+      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+    .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
+    .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
+    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+
+    .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .breadcrumbs a { color: var(--dim); }
+    .breadcrumbs a:hover { color: var(--accent); }
+
+    main { max-width: 800px; margin: 0 auto; padding: 20px 24px 64px; }
+    article header.page-hero { margin: 16px 0 36px; }
+    .kicker { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--quantum); margin-bottom: 10px; }
+    h1 { font-size: 34px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; margin-bottom: 14px; }
+    .subtitle { color: var(--muted); font-size: 17.5px; max-width: 640px; }
+    h2 { font-size: 24px; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: -.01em; }
+    h3 { font-size: 18.5px; margin: 28px 0 10px; }
+    p { margin: 0 0 16px; color: var(--text); }
+    p.lead { font-size: 17.5px; }
+    ul, ol { margin: 0 0 18px 22px; }
+    li { margin-bottom: 8px; }
+    strong { color: #fff; }
+
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
+    th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    td:first-child { color: var(--text); }
+    tr:hover td { background: rgba(26,35,50,.5); }
+    .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
+
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    pre code { background: none; border: none; padding: 0; }
+
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
+    .callout.quantum { border-left-color: var(--quantum); }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; background: var(--surface); }
+    .faq-item summary { padding: 16px 20px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .faq-item summary::after { content: '+'; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
+    .faq-item .faq-body p:last-child { margin-bottom: 0; }
+
+    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
+    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+    .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-bottom: 28px; }
+    .footer-grid h4 { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 12px; }
+    .footer-grid ul { list-style: none; margin: 0; }
+    .footer-grid li { margin-bottom: 8px; }
+    .footer-grid a { color: var(--muted); font-size: 13.5px; }
+    .footer-grid a:hover { color: var(--text); }
+    .footer-meta { border-top: 1px solid var(--border); padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 27px; }
+      h2 { font-size: 21px; }
+      .site-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="logo" aria-label="SecureGRC home">
+        <span class="logo-mark" aria-hidden="true">⬡</span>
+        <span>SecureGRC</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/what-is-ml-bom/">ML-BOM Guide</a>
+        <a href="/iso-42001-explained/">ISO 42001</a>
+        <a href="/quantum-safe-compliance/" class="active">Quantum-Safe</a>
+        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <span>Quantum-Safe Compliance</span>
+  </nav>
+
+  <main>
+    <article>
+      <header class="page-hero">
+        <p class="kicker">Pillar · Post-Quantum</p>
+        <h1>Quantum-Safe Compliance: Post-Quantum Audit Evidence</h1>
+        <p class="subtitle">Why compliance evidence signed with RSA or ECDSA has an expiry date, what NIST standardized in FIPS 204, and how Dilithium signatures plus Merkle anchoring produce audit trails that stay verifiable for decades.</p>
+      </header>
+
+      <p class="lead"><strong>Quantum-safe compliance</strong> is the practice of protecting compliance evidence — audit records, signed reports, logs, and <a href="/what-is-ml-bom/">ML-BOMs</a> — with post-quantum cryptography so it remains verifiable for its entire retention period, even after quantum computers break today's RSA and elliptic-curve signatures. The core problem is a timing mismatch: regulators expect evidence to stay trustworthy for 7–10+ years, while the classical signature algorithms protecting that evidence are precisely the ones a cryptographically relevant quantum computer is expected to defeat. Quantum-safe compliance closes the gap by signing evidence with NIST-standardized post-quantum algorithms such as <strong>ML-DSA (CRYSTALS-Dilithium, FIPS 204)</strong>, hashing it with SHA-3, and anchoring it in Merkle trees so any tampering is mathematically detectable.</p>
+
+      <p>This pillar guide explains the threat model (including harvest-now-decrypt-later), the August 2024 NIST post-quantum standards, how Dilithium signatures work at a practitioner level, why Merkle trees make audit trails tamper-evident at scale, and how to migrate with crypto-agility in mind.</p>
+
+      <h2>Why does compliance evidence have a quantum problem?</h2>
+      <p>Compliance evidence is unusual among digital assets in one specific way: its value depends on remaining <em>provably intact for a long time</em>. A gap assessment, an approval record, or a signed ML-BOM is not merely stored — it must be producible years later, with a credible answer to the question "how do we know this wasn't altered?" Retention obligations make the timescales concrete. Financial-controls regimes such as SOX require audit workpapers to be kept for roughly seven years. The EU AI Act, which entered into force in August 2024 with staged obligations, requires providers of high-risk AI systems to retain technical documentation for ten years after the system is placed on the market. ISO management-system certifications run on multi-year audit cycles, and litigation can reach back further still.</p>
+      <p>Now put that against the cryptography. Virtually all digital signatures in production today — RSA, ECDSA, Ed25519 — rest on two mathematical problems: integer factorization and the discrete logarithm. Shor's algorithm, running on a sufficiently large fault-tolerant quantum computer, solves both efficiently. When such a <strong>cryptographically relevant quantum computer (CRQC)</strong> exists, an attacker who obtains a public key can derive the corresponding private key and forge signatures at will. Every RSA and ECDSA signature — including ones created years earlier — stops being proof of anything, because a forger could have produced an identical signature after the fact.</p>
+      <p>That is the compliance-specific failure mode: not future data being stolen, but <strong>past evidence becoming repudiable</strong>. An audit trail signed with ECDSA does not degrade gracefully; on the day the algorithm falls, the entire historical record loses its integrity guarantee simultaneously, no matter how carefully it was stored.</p>
+
+      <h3>What is harvest now, decrypt later?</h3>
+      <p><strong>Harvest now, decrypt later (HNDL)</strong> is the attack strategy that makes the quantum threat a present-tense problem. Adversaries — typically well-resourced state actors — record encrypted traffic and archives today, knowing they cannot decrypt them yet, and simply wait. When a CRQC arrives, everything harvested becomes readable retroactively. Data with a long confidentiality lifetime (health records, trade secrets, intelligence) is already being collected under this model.</p>
+      <p>For evidence integrity, the analog is <strong>"harvest now, forge later."</strong> An adversary does not even need to harvest anything: public keys and signed documents are widely available by design. Once classical signatures can be forged, backdating fraudulent "evidence," rewriting inconvenient audit history, or disowning genuine records all become feasible — and impossible to disprove cryptographically. A useful way to reason about urgency is Mosca's inequality: if <code>X</code> (how long your evidence must stay secure) plus <code>Y</code> (how long your migration takes) exceeds <code>Z</code> (time until a CRQC), you are already late. With ten-year retention windows and multi-year enterprise migrations, many organizations fail that test today even under optimistic estimates of <code>Z</code>.</p>
+
+      <div class="callout quantum">
+        <p class="label">The core asymmetry</p>
+        <p>Confidentiality attacks require harvesting ciphertext in advance. Integrity attacks do not — signed evidence and public keys are already public. That is why long-lived audit evidence is one of the first workloads that should move to post-quantum signatures, not one of the last.</p>
+      </div>
+
+      <h2>What did NIST standardize in FIPS 203, 204, and 205?</h2>
+      <p>After an eight-year open competition that began in 2016, NIST published its first three finalized post-quantum cryptography standards on 13 August 2024. Each covers a different job:</p>
+
+      <table>
+        <thead>
+          <tr><th>Standard</th><th>Algorithm</th><th>Competition name</th><th>Mathematical basis</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>FIPS 203</td><td>ML-KEM</td><td>CRYSTALS-Kyber</td><td>Module lattices</td><td>Key encapsulation — establishing shared keys for encryption</td></tr>
+          <tr><td>FIPS 204</td><td>ML-DSA</td><td>CRYSTALS-Dilithium</td><td>Module lattices</td><td>Digital signatures — the primary general-purpose scheme</td></tr>
+          <tr><td>FIPS 205</td><td>SLH-DSA</td><td>SPHINCS+</td><td>Hash functions</td><td>Digital signatures — a conservative, stateless hash-based backup</td></tr>
+        </tbody>
+      </table>
+
+      <p>For signing compliance evidence, <strong>FIPS 204 / ML-DSA</strong> is the workhorse. NIST designated it the primary signature standard because it balances strong security with practical key sizes and fast signing and verification. SLH-DSA exists as a hedge: its security relies only on hash functions, an extremely well-understood assumption, at the cost of much larger signatures and slower signing. A further lattice signature, FN-DSA (Falcon), is planned as FIPS 206 but was not finalized in the August 2024 batch.</p>
+      <p>Standardization changed the compliance conversation. Before FIPS 204, "post-quantum" meant experimental parameter sets and shifting drafts; after it, ML-DSA is a stable, citable federal standard that auditors, tooling vendors, and regulators can reference. NIST has also published draft transition guidance signaling that classical public-key algorithms should be deprecated around 2030 and disallowed by 2035 — a timeline that overlaps the retention window of evidence being generated right now.</p>
+
+      <h2>How do CRYSTALS-Dilithium (ML-DSA) signatures work?</h2>
+      <p>Dilithium is a <strong>lattice-based</strong> signature scheme. Its security rests on two related problems over structured lattices — Module Learning With Errors (Module-LWE) and Module Short Integer Solution (Module-SIS) — which ask, roughly, whether you can recover a secret from noisy linear equations, or find unusually short vectors satisfying a linear relation. Decades of cryptanalysis, classical and quantum, have produced no efficient algorithm for these problems; crucially, Shor's algorithm does not apply to them at all.</p>
+      <p>At a practitioner level, the flow looks familiar. Key generation produces a public matrix-and-vector pair and a private set of short secret vectors. Signing uses the <strong>Fiat–Shamir with aborts</strong> paradigm: the signer commits to a random-looking value, derives a challenge by hashing it together with the message, and computes a response using the secret key — restarting ("aborting") internally whenever the response would leak statistical information about the secret. Verification recomputes the challenge from the message and signature and checks the algebraic relation using only the public key. Signing and verification both run in milliseconds on commodity hardware, with verification especially cheap — a useful property when auditors re-verify thousands of artifacts.</p>
+      <p>The practical trade-off is size. Lattice keys and signatures are kilobytes, not bytes:</p>
+
+      <table>
+        <thead>
+          <tr><th>Scheme</th><th>Basis</th><th>Public key</th><th>Signature</th><th>Survives a CRQC?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>ECDSA P-256</td><td>Elliptic-curve discrete log</td><td>64 B</td><td>~64 B</td><td class="no">No — broken by Shor's algorithm</td></tr>
+          <tr><td>Ed25519</td><td>Elliptic-curve discrete log</td><td>32 B</td><td>64 B</td><td class="no">No — broken by Shor's algorithm</td></tr>
+          <tr><td>RSA-2048</td><td>Integer factorization</td><td>~256 B</td><td>256 B</td><td class="no">No — broken by Shor's algorithm</td></tr>
+          <tr><td>ML-DSA-44 (Dilithium 2)</td><td>Module lattices</td><td>1,312 B</td><td>2,420 B</td><td class="yes">Yes — NIST security category 2</td></tr>
+          <tr><td>ML-DSA-65 (Dilithium 3)</td><td>Module lattices</td><td>1,952 B</td><td>3,309 B</td><td class="yes">Yes — NIST security category 3</td></tr>
+          <tr><td>ML-DSA-87 (Dilithium 5)</td><td>Module lattices</td><td>2,592 B</td><td>4,627 B</td><td class="yes">Yes — NIST security category 5</td></tr>
+        </tbody>
+      </table>
+
+      <p>A Dilithium signature is roughly fifty times larger than an ECDSA one. For constrained radio packets that can hurt; attached to an audit artifact or an ML-BOM measured in kilobytes or megabytes, it is noise. Compliance evidence is close to the ideal post-quantum workload: documents are comparatively large, signing happens at generation time rather than per-request, and verification speed matters more than signature bytes. SecureGRC signs every generated artifact with CRYSTALS-Dilithium as standardized in FIPS 204 for exactly this reason.</p>
+
+      <h2>How do Merkle trees make audit evidence tamper-evident?</h2>
+      <p>Signatures prove each artifact individually. A <strong>Merkle tree</strong> binds the whole evidence stream together so that history itself becomes tamper-evident. The construction is simple: hash each artifact (SecureGRC uses <strong>SHA-3</strong>) to form the leaves of a binary tree; hash each pair of siblings to form their parent; repeat until a single <strong>Merkle root</strong> remains. That one hash value now commits to every artifact beneath it — flip a single bit in any historical record and the root changes.</p>
+      <p>Two properties make this ideal for audit trails:</p>
+      <ul>
+        <li><strong>Batching with O(log n) proofs.</strong> Proving that a specific artifact is included under a given root requires only the sibling hashes along its path to the root — an <em>inclusion proof</em>. For 1,000,000 artifacts, that is about 20 hashes, a few hundred bytes. Verification cost grows logarithmically no matter how large the evidence store becomes, so one anchored root can efficiently cover an entire reporting period.</li>
+        <li><strong>Retroactive immutability.</strong> Because each root commits to everything before it, tampering with any past artifact invalidates the proofs of every artifact in the batch. There is no way to quietly rewrite one record; the inconsistency is mathematically visible to anyone holding the root.</li>
+      </ul>
+      <p>In SecureGRC's audit trail, every artifact — threat profiles, control mappings, gap analyses, ML-BOMs, compliance reports — is SHA-3 hashed, signed with Dilithium, and anchored into a Merkle tree. The signature answers "who produced this, and has this document changed?"; the tree answers "has the <em>history</em> changed?" Together they turn an evidence store into a structure where tampering is not just prohibited by policy but detectable by arithmetic.</p>
+
+      <h2>Why does verifying with only public keys matter to auditors?</h2>
+      <p>The property auditors care about most is <strong>independent verifiability</strong>: SecureGRC's evidence chain can be checked using public keys alone. An auditor, regulator, or customer verifying an artifact needs the artifact, its Dilithium signature, its Merkle inclusion proof, and the signer's public key — nothing else. No login to the platform, no API access, no trust in the vendor's database, no dependence on the vendor still existing when the evidence is examined.</p>
+      <p>This inverts the usual GRC trust model. Most compliance platforms are, structurally, a database that says "trust me": the record is whatever the system displays, and the platform operator could in principle alter it. Public-key-only verification removes the operator from the trust equation entirely. The practical consequences:</p>
+      <ul>
+        <li><strong>Auditor independence is preserved.</strong> Verification happens offline, with open FIPS 204 implementations, on the auditor's own machine. The evidence stands or falls on mathematics, not on the platform's word.</li>
+        <li><strong>Evidence is portable.</strong> Signed, anchored artifacts can be handed to a regulator or acquirer as self-contained proof, exactly as a signed ML-BOM can be shared without exposing the model behind it.</li>
+        <li><strong>Disputes become checkable.</strong> If two parties disagree about what a report said in 2026, the signature and inclusion proof settle it — either the artifact verifies against the anchored root or it does not.</li>
+      </ul>
+      <p>This composes naturally with SecureGRC's <a href="/blog/metadata-only-compliance/">metadata-only architecture</a>: model weights, training data, and proprietary IP never enter the platform, so what gets signed and anchored is extracted metadata — shareable by construction, provable by cryptography.</p>
+
+      <h2>How does quantum-safe signing compose with ML-BOMs and ISO 42001?</h2>
+      <p>Post-quantum signing is not a standalone feature; it is what upgrades compliance <em>documents</em> into compliance <em>evidence</em>. Two compositions matter most.</p>
+      <h3>Signed ML-BOMs</h3>
+      <p>A <a href="/what-is-ml-bom/">machine learning bill of materials</a> inventories a model's components, datasets, dependencies, and licenses in CycloneDX (ML-BOM support since v1.5) or SPDX form. Unsigned, it is a claim that could have been edited at any time. Signed with ML-DSA and Merkle-anchored, each ML-BOM version becomes a fixed point in history: an auditor can confirm both that the document is unaltered and that it existed in that exact form when anchored. Because models retrain frequently, the ML-BOM sequence itself becomes a verifiable changelog of the model estate.</p>
+      <h3>ISO/IEC 42001 evidence duties</h3>
+      <p><a href="/iso-42001-explained/">ISO/IEC 42001:2023</a>, the AI management system standard published in December 2023, follows the standard management-system pattern: define policies and controls, then retain documented information proving they operate. Its Annex A controls — covering themes such as AI system documentation, impact assessment, data provenance, and lifecycle management — all generate records that certification audits will examine. Quantum-safe signing gives every one of those records integrity protection scaled to the certification's multi-year lifetime. In SecureGRC, this happens at the end of the <a href="/glossary/tcce/">TCCE pipeline</a> — threat assessment, control mapping against the ISO/IEC 42001 control library, compliance evaluation, then evidence linking — so each conclusion ships already bound to its signed supporting evidence, with threat profiles mapped to <a href="/iso-42001-vs-mitre-atlas/">MITRE ATLAS</a> along the way.</p>
+
+      <h2>How should organizations migrate to post-quantum cryptography?</h2>
+      <p>Post-quantum migration is an industry-wide, multi-year effort, and compliance teams do not need to solve all of it. They need to sequence it correctly. A practical order of operations:</p>
+      <ol>
+        <li><strong>Inventory your cryptography.</strong> You cannot migrate what you have not mapped. Catalog where signatures, hashes, and key exchange protect long-lived records — audit logs, signed reports, document management, timestamping services.</li>
+        <li><strong>Classify by data lifetime, not system age.</strong> Mosca's inequality is the sorting function: assets whose required security lifetime plus migration time exceeds plausible CRQC timelines go first. Ten-year evidence beats thirty-day session tokens every time.</li>
+        <li><strong>Move long-lived evidence to FIPS 204 signing now.</strong> Evidence generated today with classical signatures will still be inside its retention window in the mid-2030s — the same horizon at which NIST's draft guidance disallows RSA and ECDSA. New evidence pipelines are the cheapest place to be quantum-safe, because there is no legacy verification chain to preserve.</li>
+        <li><strong>Design for crypto-agility.</strong> Algorithms should be replaceable configuration, not architecture. That means versioned signature metadata on every artifact, support for parallel or hybrid signatures during transition, and re-anchoring strategies so historical evidence can be re-committed under new algorithms if standards evolve. FIPS 204 is expected to serve for decades, but the lesson of the RSA-to-quantum arc is precisely that assumptions expire.</li>
+        <li><strong>Prefer tooling that is post-quantum by default.</strong> Retrofitting PQC onto a platform designed around classical PKI is a genuine engineering program. SecureGRC took the opposite path: as a purpose-built, early-stage platform opening early access in 2026, its audit trail is Dilithium-signed, SHA-3 hashed, and Merkle-anchored from the first artifact — a design contrast with broad incumbent GRC suites that our <a href="/vs/onetrust/">SecureGRC vs OneTrust comparison</a> explores.</li>
+      </ol>
+
+      <div class="callout">
+        <p class="label">Rule of thumb</p>
+        <p>If a record must still be trustworthy after 2035, it should not be protected only by RSA or ECDSA today. Compliance evidence with 7–10 year retention windows crosses that line as a category.</p>
+      </div>
+
+      <h2>Frequently asked questions</h2>
+      <p>Common questions on post-quantum audit evidence. Broader product questions are answered in the <a href="/faq/">SecureGRC FAQ</a>.</p>
+
+      <details class="faq-item">
+        <summary>What does harvest now, decrypt later mean?</summary>
+        <div class="faq-body"><p>Harvest now, decrypt later is an attack strategy in which an adversary records encrypted data today and stores it until a quantum computer capable of breaking the encryption exists, then decrypts everything retroactively. The signature analog matters just as much for compliance: evidence signed today with RSA or ECDSA remains verifiable only until those algorithms fall, after which historical signatures can be forged and the evidence loses its integrity guarantee inside its own retention window.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is ML-DSA the same as CRYSTALS-Dilithium?</summary>
+        <div class="faq-body"><p>Yes. ML-DSA (Module-Lattice-Based Digital Signature Algorithm) is the name NIST gave the standardized form of CRYSTALS-Dilithium when it published FIPS 204 in August 2024. The two names refer to the same lattice-based signature scheme; ML-DSA is the final specification with fixed parameter sets ML-DSA-44, ML-DSA-65, and ML-DSA-87, while Dilithium was the name used during the NIST post-quantum competition.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>When will a quantum computer actually break RSA and ECDSA?</summary>
+        <div class="faq-body"><p>No one knows the exact date, and credible estimates range from roughly a decade to considerably longer. The date is also the wrong question for compliance. Evidence retained for 7 to 10 years must remain trustworthy at the end of that window, so the relevant test is whether retention period plus migration time exceeds the time to a cryptographically relevant quantum computer. NIST's draft transition guidance already proposes deprecating classical public-key algorithms around 2030 and disallowing them by 2035, which puts long-retention evidence signed today inside the risk window.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can auditors verify post-quantum signatures without special infrastructure?</summary>
+        <div class="faq-body"><p>Yes. FIPS 204 is a public specification, and open-source ML-DSA implementations exist across major languages. Verifying a Dilithium signature requires only the signed artifact, the signature, and the signer's public key — no account on the signing platform, no proprietary tooling, and no network access. In a Merkle-anchored design, an auditor additionally checks an inclusion proof, which is a short chain of hash computations.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Why use SHA-3 instead of SHA-256 for hashing evidence?</summary>
+        <div class="faq-body"><p>Both SHA-2 and SHA-3 are considered quantum-resistant at adequate output lengths, because Grover's algorithm only halves effective preimage security. SHA-3 is chosen for defense in depth: it is built on the Keccak sponge construction, which is structurally unrelated to the Merkle-Damgard design of SHA-2, so a future cryptanalytic break of one family is unlikely to affect the other. It is also the most recently standardized NIST hash family and is immune to length-extension attacks.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do larger Dilithium signatures cause performance problems?</summary>
+        <div class="faq-body"><p>Not for compliance workloads. An ML-DSA-65 signature is about 3.3 KB versus 64 bytes for ECDSA P-256, which matters in constrained environments like IoT packets but is negligible attached to an audit artifact, an ML-BOM, or a report. Dilithium signing and verification are fast on commodity hardware, and Merkle batching keeps per-artifact overhead low because one anchored root can cover thousands of individually provable artifacts.</p></div>
+      </details>
+
+      <aside class="cta">
+        <h2>Quantum-safe from the first artifact</h2>
+        <p>SecureGRC signs every compliance artifact with CRYSTALS-Dilithium (FIPS 204), hashes it with SHA-3, and anchors it in a Merkle tree — verifiable by anyone with a public key.</p>
+        <a class="btn" href="/">Explore the platform</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="footer-grid">
+        <div>
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="/what-is-ml-bom/">What is an ML-BOM?</a></li>
+            <li><a href="/iso-42001-explained/">ISO/IEC 42001 explained</a></li>
+            <li><a href="/iso-42001-vs-mitre-atlas/">ISO 42001 ↔ MITRE ATLAS crosswalk</a></li>
+            <li><a href="/quantum-safe-compliance/">Quantum-safe compliance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <ul>
+            <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
+            <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
+            <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/glossary/tcce/">TCCE framework</a></li>
+            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>© 2026 SecureGRC · securegrc.io</span>
+        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

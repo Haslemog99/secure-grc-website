@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TCCE Framework: Threat, Control, Compliance, Evidence</title>
+  <meta name="description" content="TCCE definition: a sequential AI compliance pipeline — threat assessment, control mapping, compliance evaluation, evidence linking — each stage auditable." />
+  <link rel="canonical" href="https://www.securegrc.io/glossary/tcce/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+  <!-- Cookiebot consent management -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
+<!-- Vercel Web Analytics -->
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="SecureGRC" />
+  <meta property="og:title" content="TCCE Framework: Threat, Control, Compliance, Evidence" />
+  <meta property="og:description" content="TCCE definition: a sequential AI compliance pipeline — threat assessment, control mapping, compliance evaluation, evidence linking — each stage auditable." />
+  <meta property="og:url" content="https://www.securegrc.io/glossary/tcce/" />
+  <meta property="og:image" content="https://www.securegrc.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TCCE Framework: Threat, Control, Compliance, Evidence" />
+  <meta name="twitter:description" content="TCCE definition: a sequential AI compliance pipeline — threat assessment, control mapping, compliance evaluation, evidence linking — each stage auditable." />
+  <meta name="twitter:image" content="https://www.securegrc.io/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://www.securegrc.io/glossary/tcce/#article",
+        "headline": "TCCE Framework: Threat, Control, Compliance, Evidence",
+        "description": "TCCE definition: a sequential AI compliance pipeline — threat assessment, control mapping, compliance evaluation, evidence linking — each stage auditable.",
+        "url": "https://www.securegrc.io/glossary/tcce/",
+        "mainEntityOfPage": "https://www.securegrc.io/glossary/tcce/",
+        "datePublished": "2026-07-17",
+        "dateModified": "2026-07-17",
+        "about": { "@id": "https://www.securegrc.io/glossary/tcce/#term" },
+        "author": {
+          "@type": "Organization",
+          "name": "SecureGRC",
+          "url": "https://www.securegrc.io"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SecureGRC",
+          "url": "https://www.securegrc.io"
+        }
+      },
+      {
+        "@type": "DefinedTerm",
+        "@id": "https://www.securegrc.io/glossary/tcce/#term",
+        "name": "TCCE",
+        "alternateName": "Threat, Control, Compliance, Evidence",
+        "description": "TCCE (Threat, Control, Compliance, Evidence) is a sequential AI compliance pipeline: threat assessment produces a MITRE ATLAS-mapped threat profile from model metadata, control mapping selects ISO/IEC 42001 controls that answer those threats, compliance evaluation performs gap analysis and posture scoring against the mapped controls, and evidence linking binds every conclusion to cryptographically signed, Merkle-anchored artifacts. Each stage is independently testable and auditable.",
+        "url": "https://www.securegrc.io/glossary/tcce/",
+        "inDefinedTermSet": {
+          "@type": "DefinedTermSet",
+          "name": "SecureGRC Glossary"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.securegrc.io/glossary/tcce/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does TCCE stand for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "TCCE stands for Threat, Control, Compliance, Evidence — the four sequential stages of an AI compliance pipeline: threat assessment, control mapping, compliance evaluation, and evidence linking. The term names both the methodology and the TCCE Engine that implements it inside SecureGRC, where each stage consumes the previous stage's output and produces an auditable artifact of its own."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is TCCE an official industry standard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. TCCE is a named pipeline architecture introduced by SecureGRC, not a standard published by ISO, NIST, or MITRE. It is better understood as an opinionated way of composing existing standards: threat profiles are mapped to MITRE ATLAS, controls are drawn from an ISO/IEC 42001 control library, and evidence is signed using FIPS 204 (ML-DSA / CRYSTALS-Dilithium). The framework's value is the enforced ordering and traceability, not a new compliance vocabulary."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does the order of the TCCE stages matter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Because each stage grounds the next. Threat assessment establishes what could actually go wrong, so control mapping selects controls that answer real threats rather than generic checklists. Compliance evaluation then measures those mapped controls, so a posture score reflects defensible coverage. Evidence linking finally binds every claim to a signed artifact. Run out of order — controls before threats, or claims without evidence — and you produce orphan paperwork: documentation that cannot explain why it exists or prove what it asserts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What data does the TCCE pipeline need as input?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only extracted metadata. SecureGRC's metadata-only architecture means model weights, training data, and proprietary IP never enter the platform. The threat assessment stage starts from descriptive metadata — model type, architecture family, dataset lineage, dependencies, deployment context — and every downstream stage operates on that metadata and on artifacts the pipeline itself generates, such as threat profiles, control mappings, gap analyses, and ML-BOMs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can each TCCE stage be audited independently?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, by design. Each stage has a defined input contract, a defined output artifact, and its own signed record in the audit trail, so an auditor can test threat assessment, control mapping, compliance evaluation, or evidence linking in isolation — replaying a stage's inputs and comparing outputs — without re-running the whole pipeline. Failures localize to one stage instead of invalidating the entire compliance run."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is TCCE different from a normal GRC workflow?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Generic GRC workflows are typically control-first and document-oriented: they start from a control checklist, gather narrative evidence like screenshots and spreadsheets, and keep weak links between risk registers, controls, and evidence. TCCE is threat-first and artifact-oriented: it starts from a MITRE ATLAS-mapped threat profile, derives controls from threats, scores compliance against those controls, and requires every claim to terminate in a cryptographically signed, Merkle-anchored artifact."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.securegrc.io/glossary/tcce/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.securegrc.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Glossary",
+            "item": "https://www.securegrc.io/glossary/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "TCCE",
+            "item": "https://www.securegrc.io/glossary/tcce/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
+      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
+      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+    .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
+    .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
+    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+
+    .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .breadcrumbs a { color: var(--dim); }
+    .breadcrumbs a:hover { color: var(--accent); }
+
+    main { max-width: 800px; margin: 0 auto; padding: 20px 24px 64px; }
+    article header.page-hero { margin: 16px 0 36px; }
+    .kicker { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--quantum); margin-bottom: 10px; }
+    h1 { font-size: 34px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; margin-bottom: 14px; }
+    .subtitle { color: var(--muted); font-size: 17.5px; max-width: 640px; }
+    h2 { font-size: 24px; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: -.01em; }
+    h3 { font-size: 18.5px; margin: 28px 0 10px; }
+    p { margin: 0 0 16px; color: var(--text); }
+    p.lead { font-size: 17.5px; }
+    ul, ol { margin: 0 0 18px 22px; }
+    li { margin-bottom: 8px; }
+    strong { color: #fff; }
+
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
+    th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    td:first-child { color: var(--text); }
+    tr:hover td { background: rgba(26,35,50,.5); }
+    .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
+
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    pre code { background: none; border: none; padding: 0; }
+
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
+    .callout.quantum { border-left-color: var(--quantum); }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; background: var(--surface); }
+    .faq-item summary { padding: 16px 20px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .faq-item summary::after { content: '+'; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
+    .faq-item .faq-body p:last-child { margin-bottom: 0; }
+
+    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
+    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+    .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-bottom: 28px; }
+    .footer-grid h4 { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 12px; }
+    .footer-grid ul { list-style: none; margin: 0; }
+    .footer-grid li { margin-bottom: 8px; }
+    .footer-grid a { color: var(--muted); font-size: 13.5px; }
+    .footer-grid a:hover { color: var(--text); }
+    .footer-meta { border-top: 1px solid var(--border); padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 27px; }
+      h2 { font-size: 21px; }
+      .site-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="logo" aria-label="SecureGRC home">
+        <span class="logo-mark" aria-hidden="true">⬡</span>
+        <span>SecureGRC</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/what-is-ml-bom/">ML-BOM Guide</a>
+        <a href="/iso-42001-explained/">ISO 42001</a>
+        <a href="/quantum-safe-compliance/">Quantum-Safe</a>
+        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> / Glossary / <span>TCCE</span>
+  </nav>
+
+  <main>
+    <article>
+      <header class="page-hero">
+        <p class="kicker">Glossary · Framework</p>
+        <h1>TCCE Framework: Threat, Control, Compliance, Evidence</h1>
+        <p class="subtitle">The definition of TCCE — a four-stage sequential AI compliance pipeline where threats ground controls, controls ground compliance claims, and every claim terminates in cryptographically signed evidence.</p>
+      </header>
+
+      <p class="lead"><strong>TCCE</strong> (Threat, Control, Compliance, Evidence) is a <strong>sequential AI compliance pipeline</strong> that processes an AI system in four ordered stages: <strong>threat assessment → control mapping → compliance evaluation → evidence linking</strong>. Each stage consumes the previous stage's output and produces an auditable artifact of its own: threat assessment turns model metadata into a MITRE ATLAS-mapped threat profile, control mapping selects ISO/IEC 42001 controls that answer those threats, compliance evaluation runs gap analysis and posture scoring against the mapped controls, and evidence linking binds every conclusion to artifacts signed with CRYSTALS-Dilithium and anchored in a Merkle tree.</p>
+
+      <p>The term names both the methodology and its implementation, the <strong>TCCE Engine</strong> — the core pipeline inside SecureGRC, an early-stage, purpose-built quantum-safe AI compliance platform. TCCE is not an ISO or NIST standard; it is a pipeline architecture that composes existing standards (MITRE ATLAS, ISO/IEC 42001, FIPS 204) into a single traceable chain. This page defines the framework, explains why the stage ordering is load-bearing, walks through each stage's inputs and outputs, and compares TCCE against generic GRC workflows.</p>
+
+      <h2>What is the TCCE framework?</h2>
+      <p>TCCE is best understood as a <strong>data pipeline for compliance</strong> rather than a document workflow. A traditional compliance exercise produces documents — risk registers, control matrices, audit reports — whose relationships live in people's heads or in spreadsheet cross-references. TCCE instead treats compliance as a typed, ordered transformation: metadata goes in one end, and a signed, verifiable compliance posture comes out the other, with every intermediate artifact preserved and linked.</p>
+
+      <pre aria-label="TCCE pipeline diagram">
+ model metadata in                                        signed evidence out
+       │                                                            │
+       ▼                                                            ▼
+ ┌──────────┐      ┌──────────┐      ┌────────────┐      ┌──────────┐
+ │  THREAT  │ ───▶ │ CONTROL  │ ───▶ │ COMPLIANCE │ ───▶ │ EVIDENCE │
+ │  assess  │      │   map    │      │  evaluate  │      │   link   │
+ └──────────┘      └──────────┘      └────────────┘      └──────────┘
+  MITRE ATLAS       ISO 42001         gap analysis        Dilithium-signed,
+  threat profile    control set       + posture score     Merkle-anchored</pre>
+
+      <p>Three design decisions define the framework:</p>
+      <ul>
+        <li><strong>Strict sequence.</strong> Stages run in a fixed order — Threat, then Control, then Compliance, then Evidence — because each stage's output is the next stage's justification. Nothing downstream can exist without an upstream reason.</li>
+        <li><strong>Metadata-only inputs.</strong> The pipeline operates exclusively on extracted metadata. Model weights, training data, and proprietary IP never enter the system — the property explained in depth in <a href="/blog/metadata-only-compliance/">the metadata-only compliance model</a>. This is what makes TCCE outputs shareable with auditors and regulators by construction.</li>
+        <li><strong>Independently testable stages.</strong> Each stage has a defined input contract and a defined output artifact, so it can be tested, replayed, and audited in isolation — the same way well-factored software pipelines are validated stage by stage.</li>
+      </ul>
+
+      <h2>Why does the order of the TCCE stages matter?</h2>
+      <p>The sequence is the framework. Reversing or skipping stages produces the classic failure modes of AI governance, so it is worth being precise about what each ordering constraint prevents.</p>
+      <p><strong>Threats ground controls.</strong> If control selection comes first — as it does in checklist-driven programs — you get controls chosen because a template listed them, not because they answer a threat the system actually faces. A retrieval-augmented chatbot and a credit-scoring model face very different adversarial surfaces; starting from an enumerated, MITRE ATLAS-mapped threat profile means the control set differs accordingly, and every selected control can point at the threat that justified it.</p>
+      <p><strong>Controls ground compliance claims.</strong> A compliance score is only meaningful relative to a defined control set. Because TCCE evaluates posture against the controls mapped in stage two, a statement like "82% posture against the applicable ISO/IEC 42001 control set" is a claim about specific, threat-justified controls — not an impressionistic maturity rating.</p>
+      <p><strong>Claims need evidence.</strong> The final constraint is the sharpest: no compliance claim leaves the pipeline without a link to a signed artifact that supports it. TCCE's design goal is the elimination of <strong>orphan paperwork</strong> — documentation that exists but cannot be traced to a reason, and claims that are asserted but cannot be proven. In a completed TCCE run, an auditor can pick any statement in the posture report and walk backwards: claim → evaluated control → mapped threat → source metadata, with each hop cryptographically verifiable.</p>
+
+      <div class="callout quantum">
+        <p class="label">The traceability invariant</p>
+        <p>Every artifact in a TCCE run has an upstream justification and a downstream consumer. No control without a threat, no compliance claim without a control, no claim without signed evidence. Break the order and you break the chain.</p>
+      </div>
+
+      <h2>What happens in the threat assessment stage?</h2>
+      <p>Threat assessment is the entry point of the pipeline. It starts from <strong>extracted model metadata</strong> — model type and architecture family, dataset lineage, framework and library dependencies, deployment context, and interfaces — and never from the model itself. From that metadata, the stage enumerates the adversarial techniques relevant to the system and maps them to <strong>MITRE ATLAS</strong>, the adversarial-threat knowledge base for AI systems, producing a structured threat profile.</p>
+
+      <table>
+        <thead>
+          <tr><th>Stage 1: Threat</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Inputs</td><td>Extracted model metadata: architecture, dataset lineage, dependencies, deployment context. Never weights or training data.</td></tr>
+          <tr><td>Outputs</td><td>A MITRE ATLAS-mapped threat profile: applicable adversarial techniques, relevance rationale per technique, and the metadata facts that triggered each mapping.</td></tr>
+          <tr><td>Consumed by</td><td>Stage 2 (control mapping), which selects controls that answer the profiled threats.</td></tr>
+        </tbody>
+      </table>
+
+      <p>Mapping to ATLAS rather than an ad-hoc risk list matters for two reasons. First, ATLAS gives threats a shared, citable vocabulary — an auditor can look up a technique and see the documented attack pattern behind it. Second, it makes the crosswalk to governance frameworks tractable: how an operational threat catalog like ATLAS relates to a management-system standard like ISO/IEC 42001 is exactly the mapping problem examined in <a href="/iso-42001-vs-mitre-atlas/">ISO 42001 vs MITRE ATLAS</a>, and TCCE's first two stages are that crosswalk operationalized as a pipeline.</p>
+
+      <h2>What happens in the control mapping stage?</h2>
+      <p>Control mapping consumes the threat profile and answers one question per threat: <em>which controls, if operating, would mitigate this?</em> The stage draws from SecureGRC's <strong>ISO/IEC 42001 control library</strong> — the Annex A controls of the AI management system standard published in December 2023, covering themes such as AI system documentation, impact assessment, data provenance and quality, and lifecycle management. (For the standard itself, see <a href="/iso-42001-explained/">ISO/IEC 42001 explained</a>.)</p>
+
+      <table>
+        <thead>
+          <tr><th>Stage 2: Control</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Inputs</td><td>The stage-one threat profile, plus organizational scope: which systems, teams, and lifecycle phases are in play.</td></tr>
+          <tr><td>Outputs</td><td>A threat-to-control mapping: the applicable ISO/IEC 42001 control set, with each selected control linked to the specific threats it addresses.</td></tr>
+          <tr><td>Consumed by</td><td>Stage 3 (compliance evaluation), which scores actual posture against this mapped set.</td></tr>
+        </tbody>
+      </table>
+
+      <p>The output is deliberately a <em>mapping</em>, not a list. A bare control list says "we selected these"; a mapping says "we selected these <em>because of those</em>." That distinction is what lets the later posture report defend its own scope: controls that were excluded were excluded because no profiled threat required them, and that reasoning is recorded rather than implied.</p>
+
+      <h2>What happens in the compliance evaluation stage?</h2>
+      <p>Compliance evaluation is where the pipeline turns a control set into a measured position. For each mapped control, the stage assesses implementation status, then aggregates the results into two artifacts: a <strong>gap analysis</strong> — the delta between required and actual, stated per control — and a <strong>compliance posture report</strong> that scores coverage across the applicable control set.</p>
+
+      <table>
+        <thead>
+          <tr><th>Stage 3: Compliance</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Inputs</td><td>The stage-two control mapping, plus the current implementation state recorded for each control.</td></tr>
+          <tr><td>Outputs</td><td>Gap analysis (per-control deltas with remediation direction) and a compliance posture score across the applicable ISO/IEC 42001 control set.</td></tr>
+          <tr><td>Consumed by</td><td>Stage 4 (evidence linking), which binds every evaluated claim to signed supporting artifacts.</td></tr>
+        </tbody>
+      </table>
+
+      <p>Because the evaluation runs against threat-justified controls, its outputs inherit the traceability of the earlier stages. A gap is never just "control X is missing"; it is "control X, mapped from threats Y and Z, is not yet operating" — which is also why TCCE gap analyses double as prioritization inputs: gaps that trace to more or nastier threats surface first. Posture scoring gives governance teams and the SecureGRC dashboard a longitudinal signal: re-running the pipeline after remediation shows the score moving for reasons the chain can explain.</p>
+
+      <h2>What happens in the evidence linking stage?</h2>
+      <p>Evidence linking is the stage that turns conclusions into proof. Every artifact the pipeline produced — the threat profile, the control mapping, the gap analysis, the posture report, and generated <a href="/what-is-ml-bom/">ML-BOMs</a> aligned with CycloneDX (which has supported ML-BOMs since v1.5) and SPDX — is hashed with <strong>SHA-3</strong>, signed with <strong>CRYSTALS-Dilithium</strong> (ML-DSA, NIST FIPS 204, finalized August 2024), and anchored into a <strong>Merkle tree</strong>. Each compliance claim is then linked to the signed artifacts that support it, forming a verified audit trail.</p>
+
+      <table>
+        <thead>
+          <tr><th>Stage 4: Evidence</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Inputs</td><td>All upstream artifacts: threat profile, control mapping, gap analysis, posture report, ML-BOMs.</td></tr>
+          <tr><td>Outputs</td><td>A cryptographically verified audit trail: SHA-3 hashes, Dilithium (FIPS 204) signatures, and Merkle inclusion proofs binding each claim to its evidence.</td></tr>
+          <tr><td>Verified by</td><td>Anyone holding the public keys — auditors, regulators, customers — with no access to SecureGRC required.</td></tr>
+        </tbody>
+      </table>
+
+      <p>Two properties of this stage deserve emphasis. First, verification requires <strong>only public keys</strong>: an auditor checks a Dilithium signature and a Merkle inclusion proof offline, against a public FIPS specification, without trusting or even contacting the platform. Second, the signatures are post-quantum: because compliance evidence must stay trustworthy for retention windows of many years, signing it with algorithms a future quantum computer could break would give it an expiry date. The full rationale — including why lattice signatures and SHA-3 were chosen — is covered in <a href="/quantum-safe-compliance/">quantum-safe compliance</a>.</p>
+
+      <h2>Why does it matter that each TCCE stage is independently testable?</h2>
+      <p>Monolithic compliance processes fail monolithically. When threat analysis, control selection, scoring, and evidence gathering happen as one undifferentiated exercise, an error found anywhere casts doubt everywhere — and the only remedy is redoing the whole assessment. TCCE's stage boundaries exist to prevent exactly that, and they pay off in four specific ways:</p>
+      <ul>
+        <li><strong>Failures localize.</strong> If a threat mapping is wrong, the defect is in stage one; the control library, scoring logic, and signing machinery are unaffected and demonstrably so, because each stage's artifacts are separately signed and separately checkable.</li>
+        <li><strong>Stages are replayable.</strong> A defined input contract means an auditor — or SecureGRC's own test suite — can feed a stage known inputs and compare outputs against expectations, the way unit tests validate one function rather than an entire program. Each stage of the TCCE Engine is tested this way in isolation.</li>
+        <li><strong>Audits can be scoped.</strong> An auditor interested only in whether control selection follows from the threat profile can examine stage two alone: its input (the signed threat profile), its output (the signed mapping), and the linkage between them. No need to re-litigate the whole run.</li>
+        <li><strong>Partial re-runs stay cheap.</strong> When a model's metadata changes — a new dataset, a new dependency — the pipeline re-executes from the affected stage forward, and the audit trail records precisely which artifacts changed and why. Compliance keeps pace with retraining instead of restarting from zero.</li>
+      </ul>
+      <p>This is an architectural claim, not a marketing one: the same reasoning that makes staged, contract-driven software pipelines more reliable than monoliths applies to compliance pipelines, and TCCE is simply that reasoning applied to governance.</p>
+
+      <h2>How does TCCE compare to a generic GRC workflow?</h2>
+      <p>Generic GRC platforms grew up around IT and financial controls, and their workflows reflect it: control checklists first, narrative evidence later, AI handled as one more questionnaire. The differences from TCCE are structural rather than cosmetic:</p>
+
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>Generic GRC workflow</th><th>TCCE pipeline</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Starting point</td><td>Control checklist or framework template</td><td class="yes">Threat assessment from model metadata, mapped to MITRE ATLAS</td></tr>
+          <tr><td>Ordering</td><td>Loosely ordered; stages blur and run ad hoc</td><td class="yes">Strict sequence: Threat → Control → Compliance → Evidence</td></tr>
+          <tr><td>Control selection rationale</td><td>Implied by the chosen framework template</td><td class="yes">Explicit: every control links to the threats that justified it</td></tr>
+          <tr><td>Evidence form</td><td>Screenshots, spreadsheets, attached documents</td><td class="yes">SHA-3-hashed, Dilithium-signed, Merkle-anchored artifacts</td></tr>
+          <tr><td>Evidence verification</td><td>Trust the platform's database and access logs</td><td class="yes">Independent, offline, public-key-only verification</td></tr>
+          <tr><td>Traceability</td><td>Cross-references maintained manually; orphan paperwork is common</td><td class="yes">Claim → control → threat → metadata, machine-checkable end to end</td></tr>
+          <tr><td>Auditability</td><td>Whole-program review; errors cast doubt broadly</td><td class="yes">Per-stage testing and replay; failures localize</td></tr>
+          <tr><td>AI specificity</td><td>AI treated as an IT asset with a questionnaire</td><td class="yes">Purpose-built around model metadata, ML-BOMs, and ISO/IEC 42001</td></tr>
+          <tr><td>Data exposure</td><td>Evidence uploads may include sensitive material</td><td class="yes">Metadata-only: weights, training data, and IP never enter the platform</td></tr>
+        </tbody>
+      </table>
+
+      <p>The honest trade-off runs the other way, too: incumbent suites cover breadth — privacy, third-party risk, ESG, dozens of frameworks — that a purpose-built AI compliance pipeline does not attempt. TCCE optimizes for depth and verifiability on one problem: AI systems, under AI-specific threats and AI-specific regulation such as the EU AI Act (in force since August 2024, with staged obligations). How that focus compares with a broad incumbent platform is examined in <a href="/vs/onetrust/">SecureGRC vs OneTrust</a>.</p>
+
+      <h2>Frequently asked questions</h2>
+      <p>Definitions and boundaries of the TCCE framework. Broader product questions are covered in the <a href="/faq/">SecureGRC FAQ</a>.</p>
+
+      <details class="faq-item">
+        <summary>What does TCCE stand for?</summary>
+        <div class="faq-body"><p>TCCE stands for Threat, Control, Compliance, Evidence — the four sequential stages of an AI compliance pipeline: threat assessment, control mapping, compliance evaluation, and evidence linking. The term names both the methodology and the TCCE Engine that implements it inside SecureGRC, where each stage consumes the previous stage's output and produces an auditable artifact of its own.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is TCCE an official industry standard?</summary>
+        <div class="faq-body"><p>No. TCCE is a named pipeline architecture introduced by SecureGRC, not a standard published by ISO, NIST, or MITRE. It is better understood as an opinionated way of composing existing standards: threat profiles are mapped to MITRE ATLAS, controls are drawn from an ISO/IEC 42001 control library, and evidence is signed using FIPS 204 (ML-DSA / CRYSTALS-Dilithium). The framework's value is the enforced ordering and traceability, not a new compliance vocabulary.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Why does the order of the TCCE stages matter?</summary>
+        <div class="faq-body"><p>Because each stage grounds the next. Threat assessment establishes what could actually go wrong, so control mapping selects controls that answer real threats rather than generic checklists. Compliance evaluation then measures those mapped controls, so a posture score reflects defensible coverage. Evidence linking finally binds every claim to a signed artifact. Run out of order — controls before threats, or claims without evidence — and you produce orphan paperwork: documentation that cannot explain why it exists or prove what it asserts.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What data does the TCCE pipeline need as input?</summary>
+        <div class="faq-body"><p>Only extracted metadata. SecureGRC's metadata-only architecture means model weights, training data, and proprietary IP never enter the platform. The threat assessment stage starts from descriptive metadata — model type, architecture family, dataset lineage, dependencies, deployment context — and every downstream stage operates on that metadata and on artifacts the pipeline itself generates, such as threat profiles, control mappings, gap analyses, and ML-BOMs.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can each TCCE stage be audited independently?</summary>
+        <div class="faq-body"><p>Yes, by design. Each stage has a defined input contract, a defined output artifact, and its own signed record in the audit trail, so an auditor can test threat assessment, control mapping, compliance evaluation, or evidence linking in isolation — replaying a stage's inputs and comparing outputs — without re-running the whole pipeline. Failures localize to one stage instead of invalidating the entire compliance run.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How is TCCE different from a normal GRC workflow?</summary>
+        <div class="faq-body"><p>Generic GRC workflows are typically control-first and document-oriented: they start from a control checklist, gather narrative evidence like screenshots and spreadsheets, and keep weak links between risk registers, controls, and evidence. TCCE is threat-first and artifact-oriented: it starts from a MITRE ATLAS-mapped threat profile, derives controls from threats, scores compliance against those controls, and requires every claim to terminate in a cryptographically signed, Merkle-anchored artifact.</p></div>
+      </details>
+
+      <aside class="cta">
+        <h2>See the TCCE Engine run</h2>
+        <p>SecureGRC's TCCE Engine takes model metadata from threat profile to Dilithium-signed evidence — every stage auditable, every claim provable. Early access opens in 2026.</p>
+        <a class="btn" href="/">Explore the platform</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="footer-grid">
+        <div>
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="/what-is-ml-bom/">What is an ML-BOM?</a></li>
+            <li><a href="/iso-42001-explained/">ISO/IEC 42001 explained</a></li>
+            <li><a href="/iso-42001-vs-mitre-atlas/">ISO 42001 ↔ MITRE ATLAS crosswalk</a></li>
+            <li><a href="/quantum-safe-compliance/">Quantum-safe compliance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <ul>
+            <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
+            <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
+            <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/glossary/tcce/">TCCE framework</a></li>
+            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>© 2026 SecureGRC · securegrc.io</span>
+        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

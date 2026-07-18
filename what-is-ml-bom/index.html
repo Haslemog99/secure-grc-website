@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ML-BOM Explained: Machine Learning Bill of Materials</title>
+  <meta name="description" content="What an ML-BOM (machine learning bill of materials) is, what it contains, CycloneDX vs SPDX formats, how it differs from an SBOM, and how to generate one." />
+  <link rel="canonical" href="https://www.securegrc.io/what-is-ml-bom/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+  <!-- Cookiebot consent management -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
+<!-- Vercel Web Analytics -->
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="SecureGRC" />
+  <meta property="og:title" content="ML-BOM Explained: Machine Learning Bill of Materials" />
+  <meta property="og:description" content="What an ML-BOM (machine learning bill of materials) is, what it contains, CycloneDX vs SPDX formats, how it differs from an SBOM, and how to generate one." />
+  <meta property="og:url" content="https://www.securegrc.io/what-is-ml-bom/" />
+  <meta property="og:image" content="https://www.securegrc.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ML-BOM Explained: Machine Learning Bill of Materials" />
+  <meta name="twitter:description" content="What an ML-BOM (machine learning bill of materials) is, what it contains, CycloneDX vs SPDX formats, how it differs from an SBOM, and how to generate one." />
+  <meta name="twitter:image" content="https://www.securegrc.io/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": "https://www.securegrc.io/what-is-ml-bom/#article",
+        "headline": "What Is an ML-BOM? Machine Learning Bill of Materials Explained",
+        "description": "What an ML-BOM (machine learning bill of materials) is, what it contains, CycloneDX vs SPDX formats, how it differs from an SBOM, and how to generate one.",
+        "url": "https://www.securegrc.io/what-is-ml-bom/",
+        "mainEntityOfPage": "https://www.securegrc.io/what-is-ml-bom/",
+        "datePublished": "2026-07-17",
+        "dateModified": "2026-07-17",
+        "author": {
+          "@type": "Organization",
+          "name": "SecureGRC",
+          "url": "https://www.securegrc.io"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SecureGRC",
+          "url": "https://www.securegrc.io"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.securegrc.io/what-is-ml-bom/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is an ML-BOM the same as an AI-BOM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The terms are used interchangeably in practice. AI-BOM is sometimes used as the broader umbrella covering any AI system, while ML-BOM refers specifically to machine learning models and their training pipelines. Both describe the same idea: a structured inventory of an AI system's components, data lineage, dependencies, and licenses. CycloneDX and SPDX, the two main standards, support both usages."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the EU AI Act require an ML-BOM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not by name. The EU AI Act, which entered into force in August 2024 with staged obligations, requires providers of high-risk AI systems to maintain detailed technical documentation covering the system's development, training data, and performance. An ML-BOM is one of the most practical ways to produce and maintain that documentation in a machine-readable, verifiable form, but the regulation does not mandate a specific format."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I generate an ML-BOM without sharing my model weights?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. An ML-BOM describes a model's components and lineage — it does not include weights, training data, or source code. Metadata-only platforms such as SecureGRC generate ML-BOMs entirely from extracted metadata, so proprietary IP never leaves your environment. The resulting document contains identifiers, hashes, license references, and evaluation summaries rather than the assets themselves."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I use CycloneDX or SPDX for my ML-BOM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CycloneDX has supported ML-BOMs since version 1.5 through its machine-learning-model component type and embedded model card object, and is generally the more mature option for security-focused workflows. SPDX 3.0 added an AI profile and remains strongest for license compliance. Many organizations emit both from the same metadata, since the formats are complementary rather than competing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How often should an ML-BOM be updated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Every time the model changes: retraining, fine-tuning, a new dataset version, a dependency upgrade, or a change in deployment configuration. Because models change more often than traditional software, automated generation from pipeline metadata is the only approach that keeps an ML-BOM accurate over time. Each version should be signed and timestamped so auditors can reconstruct the model's history."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between an ML-BOM and a model card?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A model card is a human-readable summary of a model's intended use, performance, and limitations, written for people. An ML-BOM is a machine-readable inventory built for tooling, automation, and audit. They overlap — CycloneDX embeds a modelCard object inside its ML-BOM format — but an ML-BOM adds dependency graphs, license data, hashes, and signatures that a standalone model card does not carry."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.securegrc.io/what-is-ml-bom/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.securegrc.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "What Is an ML-BOM?",
+            "item": "https://www.securegrc.io/what-is-ml-bom/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
+      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
+      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+    .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
+    .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
+    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+
+    .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .breadcrumbs a { color: var(--dim); }
+    .breadcrumbs a:hover { color: var(--accent); }
+
+    main { max-width: 800px; margin: 0 auto; padding: 20px 24px 64px; }
+    article header.page-hero { margin: 16px 0 36px; }
+    .kicker { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--quantum); margin-bottom: 10px; }
+    h1 { font-size: 34px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; margin-bottom: 14px; }
+    .subtitle { color: var(--muted); font-size: 17.5px; max-width: 640px; }
+    h2 { font-size: 24px; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: -.01em; }
+    h3 { font-size: 18.5px; margin: 28px 0 10px; }
+    p { margin: 0 0 16px; color: var(--text); }
+    p.lead { font-size: 17.5px; }
+    ul, ol { margin: 0 0 18px 22px; }
+    li { margin-bottom: 8px; }
+    strong { color: #fff; }
+
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
+    th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    td:first-child { color: var(--text); }
+    tr:hover td { background: rgba(26,35,50,.5); }
+    .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
+
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    pre code { background: none; border: none; padding: 0; }
+
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
+    .callout.quantum { border-left-color: var(--quantum); }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; background: var(--surface); }
+    .faq-item summary { padding: 16px 20px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .faq-item summary::after { content: '+'; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
+    .faq-item .faq-body p:last-child { margin-bottom: 0; }
+
+    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
+    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+    .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-bottom: 28px; }
+    .footer-grid h4 { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 12px; }
+    .footer-grid ul { list-style: none; margin: 0; }
+    .footer-grid li { margin-bottom: 8px; }
+    .footer-grid a { color: var(--muted); font-size: 13.5px; }
+    .footer-grid a:hover { color: var(--text); }
+    .footer-meta { border-top: 1px solid var(--border); padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 27px; }
+      h2 { font-size: 21px; }
+      .site-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="logo" aria-label="SecureGRC home">
+        <span class="logo-mark" aria-hidden="true">⬡</span>
+        <span>SecureGRC</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/what-is-ml-bom/" class="active">ML-BOM Guide</a>
+        <a href="/iso-42001-explained/">ISO 42001</a>
+        <a href="/quantum-safe-compliance/">Quantum-Safe</a>
+        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> / <span>What Is an ML-BOM?</span>
+  </nav>
+
+  <main>
+    <article>
+      <header class="page-hero">
+        <p class="kicker">Guide · ML-BOM</p>
+        <h1>What Is an ML-BOM? Machine Learning Bill of Materials Explained</h1>
+        <p class="subtitle">The canonical guide to ML-BOMs: what they contain, the CycloneDX and SPDX standards behind them, and how they become verifiable audit evidence.</p>
+      </header>
+
+      <p class="lead">A <strong>machine learning bill of materials (ML-BOM)</strong> is a structured, machine-readable inventory of every component that goes into an AI model: the model's identity and version, its architecture family, the datasets it was trained and evaluated on, its software dependencies, licenses, evaluation results, and the cryptographic signatures that prove none of it has been altered. Just as a software bill of materials (SBOM) lists the packages inside an application, an ML-BOM documents the full supply chain of a machine learning system — so security teams, auditors, and regulators can see exactly what a model is made of without needing access to the model itself.</p>
+
+      <p>The term <strong>AI-BOM</strong> is often used interchangeably with ML-BOM. Both describe the same artifact class: a transparency document for AI systems, standardized primarily through CycloneDX (which added ML-BOM support in version 1.5) and the SPDX AI profile. This guide covers what an ML-BOM contains, how the two standards compare, how ML-BOMs differ from SBOMs, and how they are generated and signed in practice.</p>
+
+      <h2>Why do ML-BOMs exist?</h2>
+      <p>ML-BOMs emerged because three pressures converged on AI teams at roughly the same time: supply chain risk, regulation, and management-system standards.</p>
+
+      <h3>AI supply chain risk</h3>
+      <p>Modern models are rarely built from scratch. They are fine-tuned from pretrained checkpoints, trained on third-party or scraped datasets, and assembled from open-source frameworks and libraries. Every one of those inputs is an attack surface. <strong>MITRE ATLAS</strong>, the adversarial-threat knowledge base for AI systems, catalogs techniques that target exactly this supply chain — poisoned training data, backdoored pretrained models, and compromised ML dependencies. Without an inventory of what went into a model, you cannot answer the most basic incident-response question: <em>are we affected?</em> When a dataset is found to be poisoned or a model repository is compromised, an ML-BOM lets you query your entire model estate for exposure in minutes rather than weeks. (For how ATLAS threat categories map to management controls, see our <a href="/iso-42001-vs-mitre-atlas/">ISO 42001 to MITRE ATLAS crosswalk</a>.)</p>
+
+      <h3>EU AI Act transparency obligations</h3>
+      <p>The <strong>EU AI Act</strong> entered into force in August 2024, with obligations phasing in over the following years. Providers of high-risk AI systems must maintain technical documentation describing how the system was developed, what data it was trained on, and how it performs — and keep that documentation current across the system's lifecycle. The Act does not name a file format, but a machine-readable, versioned ML-BOM is the most defensible way to demonstrate that this documentation exists, is complete, and has not been edited after the fact.</p>
+
+      <h3>ISO/IEC 42001 documentation duties</h3>
+      <p><strong>ISO/IEC 42001:2023</strong>, published in December 2023, is the first certifiable management system standard for AI. Its Annex A controls cover themes such as AI system documentation, data provenance and quality, impact assessment, and supplier management. Auditors assessing an AI management system need evidence that the organization actually knows what its models are made of. An ML-BOM is that evidence in its most concrete form. Our <a href="/iso-42001-explained/">ISO/IEC 42001 explainer</a> walks through the standard's structure in detail.</p>
+
+      <h2>What does an ML-BOM contain?</h2>
+      <p>A complete ML-BOM records seven categories of information. The exact field names differ between CycloneDX and SPDX, but the substance is the same:</p>
+
+      <table>
+        <thead>
+          <tr><th>Category</th><th>What it records</th><th>Why auditors care</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Model identity</td><td>Name, version, unique identifier (bom-ref / SPDX ID), hashes of the model artifact</td><td>Ties every claim in the document to one specific, verifiable model build</td></tr>
+          <tr><td>Architecture family</td><td>Model type and task — e.g. transformer, gradient-boosted trees, binary classification</td><td>Determines applicable threat classes and evaluation expectations</td></tr>
+          <tr><td>Training-data lineage</td><td>Dataset names, versions, sources, classifications, and sensitivity metadata — not the data itself</td><td>Answers provenance questions under the EU AI Act and ISO 42001 without exposing the data</td></tr>
+          <tr><td>Dependencies</td><td>Frameworks, libraries, base models, and their versions</td><td>Enables vulnerability and supply chain exposure queries across the model estate</td></tr>
+          <tr><td>Licenses</td><td>License identifiers for models, datasets, and dependencies</td><td>Surfaces restrictions on commercial use, redistribution, and derivative models</td></tr>
+          <tr><td>Evaluation results</td><td>Performance metrics, test slices, robustness and bias evaluations</td><td>Documents that claimed performance was actually measured, and on what</td></tr>
+          <tr><td>Signatures</td><td>Cryptographic signatures and timestamps over the document</td><td>Makes the ML-BOM tamper-evident — the difference between a claim and evidence</td></tr>
+        </tbody>
+      </table>
+
+      <p>A crucial point: an ML-BOM contains <strong>metadata about</strong> these components, not the components themselves. Model weights, training records, and source code never need to appear in the document. That is what makes ML-BOMs shareable with auditors, customers, and regulators without leaking intellectual property — and it is the principle behind <a href="/blog/metadata-only-compliance/">metadata-only compliance</a> architectures.</p>
+
+      <h2>CycloneDX vs SPDX: which ML-BOM standard should you use?</h2>
+      <p>Two open standards dominate the space. <strong>CycloneDX</strong>, an OWASP flagship project, added first-class ML-BOM support in version 1.5 (2023) with a <code>machine-learning-model</code> component type, a <code>data</code> component type for datasets, and an embedded model card structure. <strong>SPDX</strong>, a Linux Foundation project and ISO-published SBOM standard, introduced an AI profile and a dataset profile in SPDX 3.0 (2024).</p>
+
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>CycloneDX ML-BOM (v1.5+)</th><th>SPDX AI Profile (3.0)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Steward</td><td>OWASP</td><td>Linux Foundation</td></tr>
+          <tr><td>ML support since</td><td>v1.5 (2023)</td><td>SPDX 3.0 (2024)</td></tr>
+          <tr><td>Model representation</td><td><code>machine-learning-model</code> component with embedded <code>modelCard</code></td><td>AI package element with dedicated AI profile fields</td></tr>
+          <tr><td>Dataset representation</td><td><code>data</code> component type with classification and sensitivity fields</td><td>Dataset profile elements linked to the AI package</td></tr>
+          <tr><td>Primary heritage</td><td>Security and supply chain tooling</td><td>License and IP compliance</td></tr>
+          <tr><td>Evaluation metrics</td><td class="yes">Yes — quantitative analysis in the model card</td><td class="warn">Partial — captured via profile properties</td></tr>
+          <tr><td>Typical consumers</td><td>Security teams, vulnerability tooling, GRC platforms</td><td>Legal, OSPO, and license-compliance tooling</td></tr>
+          <tr><td>Serialization</td><td>JSON, XML, Protocol Buffers</td><td>JSON-LD</td></tr>
+        </tbody>
+      </table>
+
+      <p>The pragmatic answer for most organizations is <strong>both</strong>. The two formats are complementary — CycloneDX is stronger for security-driven workflows, SPDX for license governance — and because both are generated from the same underlying metadata, tooling can emit the two in parallel. SecureGRC's ML-BOM generation aligns with both CycloneDX and SPDX for exactly this reason.</p>
+
+      <h2>What does a real CycloneDX ML-BOM look like?</h2>
+      <p>Below is a realistic, minimal CycloneDX 1.5 ML-BOM for a fraud-detection classifier. It records the model, its training dataset (as metadata only), and one library dependency with its license:</p>
+
+      <pre><code>{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:3e671687-395b-41f5-a30f-a58921a69b79",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-17T09:00:00Z",
+    "component": {
+      "type": "machine-learning-model",
+      "name": "fraud-detection-classifier",
+      "version": "2.4.1"
+    }
+  },
+  "components": [
+    {
+      "type": "machine-learning-model",
+      "bom-ref": "model-fraud-detection-2.4.1",
+      "name": "fraud-detection-classifier",
+      "version": "2.4.1",
+      "modelCard": {
+        "modelParameters": {
+          "task": "binary-classification",
+          "architectureFamily": "gradient-boosted-trees",
+          "datasets": [
+            { "ref": "dataset-transactions-2025q4" }
+          ]
+        },
+        "quantitativeAnalysis": {
+          "performanceMetrics": [
+            { "type": "AUC-ROC", "value": "0.94", "slice": "holdout-test" }
+          ]
+        }
+      }
+    },
+    {
+      "type": "data",
+      "bom-ref": "dataset-transactions-2025q4",
+      "name": "transactions-2025q4",
+      "data": [
+        {
+          "type": "dataset",
+          "classification": "internal",
+          "sensitiveData": ["pseudonymized transaction records"]
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "xgboost",
+      "version": "2.0.3",
+      "licenses": [
+        { "license": { "id": "Apache-2.0" } }
+      ]
+    }
+  ]
+}</code></pre>
+
+      <p>Notice what is <em>absent</em>: no weights, no training rows, no feature code. The dataset entry describes classification and sensitivity, and the model entry describes architecture and measured performance. Everything a reviewer needs; nothing an attacker or competitor could exploit.</p>
+
+      <h2>How is an ML-BOM different from an SBOM?</h2>
+      <p>An ML-BOM extends the SBOM idea, but the two documents answer different questions and change at different rhythms. An SBOM asks "what packages are in this build?"; an ML-BOM asks "what model is this, what shaped its behavior, and can you prove it?"</p>
+
+      <table>
+        <thead>
+          <tr><th>Aspect</th><th>SBOM</th><th>ML-BOM</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Subject</td><td>A software application or container</td><td>A machine learning model or AI system</td></tr>
+          <tr><td>Core components</td><td>Packages, libraries, container layers</td><td>Models, datasets, pipelines — plus their software dependencies</td></tr>
+          <tr><td>Data lineage</td><td class="no">Not applicable</td><td class="yes">Central — dataset versions, sources, sensitivity</td></tr>
+          <tr><td>Behavioral evidence</td><td class="no">None — behavior is fully code-defined</td><td class="yes">Evaluation metrics, test slices, bias and robustness results</td></tr>
+          <tr><td>Change trigger</td><td>New build or dependency bump</td><td>Retraining, fine-tuning, new data version, drift remediation</td></tr>
+          <tr><td>Dominant risks</td><td>Known CVEs, license conflicts</td><td>Data poisoning, model backdoors, adversarial manipulation (per MITRE ATLAS)</td></tr>
+          <tr><td>Key standards</td><td>CycloneDX, SPDX</td><td>CycloneDX v1.5+ ML-BOM, SPDX 3.0 AI profile</td></tr>
+        </tbody>
+      </table>
+
+      <p>The practical consequence of the "change trigger" row is easy to underestimate. Software rebuilds when engineers ship; models retrain on schedules, on drift alerts, and on new data drops. An ML-BOM maintained by hand is therefore stale almost immediately — which leads directly to the generation question.</p>
+
+      <h2>How are ML-BOMs generated?</h2>
+      <p>There are two approaches, and the gap between them is where most AI transparency programs fail.</p>
+
+      <h3>Manual assembly</h3>
+      <p>Teams document models in spreadsheets, wikis, or hand-written model cards, then transcribe the results into CycloneDX or SPDX. This works for a demo and fails in production: fields go stale after the first retrain, human transcription introduces errors, and nothing links the document back to the actual model artifact. A manually assembled ML-BOM is a statement of intent, not evidence.</p>
+
+      <h3>Automated extraction</h3>
+      <p>The sustainable approach is to extract metadata programmatically — from training pipelines, model registries, experiment trackers, and dependency manifests — and generate the ML-BOM as a build artifact, versioned and regenerated on every model change. Automation keeps the document synchronized with reality and makes every field traceable to a source.</p>
+      <p>This is the approach SecureGRC takes, with one architectural constraint that matters for IP-sensitive teams: the platform is <strong>metadata-only</strong>. Model weights, training data, and proprietary code never enter SecureGRC; the analysis pipeline operates exclusively on extracted metadata, as described in our <a href="/blog/metadata-only-compliance/">metadata-only compliance deep dive</a>. That metadata then flows through the <a href="/glossary/tcce/">TCCE engine</a> — threat assessment, control mapping, compliance evaluation, and evidence linking as a sequential, independently auditable pipeline — so the generated ML-BOM arrives already connected to MITRE ATLAS threat profiles and ISO/IEC 42001 control gaps, and browsable in a dedicated ML-BOM Explorer. SecureGRC is a purpose-built, early-stage platform opening early access in 2026 — a deliberate contrast to retrofitting AI inventories onto broad GRC suites, as our <a href="/vs/onetrust/">SecureGRC vs OneTrust comparison</a> discusses.</p>
+
+      <div class="callout">
+        <p class="label">Key principle</p>
+        <p>An ML-BOM should be generated <em>from</em> the system of record, never typed <em>into</em> one. If a human can edit a field without the underlying model changing, the document is an inventory. If every field is extracted and signed, it is evidence.</p>
+      </div>
+
+      <h2>Why sign an ML-BOM with post-quantum signatures?</h2>
+      <p>An unsigned ML-BOM is a claim; a signed one is audit evidence. A cryptographic signature over the document proves two things: <strong>integrity</strong> (no field was altered after generation) and <strong>origin</strong> (it was produced by the stated system at the stated time). For regulators and auditors, that distinction is the difference between "trust our spreadsheet" and independently verifiable proof.</p>
+      <p>The quantum dimension comes from timescales. Compliance evidence for AI systems must remain verifiable for years — through audits, certifications, incidents, and litigation. Classical signature schemes based on RSA and elliptic curves are exactly what a future cryptographically relevant quantum computer would break, meaning evidence signed today with classical algorithms could become repudiable within its own retention window. NIST addressed this by standardizing post-quantum algorithms, including <strong>FIPS 204 (ML-DSA, the standardized form of CRYSTALS-Dilithium)</strong>, finalized in August 2024.</p>
+      <p>SecureGRC applies this end to end: every generated artifact — ML-BOMs included — is signed with CRYSTALS-Dilithium, hashed with SHA-3, and anchored in a Merkle tree, forming a cryptographically verified audit trail. Verification requires only public keys, so an auditor or regulator can independently confirm that an ML-BOM is authentic and unmodified without any access to SecureGRC's systems — or yours. The full rationale is covered in our <a href="/quantum-safe-compliance/">quantum-safe compliance guide</a>.</p>
+
+      <div class="callout quantum">
+        <p class="label">Quantum-safe by default</p>
+        <p>A signed, Merkle-anchored ML-BOM is tamper-evident in both directions: no one can alter a historical document without breaking the tree, and no one can deny having produced it. With post-quantum signatures, that property is designed to survive the arrival of quantum computing.</p>
+      </div>
+
+      <h2>Frequently asked questions</h2>
+      <p>Quick answers to the ML-BOM questions we hear most. More general questions live on the <a href="/faq/">SecureGRC FAQ</a>.</p>
+
+      <details class="faq-item">
+        <summary>Is an ML-BOM the same as an AI-BOM?</summary>
+        <div class="faq-body"><p>The terms are used interchangeably in practice. AI-BOM is sometimes used as the broader umbrella covering any AI system, while ML-BOM refers specifically to machine learning models and their training pipelines. Both describe the same idea: a structured inventory of an AI system's components, data lineage, dependencies, and licenses. CycloneDX and SPDX, the two main standards, support both usages.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does the EU AI Act require an ML-BOM?</summary>
+        <div class="faq-body"><p>Not by name. The EU AI Act, which entered into force in August 2024 with staged obligations, requires providers of high-risk AI systems to maintain detailed technical documentation covering the system's development, training data, and performance. An ML-BOM is one of the most practical ways to produce and maintain that documentation in a machine-readable, verifiable form, but the regulation does not mandate a specific format.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I generate an ML-BOM without sharing my model weights?</summary>
+        <div class="faq-body"><p>Yes. An ML-BOM describes a model's components and lineage — it does not include weights, training data, or source code. Metadata-only platforms such as SecureGRC generate ML-BOMs entirely from extracted metadata, so proprietary IP never leaves your environment. The resulting document contains identifiers, hashes, license references, and evaluation summaries rather than the assets themselves.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Should I use CycloneDX or SPDX for my ML-BOM?</summary>
+        <div class="faq-body"><p>CycloneDX has supported ML-BOMs since version 1.5 through its machine-learning-model component type and embedded model card object, and is generally the more mature option for security-focused workflows. SPDX 3.0 added an AI profile and remains strongest for license compliance. Many organizations emit both from the same metadata, since the formats are complementary rather than competing.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How often should an ML-BOM be updated?</summary>
+        <div class="faq-body"><p>Every time the model changes: retraining, fine-tuning, a new dataset version, a dependency upgrade, or a change in deployment configuration. Because models change more often than traditional software, automated generation from pipeline metadata is the only approach that keeps an ML-BOM accurate over time. Each version should be signed and timestamped so auditors can reconstruct the model's history.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is the difference between an ML-BOM and a model card?</summary>
+        <div class="faq-body"><p>A model card is a human-readable summary of a model's intended use, performance, and limitations, written for people. An ML-BOM is a machine-readable inventory built for tooling, automation, and audit. They overlap — CycloneDX embeds a modelCard object inside its ML-BOM format — but an ML-BOM adds dependency graphs, license data, hashes, and signatures that a standalone model card does not carry.</p></div>
+      </details>
+
+      <aside class="cta">
+        <h2>Automate this with SecureGRC</h2>
+        <p>SecureGRC generates CycloneDX- and SPDX-aligned ML-BOMs from extracted metadata alone — your weights and data never leave your environment — and signs every artifact with FIPS 204 post-quantum signatures.</p>
+        <a class="btn" href="/">Explore the platform</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="footer-grid">
+        <div>
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="/what-is-ml-bom/">What is an ML-BOM?</a></li>
+            <li><a href="/iso-42001-explained/">ISO/IEC 42001 explained</a></li>
+            <li><a href="/iso-42001-vs-mitre-atlas/">ISO 42001 ↔ MITRE ATLAS crosswalk</a></li>
+            <li><a href="/quantum-safe-compliance/">Quantum-safe compliance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <ul>
+            <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
+            <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
+            <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/glossary/tcce/">TCCE framework</a></li>
+            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>© 2026 SecureGRC · securegrc.io</span>
+        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metadata-Only AI Compliance: Govern Without Exposing IP</title>
+  <meta name="description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence." />
+  <link rel="canonical" href="https://www.securegrc.io/blog/metadata-only-compliance/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0e17" />
+  <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+  <!-- Cookiebot consent management -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
+<!-- Vercel Web Analytics -->
+<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="SecureGRC" />
+  <meta property="og:title" content="Metadata-Only AI Compliance: Govern Without Exposing IP" />
+  <meta property="og:description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence." />
+  <meta property="og:url" content="https://www.securegrc.io/blog/metadata-only-compliance/" />
+  <meta property="og:image" content="https://www.securegrc.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Metadata-Only AI Compliance: Govern Without Exposing IP" />
+  <meta name="twitter:description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence." />
+  <meta name="twitter:image" content="https://www.securegrc.io/og-image.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#article",
+        "headline": "Metadata-Only AI Compliance: Govern Models Without Exposing IP",
+        "description": "How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence.",
+        "url": "https://www.securegrc.io/blog/metadata-only-compliance/",
+        "mainEntityOfPage": "https://www.securegrc.io/blog/metadata-only-compliance/",
+        "datePublished": "2026-07-17",
+        "dateModified": "2026-07-17",
+        "author": {
+          "@type": "Organization",
+          "name": "SecureGRC",
+          "url": "https://www.securegrc.io"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "SecureGRC",
+          "url": "https://www.securegrc.io"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does SecureGRC ever access model weights or training data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Model weights, training data, and proprietary source code never enter SecureGRC — this is an architectural guarantee, not a policy promise. Extraction runs at the customer boundary and emits only structured metadata: architecture family, dataset lineage descriptors, evaluation results, dependency graphs, and license chains. Every downstream stage — threat assessment, control mapping, compliance evaluation, and evidence linking — operates exclusively on that metadata, so there is no code path through which an artifact could be ingested."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What metadata does an AI compliance evaluation actually need?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A compliance evaluation needs to know what a model is, where its data came from, how it performs, what it depends on, and what terms govern it. Concretely: the architecture family and modality, dataset lineage descriptors covering sources, collection methods and consent basis, evaluation results such as accuracy, robustness and bias metrics, the dependency graph of frameworks and pretrained components, and the license chain across all of them. None of these require the weights themselves — they are properties about the model, which is exactly the level at which frameworks like ISO/IEC 42001 and the EU AI Act state their obligations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "If the platform never saw the model, why should an auditor trust the results?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with CRYSTALS-Dilithium (NIST FIPS 204, ML-DSA), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is metadata-only compliance compatible with ISO/IEC 42001 and the EU AI Act?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. ISO/IEC 42001:2023 is a management-system standard: it asks organizations to demonstrate governance processes, impact assessments, data provenance practices, and documented evidence — obligations stated at the level of properties and records, not weight files. The EU AI Act similarly requires technical documentation, risk management records, and transparency about data and capabilities. Metadata-only architecture produces exactly these records — described in structured, signed form — which is why regulator- and auditor-facing obligations can be met without any artifact ever leaving the customer's environment."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.securegrc.io/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://www.securegrc.io/blog/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Metadata-Only Compliance",
+            "item": "https://www.securegrc.io/blog/metadata-only-compliance/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
+      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
+      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
+    .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
+    .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
+    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+
+    .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .breadcrumbs a { color: var(--dim); }
+    .breadcrumbs a:hover { color: var(--accent); }
+
+    main { max-width: 800px; margin: 0 auto; padding: 20px 24px 64px; }
+    article header.page-hero { margin: 16px 0 36px; }
+    .kicker { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--quantum); margin-bottom: 10px; }
+    h1 { font-size: 34px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; margin-bottom: 14px; }
+    .subtitle { color: var(--muted); font-size: 17.5px; max-width: 640px; }
+    h2 { font-size: 24px; margin: 44px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: -.01em; }
+    h3 { font-size: 18.5px; margin: 28px 0 10px; }
+    p { margin: 0 0 16px; color: var(--text); }
+    p.lead { font-size: 17.5px; }
+    ul, ol { margin: 0 0 18px 22px; }
+    li { margin-bottom: 8px; }
+    strong { color: #fff; }
+
+    table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
+    th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
+    td:first-child { color: var(--text); }
+    tr:hover td { background: rgba(26,35,50,.5); }
+    .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
+
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    pre code { background: none; border: none; padding: 0; }
+
+    .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
+    .callout.quantum { border-left-color: var(--quantum); }
+    .callout p:last-child { margin-bottom: 0; }
+    .callout .label { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; background: var(--surface); }
+    .faq-item summary { padding: 16px 20px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+    .faq-item summary::after { content: '+'; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+    .faq-item[open] summary::after { content: '−'; }
+    .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
+    .faq-item .faq-body p:last-child { margin-bottom: 0; }
+
+    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
+    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+
+    .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
+    .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 28px; margin-bottom: 28px; }
+    .footer-grid h4 { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--dim); margin-bottom: 12px; }
+    .footer-grid ul { list-style: none; margin: 0; }
+    .footer-grid li { margin-bottom: 8px; }
+    .footer-grid a { color: var(--muted); font-size: 13.5px; }
+    .footer-grid a:hover { color: var(--text); }
+    .footer-meta { border-top: 1px solid var(--border); padding-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--dim); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 27px; }
+      h2 { font-size: 21px; }
+      .site-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="logo" aria-label="SecureGRC home">
+        <span class="logo-mark" aria-hidden="true">⬡</span>
+        <span>SecureGRC</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/what-is-ml-bom/">ML-BOM Guide</a>
+        <a href="/iso-42001-explained/">ISO 42001</a>
+        <a href="/quantum-safe-compliance/">Quantum-Safe</a>
+        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/faq/">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> / Blog / <span>Metadata-Only Compliance</span>
+  </nav>
+
+  <main>
+    <article>
+      <header class="page-hero">
+        <p class="kicker">Essay · Architecture</p>
+        <h1>Metadata-Only AI Compliance: Govern Models Without Exposing IP</h1>
+        <p class="subtitle">The models are the crown jewels. The audit needs proof. For years those two facts have forced an ugly trade — hand over artifacts or stay ungoverned. They don't have to.</p>
+      </header>
+
+      <p class="lead"><strong>Metadata-only AI compliance</strong> is an architecture for AI governance in which the compliance platform never receives model weights, training data, or proprietary source code. Every assessment — threat analysis, control mapping, gap evaluation, evidence generation — runs on structured metadata extracted inside the customer's own boundary: the model's architecture family, dataset lineage descriptors, evaluation results, dependency graph, and license chain. The artifacts stay put. What leaves is a description, and the description turns out to be everything a compliance evaluation actually needs.</p>
+
+      <p>That last claim sounds too convenient, so this essay argues it properly: why artifact-ingesting governance tools stall in procurement, why metadata is sufficient rather than merely acceptable, how the pipeline works end to end, and why the obvious objection — "if you never saw the model, why trust the audit?" — has a cryptographic answer rather than a rhetorical one.</p>
+
+      <h2>Why do legal and security teams block AI governance tools?</h2>
+      <p>Start with the tension nobody in AI governance likes to name. To prove a system is compliant, the traditional playbook says: give the assessor access. Upload the model. Share the training corpus. Grant the vendor's platform a service account into your ML infrastructure. Every step of that playbook was written for a world where the thing being audited — a financial ledger, a server configuration — was not itself the company's most valuable secret.</p>
+      <p>A trained model is different. For an AI-first company, the weights <em>are</em> the business. They encode years of data acquisition, tens or hundreds of millions in compute, and every architectural insight the research team ever had. Training data is often worse: it may contain personal data under GDPR, patient records under HIPAA, licensed content with strict redistribution terms, or a competitor-differentiating corpus that took a decade to assemble. Handing either of these to a third-party SaaS platform is not a routine vendor decision. It is an IP-transfer event, and the people whose job is to prevent IP-transfer events know it.</p>
+      <p>So a predictable failure loop plays out. The governance team selects a compliance platform. The platform's onboarding asks for model artifacts or a data connection into the training environment. Legal flags the contract: where do the weights reside, who can access them, what happens on breach, what happens on acquisition? Security flags the architecture: a vendor holding weights for hundreds of customers is a single, concentrated target — one breach exfiltrates the crown jewels of an entire industry. Procurement stalls for two quarters. The governance program, meanwhile, runs on spreadsheets.</p>
+      <p>The uncomfortable conclusion is that the blockers are right. A tool that concentrates model artifacts is a liability dressed as a control. The answer is not to argue legal and security teams out of their objections — it is to build a governance architecture to which their objections do not apply.</p>
+
+      <h2>Can you really assess AI compliance without seeing the model?</h2>
+      <p>Yes — and the reason is worth stating precisely, because it is the entire argument. <strong>Compliance obligations are claims about properties of a system, and properties are metadata.</strong> No AI regulation or standard anywhere requires an assessor to hold the weights. They require the organization to know, document, and prove things <em>about</em> the model:</p>
+      <ul>
+        <li><strong>What is it?</strong> The architecture family, modality, and intended purpose. A transformer-based classifier for credit decisions carries different obligations than an image-generation model — and that distinction is legible entirely from metadata.</li>
+        <li><strong>Where did the data come from?</strong> Dataset lineage descriptors: sources, collection methods, consent basis, preprocessing steps, known gaps. Provenance is a property of the record, not of the bytes in the corpus.</li>
+        <li><strong>How does it behave?</strong> Evaluation results — accuracy, robustness, bias and fairness metrics, red-team findings. An eval result is already a summary statistic; it was never the model in the first place.</li>
+        <li><strong>What does it depend on?</strong> The dependency graph: frameworks, pretrained base models, fine-tuning datasets, serving infrastructure. Supply-chain risk lives in this graph, not in the weight file.</li>
+        <li><strong>What terms govern it?</strong> The license chain across every component — the difference between a shippable product and a lawsuit is a metadata question about license compatibility.</li>
+      </ul>
+      <p>Look at what regulators actually ask for and the pattern holds. <a href="/iso-42001-explained/">ISO/IEC 42001:2023</a>, the AI management system standard published in December 2023, is a management-system standard: it demands documented processes, impact assessments, data-provenance practices, and retained evidence — records about the system, at every point. The EU AI Act, in force since August 2024 with staged obligations, requires technical documentation, risk management files, and transparency about capabilities and data. Adversarial-threat analysis against <a href="/iso-42001-vs-mitre-atlas/">MITRE ATLAS</a> techniques operates on how a system is built and exposed, not on its parameters. Across all of them, the unit of compliance is the documented property.</p>
+      <p>The traditional artifact-upload model, in other words, was never a requirement. It was a convenience for the tool vendor — ingest everything, extract what you need server-side — paid for with the customer's risk. Metadata-only architecture moves the extraction to the only place it belongs: inside the customer's boundary.</p>
+
+      <div class="callout">
+        <p class="label">The one-line argument</p>
+        <p>Regulations are written about properties of models, not contents of models. Properties are metadata. Therefore a compliance evaluation that runs on complete, honest metadata is not a degraded audit — it is the audit, minus the IP exposure.</p>
+      </div>
+
+      <h2>How does metadata-only compliance work in practice?</h2>
+      <p>SecureGRC's implementation is a four-part chain, and the order matters: extraction produces the inventory, the inventory feeds the pipeline, the pipeline emits signed evidence.</p>
+
+      <h3>1. Extraction at the customer boundary</h3>
+      <p>Extraction runs where the models live — inside the customer's environment. It reads model configurations, training manifests, evaluation reports, and dependency lockfiles, and emits structured metadata: architecture descriptors, dataset lineage, eval results, the dependency graph, the license chain. The weights, the corpus, and the source code are never read into anything that leaves the boundary. This is the architectural guarantee that unblocks procurement: there is no code path by which an artifact can reach SecureGRC, so the data-processing addendum covers metadata and nothing else.</p>
+
+      <h3>2. The ML-BOM: metadata with a standard shape</h3>
+      <p>Extracted metadata is assembled into a <a href="/what-is-ml-bom/">Machine Learning Bill of Materials</a> — a formal inventory of the model's components, datasets, dependencies, and licenses, aligned with the CycloneDX standard (which has supported ML-BOMs since v1.5) and SPDX. The standard shape is the point: an ML-BOM is comparable across models, diffable across versions, and consumable by any downstream tool. It is the model's compliance passport — rich enough to audit against, and safe enough to hand to a regulator, a customer, or an acquirer, precisely because it contains no IP.</p>
+
+      <h3>3. The TCCE pipeline: from inventory to evaluation</h3>
+      <p>The ML-BOM feeds SecureGRC's <a href="/glossary/tcce/">TCCE engine</a> — a sequential pipeline of <strong>Threat assessment → Control mapping → Compliance evaluation → Evidence linking</strong>. Threat assessment derives an adversarial threat profile mapped to MITRE ATLAS from the system's architecture and exposure. Control mapping connects those threats and the organization's obligations to the ISO/IEC 42001 control library. Compliance evaluation scores the current posture against those controls and surfaces gaps. Evidence linking binds every conclusion to the specific metadata that supports it. Because the stages are sequential and independently testable, an auditor can inspect each hand-off — which threats produced which control requirements, which metadata satisfied which control — rather than trusting an opaque score.</p>
+
+      <h3>4. Signed, anchored evidence</h3>
+      <p>Every artifact the pipeline emits — ML-BOMs, threat profiles, mappings, gap analyses, posture reports — is hashed with SHA-3, signed with CRYSTALS-Dilithium (the lattice-based signature scheme NIST standardized as ML-DSA in FIPS 204, August 2024), and anchored into a Merkle tree. The result is a <a href="/quantum-safe-compliance/">quantum-safe evidence chain</a>: tamper-evident today, and still verifiable at the end of a ten-year retention window, after the classical signature algorithms have aged out.</p>
+
+      <h2>If you never saw the model, why should anyone trust the audit?</h2>
+      <p>This is the objection that deserves the most respect, so take it at full strength: a platform that never touches the artifact is, by construction, trusting the metadata it is given. Doesn't that just relocate the trust problem?</p>
+      <p>It relocates it, yes — to a place where it can actually be solved. Consider what "trust" means for the artifact-ingesting alternative. The vendor holds your weights and tells you its analysis is correct; you trust its models, its pipeline, its access controls, and its database, none of which you can inspect. The audit's integrity rests on the operator's word. That is a trust problem with no solution other than hope and contract law.</p>
+      <p>Metadata-only architecture replaces that with two verifiable guarantees:</p>
+      <ul>
+        <li><strong>The evidence chain is cryptographically closed.</strong> Every artifact is Dilithium-signed and Merkle-anchored at creation. An auditor holding the artifact, its signature, and its inclusion proof verifies both — using <em>public keys alone</em>. No SecureGRC account, no proprietary verifier, no network call, no dependence on the platform's continued existence or honesty. If any record was altered after the fact, the arithmetic fails. The platform is mathematically incapable of quietly rewriting its own audit trail.</li>
+        <li><strong>The claims are grounded and re-derivable.</strong> Because extraction runs in the customer's environment against the customer's own systems of record, every metadata claim in the ML-BOM traces to a source the auditor can independently check — the training manifest, the eval report, the lockfile. The TCCE pipeline then links each compliance conclusion to the specific metadata supporting it. An auditor who doubts a claim doesn't have to trust SecureGRC; they re-derive it at the source, on-site, without any artifact ever having traveled.</li>
+      </ul>
+      <p>Notice what this does to the original question. "Why trust an audit from a platform that never saw the model?" becomes "why trust an audit you can verify yourself?" — which is no longer an objection. Traditional audits ask you to trust the auditor because they saw everything. Cryptographically verified metadata audits ask you to trust no one, because everything material is checkable. Between those two, the second is the stronger assurance model, not the weaker one.</p>
+
+      <h2>Metadata-only vs artifact-ingesting platforms: what's the real difference?</h2>
+      <p>The architectural choice propagates into every dimension a buyer's risk committee cares about:</p>
+
+      <table>
+        <thead>
+          <tr><th>Dimension</th><th>Metadata-only (SecureGRC)</th><th>Artifact-ingesting platforms</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>What leaves your environment</td><td class="yes">Structured metadata: descriptors, eval results, dependency and license graphs</td><td class="warn">Model weights, training data samples, or live connections into ML infrastructure</td></tr>
+          <tr><td>IP exposure</td><td class="yes">None by construction — weights and data never enter the platform</td><td class="warn">Crown-jewel artifacts held by a third party under contract terms</td></tr>
+          <tr><td>Vendor breach blast radius</td><td class="yes">Metadata about models — descriptive, non-executable, non-reconstructive</td><td class="no">Concentrated store of many customers' models and data; a single high-value target</td></tr>
+          <tr><td>Procurement and security review</td><td class="yes">Standard SaaS review; DPA covers metadata only</td><td class="no">IP counsel, data-transfer analysis, breach-liability negotiation; quarters of delay</td></tr>
+          <tr><td>Cross-border and data residency</td><td class="yes">Artifacts never move, so residency constraints stay satisfied by default</td><td class="warn">Artifact transfer may trigger GDPR, sectoral, or export-control analysis</td></tr>
+          <tr><td>Verifiability of evidence</td><td class="yes">Dilithium-signed, SHA-3 hashed, Merkle-anchored; verifiable with public keys alone</td><td class="no">Platform database as the record; integrity rests on operator trust</td></tr>
+          <tr><td>Third-party and vendor-model audits</td><td class="yes">Vendors share signed ML-BOMs without disclosing the model</td><td class="no">Requires vendors to hand artifacts to your tooling — usually a non-starter</td></tr>
+        </tbody>
+      </table>
+
+      <p>Incumbent GRC suites approach AI governance by extending questionnaire-and-workflow machinery built for privacy and vendor risk; the newer AI-governance platforms are closer to the problem but still largely operate on the trust-the-platform model. Our comparisons with <a href="/vs/credo-ai/">Credo AI</a> and <a href="/vs/onetrust/">OneTrust</a> walk the differences in detail — SecureGRC's honest framing is purpose-built and early-stage against incumbent breadth, with the metadata boundary and the verifiable evidence chain as the architectural bets that breadth cannot retrofit easily.</p>
+
+      <h2>What does metadata-only governance unlock?</h2>
+      <p>The interesting consequences are the things that become possible once artifacts stop moving.</p>
+      <h3>Regulated industries can finally adopt governance tooling</h3>
+      <p>Banks, insurers, healthcare providers, and defense contractors have the strictest AI obligations and, historically, the least ability to use cloud governance tools — because their data-handling rules forbid exactly the artifact uploads those tools required. When the platform ingests only metadata, the calculus inverts: the sectors with the heaviest compliance burden become the easiest to serve, since descriptive metadata about a model rarely triggers the controls that patient records or transaction data do.</p>
+      <h3>Cross-border governance without data-transfer gymnastics</h3>
+      <p>Multinational AI estates collide with data-residency law the moment artifacts centralize. A model trained on EU personal data cannot casually replicate to a US vendor's cloud for "analysis." Metadata-only architecture sidesteps the collision: models and corpora stay in-region, while the compliance layer sees a unified, signed metadata view of the global estate. Group-level posture reporting stops requiring group-level data movement.</p>
+      <h3>Third-party model audits become tractable</h3>
+      <p>The hardest problem in AI supply-chain governance is auditing models you don't own. No foundation-model vendor will hand competitors' customers its weights — and under metadata-only governance, it doesn't need to. A vendor produces a signed ML-BOM and threat profile; the buyer verifies signatures with the vendor's public key and evaluates posture against their own control obligations. Attestation replaces disclosure. This is the same structural move that software SBOMs made for supply-chain security, extended to models and made cryptographically checkable.</p>
+      <p>There is also a quieter, cultural unlock. When governance stops demanding the crown jewels, the adversarial relationship between compliance teams and ML teams softens. Registering a model means pointing an extractor at metadata that already exists — not negotiating artifact custody. Governance that costs nothing to join is governance that actually gets adopted.</p>
+
+      <h2>Frequently asked questions</h2>
+      <p>Short answers to the questions we hear most; broader product questions live in the <a href="/faq/">SecureGRC FAQ</a>.</p>
+
+      <details class="faq-item">
+        <summary>Does SecureGRC ever access model weights or training data?</summary>
+        <div class="faq-body"><p>No. Model weights, training data, and proprietary source code never enter SecureGRC — this is an architectural guarantee, not a policy promise. Extraction runs at the customer boundary and emits only structured metadata: architecture family, dataset lineage descriptors, evaluation results, dependency graphs, and license chains. Every downstream stage — threat assessment, control mapping, compliance evaluation, and evidence linking — operates exclusively on that metadata, so there is no code path through which an artifact could be ingested.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What metadata does an AI compliance evaluation actually need?</summary>
+        <div class="faq-body"><p>A compliance evaluation needs to know what a model is, where its data came from, how it performs, what it depends on, and what terms govern it. Concretely: the architecture family and modality, dataset lineage descriptors covering sources, collection methods and consent basis, evaluation results such as accuracy, robustness and bias metrics, the dependency graph of frameworks and pretrained components, and the license chain across all of them. None of these require the weights themselves — they are properties about the model, which is exactly the level at which frameworks like ISO/IEC 42001 and the EU AI Act state their obligations.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>If the platform never saw the model, why should an auditor trust the results?</summary>
+        <div class="faq-body"><p>Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with CRYSTALS-Dilithium (NIST FIPS 204, ML-DSA), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is metadata-only compliance compatible with ISO/IEC 42001 and the EU AI Act?</summary>
+        <div class="faq-body"><p>Yes. ISO/IEC 42001:2023 is a management-system standard: it asks organizations to demonstrate governance processes, impact assessments, data provenance practices, and documented evidence — obligations stated at the level of properties and records, not weight files. The EU AI Act similarly requires technical documentation, risk management records, and transparency about data and capabilities. Metadata-only architecture produces exactly these records — described in structured, signed form — which is why regulator- and auditor-facing obligations can be met without any artifact ever leaving the customer's environment.</p></div>
+      </details>
+
+      <aside class="cta">
+        <h2>Governance that never asks for the model</h2>
+        <p>SecureGRC is early-stage and purpose-built: metadata-only by architecture, ISO/IEC 42001-aligned, with every artifact Dilithium-signed and publicly verifiable. Early access opens in 2026.</p>
+        <a class="btn" href="/">Explore the platform</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div class="footer-grid">
+        <div>
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="/what-is-ml-bom/">What is an ML-BOM?</a></li>
+            <li><a href="/iso-42001-explained/">ISO/IEC 42001 explained</a></li>
+            <li><a href="/iso-42001-vs-mitre-atlas/">ISO 42001 ↔ MITRE ATLAS crosswalk</a></li>
+            <li><a href="/quantum-safe-compliance/">Quantum-safe compliance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compare</h4>
+          <ul>
+            <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
+            <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
+            <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/glossary/tcce/">TCCE framework</a></li>
+            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>© 2026 SecureGRC · securegrc.io</span>
+        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
