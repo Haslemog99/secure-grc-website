@@ -39,102 +39,114 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Article",
-        "@id": "https://www.securegrc.io/what-is-ml-bom/#article",
-        "headline": "What Is an ML-BOM? Machine Learning Bill of Materials Explained",
-        "description": "What an ML-BOM (machine learning bill of materials) is, what it contains, CycloneDX vs SPDX formats, how it differs from an SBOM, and how to generate one.",
-        "url": "https://www.securegrc.io/what-is-ml-bom/",
-        "mainEntityOfPage": "https://www.securegrc.io/what-is-ml-bom/",
-        "datePublished": "2026-07-17",
-        "dateModified": "2026-07-17",
-        "author": {
-          "@type": "Organization",
-          "name": "SecureGRC",
-          "url": "https://www.securegrc.io"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "SecureGRC",
-          "url": "https://www.securegrc.io"
-        }
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.securegrc.io/#organization",
+      "name": "SecureGRC",
+      "url": "https://www.securegrc.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.securegrc.io/#logo",
+        "url": "https://www.securegrc.io/og-image.png",
+        "width": 1200,
+        "height": 630
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.securegrc.io/what-is-ml-bom/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Is an ML-BOM the same as an AI-BOM?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The terms are used interchangeably in practice. AI-BOM is sometimes used as the broader umbrella covering any AI system, while ML-BOM refers specifically to machine learning models and their training pipelines. Both describe the same idea: a structured inventory of an AI system's components, data lineage, dependencies, and licenses. CycloneDX and SPDX, the two main standards, support both usages."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does the EU AI Act require an ML-BOM?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Not by name. The EU AI Act, which entered into force in August 2024 with staged obligations, requires providers of high-risk AI systems to maintain detailed technical documentation covering the system's development, training data, and performance. An ML-BOM is one of the most practical ways to produce and maintain that documentation in a machine-readable, verifiable form, but the regulation does not mandate a specific format."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I generate an ML-BOM without sharing my model weights?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. An ML-BOM describes a model's components and lineage — it does not include weights, training data, or source code. Metadata-only platforms such as SecureGRC generate ML-BOMs entirely from extracted metadata, so proprietary IP never leaves your environment. The resulting document contains identifiers, hashes, license references, and evaluation summaries rather than the assets themselves."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Should I use CycloneDX or SPDX for my ML-BOM?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "CycloneDX has supported ML-BOMs since version 1.5 through its machine-learning-model component type and embedded model card object, and is generally the more mature option for security-focused workflows. SPDX 3.0 added an AI profile and remains strongest for license compliance. Many organizations emit both from the same metadata, since the formats are complementary rather than competing."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How often should an ML-BOM be updated?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Every time the model changes: retraining, fine-tuning, a new dataset version, a dependency upgrade, or a change in deployment configuration. Because models change more often than traditional software, automated generation from pipeline metadata is the only approach that keeps an ML-BOM accurate over time. Each version should be signed and timestamped so auditors can reconstruct the model's history."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the difference between an ML-BOM and a model card?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A model card is a human-readable summary of a model's intended use, performance, and limitations, written for people. An ML-BOM is a machine-readable inventory built for tooling, automation, and audit. They overlap — CycloneDX embeds a modelCard object inside its ML-BOM format — but an ML-BOM adds dependency graphs, license data, hashes, and signatures that a standalone model card does not carry."
-            }
-          }
-        ]
+      "sameAs": [
+        "https://www.linkedin.com/company/securegrc"
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://www.securegrc.io/what-is-ml-bom/#article",
+      "headline": "What Is an ML-BOM? Machine Learning Bill of Materials Explained",
+      "description": "What an ML-BOM (machine learning bill of materials) is, what it contains, CycloneDX vs SPDX formats, how it differs from an SBOM, and how to generate one.",
+      "url": "https://www.securegrc.io/what-is-ml-bom/",
+      "mainEntityOfPage": "https://www.securegrc.io/what-is-ml-bom/",
+      "datePublished": "2026-07-17",
+      "dateModified": "2026-07-18",
+      "author": {
+        "@id": "https://www.securegrc.io/#organization"
       },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.securegrc.io/what-is-ml-bom/#breadcrumbs",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.securegrc.io/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "What Is an ML-BOM?",
-            "item": "https://www.securegrc.io/what-is-ml-bom/"
-          }
-        ]
+      "publisher": {
+        "@id": "https://www.securegrc.io/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.securegrc.io/what-is-ml-bom/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is an ML-BOM the same as an AI-BOM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The terms are used interchangeably in practice. AI-BOM is sometimes used as the broader umbrella covering any AI system, while ML-BOM refers specifically to machine learning models and their training pipelines. Both describe the same idea: a structured inventory of an AI system's components, data lineage, dependencies, and licenses. CycloneDX and SPDX, the two main standards, support both usages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the EU AI Act require an ML-BOM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not by name. The EU AI Act, which entered into force in August 2024 with staged obligations, requires providers of high-risk AI systems to maintain detailed technical documentation covering the system's development, training data, and performance. An ML-BOM is one of the most practical ways to produce and maintain that documentation in a machine-readable, verifiable form, but the regulation does not mandate a specific format."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I generate an ML-BOM without sharing my model weights?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. An ML-BOM describes a model's components and lineage — it does not include weights, training data, or source code. Metadata-only platforms such as SecureGRC generate ML-BOMs entirely from extracted metadata, so proprietary IP never leaves your environment. The resulting document contains identifiers, hashes, license references, and evaluation summaries rather than the assets themselves."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I use CycloneDX or SPDX for my ML-BOM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CycloneDX has supported ML-BOMs since version 1.5 through its machine-learning-model component type and embedded model card object, and is generally the more mature option for security-focused workflows. SPDX 3.0 added an AI profile and remains strongest for license compliance. Many organizations emit both from the same metadata, since the formats are complementary rather than competing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should an ML-BOM be updated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every time the model changes: retraining, fine-tuning, a new dataset version, a dependency upgrade, or a change in deployment configuration. Because models change more often than traditional software, automated generation from pipeline metadata is the only approach that keeps an ML-BOM accurate over time. Each version should be signed and timestamped so auditors can reconstruct the model's history."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between an ML-BOM and a model card?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A model card is a human-readable summary of a model's intended use, performance, and limitations, written for people. An ML-BOM is a machine-readable inventory built for tooling, automation, and audit. They overlap — CycloneDX embeds a modelCard object inside its ML-BOM format — but an ML-BOM adds dependency graphs, license data, hashes, and signatures that a standalone model card does not carry."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.securegrc.io/what-is-ml-bom/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.securegrc.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "What Is an ML-BOM?",
+          "item": "https://www.securegrc.io/what-is-ml-bom/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <style>
@@ -232,7 +244,7 @@
         <a href="/what-is-ml-bom/" class="active">ML-BOM Guide</a>
         <a href="/iso-42001-explained/">ISO 42001</a>
         <a href="/quantum-safe-compliance/">Quantum-Safe</a>
-        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/vs/">Compare</a>
         <a href="/faq/">FAQ</a>
       </nav>
     </div>
@@ -473,14 +485,18 @@
             <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
             <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
             <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+            <li><a href="/vs/">All comparisons</a></li>
           </ul>
         </div>
         <div>
           <h4>Resources</h4>
           <ul>
+            <li><a href="/glossary/">Glossary</a></li>
             <li><a href="/glossary/tcce/">TCCE framework</a></li>
-            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
           </ul>
         </div>
       </div>

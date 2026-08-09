@@ -39,102 +39,114 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Article",
-        "@id": "https://www.securegrc.io/quantum-safe-compliance/#article",
-        "headline": "Quantum-Safe Compliance: Post-Quantum Audit Evidence",
-        "description": "Quantum-safe compliance explained: harvest-now-decrypt-later risk, FIPS 204 ML-DSA (CRYSTALS-Dilithium) signatures, and Merkle-anchored audit evidence.",
-        "url": "https://www.securegrc.io/quantum-safe-compliance/",
-        "mainEntityOfPage": "https://www.securegrc.io/quantum-safe-compliance/",
-        "datePublished": "2026-07-17",
-        "dateModified": "2026-07-17",
-        "author": {
-          "@type": "Organization",
-          "name": "SecureGRC",
-          "url": "https://www.securegrc.io"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "SecureGRC",
-          "url": "https://www.securegrc.io"
-        }
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.securegrc.io/#organization",
+      "name": "SecureGRC",
+      "url": "https://www.securegrc.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.securegrc.io/#logo",
+        "url": "https://www.securegrc.io/og-image.png",
+        "width": 1200,
+        "height": 630
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.securegrc.io/quantum-safe-compliance/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What does harvest now, decrypt later mean?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Harvest now, decrypt later is an attack strategy in which an adversary records encrypted data today and stores it until a quantum computer capable of breaking the encryption exists, then decrypts everything retroactively. The signature analog matters just as much for compliance: evidence signed today with RSA or ECDSA remains verifiable only until those algorithms fall, after which historical signatures can be forged and the evidence loses its integrity guarantee inside its own retention window."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is ML-DSA the same as CRYSTALS-Dilithium?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. ML-DSA (Module-Lattice-Based Digital Signature Algorithm) is the name NIST gave the standardized form of CRYSTALS-Dilithium when it published FIPS 204 in August 2024. The two names refer to the same lattice-based signature scheme; ML-DSA is the final specification with fixed parameter sets ML-DSA-44, ML-DSA-65, and ML-DSA-87, while Dilithium was the name used during the NIST post-quantum competition."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "When will a quantum computer actually break RSA and ECDSA?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No one knows the exact date, and credible estimates range from roughly a decade to considerably longer. The date is also the wrong question for compliance. Evidence retained for 7 to 10 years must remain trustworthy at the end of that window, so the relevant test is whether retention period plus migration time exceeds the time to a cryptographically relevant quantum computer. NIST's draft transition guidance already proposes deprecating classical public-key algorithms around 2030 and disallowing them by 2035, which puts long-retention evidence signed today inside the risk window."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can auditors verify post-quantum signatures without special infrastructure?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. FIPS 204 is a public specification, and open-source ML-DSA implementations exist across major languages. Verifying a Dilithium signature requires only the signed artifact, the signature, and the signer's public key — no account on the signing platform, no proprietary tooling, and no network access. In a Merkle-anchored design, an auditor additionally checks an inclusion proof, which is a short chain of hash computations."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Why use SHA-3 instead of SHA-256 for hashing evidence?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Both SHA-2 and SHA-3 are considered quantum-resistant at adequate output lengths, because Grover's algorithm only halves effective preimage security. SHA-3 is chosen for defense in depth: it is built on the Keccak sponge construction, which is structurally unrelated to the Merkle-Damgard design of SHA-2, so a future cryptanalytic break of one family is unlikely to affect the other. It is also the most recently standardized NIST hash family and is immune to length-extension attacks."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do larger Dilithium signatures cause performance problems?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Not for compliance workloads. An ML-DSA-65 signature is about 3.3 KB versus 64 bytes for ECDSA P-256, which matters in constrained environments like IoT packets but is negligible attached to an audit artifact, an ML-BOM, or a report. Dilithium signing and verification are fast on commodity hardware, and Merkle batching keeps per-artifact overhead low because one anchored root can cover thousands of individually provable artifacts."
-            }
-          }
-        ]
+      "sameAs": [
+        "https://www.linkedin.com/company/securegrc"
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://www.securegrc.io/quantum-safe-compliance/#article",
+      "headline": "Quantum-Safe Compliance: Post-Quantum Audit Evidence",
+      "description": "Quantum-safe compliance explained: harvest-now-decrypt-later risk, FIPS 204 ML-DSA (CRYSTALS-Dilithium) signatures, and Merkle-anchored audit evidence.",
+      "url": "https://www.securegrc.io/quantum-safe-compliance/",
+      "mainEntityOfPage": "https://www.securegrc.io/quantum-safe-compliance/",
+      "datePublished": "2026-07-17",
+      "dateModified": "2026-07-18",
+      "author": {
+        "@id": "https://www.securegrc.io/#organization"
       },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.securegrc.io/quantum-safe-compliance/#breadcrumbs",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.securegrc.io/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Quantum-Safe Compliance",
-            "item": "https://www.securegrc.io/quantum-safe-compliance/"
-          }
-        ]
+      "publisher": {
+        "@id": "https://www.securegrc.io/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.securegrc.io/quantum-safe-compliance/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does harvest now, decrypt later mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Harvest now, decrypt later is an attack strategy in which an adversary records encrypted data today and stores it until a quantum computer capable of breaking the encryption exists, then decrypts everything retroactively. The signature analog matters just as much for compliance: evidence signed today with RSA or ECDSA remains verifiable only until those algorithms fall, after which historical signatures can be forged and the evidence loses its integrity guarantee inside its own retention window."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ML-DSA the same as CRYSTALS-Dilithium?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. ML-DSA (Module-Lattice-Based Digital Signature Algorithm) is the name NIST gave the standardized form of CRYSTALS-Dilithium when it published FIPS 204 in August 2024. The two names refer to the same lattice-based signature scheme; ML-DSA is the final specification with fixed parameter sets ML-DSA-44, ML-DSA-65, and ML-DSA-87, while Dilithium was the name used during the NIST post-quantum competition."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When will a quantum computer actually break RSA and ECDSA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No one knows the exact date, and credible estimates range from roughly a decade to considerably longer. The date is also the wrong question for compliance. Evidence retained for 7 to 10 years must remain trustworthy at the end of that window, so the relevant test is whether retention period plus migration time exceeds the time to a cryptographically relevant quantum computer. NIST's draft transition guidance already proposes deprecating classical public-key algorithms around 2030 and disallowing them by 2035, which puts long-retention evidence signed today inside the risk window."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can auditors verify post-quantum signatures without special infrastructure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. FIPS 204 is a public specification, and open-source ML-DSA implementations exist across major languages. Verifying a Dilithium signature requires only the signed artifact, the signature, and the signer's public key — no account on the signing platform, no proprietary tooling, and no network access. In a Merkle-anchored design, an auditor additionally checks an inclusion proof, which is a short chain of hash computations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why use SHA-3 instead of SHA-256 for hashing evidence?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both SHA-2 and SHA-3 are considered quantum-resistant at adequate output lengths, because Grover's algorithm only halves effective preimage security. SHA-3 is chosen for defense in depth: it is built on the Keccak sponge construction, which is structurally unrelated to the Merkle-Damgard design of SHA-2, so a future cryptanalytic break of one family is unlikely to affect the other. It is also the most recently standardized NIST hash family and is immune to length-extension attacks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do larger Dilithium signatures cause performance problems?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not for compliance workloads. An ML-DSA-65 signature is about 3.3 KB versus 64 bytes for ECDSA P-256, which matters in constrained environments like IoT packets but is negligible attached to an audit artifact, an ML-BOM, or a report. Dilithium signing and verification are fast on commodity hardware, and Merkle batching keeps per-artifact overhead low because one anchored root can cover thousands of individually provable artifacts."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.securegrc.io/quantum-safe-compliance/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.securegrc.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quantum-Safe Compliance",
+          "item": "https://www.securegrc.io/quantum-safe-compliance/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <style>
@@ -232,7 +244,7 @@
         <a href="/what-is-ml-bom/">ML-BOM Guide</a>
         <a href="/iso-42001-explained/">ISO 42001</a>
         <a href="/quantum-safe-compliance/" class="active">Quantum-Safe</a>
-        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/vs/">Compare</a>
         <a href="/faq/">FAQ</a>
       </nav>
     </div>
@@ -406,14 +418,18 @@
             <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
             <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
             <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+            <li><a href="/vs/">All comparisons</a></li>
           </ul>
         </div>
         <div>
           <h4>Resources</h4>
           <ul>
+            <li><a href="/glossary/">Glossary</a></li>
             <li><a href="/glossary/tcce/">TCCE framework</a></li>
-            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
           </ul>
         </div>
       </div>

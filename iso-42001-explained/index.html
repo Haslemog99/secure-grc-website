@@ -39,105 +39,117 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Article",
-        "@id": "https://www.securegrc.io/iso-42001-explained/#article",
-        "headline": "ISO/IEC 42001 Explained: The AI Management System Standard",
-        "description": "ISO/IEC 42001:2023 is the first certifiable AI management system standard. Learn its structure, Annex A controls, certification steps, and EU AI Act fit.",
-        "url": "https://www.securegrc.io/iso-42001-explained/",
-        "datePublished": "2026-07-17",
-        "dateModified": "2026-07-17",
-        "author": {
-          "@type": "Organization",
-          "name": "SecureGRC",
-          "url": "https://www.securegrc.io"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "SecureGRC",
-          "url": "https://www.securegrc.io"
-        },
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://www.securegrc.io/iso-42001-explained/"
-        }
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.securegrc.io/#organization",
+      "name": "SecureGRC",
+      "url": "https://www.securegrc.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.securegrc.io/#logo",
+        "url": "https://www.securegrc.io/og-image.png",
+        "width": 1200,
+        "height": 630
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.securegrc.io/iso-42001-explained/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Is ISO 42001 certification mandatory?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. ISO/IEC 42001 is a voluntary standard, and certification is optional. However, it is increasingly requested in enterprise procurement questionnaires and vendor risk assessments, and it provides a structured way to demonstrate responsible AI governance to regulators, customers, and partners. For organizations facing EU AI Act obligations, an ISO 42001 AI management system supplies much of the governance scaffolding those obligations assume, even though certification itself is not a legal requirement."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How long does ISO 42001 certification take?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Most organizations should plan for roughly six to eighteen months from initial gap analysis to certificate, depending on the maturity of their existing governance. Companies that already operate an ISO 27001 information security management system typically move faster because the management clauses share the same harmonized structure. The longest phase is usually evidence generation: the AIMS must produce records of risk assessments, impact assessments, and lifecycle documentation over time before an auditor can verify it is genuinely operating."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does ISO 42001 replace ISO 27001?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. ISO/IEC 27001 governs information security management, while ISO/IEC 42001 governs the responsible development and use of AI systems. They are complementary: both follow the same harmonized management system structure, so clauses covering context, leadership, planning, support, operation, performance evaluation, and improvement can share processes. Many organizations integrate the two into a single management system, extending existing ISO 27001 governance with AI-specific risk assessment, impact assessment, and lifecycle controls."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does ISO 42001 certification prove EU AI Act compliance?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. The EU AI Act is a binding regulation with its own risk classification and legal obligations, and certification against ISO 42001 does not by itself demonstrate conformity with the Act. What ISO 42001 does provide is the management infrastructure the Act presumes: documented risk management, data governance, human oversight arrangements, logging, and post-market monitoring processes. Organizations that operate a certified AIMS are generally far better positioned to evidence AI Act obligations than those starting from scratch."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can startups and small companies get ISO 42001 certified?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Like other ISO management system standards, ISO/IEC 42001 scales the required effort to the size, complexity, and risk profile of the organization and its AI systems. A small team with a narrow AIMS scope can certify with proportionally lighter documentation. The practical constraint for small teams is bandwidth: manually assembling risk assessments, control mappings, and audit evidence is time-consuming, which is why automation of evidence collection matters most for smaller organizations."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What evidence do auditors ask for in an ISO 42001 audit?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Auditors look for documented information proving the AIMS operates as described: the AI policy and statement of applicability, AI risk assessments and risk treatment plans, AI system impact assessments, lifecycle documentation for in-scope systems, data governance records, supplier and third-party assessments, incident and nonconformity records, internal audit results, and management review minutes. Crucially, evidence must be traceable to specific AI systems and controls, and must show the process ran repeatedly over time, not just once before the audit."
-            }
-          }
-        ]
+      "sameAs": [
+        "https://www.linkedin.com/company/securegrc"
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://www.securegrc.io/iso-42001-explained/#article",
+      "headline": "ISO/IEC 42001 Explained: The AI Management System Standard",
+      "description": "ISO/IEC 42001:2023 is the first certifiable AI management system standard. Learn its structure, Annex A controls, certification steps, and EU AI Act fit.",
+      "url": "https://www.securegrc.io/iso-42001-explained/",
+      "datePublished": "2026-07-17",
+      "dateModified": "2026-07-18",
+      "author": {
+        "@id": "https://www.securegrc.io/#organization"
       },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.securegrc.io/iso-42001-explained/#breadcrumbs",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.securegrc.io/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "ISO/IEC 42001 Explained",
-            "item": "https://www.securegrc.io/iso-42001-explained/"
-          }
-        ]
+      "publisher": {
+        "@id": "https://www.securegrc.io/#organization"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.securegrc.io/iso-42001-explained/"
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.securegrc.io/iso-42001-explained/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is ISO 42001 certification mandatory?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. ISO/IEC 42001 is a voluntary standard, and certification is optional. However, it is increasingly requested in enterprise procurement questionnaires and vendor risk assessments, and it provides a structured way to demonstrate responsible AI governance to regulators, customers, and partners. For organizations facing EU AI Act obligations, an ISO 42001 AI management system supplies much of the governance scaffolding those obligations assume, even though certification itself is not a legal requirement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does ISO 42001 certification take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most organizations should plan for roughly six to eighteen months from initial gap analysis to certificate, depending on the maturity of their existing governance. Companies that already operate an ISO 27001 information security management system typically move faster because the management clauses share the same harmonized structure. The longest phase is usually evidence generation: the AIMS must produce records of risk assessments, impact assessments, and lifecycle documentation over time before an auditor can verify it is genuinely operating."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does ISO 42001 replace ISO 27001?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. ISO/IEC 27001 governs information security management, while ISO/IEC 42001 governs the responsible development and use of AI systems. They are complementary: both follow the same harmonized management system structure, so clauses covering context, leadership, planning, support, operation, performance evaluation, and improvement can share processes. Many organizations integrate the two into a single management system, extending existing ISO 27001 governance with AI-specific risk assessment, impact assessment, and lifecycle controls."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does ISO 42001 certification prove EU AI Act compliance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The EU AI Act is a binding regulation with its own risk classification and legal obligations, and certification against ISO 42001 does not by itself demonstrate conformity with the Act. What ISO 42001 does provide is the management infrastructure the Act presumes: documented risk management, data governance, human oversight arrangements, logging, and post-market monitoring processes. Organizations that operate a certified AIMS are generally far better positioned to evidence AI Act obligations than those starting from scratch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can startups and small companies get ISO 42001 certified?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Like other ISO management system standards, ISO/IEC 42001 scales the required effort to the size, complexity, and risk profile of the organization and its AI systems. A small team with a narrow AIMS scope can certify with proportionally lighter documentation. The practical constraint for small teams is bandwidth: manually assembling risk assessments, control mappings, and audit evidence is time-consuming, which is why automation of evidence collection matters most for smaller organizations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What evidence do auditors ask for in an ISO 42001 audit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Auditors look for documented information proving the AIMS operates as described: the AI policy and statement of applicability, AI risk assessments and risk treatment plans, AI system impact assessments, lifecycle documentation for in-scope systems, data governance records, supplier and third-party assessments, incident and nonconformity records, internal audit results, and management review minutes. Crucially, evidence must be traceable to specific AI systems and controls, and must show the process ran repeatedly over time, not just once before the audit."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.securegrc.io/iso-42001-explained/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.securegrc.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ISO/IEC 42001 Explained",
+          "item": "https://www.securegrc.io/iso-42001-explained/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <style>
@@ -235,7 +247,7 @@
         <a href="/what-is-ml-bom/">ML-BOM Guide</a>
         <a href="/iso-42001-explained/" class="active">ISO 42001</a>
         <a href="/quantum-safe-compliance/">Quantum-Safe</a>
-        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/vs/">Compare</a>
         <a href="/faq/">FAQ</a>
       </nav>
     </div>
@@ -429,14 +441,18 @@
             <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
             <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
             <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+            <li><a href="/vs/">All comparisons</a></li>
           </ul>
         </div>
         <div>
           <h4>Resources</h4>
           <ul>
+            <li><a href="/glossary/">Glossary</a></li>
             <li><a href="/glossary/tcce/">TCCE framework</a></li>
-            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
           </ul>
         </div>
       </div>

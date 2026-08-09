@@ -39,92 +39,104 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BlogPosting",
-        "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#article",
-        "headline": "Metadata-Only AI Compliance: Govern Models Without Exposing IP",
-        "description": "How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence.",
-        "url": "https://www.securegrc.io/blog/metadata-only-compliance/",
-        "mainEntityOfPage": "https://www.securegrc.io/blog/metadata-only-compliance/",
-        "datePublished": "2026-07-17",
-        "dateModified": "2026-07-17",
-        "author": {
-          "@type": "Organization",
-          "name": "SecureGRC",
-          "url": "https://www.securegrc.io"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "SecureGRC",
-          "url": "https://www.securegrc.io"
-        }
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.securegrc.io/#organization",
+      "name": "SecureGRC",
+      "url": "https://www.securegrc.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.securegrc.io/#logo",
+        "url": "https://www.securegrc.io/og-image.png",
+        "width": 1200,
+        "height": 630
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Does SecureGRC ever access model weights or training data?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. Model weights, training data, and proprietary source code never enter SecureGRC — this is an architectural guarantee, not a policy promise. Extraction runs at the customer boundary and emits only structured metadata: architecture family, dataset lineage descriptors, evaluation results, dependency graphs, and license chains. Every downstream stage — threat assessment, control mapping, compliance evaluation, and evidence linking — operates exclusively on that metadata, so there is no code path through which an artifact could be ingested."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What metadata does an AI compliance evaluation actually need?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A compliance evaluation needs to know what a model is, where its data came from, how it performs, what it depends on, and what terms govern it. Concretely: the architecture family and modality, dataset lineage descriptors covering sources, collection methods and consent basis, evaluation results such as accuracy, robustness and bias metrics, the dependency graph of frameworks and pretrained components, and the license chain across all of them. None of these require the weights themselves — they are properties about the model, which is exactly the level at which frameworks like ISO/IEC 42001 and the EU AI Act state their obligations."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "If the platform never saw the model, why should an auditor trust the results?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with CRYSTALS-Dilithium (NIST FIPS 204, ML-DSA), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is metadata-only compliance compatible with ISO/IEC 42001 and the EU AI Act?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. ISO/IEC 42001:2023 is a management-system standard: it asks organizations to demonstrate governance processes, impact assessments, data provenance practices, and documented evidence — obligations stated at the level of properties and records, not weight files. The EU AI Act similarly requires technical documentation, risk management records, and transparency about data and capabilities. Metadata-only architecture produces exactly these records — described in structured, signed form — which is why regulator- and auditor-facing obligations can be met without any artifact ever leaving the customer's environment."
-            }
-          }
-        ]
+      "sameAs": [
+        "https://www.linkedin.com/company/securegrc"
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#article",
+      "headline": "Metadata-Only AI Compliance: Govern Models Without Exposing IP",
+      "description": "How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence.",
+      "url": "https://www.securegrc.io/blog/metadata-only-compliance/",
+      "mainEntityOfPage": "https://www.securegrc.io/blog/metadata-only-compliance/",
+      "datePublished": "2026-07-17",
+      "dateModified": "2026-07-18",
+      "author": {
+        "@id": "https://www.securegrc.io/#organization"
       },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#breadcrumbs",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.securegrc.io/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Blog",
-            "item": "https://www.securegrc.io/blog/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Metadata-Only Compliance",
-            "item": "https://www.securegrc.io/blog/metadata-only-compliance/"
-          }
-        ]
+      "publisher": {
+        "@id": "https://www.securegrc.io/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does SecureGRC ever access model weights or training data?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Model weights, training data, and proprietary source code never enter SecureGRC — this is an architectural guarantee, not a policy promise. Extraction runs at the customer boundary and emits only structured metadata: architecture family, dataset lineage descriptors, evaluation results, dependency graphs, and license chains. Every downstream stage — threat assessment, control mapping, compliance evaluation, and evidence linking — operates exclusively on that metadata, so there is no code path through which an artifact could be ingested."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What metadata does an AI compliance evaluation actually need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A compliance evaluation needs to know what a model is, where its data came from, how it performs, what it depends on, and what terms govern it. Concretely: the architecture family and modality, dataset lineage descriptors covering sources, collection methods and consent basis, evaluation results such as accuracy, robustness and bias metrics, the dependency graph of frameworks and pretrained components, and the license chain across all of them. None of these require the weights themselves — they are properties about the model, which is exactly the level at which frameworks like ISO/IEC 42001 and the EU AI Act state their obligations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "If the platform never saw the model, why should an auditor trust the results?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with CRYSTALS-Dilithium (NIST FIPS 204, ML-DSA), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is metadata-only compliance compatible with ISO/IEC 42001 and the EU AI Act?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. ISO/IEC 42001:2023 is a management-system standard: it asks organizations to demonstrate governance processes, impact assessments, data provenance practices, and documented evidence — obligations stated at the level of properties and records, not weight files. The EU AI Act similarly requires technical documentation, risk management records, and transparency about data and capabilities. Metadata-only architecture produces exactly these records — described in structured, signed form — which is why regulator- and auditor-facing obligations can be met without any artifact ever leaving the customer's environment."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.securegrc.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.securegrc.io/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Metadata-Only Compliance",
+          "item": "https://www.securegrc.io/blog/metadata-only-compliance/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <style>
@@ -222,14 +234,14 @@
         <a href="/what-is-ml-bom/">ML-BOM Guide</a>
         <a href="/iso-42001-explained/">ISO 42001</a>
         <a href="/quantum-safe-compliance/">Quantum-Safe</a>
-        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/vs/">Compare</a>
         <a href="/faq/">FAQ</a>
       </nav>
     </div>
   </header>
 
   <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a> / Blog / <span>Metadata-Only Compliance</span>
+    <a href="/">Home</a> / <a href="/blog/">Blog</a> / <span>Metadata-Only Compliance</span>
   </nav>
 
   <main>
@@ -371,14 +383,18 @@
             <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
             <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
             <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+            <li><a href="/vs/">All comparisons</a></li>
           </ul>
         </div>
         <div>
           <h4>Resources</h4>
           <ul>
+            <li><a href="/glossary/">Glossary</a></li>
             <li><a href="/glossary/tcce/">TCCE framework</a></li>
-            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
           </ul>
         </div>
       </div>

@@ -23,11 +23,15 @@
   <meta property="og:title" content="SecureGRC vs Holistic AI: AI Risk Platforms Compared" />
   <meta property="og:description" content="Fair comparison of SecureGRC vs Holistic AI: bias audit depth and EU AI Act tooling vs metadata-only ML-BOMs, MITRE ATLAS mapping, quantum-safe evidence." />
   <meta property="og:url" content="https://www.securegrc.io/vs/holistic-ai/" />
+  <meta property="og:image" content="https://www.securegrc.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="SecureGRC vs Holistic AI: AI Risk Platforms Compared" />
   <meta name="twitter:description" content="Fair comparison of SecureGRC vs Holistic AI: bias audit depth and EU AI Act tooling vs metadata-only ML-BOMs, MITRE ATLAS mapping, quantum-safe evidence." />
+  <meta name="twitter:image" content="https://www.securegrc.io/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,100 +39,120 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://www.securegrc.io/#organization",
-        "name": "SecureGRC",
-        "url": "https://www.securegrc.io"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.securegrc.io/#organization",
+      "name": "SecureGRC",
+      "url": "https://www.securegrc.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.securegrc.io/#logo",
+        "url": "https://www.securegrc.io/og-image.png",
+        "width": 1200,
+        "height": 630
       },
-      {
-        "@type": "Article",
-        "@id": "https://www.securegrc.io/vs/holistic-ai/#article",
-        "headline": "SecureGRC vs Holistic AI: AI Risk Platforms Compared",
-        "description": "A fair, factual comparison of SecureGRC and Holistic AI for AI governance and compliance: bias auditing depth and regulatory research versus metadata-only ML-BOMs, MITRE ATLAS threat mapping, and post-quantum-signed evidence.",
-        "url": "https://www.securegrc.io/vs/holistic-ai/",
-        "mainEntityOfPage": "https://www.securegrc.io/vs/holistic-ai/",
-        "datePublished": "2026-07-17",
-        "dateModified": "2026-07-17",
-        "author": { "@id": "https://www.securegrc.io/#organization" },
-        "publisher": { "@id": "https://www.securegrc.io/#organization" }
+      "sameAs": [
+        "https://www.linkedin.com/company/securegrc"
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://www.securegrc.io/vs/holistic-ai/#article",
+      "headline": "SecureGRC vs Holistic AI: AI Risk Platforms Compared",
+      "description": "A fair, factual comparison of SecureGRC and Holistic AI for AI governance and compliance: bias auditing depth and regulatory research versus metadata-only ML-BOMs, MITRE ATLAS threat mapping, and post-quantum-signed evidence.",
+      "url": "https://www.securegrc.io/vs/holistic-ai/",
+      "mainEntityOfPage": "https://www.securegrc.io/vs/holistic-ai/",
+      "datePublished": "2026-07-17",
+      "dateModified": "2026-07-18",
+      "author": {
+        "@id": "https://www.securegrc.io/#organization"
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.securegrc.io/vs/holistic-ai/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Is SecureGRC a direct replacement for Holistic AI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Not exactly — the platforms overlap on AI governance but have different centers of gravity. Holistic AI is a scaled, end-to-end governance platform whose depth is in auditing: bias and fairness testing, efficacy and robustness assessment, and regulatory readiness across frameworks such as the EU AI Act and NYC Local Law 144. SecureGRC is an early-stage platform focused on compliance evidence engineering: ML-BOM generation, MITRE ATLAS threat mapping, ISO/IEC 42001 gap analysis, and post-quantum-signed audit trails, all computed from metadata alone. Some teams will need one, some the other, and some genuinely both."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Holistic AI support ISO/IEC 42001?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Holistic AI lists ISO/IEC 42001 among the frameworks its platform maps to, alongside the EU AI Act and the NIST AI Risk Management Framework. The difference is architectural: for Holistic AI, ISO/IEC 42001 is one supported framework within a broad governance suite, while SecureGRC's control library is built around ISO/IEC 42001 specifically, with every control connected to MITRE ATLAS threat profiles and cryptographically signed evidence through the TCCE pipeline."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does SecureGRC perform bias audits like Holistic AI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. Statistical bias and fairness auditing — measuring selection rates, impact ratios, and disparate outcomes across protected groups — is a Holistic AI strength and is not what SecureGRC does. SecureGRC evaluates compliance posture from system metadata: which threats apply, which ISO/IEC 42001 controls counter them, where the gaps are, and what evidence proves the controls exist. If a bias audit is a legal requirement for your use case, as under NYC Local Law 144, you need a bias-auditing capability; SecureGRC would document and evidence that control rather than execute the statistical test itself."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I have to share model weights or training data with SecureGRC?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. SecureGRC's architecture is metadata-only: model weights, training data, and proprietary IP never enter the platform. All analysis — threat assessment, control mapping, compliance evaluation, and evidence linking — runs on extracted metadata such as architecture descriptors, dataset provenance, and dependency and deployment context, captured in an ML-BOM aligned with CycloneDX and SPDX."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Why does post-quantum cryptography matter for compliance evidence?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Because compliance evidence must stay verifiable for years, sometimes a decade or more, and classical digital signatures are exactly what a future quantum computer is expected to break. Records signed today with classical algorithms could become unverifiable — or forgeable — within their own retention window. SecureGRC signs every artifact with CRYSTALS-Dilithium, the lattice-based signature scheme standardized by NIST as FIPS 204 (ML-DSA) in August 2024, hashes it with SHA-3, and anchors it in a Merkle tree, so evidence remains verifiable with public keys alone."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can SecureGRC and Holistic AI be used together?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "In principle, yes, because they concentrate on different layers. Holistic AI's auditing and testing produce findings about model behavior; SecureGRC's TCCE pipeline produces threat-mapped, control-linked, cryptographically signed evidence about compliance posture. An organization could run behavioral audits in one and maintain its ISO/IEC 42001 evidence chain in the other. SecureGRC is in early access in 2026, so integration today means exporting and importing artifacts rather than a native connector."
-            }
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.securegrc.io/vs/holistic-ai/#breadcrumbs",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.securegrc.io/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Holistic AI",
-            "item": "https://www.securegrc.io/vs/holistic-ai/"
-          }
-        ]
+      "publisher": {
+        "@id": "https://www.securegrc.io/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.securegrc.io/vs/holistic-ai/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is SecureGRC a direct replacement for Holistic AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not exactly — the platforms overlap on AI governance but have different centers of gravity. Holistic AI is a scaled, end-to-end governance platform whose depth is in auditing: bias and fairness testing, efficacy and robustness assessment, and regulatory readiness across frameworks such as the EU AI Act and NYC Local Law 144. SecureGRC is an early-stage platform focused on compliance evidence engineering: ML-BOM generation, MITRE ATLAS threat mapping, ISO/IEC 42001 gap analysis, and post-quantum-signed audit trails, all computed from metadata alone. Some teams will need one, some the other, and some genuinely both."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Holistic AI support ISO/IEC 42001?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Holistic AI lists ISO/IEC 42001 among the frameworks its platform maps to, alongside the EU AI Act and the NIST AI Risk Management Framework. The difference is architectural: for Holistic AI, ISO/IEC 42001 is one supported framework within a broad governance suite, while SecureGRC's control library is built around ISO/IEC 42001 specifically, with every control connected to MITRE ATLAS threat profiles and cryptographically signed evidence through the TCCE pipeline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SecureGRC perform bias audits like Holistic AI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Statistical bias and fairness auditing — measuring selection rates, impact ratios, and disparate outcomes across protected groups — is a Holistic AI strength and is not what SecureGRC does. SecureGRC evaluates compliance posture from system metadata: which threats apply, which ISO/IEC 42001 controls counter them, where the gaps are, and what evidence proves the controls exist. If a bias audit is a legal requirement for your use case, as under NYC Local Law 144, you need a bias-auditing capability; SecureGRC would document and evidence that control rather than execute the statistical test itself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to share model weights or training data with SecureGRC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. SecureGRC's architecture is metadata-only: model weights, training data, and proprietary IP never enter the platform. All analysis — threat assessment, control mapping, compliance evaluation, and evidence linking — runs on extracted metadata such as architecture descriptors, dataset provenance, and dependency and deployment context, captured in an ML-BOM aligned with CycloneDX and SPDX."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does post-quantum cryptography matter for compliance evidence?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because compliance evidence must stay verifiable for years, sometimes a decade or more, and classical digital signatures are exactly what a future quantum computer is expected to break. Records signed today with classical algorithms could become unverifiable — or forgeable — within their own retention window. SecureGRC signs every artifact with CRYSTALS-Dilithium, the lattice-based signature scheme standardized by NIST as FIPS 204 (ML-DSA) in August 2024, hashes it with SHA-3, and anchors it in a Merkle tree, so evidence remains verifiable with public keys alone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can SecureGRC and Holistic AI be used together?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In principle, yes, because they concentrate on different layers. Holistic AI's auditing and testing produce findings about model behavior; SecureGRC's TCCE pipeline produces threat-mapped, control-linked, cryptographically signed evidence about compliance posture. An organization could run behavioral audits in one and maintain its ISO/IEC 42001 evidence chain in the other. SecureGRC is in early access in 2026, so integration today means exporting and importing artifacts rather than a native connector."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.securegrc.io/vs/holistic-ai/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.securegrc.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Compare",
+          "item": "https://www.securegrc.io/vs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Holistic AI",
+          "item": "https://www.securegrc.io/vs/holistic-ai/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <style>
@@ -226,14 +250,14 @@
         <a href="/what-is-ml-bom/">ML-BOM Guide</a>
         <a href="/iso-42001-explained/">ISO 42001</a>
         <a href="/quantum-safe-compliance/">Quantum-Safe</a>
-        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/vs/">Compare</a>
         <a href="/faq/">FAQ</a>
       </nav>
     </div>
   </header>
 
   <nav class="breadcrumbs" aria-label="Breadcrumb">
-    <a href="/">Home</a> / vs / <span>Holistic AI</span>
+    <a href="/">Home</a> / <a href="/vs/">Compare</a> / <span>Holistic AI</span>
   </nav>
 
   <main>
@@ -435,14 +459,18 @@
             <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
             <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
             <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+            <li><a href="/vs/">All comparisons</a></li>
           </ul>
         </div>
         <div>
           <h4>Resources</h4>
           <ul>
+            <li><a href="/glossary/">Glossary</a></li>
             <li><a href="/glossary/tcce/">TCCE framework</a></li>
-            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
           </ul>
         </div>
       </div>

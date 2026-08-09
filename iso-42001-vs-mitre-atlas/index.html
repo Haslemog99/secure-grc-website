@@ -39,100 +39,114 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://www.securegrc.io/#organization",
-        "name": "SecureGRC",
-        "url": "https://www.securegrc.io"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.securegrc.io/#organization",
+      "name": "SecureGRC",
+      "url": "https://www.securegrc.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.securegrc.io/#logo",
+        "url": "https://www.securegrc.io/og-image.png",
+        "width": 1200,
+        "height": 630
       },
-      {
-        "@type": "Article",
-        "@id": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/#article",
-        "headline": "ISO 42001 & MITRE ATLAS: Mapping AI Threats to Controls",
-        "description": "A practical crosswalk mapping MITRE ATLAS adversarial tactics to ISO/IEC 42001 control themes, with a worked model-poisoning example and guidance on automating AI threat-to-control mapping.",
-        "url": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/",
-        "mainEntityOfPage": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/",
-        "datePublished": "2026-07-17",
-        "dateModified": "2026-07-17",
-        "author": { "@id": "https://www.securegrc.io/#organization" },
-        "publisher": { "@id": "https://www.securegrc.io/#organization" }
+      "sameAs": [
+        "https://www.linkedin.com/company/securegrc"
+      ]
+    },
+    {
+      "@type": "Article",
+      "@id": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/#article",
+      "headline": "ISO 42001 & MITRE ATLAS: Mapping AI Threats to Controls",
+      "description": "A practical crosswalk mapping MITRE ATLAS adversarial tactics to ISO/IEC 42001 control themes, with a worked model-poisoning example and guidance on automating AI threat-to-control mapping.",
+      "url": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/",
+      "mainEntityOfPage": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/",
+      "datePublished": "2026-07-17",
+      "dateModified": "2026-07-18",
+      "author": {
+        "@id": "https://www.securegrc.io/#organization"
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Is MITRE ATLAS a compliance framework?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. MITRE ATLAS is a knowledge base of adversarial tactics and techniques against AI systems, modeled after MITRE ATT&CK. It describes how AI systems are attacked, not how organizations must govern them. It carries no certification, audit, or legal obligation. Its value in compliance work is as a threat model that gives risk-driven meaning to the controls a standard like ISO/IEC 42001 requires."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does ISO/IEC 42001 require the use of MITRE ATLAS?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. ISO/IEC 42001 requires organizations to assess AI risks and treat them with appropriate controls, but it does not mandate any particular threat catalog. MITRE ATLAS is simply the most established public knowledge base of AI-specific adversarial threats, which makes it a natural evidence source for the risk assessment an ISO/IEC 42001 management system must perform."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the difference between MITRE ATLAS and MITRE ATT&CK?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "MITRE ATT&CK catalogs adversary behavior against traditional enterprise IT — networks, endpoints, cloud. MITRE ATLAS applies the same tactic-and-technique structure to AI systems specifically, covering attacks such as prompt injection, model poisoning, model extraction, and adversarial evasion that have no direct equivalent in ATT&CK. ATLAS reuses familiar tactic names like Reconnaissance and Exfiltration while adding AI-specific ones such as ML Model Access and ML Attack Staging."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can an ATLAS-to-ISO-42001 crosswalk help with EU AI Act compliance?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Indirectly, yes. The EU AI Act, in force since August 2024 with staged obligations, expects providers of high-risk AI systems to manage risks, ensure robustness, and maintain technical documentation. A crosswalk that ties concrete ATLAS threats to ISO/IEC 42001 control themes produces exactly the kind of risk-driven, evidence-backed documentation those obligations favor, and ISO/IEC 42001 is widely viewed as a strong organizational foundation for AI Act readiness."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How often should a threat-to-control mapping be updated?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Whenever either side changes. MITRE ATLAS is a living knowledge base that adds techniques as new attack classes emerge, and your AI inventory changes every time a model, dataset, or dependency is added or retrained. In practice that means the mapping should be re-run per release rather than per annual audit, which is only realistic when it is automated rather than maintained by hand in a spreadsheet."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does SecureGRC need access to model weights to map threats to controls?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. SecureGRC's analysis is metadata-only: model weights, training data, and proprietary IP never enter the platform. Threat profiling, control mapping, and gap analysis run on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in an ML-BOM. Every resulting artifact is signed with CRYSTALS-Dilithium (NIST FIPS 204), so third parties can verify evidence using public keys alone."
-            }
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/#breadcrumbs",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://www.securegrc.io/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "ISO 42001 ↔ MITRE ATLAS",
-            "item": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/"
-          }
-        ]
+      "publisher": {
+        "@id": "https://www.securegrc.io/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is MITRE ATLAS a compliance framework?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. MITRE ATLAS is a knowledge base of adversarial tactics and techniques against AI systems, modeled after MITRE ATT&CK. It describes how AI systems are attacked, not how organizations must govern them. It carries no certification, audit, or legal obligation. Its value in compliance work is as a threat model that gives risk-driven meaning to the controls a standard like ISO/IEC 42001 requires."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does ISO/IEC 42001 require the use of MITRE ATLAS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. ISO/IEC 42001 requires organizations to assess AI risks and treat them with appropriate controls, but it does not mandate any particular threat catalog. MITRE ATLAS is simply the most established public knowledge base of AI-specific adversarial threats, which makes it a natural evidence source for the risk assessment an ISO/IEC 42001 management system must perform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between MITRE ATLAS and MITRE ATT&CK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MITRE ATT&CK catalogs adversary behavior against traditional enterprise IT — networks, endpoints, cloud. MITRE ATLAS applies the same tactic-and-technique structure to AI systems specifically, covering attacks such as prompt injection, model poisoning, model extraction, and adversarial evasion that have no direct equivalent in ATT&CK. ATLAS reuses familiar tactic names like Reconnaissance and Exfiltration while adding AI-specific ones such as ML Model Access and ML Attack Staging."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an ATLAS-to-ISO-42001 crosswalk help with EU AI Act compliance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Indirectly, yes. The EU AI Act, in force since August 2024 with staged obligations, expects providers of high-risk AI systems to manage risks, ensure robustness, and maintain technical documentation. A crosswalk that ties concrete ATLAS threats to ISO/IEC 42001 control themes produces exactly the kind of risk-driven, evidence-backed documentation those obligations favor, and ISO/IEC 42001 is widely viewed as a strong organizational foundation for AI Act readiness."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should a threat-to-control mapping be updated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Whenever either side changes. MITRE ATLAS is a living knowledge base that adds techniques as new attack classes emerge, and your AI inventory changes every time a model, dataset, or dependency is added or retrained. In practice that means the mapping should be re-run per release rather than per annual audit, which is only realistic when it is automated rather than maintained by hand in a spreadsheet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SecureGRC need access to model weights to map threats to controls?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. SecureGRC's analysis is metadata-only: model weights, training data, and proprietary IP never enter the platform. Threat profiling, control mapping, and gap analysis run on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in an ML-BOM. Every resulting artifact is signed with CRYSTALS-Dilithium (NIST FIPS 204), so third parties can verify evidence using public keys alone."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.securegrc.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ISO 42001 ↔ MITRE ATLAS",
+          "item": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/"
+        }
+      ]
+    }
+  ]
+}
   </script>
 
   <style>
@@ -230,7 +244,7 @@
         <a href="/what-is-ml-bom/">ML-BOM Guide</a>
         <a href="/iso-42001-explained/">ISO 42001</a>
         <a href="/quantum-safe-compliance/">Quantum-Safe</a>
-        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/vs/">Compare</a>
         <a href="/faq/">FAQ</a>
       </nav>
     </div>
@@ -447,14 +461,18 @@
             <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
             <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
             <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+            <li><a href="/vs/">All comparisons</a></li>
           </ul>
         </div>
         <div>
           <h4>Resources</h4>
           <ul>
+            <li><a href="/glossary/">Glossary</a></li>
             <li><a href="/glossary/tcce/">TCCE framework</a></li>
-            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
           </ul>
         </div>
       </div>

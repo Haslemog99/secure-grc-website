@@ -42,6 +42,22 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://www.securegrc.io/#organization",
+      "name": "SecureGRC",
+      "url": "https://www.securegrc.io/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.securegrc.io/#logo",
+        "url": "https://www.securegrc.io/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/securegrc"
+      ]
+    },
+    {
       "@type": "WebPage",
       "@id": "https://www.securegrc.io/faq/#webpage",
       "name": "SecureGRC FAQ: AI Compliance, ML-BOM & ISO 42001 Answers",
@@ -50,16 +66,12 @@
       "url": "https://www.securegrc.io/faq/",
       "mainEntityOfPage": "https://www.securegrc.io/faq/",
       "datePublished": "2026-07-17",
-      "dateModified": "2026-07-17",
+      "dateModified": "2026-07-18",
       "author": {
-        "@type": "Organization",
-        "name": "SecureGRC",
-        "url": "https://www.securegrc.io"
+        "@id": "https://www.securegrc.io/#organization"
       },
       "publisher": {
-        "@type": "Organization",
-        "name": "SecureGRC",
-        "url": "https://www.securegrc.io"
+        "@id": "https://www.securegrc.io/#organization"
       }
     },
     {
@@ -321,7 +333,7 @@
         <a href="/what-is-ml-bom/">ML-BOM Guide</a>
         <a href="/iso-42001-explained/">ISO 42001</a>
         <a href="/quantum-safe-compliance/">Quantum-Safe</a>
-        <a href="/vs/credo-ai/">Compare</a>
+        <a href="/vs/">Compare</a>
         <a href="/faq/" class="active">FAQ</a>
       </nav>
     </div>
@@ -483,14 +495,18 @@
             <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
             <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
             <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+            <li><a href="/vs/">All comparisons</a></li>
           </ul>
         </div>
         <div>
           <h4>Resources</h4>
           <ul>
+            <li><a href="/glossary/">Glossary</a></li>
             <li><a href="/glossary/tcce/">TCCE framework</a></li>
-            <li><a href="/blog/metadata-only-compliance/">Metadata-only compliance</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/privacy">Privacy</a></li>
+            <li><a href="/terms">Terms</a></li>
           </ul>
         </div>
       </div>
