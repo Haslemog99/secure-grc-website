@@ -7,6 +7,12 @@
       "has": [{ "type": "host", "value": "securegrc.io" }],
       "destination": "https://www.securegrc.io/$1",
       "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "securegrcwebsite.vercel.app" }],
+      "destination": "https://www.securegrc.io/$1",
+      "permanent": true
     }
   ],
   "headers": [
