@@ -7,14 +7,14 @@
   top: 0;
   z-index: 300;
   padding: 10px 16px;
-  background: #14b8a6;
-  color: #04121a;
+  background: #0d9488;
+  color: #04201c;
   font: 600 14px/1.4 'Inter', system-ui, sans-serif;
   border-radius: 0 0 8px 0;
 }
 .skip-link:focus {
   left: 0;
-  color: #04121a;
+  color: #04201c;
   text-decoration: none;
 }
 
@@ -25,7 +25,7 @@ select:focus-visible,
 textarea:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid #14b8a6;
+  outline: 2px solid #0d9488;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -46,14 +46,14 @@ summary:focus-visible,
   font-size: 13px;
   font-weight: 600;
   padding: 8px 16px;
-  background: #14b8a6;
-  color: #04121a !important;
+  background: #0d9488;
+  color: #04201c !important;
   border-radius: 8px;
   text-decoration: none !important;
   white-space: nowrap;
   transition: background 0.15s, transform 0.15s;
 }
-.header-cta:hover { background: #2dd4bf; transform: translateY(-1px); text-decoration: none; }
+.header-cta:hover { background: #0f766e; transform: translateY(-1px); text-decoration: none; }
 
 .nav-toggle {
   display: none;
@@ -64,14 +64,14 @@ summary:focus-visible,
   height: 40px;
   padding: 9px;
   background: transparent;
-  border: 1px solid var(--border, #1e293b);
+  border: 1px solid var(--border, #e2e8f0);
   border-radius: 8px;
   cursor: pointer;
 }
 .nav-toggle span {
   display: block;
   height: 2px;
-  background: var(--text, #e2e8f0);
+  background: var(--text, #0f172a);
   border-radius: 2px;
   transition: transform 0.2s, opacity 0.2s;
 }
@@ -92,8 +92,8 @@ summary:focus-visible,
     flex-direction: column;
     gap: 2px;
     padding: 10px 20px 16px;
-    background: var(--bg, #0a0e17);
-    border-bottom: 1px solid var(--border, #1e293b);
+    background: var(--bg, #ffffff);
+    border-bottom: 1px solid var(--border, #e2e8f0);
   }
   .site-header.open .site-nav { display: flex !important; }
   .site-nav a {
@@ -101,7 +101,7 @@ summary:focus-visible,
     border-radius: 8px;
     font-size: 15px;
   }
-  .site-nav a:active { background: var(--surface-hover, #1a2332); }
+  .site-nav a:active { background: var(--surface-hover, #f1f5f9); }
 }
 
 /* ---------- Scroll reveal (content stays visible without JS) ---------- */
@@ -122,29 +122,29 @@ dialog.lead-modal {
   margin: auto;
   max-height: calc(100vh - 32px);
   overflow-y: auto;
-  border: 1px solid var(--border, #1e293b);
+  border: 1px solid var(--border, #e2e8f0);
   border-radius: 16px;
-  background: var(--surface, #111827);
-  color: var(--text, #e2e8f0);
+  background: var(--surface, #f8fafc);
+  color: var(--text, #0f172a);
   padding: 0;
   width: min(440px, calc(100vw - 32px));
   font-family: 'Inter', system-ui, sans-serif;
 }
-dialog.lead-modal::backdrop { background: rgba(2, 6, 12, 0.7); backdrop-filter: blur(4px); }
+dialog.lead-modal::backdrop { background: rgba(15, 23, 42, 0.45); backdrop-filter: blur(4px); }
 .lead-modal-inner { padding: 28px; }
 .lead-modal h2 {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 6px;
-  color: var(--text, #e2e8f0);
+  color: var(--text, #0f172a);
 }
-.lead-modal .lead-sub { font-size: 14px; color: var(--muted, #94a3b8); margin-bottom: 20px; }
+.lead-modal .lead-sub { font-size: 14px; color: var(--muted, #64748b); margin-bottom: 20px; }
 .lead-modal label {
   display: block;
   font-size: 13px;
   font-weight: 500;
-  color: var(--muted, #94a3b8);
+  color: var(--muted, #64748b);
   margin-bottom: 4px;
 }
 .lead-modal input,
@@ -153,37 +153,37 @@ dialog.lead-modal::backdrop { background: rgba(2, 6, 12, 0.7); backdrop-filter: 
   width: 100%;
   padding: 10px 12px;
   margin-bottom: 14px;
-  background: var(--bg, #0a0e17);
-  border: 1px solid var(--border, #1e293b);
+  background: var(--bg, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
   border-radius: 8px;
-  color: var(--text, #e2e8f0);
+  color: var(--text, #0f172a);
   font: 400 14px/1.5 'Inter', system-ui, sans-serif;
 }
 .lead-modal input:focus,
 .lead-modal select:focus,
 .lead-modal textarea:focus {
-  border-color: #14b8a6;
+  border-color: #0d9488;
   outline: none;
 }
 .lead-modal .lead-submit {
   width: 100%;
   padding: 12px;
-  background: #14b8a6;
-  color: #04121a;
+  background: #0d9488;
+  color: #04201c;
   border: none;
   border-radius: 8px;
   font: 600 15px/1.4 'Inter', system-ui, sans-serif;
   cursor: pointer;
   transition: background 0.15s;
 }
-.lead-modal .lead-submit:hover { background: #2dd4bf; }
+.lead-modal .lead-submit:hover { background: #0f766e; }
 .lead-modal .lead-alt {
   margin-top: 12px;
   font-size: 12px;
   color: var(--dim, #64748b);
   text-align: center;
 }
-.lead-modal .lead-alt a { color: var(--muted, #94a3b8); }
+.lead-modal .lead-alt a { color: var(--muted, #64748b); }
 .lead-close {
   position: absolute;
   top: 12px;
@@ -195,11 +195,11 @@ dialog.lead-modal::backdrop { background: rgba(2, 6, 12, 0.7); backdrop-filter: 
   background: transparent;
   border: none;
   border-radius: 8px;
-  color: var(--muted, #94a3b8);
+  color: var(--muted, #64748b);
   font-size: 20px;
   cursor: pointer;
 }
-.lead-close:hover { background: var(--surface-hover, #1a2332); color: var(--text, #e2e8f0); }
+.lead-close:hover { background: var(--surface-hover, #f1f5f9); color: var(--text, #0f172a); }
 .lead-success { text-align: center; padding: 20px 0 8px; }
 .lead-success .lead-check {
   width: 48px;
@@ -208,8 +208,8 @@ dialog.lead-modal::backdrop { background: rgba(2, 6, 12, 0.7); backdrop-filter: 
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: rgba(20, 184, 166, 0.12);
-  color: #14b8a6;
+  background: rgba(13, 148, 136, 0.12);
+  color: #0d9488;
   font-size: 22px;
 }
 
@@ -223,10 +223,10 @@ dialog.lead-modal::backdrop { background: rgba(2, 6, 12, 0.7); backdrop-filter: 
   height: 40px;
   display: grid;
   place-items: center;
-  background: var(--surface, #111827);
-  border: 1px solid var(--border, #1e293b);
+  background: var(--surface, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
   border-radius: 10px;
-  color: var(--muted, #94a3b8);
+  color: var(--muted, #64748b);
   font-size: 18px;
   cursor: pointer;
   opacity: 0;
@@ -235,4 +235,4 @@ dialog.lead-modal::backdrop { background: rgba(2, 6, 12, 0.7); backdrop-filter: 
   transition: opacity 0.25s, transform 0.25s, color 0.15s;
 }
 .back-to-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.back-to-top:hover { color: #14b8a6; border-color: #14b8a6; }
+.back-to-top:hover { color: #0d9488; border-color: #0d9488; }

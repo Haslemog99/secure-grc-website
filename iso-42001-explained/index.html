@@ -7,7 +7,7 @@
   <meta name="description" content="ISO/IEC 42001:2023 is the first certifiable AI management system standard. Learn its structure, Annex A controls, certification steps, and EU AI Act fit." />
   <link rel="canonical" href="https://www.securegrc.io/iso-42001-explained/" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0a0e17" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
   <!-- Cookiebot consent management -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
@@ -153,9 +153,9 @@
 
   <style>
     :root {
-      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
-      --accent: #14b8a6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
-      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+      --bg: #ffffff; --surface: #f8fafc; --surface-hover: #f1f5f9; --border: #e2e8f0;
+      --accent: #0d9488; --quantum: #7c3aed; --success: #059669; --warning: #d97706;
+      --text: #1e293b; --muted: #64748b; --dim: #64748b;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
@@ -163,7 +163,7 @@
     a:hover { text-decoration: underline; }
     code, .mono { font-family: 'JetBrains Mono', monospace; }
 
-    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(255,255,255,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
     .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
     .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
@@ -187,17 +187,17 @@
     p.lead { font-size: 17.5px; }
     ul, ol { margin: 0 0 18px 22px; }
     li { margin-bottom: 8px; }
-    strong { color: #fff; }
+    strong { color: #0f172a; }
 
     table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
     th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
     td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
     td:first-child { color: var(--text); }
-    tr:hover td { background: rgba(26,35,50,.5); }
+    tr:hover td { background: rgba(15,23,42,.08); }
     .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
 
     pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
-    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #7c3aed; }
     pre code { background: none; border: none; padding: 0; }
 
     .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
@@ -212,11 +212,11 @@
     .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
     .faq-item .faq-body p:last-child { margin-bottom: 0; }
 
-    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(20,184,166,.12), rgba(139,92,246,.12)); border: 1px solid rgba(20,184,166,.3); border-radius: 14px; padding: 28px; text-align: center; }
+    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(20,184,166,.12), rgba(124,58,237,.12)); border: 1px solid rgba(20,184,166,.3); border-radius: 14px; padding: 28px; text-align: center; }
     .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
     .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
     .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
-    .cta a.btn:hover { background: #0d9488; text-decoration: none; }
+    .cta a.btn:hover { background: #0f766e; text-decoration: none; }
 
     .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
     .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
