@@ -5,31 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Page not found — SecureGRC</title>
 <meta name="robots" content="noindex, follow">
-<meta name="theme-color" content="#0B1120">
+<meta name="theme-color" content="#0a0e17">
 <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
 <!-- Cookiebot consent management -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
 <!-- Vercel Web Analytics -->
-<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --navy:#0B1120;
-  --teal:#0D9488;
-  --teal-bg:#F0FDFA;
-  --white:#ffffff;
-  --off-white:#F8FAFC;
-  --text:#1E293B;
-  --text-secondary:#64748B;
-  --text-light:#94A3B8;
-  --border:#E2E8F0;
+  --bg:#0a0e17;
+  --surface:#111827;
+  --surface-hover:#1a2332;
+  --border:#1e293b;
+  --accent:#14b8a6;
+  --quantum:#8b5cf6;
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+  --dim:#64748b;
+  /* legacy names kept so the page rules below still resolve */
+  --navy:#e2e8f0;
+  --teal:#14b8a6;
+  --teal-bg:rgba(20,184,166,0.08);
+  --white:#0a0e17;
+  --off-white:#111827;
+  --text-secondary:#94a3b8;
+  --text-light:#94a3b8;
 }
 body{
   background:var(--white);
@@ -40,36 +46,64 @@ body{
   min-height:100vh;display:flex;flex-direction:column;
 }
 a{color:inherit;text-decoration:none}
-nav{
-  height:64px;padding:0 clamp(16px,4vw,80px);
-  display:flex;align-items:center;justify-content:space-between;
-  border-bottom:1px solid var(--border);
-}
-.nav-logo{font-weight:700;font-size:20px;letter-spacing:-0.03em;color:var(--navy)}
-.nav-logo span{color:var(--teal)}
-.nav-cta{font-size:13px;font-weight:600;padding:9px 20px;background:var(--navy);color:white;border-radius:8px}
+.site-header{border-bottom:1px solid var(--border);background:rgba(10,14,23,.92);position:sticky;top:0;backdrop-filter:blur(8px);z-index:100}
+.site-header .inner{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;color:var(--text);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:15px;text-decoration:none}
+.logo:hover{text-decoration:none}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),var(--quantum));display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:15px}
+.site-nav{display:flex;gap:4px;flex-wrap:wrap}
+.site-nav a{color:var(--muted);font-size:13px;padding:6px 10px;border-radius:6px;text-decoration:none}
+.site-nav a:hover{color:var(--text);background:var(--surface-hover);text-decoration:none}
 main{flex:1;width:100%;max-width:720px;margin:0 auto;padding:clamp(56px,10vw,112px) 16px 64px}
 .code{font-size:13px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
 h1{font-size:clamp(30px,5vw,42px);line-height:1.15;letter-spacing:-0.03em;color:var(--navy);margin-bottom:14px}
 .lead{font-size:17px;color:var(--text-secondary);margin-bottom:32px}
 .actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
 .btn-primary,.btn-secondary{display:inline-flex;align-items:center;padding:13px 24px;font-size:15px;border-radius:10px}
-.btn-primary{background:var(--navy);color:white;font-weight:600}
+.btn-primary{background:var(--accent);color:#04121a;font-weight:600}
 .btn-secondary{background:var(--white);border:1px solid var(--border);color:var(--text);font-weight:500}
 .btn-secondary:hover{border-color:var(--teal)}
 h2{font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:14px}
 .links{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
 .links a{display:block;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:var(--off-white);font-size:14.5px;font-weight:500;color:var(--text)}
 .links a:hover{border-color:var(--teal);background:var(--teal-bg)}
-footer{border-top:1px solid var(--border);padding:24px clamp(16px,4vw,80px);font-size:13px;color:var(--text-light)}
+.site-footer{border-top:1px solid var(--border);background:var(--surface)}
+.site-footer .inner{max-width:1080px;margin:0 auto;padding:40px 24px 28px}
+.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px;margin-bottom:28px}
+.footer-grid h4{font-family:'JetBrains Mono',monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:12px}
+.footer-grid ul{list-style:none;margin:0}
+.footer-grid li{margin-bottom:8px}
+.footer-grid a{color:var(--muted);font-size:13.5px;text-decoration:none}
+.footer-grid a:hover{color:var(--text);text-decoration:none}
+.footer-meta{border-top:1px solid var(--border);padding-top:20px;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--dim);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </style>
+<link rel="stylesheet" href="/assets/site.css">
+<script defer src="/assets/site.js"></script>
 </head>
 <body>
-<nav>
-  <a href="/" class="nav-logo">Secure<span>GRC</span></a>
-  <a href="mailto:hello@securegrc.io?subject=Request%20a%20Demo" class="nav-cta">Request a demo</a>
-</nav>
-<main>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="inner">
+    <a href="/" class="logo" aria-label="SecureGRC home">
+      <span class="logo-mark" aria-hidden="true">⬡</span>
+      <span>SecureGRC</span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <a href="/what-is-ml-bom/">ML-BOM Guide</a>
+      <a href="/iso-42001-explained/">ISO 42001</a>
+      <a href="/quantum-safe-compliance/">Quantum-Safe</a>
+      <a href="/vs/">Compare</a>
+      <a href="/faq/">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <a class="header-cta lead-cta" href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" data-source="header">Get free assessment</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</header>
+<main id="main">
   <p class="code">404 · Page not found</p>
   <h1>This page doesn't exist</h1>
   <p class="lead">The link may be outdated or mistyped. Everything else is still here — try one of these.</p>
@@ -87,6 +121,46 @@ footer{border-top:1px solid var(--border);padding:24px clamp(16px,4vw,80px);font
     <li><a href="/faq/">FAQ</a></li>
   </ul>
 </main>
-<footer>© 2026 SecureGRC Ltd · London, United Kingdom</footer>
+<footer class="site-footer">
+  <div class="inner">
+    <div class="footer-grid">
+      <div>
+        <h4>Learn</h4>
+        <ul>
+          <li><a href="/what-is-ml-bom/">What is an ML-BOM?</a></li>
+          <li><a href="/iso-42001-explained/">ISO/IEC 42001 explained</a></li>
+          <li><a href="/iso-42001-vs-mitre-atlas/">ISO 42001 ↔ MITRE ATLAS crosswalk</a></li>
+          <li><a href="/quantum-safe-compliance/">Quantum-safe compliance</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Compare</h4>
+        <ul>
+          <li><a href="/vs/credo-ai/">SecureGRC vs Credo AI</a></li>
+          <li><a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a></li>
+          <li><a href="/vs/onetrust/">SecureGRC vs OneTrust</a></li>
+          <li><a href="/vs/">All comparisons</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/glossary/">Glossary</a></li>
+          <li><a href="/glossary/tcce/">TCCE framework</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="mailto:hello@securegrc.io">hello@securegrc.io</a></li>
+          <li><a href="https://www.linkedin.com/company/securegrc" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <span>© 2026 SecureGRC Ltd · London, United Kingdom</span>
+      <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

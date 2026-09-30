@@ -13,9 +13,7 @@
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
 <!-- Vercel Web Analytics -->
-<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 
   <!-- Open Graph -->
@@ -159,7 +157,7 @@
   <style>
     :root {
       --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
-      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
+      --accent: #14b8a6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
       --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -175,7 +173,7 @@
     .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
     .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
     .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
-    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+    .site-nav a.active { color: var(--accent); background: rgba(20,184,166,.1); }
 
     .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
     .breadcrumbs a { color: var(--dim); }
@@ -217,11 +215,11 @@
     .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
     .faq-item .faq-body p:last-child { margin-bottom: 0; }
 
-    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
+    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(20,184,166,.12), rgba(139,92,246,.12)); border: 1px solid rgba(20,184,166,.3); border-radius: 14px; padding: 28px; text-align: center; }
     .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
     .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
     .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
-    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+    .cta a.btn:hover { background: #0d9488; text-decoration: none; }
 
     .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
     .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
@@ -239,21 +237,31 @@
       .site-nav { display: none; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script defer src="/assets/site.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="inner">
       <a href="/" class="logo" aria-label="SecureGRC home">
         <span class="logo-mark" aria-hidden="true">⬡</span>
         <span>SecureGRC</span>
       </a>
-      <nav class="site-nav" aria-label="Main navigation">
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <a href="/what-is-ml-bom/">ML-BOM Guide</a>
         <a href="/iso-42001-explained/">ISO 42001</a>
         <a href="/quantum-safe-compliance/">Quantum-Safe</a>
         <a href="/vs/">Compare</a>
         <a href="/faq/">FAQ</a>
       </nav>
+    <div class="header-actions">
+      <a class="header-cta lead-cta" href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" data-source="header">Get free assessment</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+
     </div>
   </header>
 
@@ -261,7 +269,7 @@
     <a href="/">Home</a> / <a href="/vs/">Compare</a> / <span>Holistic AI</span>
   </nav>
 
-  <main>
+  <main id="main">
     <article>
       <header class="page-hero">
         <p class="kicker">Comparison</p>
@@ -437,7 +445,7 @@
       <aside class="cta">
         <h2>See metadata-only compliance in action</h2>
         <p>SecureGRC's TCCE engine turns system metadata into ATLAS-mapped threat profiles, ISO/IEC 42001 gap analysis, and post-quantum-signed evidence — without your models ever leaving your environment.</p>
-        <a class="btn" href="mailto:hello@securegrc.io?subject=Request%20a%20Demo">Request a demo</a>
+        <a class="btn lead-cta" data-source="demo-cta" href="mailto:hello@securegrc.io?subject=Request%20a%20Demo">Request a demo</a>
       </aside>
     </article>
   </main>
