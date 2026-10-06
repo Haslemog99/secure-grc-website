@@ -7,14 +7,14 @@
   top: 0;
   z-index: 300;
   padding: 10px 16px;
-  background: #0d9488;
-  color: #04201c;
+  background: #0f172a;
+  color: #5eead4;
   font: 600 14px/1.4 'Inter', system-ui, sans-serif;
   border-radius: 0 0 8px 0;
 }
 .skip-link:focus {
   left: 0;
-  color: #04201c;
+  color: #5eead4;
   text-decoration: none;
 }
 
@@ -46,14 +46,14 @@ summary:focus-visible,
   font-size: 13px;
   font-weight: 600;
   padding: 8px 16px;
-  background: #0d9488;
-  color: #04201c !important;
+  background: #0f172a;
+  color: #fff !important;
   border-radius: 8px;
   text-decoration: none !important;
   white-space: nowrap;
   transition: background 0.15s, transform 0.15s;
 }
-.header-cta:hover { background: #0f766e; transform: translateY(-1px); text-decoration: none; }
+.header-cta:hover { background: #1e293b; transform: translateY(-1px); text-decoration: none; }
 
 .nav-toggle {
   display: none;
@@ -168,15 +168,15 @@ dialog.lead-modal::backdrop { background: rgba(15, 23, 42, 0.45); backdrop-filte
 .lead-modal .lead-submit {
   width: 100%;
   padding: 12px;
-  background: #0d9488;
-  color: #04201c;
+  background: #0f172a;
+  color: #fff;
   border: none;
   border-radius: 8px;
   font: 600 15px/1.4 'Inter', system-ui, sans-serif;
   cursor: pointer;
   transition: background 0.15s;
 }
-.lead-modal .lead-submit:hover { background: #0f766e; }
+.lead-modal .lead-submit:hover { background: #1e293b; }
 .lead-modal .lead-alt {
   margin-top: 12px;
   font-size: 12px;

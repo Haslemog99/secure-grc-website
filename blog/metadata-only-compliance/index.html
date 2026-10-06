@@ -34,7 +34,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <script type="application/ld+json">
   {
@@ -153,7 +153,7 @@
     .site-header { border-bottom: 1px solid var(--border); background: rgba(255,255,255,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
     .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
-    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: #0f172a; display: inline-flex; align-items: center; justify-content: center; color: #5eead4; font-size: 15px; }
     .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
     .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
     .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
@@ -199,11 +199,11 @@
     .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
     .faq-item .faq-body p:last-child { margin-bottom: 0; }
 
-    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(20,184,166,.12), rgba(124,58,237,.12)); border: 1px solid rgba(20,184,166,.3); border-radius: 14px; padding: 28px; text-align: center; }
-    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
-    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
-    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
-    .cta a.btn:hover { background: #0f766e; text-decoration: none; }
+    .cta { margin: 48px 0 0; background: #0f172a; border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; color: #fff; }
+    .cta p { color: #94a3b8; max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: #0d9488; color: #04201c; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #14b8a6; text-decoration: none; }
 
     .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
     .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
@@ -220,7 +220,10 @@
       h2 { font-size: 21px; }
       .site-nav { display: none; }
     }
-  </style>
+  
+/* display type */
+h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
+</style>
   <link rel="stylesheet" href="/assets/site.css" />
   <script defer src="/assets/site.js"></script>
 </head>
