@@ -7,15 +7,13 @@
   <meta name="description" content="Quantum-safe compliance explained: harvest-now-decrypt-later risk, FIPS 204 ML-DSA (CRYSTALS-Dilithium) signatures, and Merkle-anchored audit evidence." />
   <link rel="canonical" href="https://www.securegrc.io/quantum-safe-compliance/" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0a0e17" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
   <!-- Cookiebot consent management -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
 <!-- Vercel Web Analytics -->
-<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 
   <!-- Open Graph -->
@@ -36,7 +34,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <script type="application/ld+json">
   {
@@ -152,9 +150,9 @@
 
   <style>
     :root {
-      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
-      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
-      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+      --bg: #ffffff; --surface: #f8fafc; --surface-hover: #f1f5f9; --border: #e2e8f0;
+      --accent: #0d9488; --quantum: #7c3aed; --success: #059669; --warning: #d97706;
+      --text: #1e293b; --muted: #64748b; --dim: #64748b;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
@@ -162,14 +160,14 @@
     a:hover { text-decoration: underline; }
     code, .mono { font-family: 'JetBrains Mono', monospace; }
 
-    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(255,255,255,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
     .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
-    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: #0f172a; display: inline-flex; align-items: center; justify-content: center; color: #5eead4; font-size: 15px; }
     .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
     .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
     .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
-    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+    .site-nav a.active { color: var(--accent); background: rgba(20,184,166,.1); }
 
     .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
     .breadcrumbs a { color: var(--dim); }
@@ -186,17 +184,17 @@
     p.lead { font-size: 17.5px; }
     ul, ol { margin: 0 0 18px 22px; }
     li { margin-bottom: 8px; }
-    strong { color: #fff; }
+    strong { color: #0f172a; }
 
     table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
     th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
     td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
     td:first-child { color: var(--text); }
-    tr:hover td { background: rgba(26,35,50,.5); }
+    tr:hover td { background: rgba(15,23,42,.08); }
     .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
 
     pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
-    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #7c3aed; }
     pre code { background: none; border: none; padding: 0; }
 
     .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
@@ -211,11 +209,11 @@
     .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
     .faq-item .faq-body p:last-child { margin-bottom: 0; }
 
-    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
-    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
-    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
-    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
-    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+    .cta { margin: 48px 0 0; background: #0f172a; border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; color: #fff; }
+    .cta p { color: #94a3b8; max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: #0d9488; color: #04201c; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #14b8a6; text-decoration: none; }
 
     .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
     .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
@@ -232,22 +230,38 @@
       h2 { font-size: 21px; }
       .site-nav { display: none; }
     }
-  </style>
+  
+/* display type */
+h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em}
+.site-nav a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.01em}
+.cta a.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px}
+
+</style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script defer src="/assets/site.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="inner">
       <a href="/" class="logo" aria-label="SecureGRC home">
         <span class="logo-mark" aria-hidden="true">⬡</span>
         <span>SecureGRC</span>
       </a>
-      <nav class="site-nav" aria-label="Main navigation">
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <a href="/what-is-ml-bom/">ML-BOM Guide</a>
         <a href="/iso-42001-explained/">ISO 42001</a>
         <a href="/quantum-safe-compliance/" class="active">Quantum-Safe</a>
         <a href="/vs/">Compare</a>
         <a href="/faq/">FAQ</a>
       </nav>
+    <div class="header-actions">
+      <a class="header-cta lead-cta" href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" data-source="header">Get free assessment</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+
     </div>
   </header>
 
@@ -255,7 +269,7 @@
     <a href="/">Home</a> / <span>Quantum-Safe Compliance</span>
   </nav>
 
-  <main>
+  <main id="main">
     <article>
       <header class="page-hero">
         <p class="kicker">Pillar · Post-Quantum</p>
@@ -396,7 +410,7 @@
       <aside class="cta">
         <h2>Quantum-safe from the first artifact</h2>
         <p>SecureGRC signs every compliance artifact with CRYSTALS-Dilithium (FIPS 204), hashes it with SHA-3, and anchors it in a Merkle tree — verifiable by anyone with a public key.</p>
-        <a class="btn" href="mailto:hello@securegrc.io?subject=Request%20a%20Demo">Request a demo</a>
+        <a class="btn lead-cta" data-source="demo-cta" href="mailto:hello@securegrc.io?subject=Request%20a%20Demo">Request a demo</a>
       </aside>
     </article>
   </main>
