@@ -238,3 +238,6 @@ dialog.lead-modal::backdrop { background: rgba(15, 23, 42, 0.45); backdrop-filte
 }
 .back-to-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .back-to-top:hover { color: #0d9488; border-color: #0d9488; }
+
+/* Wordmark: two-tone, GRC in the brand gradient */
+.wm-grc{background:linear-gradient(135deg,#0d9488,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
