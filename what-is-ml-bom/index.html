@@ -9,6 +9,7 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <!-- Cookiebot consent management -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google Analytics -->
@@ -19,6 +20,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="SecureGRC" />
+<meta property="og:locale" content="en_GB">
   <meta property="og:title" content="ML-BOM Explained: Machine Learning Bill of Materials" />
   <meta property="og:description" content="What an ML-BOM (machine learning bill of materials) is, what it contains, CycloneDX vs SPDX formats, how it differs from an SBOM, and how to generate one." />
   <meta property="og:url" content="https://www.securegrc.io/what-is-ml-bom/" />
@@ -48,9 +50,9 @@
       "logo": {
         "@type": "ImageObject",
         "@id": "https://www.securegrc.io/#logo",
-        "url": "https://www.securegrc.io/og-image.png",
-        "width": 1200,
-        "height": 630
+        "url": "https://www.securegrc.io/assets/logo.png",
+        "width": 512,
+        "height": 512
       },
       "sameAs": [
         "https://www.linkedin.com/company/securegrc"
@@ -64,7 +66,7 @@
       "url": "https://www.securegrc.io/what-is-ml-bom/",
       "mainEntityOfPage": "https://www.securegrc.io/what-is-ml-bom/",
       "datePublished": "2026-07-17",
-      "dateModified": "2026-07-18",
+      "dateModified": "2026-10-24",
       "author": {
         "@id": "https://www.securegrc.io/#organization"
       },
@@ -424,7 +426,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
 
       <h3>Automated extraction</h3>
       <p>The sustainable approach is to extract metadata programmatically — from training pipelines, model registries, experiment trackers, and dependency manifests — and generate the ML-BOM as a build artifact, versioned and regenerated on every model change. Automation keeps the document synchronized with reality and makes every field traceable to a source.</p>
-      <p>This is the approach SecureGRC takes, with one architectural constraint that matters for IP-sensitive teams: the platform is <strong>metadata-only</strong>. Model weights, training data, and proprietary code never enter SecureGRC; the analysis pipeline operates exclusively on extracted metadata, as described in our <a href="/blog/metadata-only-compliance/">metadata-only compliance deep dive</a>. That metadata then flows through the <a href="/glossary/tcce/">TCCE engine</a> — threat assessment, control mapping, compliance evaluation, and evidence linking as a sequential, independently auditable pipeline — so the generated ML-BOM arrives already connected to MITRE ATLAS threat profiles and ISO/IEC 42001 control gaps, and browsable in a dedicated ML-BOM Explorer. SecureGRC is a purpose-built, early-stage platform opening early access in 2026 — a deliberate contrast to retrofitting AI inventories onto broad GRC suites, as our <a href="/vs/onetrust/">SecureGRC vs OneTrust comparison</a> discusses.</p>
+      <p>This is the approach SecureGRC takes, with one architectural constraint that matters for IP-sensitive teams: the platform is <strong>metadata-only</strong>. Model weights, training data, and proprietary code never enter SecureGRC; the analysis pipeline operates exclusively on extracted metadata, as described in our <a href="/blog/metadata-only-compliance/">metadata-only compliance deep dive</a>. That metadata then flows through the <a href="/glossary/tcce/">TCCE engine</a> — threat assessment, control mapping, compliance evaluation, and evidence linking as a sequential, independently auditable pipeline — so the generated ML-BOM arrives already connected to MITRE ATLAS threat profiles and ISO/IEC 42001 control gaps, and browsable in a dedicated ML-BOM Explorer. SecureGRC is a purpose-built, early-stage platform in early access — a deliberate contrast to retrofitting AI inventories onto broad GRC suites, as our <a href="/vs/onetrust/">SecureGRC vs OneTrust comparison</a> discusses.</p>
 
       <div class="callout">
         <p class="label">Key principle</p>

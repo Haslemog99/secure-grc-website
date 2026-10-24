@@ -9,6 +9,7 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <!-- Cookiebot consent management -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google Analytics -->
@@ -19,6 +20,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="SecureGRC" />
+<meta property="og:locale" content="en_GB">
   <meta property="og:title" content="SecureGRC vs Credo AI: AI Governance Platforms Compared" />
   <meta property="og:description" content="An honest SecureGRC vs Credo AI comparison: mature AI governance workflows versus post-quantum evidence integrity and metadata-only architecture, in one page." />
   <meta property="og:url" content="https://www.securegrc.io/vs/credo-ai/" />
@@ -48,9 +50,9 @@
       "logo": {
         "@type": "ImageObject",
         "@id": "https://www.securegrc.io/#logo",
-        "url": "https://www.securegrc.io/og-image.png",
-        "width": 1200,
-        "height": 630
+        "url": "https://www.securegrc.io/assets/logo.png",
+        "width": 512,
+        "height": 512
       },
       "sameAs": [
         "https://www.linkedin.com/company/securegrc"
@@ -64,7 +66,7 @@
       "url": "https://www.securegrc.io/vs/credo-ai/",
       "mainEntityOfPage": "https://www.securegrc.io/vs/credo-ai/",
       "datePublished": "2026-07-17",
-      "dateModified": "2026-07-18",
+      "dateModified": "2026-10-24",
       "author": {
         "@id": "https://www.securegrc.io/#organization"
       },
@@ -97,7 +99,7 @@
           "name": "Does SecureGRC have customers and analyst recognition like Credo AI?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No, and this page will not pretend otherwise. Credo AI was founded in 2020, has raised roughly 41 million dollars, and has been recognized as a leader in independent analyst evaluations of AI governance. SecureGRC is an MVP-stage platform opening early access in 2026, with no customer counts, revenue, or analyst rankings to cite. What it offers instead is an architecture — metadata-only analysis and post-quantum-signed evidence — that incumbent platforms were not designed around."
+            "text": "No, and this page will not pretend otherwise. Credo AI was founded in 2020, has raised roughly 41 million dollars, and has been recognized as a leader in independent analyst evaluations of AI governance. SecureGRC is an MVP-stage platform in early access, with no customer counts, revenue, or analyst rankings to cite. What it offers instead is an architecture — metadata-only analysis and post-quantum-signed evidence — that incumbent platforms were not designed around."
           }
         },
         {
@@ -298,7 +300,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
       <p>Credo AI's strength, in other words, is organizational: it gives large enterprises a system of record and a repeatable process for AI oversight across hundreds of use cases and many regulatory regimes simultaneously. That maturity — years of enterprise deployments in regulated industries and a broad framework catalog — is real, and a young platform cannot simply claim it away.</p>
 
       <h2>What is SecureGRC?</h2>
-      <p>SecureGRC is a purpose-built, early-stage platform — an MVP opening early access in 2026 — that focuses on the layer beneath governance workflow: <strong>the technical evidence itself, and whether anyone can prove it is true</strong>. It has no customer counts, analyst rankings, or revenue figures to cite, and this page will not invent any. What it has is an architecture designed around two constraints that incumbent platforms were not built for.</p>
+      <p>SecureGRC is a purpose-built, early-stage platform — an MVP in early access — that focuses on the layer beneath governance workflow: <strong>the technical evidence itself, and whether anyone can prove it is true</strong>. It has no customer counts, analyst rankings, or revenue figures to cite, and this page will not invent any. What it has is an architecture designed around two constraints that incumbent platforms were not built for.</p>
       <p>First, <strong>metadata-only analysis</strong>. Model weights, training data, and proprietary code never enter SecureGRC. The platform operates exclusively on extracted metadata — identifiers, hashes, architecture descriptors, dataset lineage, evaluation summaries — as detailed in our <a href="/blog/metadata-only-compliance/">metadata-only compliance deep dive</a>. Second, <strong>cryptographic evidence integrity</strong>. Every artifact the platform produces is signed with ML-DSA (NIST FIPS 204, the post-quantum signature standard finalized in August 2024), hashed with SHA-3, and anchored in a Merkle tree, so auditors can verify authenticity using only public keys.</p>
       <p>Between those two constraints runs the <a href="/glossary/tcce/">TCCE engine</a>: a sequential pipeline of threat assessment (mapped to MITRE ATLAS, the adversarial-threat knowledge base for AI), control mapping against an ISO/IEC 42001 control library, compliance evaluation with gap analysis and posture reporting, and evidence linking. Each stage is independently testable and auditable. Outputs include <a href="/what-is-ml-bom/">ML-BOMs</a> aligned with CycloneDX (which has supported ML-BOMs since v1.5) and SPDX, browsable in an ML-BOM Explorer alongside a cryptographically verified audit trail in a React dashboard.</p>
 
@@ -318,7 +320,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
           <tr><td>Evidence integrity</td><td class="warn">Conventional — platform audit logs and access controls, as in most SaaS</td><td class="yes">Post-quantum — ML-DSA (FIPS 204) signatures, SHA-3 hashing, Merkle anchoring, public-key verification</td></tr>
           <tr><td>Data exposure</td><td class="warn">Platform-hosted — governance artifacts, assessments, and evidence live in the platform</td><td class="yes">Metadata-only — weights, training data, and code never enter SecureGRC</td></tr>
           <tr><td>Agent &amp; vendor AI governance</td><td class="yes">Yes — active product direction</td><td class="no">Not a current focus</td></tr>
-          <tr><td>Maturity &amp; traction</td><td class="yes">Founded 2020; ~$41M raised; enterprise deployments; analyst recognition</td><td class="warn">Early-stage MVP; early access opens 2026; no customers or rankings to claim yet</td></tr>
+          <tr><td>Maturity &amp; traction</td><td class="yes">Founded 2020; ~$41M raised; enterprise deployments; analyst recognition</td><td class="warn">Early-stage MVP; in early access; no customers or rankings to claim yet</td></tr>
         </tbody>
       </table>
 
@@ -371,7 +373,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
 
       <details class="faq-item">
         <summary>Does SecureGRC have customers and analyst recognition like Credo AI?</summary>
-        <div class="faq-body"><p>No, and this page will not pretend otherwise. Credo AI was founded in 2020, has raised roughly 41 million dollars, and has been recognized as a leader in independent analyst evaluations of AI governance. SecureGRC is an MVP-stage platform opening early access in 2026, with no customer counts, revenue, or analyst rankings to cite. What it offers instead is an architecture — metadata-only analysis and post-quantum-signed evidence — that incumbent platforms were not designed around.</p></div>
+        <div class="faq-body"><p>No, and this page will not pretend otherwise. Credo AI was founded in 2020, has raised roughly 41 million dollars, and has been recognized as a leader in independent analyst evaluations of AI governance. SecureGRC is an MVP-stage platform in early access, with no customer counts, revenue, or analyst rankings to cite. What it offers instead is an architecture — metadata-only analysis and post-quantum-signed evidence — that incumbent platforms were not designed around.</p></div>
       </details>
 
       <details class="faq-item">

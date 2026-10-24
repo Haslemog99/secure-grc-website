@@ -9,6 +9,7 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <!-- Cookiebot consent management -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google Analytics -->
@@ -19,6 +20,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="SecureGRC" />
+<meta property="og:locale" content="en_GB">
   <meta property="og:title" content="SecureGRC FAQ: AI Compliance, ML-BOM &amp; ISO 42001 Answers" />
   <meta property="og:description" content="Answers to common questions about SecureGRC: metadata-only AI compliance, ML-BOMs, ISO/IEC 42001 certification, MITRE ATLAS, and post-quantum audit evidence." />
   <meta property="og:url" content="https://www.securegrc.io/faq/" />
@@ -48,9 +50,9 @@
       "logo": {
         "@type": "ImageObject",
         "@id": "https://www.securegrc.io/#logo",
-        "url": "https://www.securegrc.io/og-image.png",
-        "width": 1200,
-        "height": 630
+        "url": "https://www.securegrc.io/assets/logo.png",
+        "width": 512,
+        "height": 512
       },
       "sameAs": [
         "https://www.linkedin.com/company/securegrc"
@@ -65,7 +67,7 @@
       "url": "https://www.securegrc.io/faq/",
       "mainEntityOfPage": "https://www.securegrc.io/faq/",
       "datePublished": "2026-07-17",
-      "dateModified": "2026-07-18",
+      "dateModified": "2026-10-24",
       "author": {
         "@id": "https://www.securegrc.io/#organization"
       },
@@ -82,7 +84,7 @@
           "name": "What is SecureGRC?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SecureGRC is a quantum-safe AI compliance automation platform that assesses AI systems against ISO/IEC 42001, maps threats to MITRE ATLAS, and generates cryptographically verifiable audit evidence. It runs on a metadata-only architecture, meaning model weights, training data, and proprietary IP never enter the platform — every analysis is performed on extracted metadata. Each artifact it produces, from threat profiles to ML-BOMs, is signed with ML-DSA (NIST FIPS 204), hashed with SHA-3, and anchored in a Merkle tree so tampering is mathematically detectable. SecureGRC is a purpose-built, early-stage platform opening early access in 2026."
+            "text": "SecureGRC is a quantum-safe AI compliance automation platform that assesses AI systems against ISO/IEC 42001, maps threats to MITRE ATLAS, and generates cryptographically verifiable audit evidence. It runs on a metadata-only architecture, meaning model weights, training data, and proprietary IP never enter the platform — every analysis is performed on extracted metadata. Each artifact it produces, from threat profiles to ML-BOMs, is signed with ML-DSA (NIST FIPS 204), hashed with SHA-3, and anchored in a Merkle tree so tampering is mathematically detectable. SecureGRC is a purpose-built, early-stage platform in early access."
           }
         },
         {
@@ -98,7 +100,7 @@
           "name": "How is SecureGRC different from Credo AI or OneTrust?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Credo AI and Holistic AI are AI governance platforms, and OneTrust is a broad privacy and GRC suite; SecureGRC is a purpose-built, early-stage platform organized around three things incumbents were not designed for: a metadata-only architecture that never ingests model weights or training data, ML-BOM generation aligned with the CycloneDX and SPDX standards, and post-quantum signed audit evidence that anyone can verify with public keys alone. SecureGRC does not attempt to match incumbent breadth — it opens early access in 2026 and is deliberately narrow and deep on AI compliance evidence. The detailed comparisons cover SecureGRC vs Credo AI, SecureGRC vs Holistic AI, and SecureGRC vs OneTrust."
+            "text": "Credo AI and Holistic AI are AI governance platforms, and OneTrust is a broad privacy and GRC suite; SecureGRC is a purpose-built, early-stage platform organized around three things incumbents were not designed for: a metadata-only architecture that never ingests model weights or training data, ML-BOM generation aligned with the CycloneDX and SPDX standards, and post-quantum signed audit evidence that anyone can verify with public keys alone. SecureGRC does not attempt to match incumbent breadth — it is in early access and is deliberately narrow and deep on AI compliance evidence. The detailed comparisons cover SecureGRC vs Credo AI, SecureGRC vs Holistic AI, and SecureGRC vs OneTrust."
           }
         },
         {
@@ -114,7 +116,7 @@
           "name": "Is SecureGRC generally available?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SecureGRC is an MVP opening early access in 2026. It is an early-stage product: it does not claim existing customers, revenue, awards, or certifications, and it positions itself honestly as a purpose-built alternative to broad incumbent GRC suites rather than a like-for-like replacement. Teams that want to evaluate metadata-only AI compliance and post-quantum evidence early can start from the platform overview."
+            "text": "SecureGRC is an MVP in early access. It is an early-stage product: it does not claim existing customers, revenue, awards, or certifications, and it positions itself honestly as a purpose-built alternative to broad incumbent GRC suites rather than a like-for-like replacement. Teams that want to evaluate metadata-only AI compliance and post-quantum evidence early can start from the platform overview."
           }
         },
         {
@@ -186,7 +188,7 @@
           "name": "Why do audit trails need post-quantum signatures?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because compliance evidence must outlive the safe lifetime of classical cryptography. Regulators commonly require records to be retained for 7–10 years, and a future cryptographically relevant quantum computer running Shor's algorithm would make RSA and ECDSA signatures forgeable — including signatures created years earlier — so classically signed evidence would lose its integrity guarantee inside its own retention window. Signing evidence with a post-quantum algorithm such as ML-DSA today removes that expiry date, which is why SecureGRC treats post-quantum signatures as a baseline property of the audit trail rather than a future upgrade."
+            "text": "Because compliance evidence must outlive the safe lifetime of classical cryptography. The EU AI Act, for example, requires providers of high-risk AI systems to keep their technical documentation for ten years after the system is placed on the market (Article 18), and a future cryptographically relevant quantum computer running Shor's algorithm would make RSA and ECDSA signatures forgeable — including signatures created years earlier — so classically signed evidence would lose its integrity guarantee inside its own retention window. Signing evidence with a post-quantum algorithm such as ML-DSA today removes that expiry date, which is why SecureGRC treats post-quantum signatures as a baseline property of the audit trail rather than a future upgrade."
           }
         },
         {
@@ -366,7 +368,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
         <p class="subtitle">Direct answers on what SecureGRC is, how ISO/IEC 42001 certification works, what an ML-BOM contains, why audit trails need post-quantum signatures, and what data the platform does — and does not — see.</p>
       </header>
 
-      <p class="lead">This FAQ answers the questions people most often ask about <strong>SecureGRC</strong>, a quantum-safe AI compliance automation platform that assesses AI systems against <a href="/iso-42001-explained/">ISO/IEC 42001</a>, maps threats to MITRE ATLAS, generates CycloneDX- and SPDX-aligned <a href="/what-is-ml-bom/">ML-BOMs</a>, and signs every artifact with post-quantum cryptography. Three facts frame almost every answer below: SecureGRC is <strong>metadata-only</strong> (model weights and training data never enter the platform), its analysis runs through the four-stage <a href="/glossary/tcce/">TCCE pipeline</a>, and its audit trail is signed with ML-DSA (FIPS 204) and anchored in a Merkle tree. SecureGRC is an early-stage platform opening early access in 2026.</p>
+      <p class="lead">This FAQ answers the questions people most often ask about <strong>SecureGRC</strong>, a quantum-safe AI compliance automation platform that assesses AI systems against <a href="/iso-42001-explained/">ISO/IEC 42001</a>, maps threats to MITRE ATLAS, generates CycloneDX- and SPDX-aligned <a href="/what-is-ml-bom/">ML-BOMs</a>, and signs every artifact with post-quantum cryptography. Three facts frame almost every answer below: SecureGRC is <strong>metadata-only</strong> (model weights and training data never enter the platform), its analysis runs through the four-stage <a href="/glossary/tcce/">TCCE pipeline</a>, and its audit trail is signed with ML-DSA (FIPS 204) and anchored in a Merkle tree. SecureGRC is an early-stage platform in early access.</p>
 
       <table>
         <thead>
@@ -380,7 +382,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
           <tr><td>Cryptography</td><td>ML-DSA (NIST FIPS 204), SHA-3, Merkle-tree anchoring</td></tr>
           <tr><td>Product surfaces</td><td>React dashboard, ML-BOM Explorer, cryptographically verified audit trail</td></tr>
           <tr><td>Backend</td><td>FastAPI + PostgreSQL</td></tr>
-          <tr><td>Status</td><td>MVP — early access in 2026</td></tr>
+          <tr><td>Status</td><td>MVP in early access</td></tr>
         </tbody>
       </table>
 
@@ -389,7 +391,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
 
       <details class="faq-item">
         <summary>What is SecureGRC?</summary>
-        <div class="faq-body"><p>SecureGRC is a quantum-safe AI compliance automation platform that assesses AI systems against ISO/IEC 42001, maps threats to MITRE ATLAS, and generates cryptographically verifiable audit evidence. It runs on a metadata-only architecture, meaning model weights, training data, and proprietary IP never enter the platform — every analysis is performed on extracted metadata. Each artifact it produces, from threat profiles to ML-BOMs, is signed with ML-DSA (NIST FIPS 204), hashed with SHA-3, and anchored in a Merkle tree so tampering is mathematically detectable. SecureGRC is a purpose-built, early-stage platform opening early access in 2026.</p></div>
+        <div class="faq-body"><p>SecureGRC is a quantum-safe AI compliance automation platform that assesses AI systems against ISO/IEC 42001, maps threats to MITRE ATLAS, and generates cryptographically verifiable audit evidence. It runs on a metadata-only architecture, meaning model weights, training data, and proprietary IP never enter the platform — every analysis is performed on extracted metadata. Each artifact it produces, from threat profiles to ML-BOMs, is signed with ML-DSA (NIST FIPS 204), hashed with SHA-3, and anchored in a Merkle tree so tampering is mathematically detectable. SecureGRC is a purpose-built, early-stage platform in early access.</p></div>
       </details>
 
       <details class="faq-item">
@@ -399,7 +401,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
 
       <details class="faq-item">
         <summary>How is SecureGRC different from Credo AI or OneTrust?</summary>
-        <div class="faq-body"><p>Credo AI and Holistic AI are AI governance platforms, and OneTrust is a broad privacy and GRC suite; SecureGRC is a purpose-built, early-stage platform organized around three things incumbents were not designed for: a metadata-only architecture that never ingests model weights or training data, ML-BOM generation aligned with the CycloneDX and SPDX standards, and post-quantum signed audit evidence that anyone can verify with public keys alone. SecureGRC does not attempt to match incumbent breadth — it opens early access in 2026 and is deliberately narrow and deep on AI compliance evidence. The detailed comparisons cover <a href="/vs/credo-ai/">SecureGRC vs Credo AI</a>, <a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a>, and <a href="/vs/onetrust/">SecureGRC vs OneTrust</a>.</p></div>
+        <div class="faq-body"><p>Credo AI and Holistic AI are AI governance platforms, and OneTrust is a broad privacy and GRC suite; SecureGRC is a purpose-built, early-stage platform organized around three things incumbents were not designed for: a metadata-only architecture that never ingests model weights or training data, ML-BOM generation aligned with the CycloneDX and SPDX standards, and post-quantum signed audit evidence that anyone can verify with public keys alone. SecureGRC does not attempt to match incumbent breadth — it is in early access and is deliberately narrow and deep on AI compliance evidence. The detailed comparisons cover <a href="/vs/credo-ai/">SecureGRC vs Credo AI</a>, <a href="/vs/holistic-ai/">SecureGRC vs Holistic AI</a>, and <a href="/vs/onetrust/">SecureGRC vs OneTrust</a>.</p></div>
       </details>
 
       <details class="faq-item">
@@ -409,7 +411,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
 
       <details class="faq-item">
         <summary>Is SecureGRC generally available?</summary>
-        <div class="faq-body"><p>SecureGRC is an MVP opening early access in 2026. It is an early-stage product: it does not claim existing customers, revenue, awards, or certifications, and it positions itself honestly as a purpose-built alternative to broad incumbent GRC suites rather than a like-for-like replacement. Teams that want to evaluate metadata-only AI compliance and post-quantum evidence early can start from the <a href="/">platform overview</a>.</p></div>
+        <div class="faq-body"><p>SecureGRC is an MVP in early access. It is an early-stage product: it does not claim existing customers, revenue, awards, or certifications, and it positions itself honestly as a purpose-built alternative to broad incumbent GRC suites rather than a like-for-like replacement. Teams that want to evaluate metadata-only AI compliance and post-quantum evidence early can start from the <a href="/">platform overview</a>.</p></div>
       </details>
 
       <h2>ISO 42001 &amp; standards</h2>
@@ -463,7 +465,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
 
       <details class="faq-item">
         <summary>Why do audit trails need post-quantum signatures?</summary>
-        <div class="faq-body"><p>Because compliance evidence must outlive the safe lifetime of classical cryptography. Regulators commonly require records to be retained for 7–10 years, and a future cryptographically relevant quantum computer running Shor's algorithm would make RSA and ECDSA signatures forgeable — including signatures created years earlier — so classically signed evidence would lose its integrity guarantee inside its own retention window. Signing evidence with a post-quantum algorithm such as ML-DSA today removes that expiry date, which is why SecureGRC treats post-quantum signatures as a baseline property of the audit trail rather than a future upgrade.</p></div>
+        <div class="faq-body"><p>Because compliance evidence must outlive the safe lifetime of classical cryptography. The EU AI Act, for example, requires providers of high-risk AI systems to keep their technical documentation for ten years after the system is placed on the market (Article 18), and a future cryptographically relevant quantum computer running Shor's algorithm would make RSA and ECDSA signatures forgeable — including signatures created years earlier — so classically signed evidence would lose its integrity guarantee inside its own retention window. Signing evidence with a post-quantum algorithm such as ML-DSA today removes that expiry date, which is why SecureGRC treats post-quantum signatures as a baseline property of the audit trail rather than a future upgrade.</p></div>
       </details>
 
       <details class="faq-item">
@@ -486,7 +488,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
 
       <aside class="cta">
         <h2>Still have questions?</h2>
-        <p>SecureGRC is opening early access in 2026. Explore the platform, or go deeper with the guides on ML-BOMs, ISO/IEC 42001, and quantum-safe audit evidence.</p>
+        <p>SecureGRC is in early access. Explore the platform, or go deeper with the guides on ML-BOMs, ISO/IEC 42001, and quantum-safe audit evidence.</p>
         <a class="btn lead-cta" data-source="demo-cta" href="mailto:hello@securegrc.io?subject=Request%20a%20Demo">Request a demo</a>
       </aside>
     </article>

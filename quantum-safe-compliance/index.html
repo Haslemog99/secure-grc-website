@@ -9,6 +9,7 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <!-- Cookiebot consent management -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google Analytics -->
@@ -19,6 +20,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="SecureGRC" />
+<meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Quantum-Safe Compliance: Post-Quantum Audit Evidence" />
   <meta property="og:description" content="Quantum-safe compliance explained: harvest-now-decrypt-later risk, FIPS 204 ML-DSA (CRYSTALS-Dilithium) signatures, and Merkle-anchored audit evidence." />
   <meta property="og:url" content="https://www.securegrc.io/quantum-safe-compliance/" />
@@ -48,9 +50,9 @@
       "logo": {
         "@type": "ImageObject",
         "@id": "https://www.securegrc.io/#logo",
-        "url": "https://www.securegrc.io/og-image.png",
-        "width": 1200,
-        "height": 630
+        "url": "https://www.securegrc.io/assets/logo.png",
+        "width": 512,
+        "height": 512
       },
       "sameAs": [
         "https://www.linkedin.com/company/securegrc"
@@ -64,7 +66,7 @@
       "url": "https://www.securegrc.io/quantum-safe-compliance/",
       "mainEntityOfPage": "https://www.securegrc.io/quantum-safe-compliance/",
       "datePublished": "2026-07-17",
-      "dateModified": "2026-07-18",
+      "dateModified": "2026-10-24",
       "author": {
         "@id": "https://www.securegrc.io/#organization"
       },
@@ -366,7 +368,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
         <li><strong>Classify by data lifetime, not system age.</strong> Mosca's inequality is the sorting function: assets whose required security lifetime plus migration time exceeds plausible CRQC timelines go first. Ten-year evidence beats thirty-day session tokens every time.</li>
         <li><strong>Move long-lived evidence to FIPS 204 signing now.</strong> Evidence generated today with classical signatures will still be inside its retention window in the mid-2030s — the same horizon at which NIST's draft guidance disallows RSA and ECDSA. New evidence pipelines are the cheapest place to be quantum-safe, because there is no legacy verification chain to preserve.</li>
         <li><strong>Design for crypto-agility.</strong> Algorithms should be replaceable configuration, not architecture. That means versioned signature metadata on every artifact, support for parallel or hybrid signatures during transition, and re-anchoring strategies so historical evidence can be re-committed under new algorithms if standards evolve. FIPS 204 is expected to serve for decades, but the lesson of the RSA-to-quantum arc is precisely that assumptions expire.</li>
-        <li><strong>Prefer tooling that is post-quantum by default.</strong> Retrofitting PQC onto a platform designed around classical PKI is a genuine engineering program. SecureGRC took the opposite path: as a purpose-built, early-stage platform opening early access in 2026, its audit trail is ML-DSA-signed, SHA-3 hashed, and Merkle-anchored from the first artifact — a design contrast with broad incumbent GRC suites that our <a href="/vs/onetrust/">SecureGRC vs OneTrust comparison</a> explores.</li>
+        <li><strong>Prefer tooling that is post-quantum by default.</strong> Retrofitting PQC onto a platform designed around classical PKI is a genuine engineering program. SecureGRC took the opposite path: as a purpose-built, early-stage platform in early access, its audit trail is ML-DSA-signed, SHA-3 hashed, and Merkle-anchored from the first artifact — a design contrast with broad incumbent GRC suites that our <a href="/vs/onetrust/">SecureGRC vs OneTrust comparison</a> explores.</li>
       </ol>
 
       <div class="callout">

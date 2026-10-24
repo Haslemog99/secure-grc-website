@@ -9,6 +9,7 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <!-- Cookiebot consent management -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google Analytics -->
@@ -19,6 +20,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="SecureGRC" />
+<meta property="og:locale" content="en_GB">
   <meta property="og:title" content="MITRE ATLAS to ISO 42001 Mapping: AI Threat Crosswalk" />
   <meta property="og:description" content="Crosswalk mapping MITRE ATLAS tactics to ISO/IEC 42001 control themes, with a worked model-poisoning example and how to automate threat-to-control mapping." />
   <meta property="og:url" content="https://www.securegrc.io/iso-42001-vs-mitre-atlas/" />
@@ -48,9 +50,9 @@
       "logo": {
         "@type": "ImageObject",
         "@id": "https://www.securegrc.io/#logo",
-        "url": "https://www.securegrc.io/og-image.png",
-        "width": 1200,
-        "height": 630
+        "url": "https://www.securegrc.io/assets/logo.png",
+        "width": 512,
+        "height": 512
       },
       "sameAs": [
         "https://www.linkedin.com/company/securegrc"
@@ -64,7 +66,7 @@
       "url": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/",
       "mainEntityOfPage": "https://www.securegrc.io/iso-42001-vs-mitre-atlas/",
       "datePublished": "2026-07-17",
-      "dateModified": "2026-07-18",
+      "dateModified": "2026-10-24",
       "author": {
         "@id": "https://www.securegrc.io/#organization"
       },
@@ -404,7 +406,7 @@ h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0
       <p><strong>Metadata-only analysis.</strong> Automated mapping does not require access to model internals. SecureGRC's <a href="/blog/metadata-only-compliance/">metadata-only architecture</a> means model weights, training data, and proprietary IP never enter the platform; threat profiling and control mapping run entirely on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context. That removes the single biggest blocker to adopting a compliance tool: shipping your most sensitive assets to a third party.</p>
       <p><strong>The ML-BOM as the unit of analysis.</strong> A Machine Learning Bill of Materials gives the mapping engine a standardized, machine-readable inventory of every component in an AI system. Because the ML-BOM regenerates whenever the system changes, the threat profile and control mapping regenerate with it — per release, not per annual audit.</p>
       <p><strong>Cryptographically verifiable output.</strong> Every mapping result is signed and Merkle-anchored using post-quantum cryptography, so the evidence trail remains verifiable — and resistant to harvest-now-decrypt-later attacks — over the multi-year retention windows compliance demands. Our guide to <a href="/quantum-safe-compliance/">quantum-safe compliance</a> covers why signature longevity matters for audit evidence specifically.</p>
-      <p>SecureGRC is early-stage and purpose-built for exactly this workflow — an MVP in early access in 2026, not a decade-old GRC suite retrofitted with an AI module. The trade-off is honest: incumbents offer breadth across every compliance domain; SecureGRC offers a pipeline designed from the first commit around AI threats, AI controls, and cryptographically verifiable AI evidence. More common questions are answered in our <a href="/faq/">FAQ</a>.</p>
+      <p>SecureGRC is early-stage and purpose-built for exactly this workflow — an MVP in early access, not a decade-old GRC suite retrofitted with an AI module. The trade-off is honest: incumbents offer breadth across every compliance domain; SecureGRC offers a pipeline designed from the first commit around AI threats, AI controls, and cryptographically verifiable AI evidence. More common questions are answered in our <a href="/faq/">FAQ</a>.</p>
 
       <h2>Frequently asked questions</h2>
 
