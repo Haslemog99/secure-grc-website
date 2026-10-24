@@ -4,39 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Metadata-Only AI Compliance: Govern Without Exposing IP</title>
-  <meta name="description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence." />
+  <meta name="description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and ML-DSA-signed verifiable evidence." />
   <link rel="canonical" href="https://www.securegrc.io/blog/metadata-only-compliance/" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0a0e17" />
-  <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="/favicon.ico?v=3" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <!-- Cookiebot consent management -->
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="9c62a6c6-c55a-4a3f-9346-96946936f2e4" data-blockingmode="auto" type="text/javascript"></script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DWRF8C5HWB"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-DWRF8C5HWB');</script>
 <!-- Vercel Web Analytics -->
-<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
 <script defer src="/_vercel/insights/script.js"></script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="SecureGRC" />
+<meta property="og:locale" content="en_GB">
   <meta property="og:title" content="Metadata-Only AI Compliance: Govern Without Exposing IP" />
-  <meta property="og:description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence." />
+  <meta property="og:description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and ML-DSA-signed verifiable evidence." />
   <meta property="og:url" content="https://www.securegrc.io/blog/metadata-only-compliance/" />
-  <meta property="og:image" content="https://www.securegrc.io/og-image.png" />
+  <meta property="og:image" content="https://www.securegrc.io/assets/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Metadata-Only AI Compliance: Govern Without Exposing IP" />
-  <meta name="twitter:description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence." />
-  <meta name="twitter:image" content="https://www.securegrc.io/og-image.png" />
+  <meta name="twitter:description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and ML-DSA-signed verifiable evidence." />
+  <meta name="twitter:image" content="https://www.securegrc.io/assets/og-card.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <script type="application/ld+json">
   {
@@ -50,9 +50,9 @@
       "logo": {
         "@type": "ImageObject",
         "@id": "https://www.securegrc.io/#logo",
-        "url": "https://www.securegrc.io/og-image.png",
-        "width": 1200,
-        "height": 630
+        "url": "https://www.securegrc.io/assets/logo.png",
+        "width": 512,
+        "height": 512
       },
       "sameAs": [
         "https://www.linkedin.com/company/securegrc"
@@ -62,11 +62,11 @@
       "@type": "BlogPosting",
       "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#article",
       "headline": "Metadata-Only AI Compliance: Govern Models Without Exposing IP",
-      "description": "How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence.",
+      "description": "How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and ML-DSA-signed verifiable evidence.",
       "url": "https://www.securegrc.io/blog/metadata-only-compliance/",
       "mainEntityOfPage": "https://www.securegrc.io/blog/metadata-only-compliance/",
       "datePublished": "2026-07-17",
-      "dateModified": "2026-07-18",
+      "dateModified": "2026-10-24",
       "author": {
         "@id": "https://www.securegrc.io/#organization"
       },
@@ -99,7 +99,7 @@
           "name": "If the platform never saw the model, why should an auditor trust the results?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with CRYSTALS-Dilithium (NIST FIPS 204, ML-DSA), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems."
+            "text": "Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with ML-DSA (NIST FIPS 204), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems."
           }
         },
         {
@@ -142,9 +142,9 @@
 
   <style>
     :root {
-      --bg: #0a0e17; --surface: #111827; --surface-hover: #1a2332; --border: #1e293b;
-      --accent: #3b82f6; --quantum: #8b5cf6; --success: #10b981; --warning: #f59e0b;
-      --text: #e2e8f0; --muted: #94a3b8; --dim: #64748b;
+      --bg: #ffffff; --surface: #f8fafc; --surface-hover: #f1f5f9; --border: #e2e8f0;
+      --accent: #0d9488; --quantum: #7c3aed; --success: #059669; --warning: #d97706;
+      --text: #1e293b; --muted: #64748b; --dim: #64748b;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; font-size: 16px; }
@@ -152,14 +152,14 @@
     a:hover { text-decoration: underline; }
     code, .mono { font-family: 'JetBrains Mono', monospace; }
 
-    .site-header { border-bottom: 1px solid var(--border); background: rgba(10,14,23,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
+    .site-header { border-bottom: 1px solid var(--border); background: rgba(255,255,255,.92); position: sticky; top: 0; backdrop-filter: blur(8px); z-index: 10; }
     .site-header .inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
     .logo { display: flex; align-items: center; gap: 10px; color: var(--text); font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px; }
-    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), var(--quantum)); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
+    .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg,#0d9488,#7c3aed); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 15px; }
     .site-nav { display: flex; gap: 4px; flex-wrap: wrap; }
     .site-nav a { color: var(--muted); font-size: 13px; padding: 6px 10px; border-radius: 6px; }
     .site-nav a:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
-    .site-nav a.active { color: var(--accent); background: rgba(59,130,246,.1); }
+    .site-nav a.active { color: var(--accent); background: rgba(20,184,166,.1); }
 
     .breadcrumbs { max-width: 800px; margin: 28px auto 0; padding: 0 24px; font-size: 12.5px; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
     .breadcrumbs a { color: var(--dim); }
@@ -176,17 +176,17 @@
     p.lead { font-size: 17.5px; }
     ul, ol { margin: 0 0 18px 22px; }
     li { margin-bottom: 8px; }
-    strong { color: #fff; }
+    strong { color: #0f172a; }
 
     table { width: 100%; border-collapse: collapse; margin: 20px 0 26px; font-size: 14.5px; display: block; overflow-x: auto; }
     th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--dim); padding: 10px 14px; border-bottom: 2px solid var(--border); white-space: nowrap; }
     td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; color: var(--muted); }
     td:first-child { color: var(--text); }
-    tr:hover td { background: rgba(26,35,50,.5); }
+    tr:hover td { background: rgba(15,23,42,.08); }
     .yes { color: var(--success); } .no { color: var(--dim); } .warn { color: var(--warning); }
 
     pre { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 18px; overflow-x: auto; margin: 0 0 22px; font-size: 13.5px; line-height: 1.6; }
-    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #a5b4fc; }
+    code { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 2px 6px; font-size: 13.5px; color: #7c3aed; }
     pre code { background: none; border: none; padding: 0; }
 
     .callout { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 10px; padding: 18px 20px; margin: 22px 0; }
@@ -201,11 +201,11 @@
     .faq-item .faq-body { padding: 0 20px 16px; color: var(--muted); }
     .faq-item .faq-body p:last-child { margin-bottom: 0; }
 
-    .cta { margin: 48px 0 0; background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(139,92,246,.12)); border: 1px solid rgba(59,130,246,.3); border-radius: 14px; padding: 28px; text-align: center; }
-    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; }
-    .cta p { color: var(--muted); max-width: 480px; margin: 0 auto 18px; }
-    .cta a.btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
-    .cta a.btn:hover { background: #2563eb; text-decoration: none; }
+    .cta { margin: 48px 0 0; background: #0f172a; border-radius: 14px; padding: 28px; text-align: center; }
+    .cta h2 { border: none; margin: 0 0 8px; padding: 0; font-size: 21px; color: #fff; }
+    .cta p { color: #94a3b8; max-width: 480px; margin: 0 auto 18px; }
+    .cta a.btn { display: inline-block; background: #0d9488; color: #04201c; font-weight: 600; font-size: 14.5px; padding: 11px 22px; border-radius: 8px; }
+    .cta a.btn:hover { background: #14b8a6; text-decoration: none; }
 
     .site-footer { border-top: 1px solid var(--border); background: var(--surface); }
     .site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 40px 24px 28px; }
@@ -222,22 +222,38 @@
       h2 { font-size: 21px; }
       .site-nav { display: none; }
     }
-  </style>
+  
+/* display type */
+h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
+.site-nav a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.01em}
+.cta a.btn{font-family:'Inter',system-ui,sans-serif;font-size:14px}
+
+</style>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script defer src="/assets/site.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="inner">
       <a href="/" class="logo" aria-label="SecureGRC home">
         <span class="logo-mark" aria-hidden="true">⬡</span>
-        <span>SecureGRC</span>
+        <span>Secure<span class="wm-grc">GRC</span></span>
       </a>
-      <nav class="site-nav" aria-label="Main navigation">
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
         <a href="/what-is-ml-bom/">ML-BOM Guide</a>
         <a href="/iso-42001-explained/">ISO 42001</a>
         <a href="/quantum-safe-compliance/">Quantum-Safe</a>
         <a href="/vs/">Compare</a>
         <a href="/faq/">FAQ</a>
       </nav>
+    <div class="header-actions">
+      <a class="header-cta lead-cta" href="mailto:hello@securegrc.io?subject=Free%20AI%20Compliance%20Assessment" data-source="header">Get free assessment</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+
     </div>
   </header>
 
@@ -245,7 +261,7 @@
     <a href="/">Home</a> / <a href="/blog/">Blog</a> / <span>Metadata-Only Compliance</span>
   </nav>
 
-  <main>
+  <main id="main">
     <article>
       <header class="page-hero">
         <p class="kicker">Essay · Architecture</p>
@@ -293,14 +309,14 @@
       <p>The ML-BOM feeds SecureGRC's <a href="/glossary/tcce/">TCCE engine</a> — a sequential pipeline of <strong>Threat assessment → Control mapping → Compliance evaluation → Evidence linking</strong>. Threat assessment derives an adversarial threat profile mapped to MITRE ATLAS from the system's architecture and exposure. Control mapping connects those threats and the organization's obligations to the ISO/IEC 42001 control library. Compliance evaluation scores the current posture against those controls and surfaces gaps. Evidence linking binds every conclusion to the specific metadata that supports it. Because the stages are sequential and independently testable, an auditor can inspect each hand-off — which threats produced which control requirements, which metadata satisfied which control — rather than trusting an opaque score.</p>
 
       <h3>4. Signed, anchored evidence</h3>
-      <p>Every artifact the pipeline emits — ML-BOMs, threat profiles, mappings, gap analyses, posture reports — is hashed with SHA-3, signed with CRYSTALS-Dilithium (the lattice-based signature scheme NIST standardized as ML-DSA in FIPS 204, August 2024), and anchored into a Merkle tree. The result is a <a href="/quantum-safe-compliance/">quantum-safe evidence chain</a>: tamper-evident today, and still verifiable at the end of a ten-year retention window, after the classical signature algorithms have aged out.</p>
+      <p>Every artifact the pipeline emits — ML-BOMs, threat profiles, mappings, gap analyses, posture reports — is hashed with SHA-3, signed with ML-DSA (the lattice-based signature scheme NIST standardized as ML-DSA in FIPS 204, August 2024), and anchored into a Merkle tree. The result is a <a href="/quantum-safe-compliance/">quantum-safe evidence chain</a>: tamper-evident today, and still verifiable at the end of a ten-year retention window, after the classical signature algorithms have aged out.</p>
 
       <h2>If you never saw the model, why should anyone trust the audit?</h2>
       <p>This is the objection that deserves the most respect, so take it at full strength: a platform that never touches the artifact is, by construction, trusting the metadata it is given. Doesn't that just relocate the trust problem?</p>
       <p>It relocates it, yes — to a place where it can actually be solved. Consider what "trust" means for the artifact-ingesting alternative. The vendor holds your weights and tells you its analysis is correct; you trust its models, its pipeline, its access controls, and its database, none of which you can inspect. The audit's integrity rests on the operator's word. That is a trust problem with no solution other than hope and contract law.</p>
       <p>Metadata-only architecture replaces that with two verifiable guarantees:</p>
       <ul>
-        <li><strong>The evidence chain is cryptographically closed.</strong> Every artifact is Dilithium-signed and Merkle-anchored at creation. An auditor holding the artifact, its signature, and its inclusion proof verifies both — using <em>public keys alone</em>. No SecureGRC account, no proprietary verifier, no network call, no dependence on the platform's continued existence or honesty. If any record was altered after the fact, the arithmetic fails. The platform is mathematically incapable of quietly rewriting its own audit trail.</li>
+        <li><strong>The evidence chain is cryptographically closed.</strong> Every artifact is ML-DSA-signed and Merkle-anchored at creation. An auditor holding the artifact, its signature, and its inclusion proof verifies both — using <em>public keys alone</em>. No SecureGRC account, no proprietary verifier, no network call, no dependence on the platform's continued existence or honesty. If any record was altered after the fact, the arithmetic fails. The platform is mathematically incapable of quietly rewriting its own audit trail.</li>
         <li><strong>The claims are grounded and re-derivable.</strong> Because extraction runs in the customer's environment against the customer's own systems of record, every metadata claim in the ML-BOM traces to a source the auditor can independently check — the training manifest, the eval report, the lockfile. The TCCE pipeline then links each compliance conclusion to the specific metadata supporting it. An auditor who doubts a claim doesn't have to trust SecureGRC; they re-derive it at the source, on-site, without any artifact ever having traveled.</li>
       </ul>
       <p>Notice what this does to the original question. "Why trust an audit from a platform that never saw the model?" becomes "why trust an audit you can verify yourself?" — which is no longer an objection. Traditional audits ask you to trust the auditor because they saw everything. Cryptographically verified metadata audits ask you to trust no one, because everything material is checkable. Between those two, the second is the stronger assurance model, not the weaker one.</p>
@@ -318,7 +334,7 @@
           <tr><td>Vendor breach blast radius</td><td class="yes">Metadata about models — descriptive, non-executable, non-reconstructive</td><td class="no">Concentrated store of many customers' models and data; a single high-value target</td></tr>
           <tr><td>Procurement and security review</td><td class="yes">Standard SaaS review; DPA covers metadata only</td><td class="no">IP counsel, data-transfer analysis, breach-liability negotiation; quarters of delay</td></tr>
           <tr><td>Cross-border and data residency</td><td class="yes">Artifacts never move, so residency constraints stay satisfied by default</td><td class="warn">Artifact transfer may trigger GDPR, sectoral, or export-control analysis</td></tr>
-          <tr><td>Verifiability of evidence</td><td class="yes">Dilithium-signed, SHA-3 hashed, Merkle-anchored; verifiable with public keys alone</td><td class="no">Platform database as the record; integrity rests on operator trust</td></tr>
+          <tr><td>Verifiability of evidence</td><td class="yes">ML-DSA-signed, SHA-3 hashed, Merkle-anchored; verifiable with public keys alone</td><td class="no">Platform database as the record; integrity rests on operator trust</td></tr>
           <tr><td>Third-party and vendor-model audits</td><td class="yes">Vendors share signed ML-BOMs without disclosing the model</td><td class="no">Requires vendors to hand artifacts to your tooling — usually a non-starter</td></tr>
         </tbody>
       </table>
@@ -350,7 +366,7 @@
 
       <details class="faq-item">
         <summary>If the platform never saw the model, why should an auditor trust the results?</summary>
-        <div class="faq-body"><p>Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with CRYSTALS-Dilithium (NIST FIPS 204, ML-DSA), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems.</p></div>
+        <div class="faq-body"><p>Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with ML-DSA (NIST FIPS 204), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems.</p></div>
       </details>
 
       <details class="faq-item">
@@ -360,8 +376,8 @@
 
       <aside class="cta">
         <h2>Governance that never asks for the model</h2>
-        <p>SecureGRC is early-stage and purpose-built: metadata-only by architecture, ISO/IEC 42001-aligned, with every artifact Dilithium-signed and publicly verifiable. Early access opens in 2026.</p>
-        <a class="btn" href="mailto:hello@securegrc.io?subject=Request%20a%20Demo">Request a demo</a>
+        <p>SecureGRC is early-stage and purpose-built: metadata-only by architecture, ISO/IEC 42001-aligned, with every artifact ML-DSA-signed and publicly verifiable. Request a demo to see it on your own models.</p>
+        <a class="btn lead-cta" data-source="demo-cta" href="mailto:hello@securegrc.io?subject=Request%20a%20Demo">Request a demo</a>
       </aside>
     </article>
   </main>
@@ -401,7 +417,7 @@
       </div>
       <div class="footer-meta">
         <span>© 2026 SecureGRC · securegrc.io</span>
-        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+        <span>ISO/IEC 42001, ML-DSA (FIPS 204)</span>
       </div>
     </div>
   </footer>
