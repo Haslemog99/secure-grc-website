@@ -232,9 +232,9 @@
     }
   
 /* display type */
-h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em}
+h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
 .site-nav a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.01em}
-.cta a.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px}
+.cta a.btn{font-family:'Inter',system-ui,sans-serif;font-size:14px}
 
 </style>
   <link rel="stylesheet" href="/assets/site.css" />
@@ -433,8 +433,8 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
 
       <h2>Why sign an ML-BOM with post-quantum signatures?</h2>
       <p>An unsigned ML-BOM is a claim; a signed one is audit evidence. A cryptographic signature over the document proves two things: <strong>integrity</strong> (no field was altered after generation) and <strong>origin</strong> (it was produced by the stated system at the stated time). For regulators and auditors, that distinction is the difference between "trust our spreadsheet" and independently verifiable proof.</p>
-      <p>The quantum dimension comes from timescales. Compliance evidence for AI systems must remain verifiable for years — through audits, certifications, incidents, and litigation. Classical signature schemes based on RSA and elliptic curves are exactly what a future cryptographically relevant quantum computer would break, meaning evidence signed today with classical algorithms could become repudiable within its own retention window. NIST addressed this by standardizing post-quantum algorithms, including <strong>FIPS 204 (ML-DSA, the standardized form of CRYSTALS-Dilithium)</strong>, finalized in August 2024.</p>
-      <p>SecureGRC applies this end to end: every generated artifact — ML-BOMs included — is signed with CRYSTALS-Dilithium, hashed with SHA-3, and anchored in a Merkle tree, forming a cryptographically verified audit trail. Verification requires only public keys, so an auditor or regulator can independently confirm that an ML-BOM is authentic and unmodified without any access to SecureGRC's systems — or yours. The full rationale is covered in our <a href="/quantum-safe-compliance/">quantum-safe compliance guide</a>.</p>
+      <p>The quantum dimension comes from timescales. Compliance evidence for AI systems must remain verifiable for years — through audits, certifications, incidents, and litigation. Classical signature schemes based on RSA and elliptic curves are exactly what a future cryptographically relevant quantum computer would break, meaning evidence signed today with classical algorithms could become repudiable within its own retention window. NIST addressed this by standardizing post-quantum algorithms, including <strong>FIPS 204 (ML-DSA, derived from CRYSTALS-Dilithium)</strong>, finalized in August 2024.</p>
+      <p>SecureGRC applies this end to end: every generated artifact — ML-BOMs included — is signed with ML-DSA, hashed with SHA-3, and anchored in a Merkle tree, forming a cryptographically verified audit trail. Verification requires only public keys, so an auditor or regulator can independently confirm that an ML-BOM is authentic and unmodified without any access to SecureGRC's systems — or yours. The full rationale is covered in our <a href="/quantum-safe-compliance/">quantum-safe compliance guide</a>.</p>
 
       <div class="callout quantum">
         <p class="label">Quantum-safe by default</p>
@@ -517,7 +517,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       </div>
       <div class="footer-meta">
         <span>© 2026 SecureGRC · securegrc.io</span>
-        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+        <span>ISO/IEC 42001, ML-DSA (FIPS 204)</span>
       </div>
     </div>
   </footer>

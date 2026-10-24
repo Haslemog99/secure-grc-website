@@ -121,7 +121,7 @@
           "name": "Does SecureGRC need access to model weights to map threats to controls?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. SecureGRC's analysis is metadata-only: model weights, training data, and proprietary IP never enter the platform. Threat profiling, control mapping, and gap analysis run on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in an ML-BOM. Every resulting artifact is signed with CRYSTALS-Dilithium (NIST FIPS 204), so third parties can verify evidence using public keys alone."
+            "text": "No. SecureGRC's analysis is metadata-only: model weights, training data, and proprietary IP never enter the platform. Threat profiling, control mapping, and gap analysis run on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in an ML-BOM. Every resulting artifact is signed with ML-DSA (NIST FIPS 204), so third parties can verify evidence using public keys alone."
           }
         }
       ]
@@ -232,9 +232,9 @@
     }
   
 /* display type */
-h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em}
+h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
 .site-nav a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.01em}
-.cta a.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px}
+.cta a.btn{font-family:'Inter',system-ui,sans-serif;font-size:14px}
 
 </style>
   <link rel="stylesheet" href="/assets/site.css" />
@@ -393,7 +393,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       <h3>Stage 3 — Compliance evaluation</h3>
       <p>Each mapped control is evaluated against what the organization has actually implemented. If dataset provenance is recorded and integrity-checked, the control is satisfied; if the fine-tuning dataset has no recorded origin, a gap is raised with the specific threat that makes it dangerous attached. Gap analysis output feeds the overall compliance posture report.</p>
       <h3>Stage 4 — Evidence linking</h3>
-      <p>Finally, every satisfied control is linked to verifiable evidence: the dataset's provenance entry and hash in the system's <a href="/what-is-ml-bom/">ML-BOM</a> (aligned with CycloneDX, which has supported ML-BOMs since v1.5, and SPDX), the supplier assessment record, the evaluation result itself. Each artifact is hashed with SHA-3, signed with CRYSTALS-Dilithium (NIST FIPS 204), and anchored in a Merkle tree, so an auditor can verify the chain with public keys alone — no access to your models or data required.</p>
+      <p>Finally, every satisfied control is linked to verifiable evidence: the dataset's provenance entry and hash in the system's <a href="/what-is-ml-bom/">ML-BOM</a> (aligned with CycloneDX, which has supported ML-BOMs since v1.5, and SPDX), the supplier assessment record, the evaluation result itself. Each artifact is hashed with SHA-3, signed with ML-DSA (NIST FIPS 204), and anchored in a Merkle tree, so an auditor can verify the chain with public keys alone — no access to your models or data required.</p>
       <div class="callout quantum">
         <p class="label">Why this matters</p>
         <p>The end state is a sentence an auditor can verify cryptographically: "This system faces ATLAS-mapped poisoning threats; these ISO/IEC 42001 controls counter them; here is signed, timestamped evidence that the controls are real." Threat, control, compliance, and evidence — connected, not siloed.</p>
@@ -446,7 +446,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       <details class="faq-item">
         <summary>Does SecureGRC need access to model weights to map threats to controls?</summary>
         <div class="faq-body">
-          <p>No. SecureGRC's analysis is metadata-only: model weights, training data, and proprietary IP never enter the platform. Threat profiling, control mapping, and gap analysis run on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in an ML-BOM. Every resulting artifact is signed with CRYSTALS-Dilithium (NIST FIPS 204), so third parties can verify evidence using public keys alone.</p>
+          <p>No. SecureGRC's analysis is metadata-only: model weights, training data, and proprietary IP never enter the platform. Threat profiling, control mapping, and gap analysis run on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in an ML-BOM. Every resulting artifact is signed with ML-DSA (NIST FIPS 204), so third parties can verify evidence using public keys alone.</p>
         </div>
       </details>
 
@@ -493,7 +493,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       </div>
       <div class="footer-meta">
         <span>© 2026 SecureGRC · securegrc.io</span>
-        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+        <span>ISO/IEC 42001, ML-DSA (FIPS 204)</span>
       </div>
     </div>
   </footer>

@@ -89,7 +89,7 @@
           "name": "What does SecureGRC do that OneTrust does not?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "SecureGRC generates ML-BOMs aligned with CycloneDX and SPDX, maps each AI system's threat profile to MITRE ATLAS, and signs every compliance artifact with CRYSTALS-Dilithium (NIST FIPS 204) post-quantum signatures, hashed with SHA-3 and anchored in a Merkle tree so evidence is verifiable with public keys alone. Its analysis is also metadata-only: model weights, training data, and proprietary IP never enter the platform. None of these are advertised capabilities of OneTrust's AI Governance module."
+            "text": "SecureGRC generates ML-BOMs aligned with CycloneDX and SPDX, maps each AI system's threat profile to MITRE ATLAS, and signs every compliance artifact with ML-DSA (NIST FIPS 204) post-quantum signatures, hashed with SHA-3 and anchored in a Merkle tree so evidence is verifiable with public keys alone. Its analysis is also metadata-only: model weights, training data, and proprietary IP never enter the platform. None of these are advertised capabilities of OneTrust's AI Governance module."
           }
         },
         {
@@ -113,7 +113,7 @@
           "name": "Why do post-quantum signatures matter for compliance evidence?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Compliance evidence must stay verifiable for multi-year retention windows, and signatures made with classical algorithms today may become forgeable once large-scale quantum computers arrive. NIST finalized FIPS 204 (ML-DSA, based on CRYSTALS-Dilithium) in August 2024 precisely for this transition. SecureGRC signs every artifact with CRYSTALS-Dilithium, hashes with SHA-3, and anchors records in a Merkle tree, so an audit trail written today remains trustworthy at the end of its retention period."
+            "text": "Compliance evidence must stay verifiable for multi-year retention windows, and signatures made with classical algorithms today may become forgeable once large-scale quantum computers arrive. NIST finalized FIPS 204 (ML-DSA, based on CRYSTALS-Dilithium) in August 2024 precisely for this transition. SecureGRC signs every artifact with ML-DSA, hashes with SHA-3, and anchors records in a Merkle tree, so an audit trail written today remains trustworthy at the end of its retention period."
           }
         },
         {
@@ -238,9 +238,9 @@
     }
   
 /* display type */
-h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em}
+h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
 .site-nav a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.01em}
-.cta a.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px}
+.cta a.btn{font-family:'Inter',system-ui,sans-serif;font-size:14px}
 
 </style>
   <link rel="stylesheet" href="/assets/site.css" />
@@ -297,7 +297,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
         <li><strong>Metadata-only analysis.</strong> Model weights, training data, and proprietary IP never enter SecureGRC. Every analysis runs on extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context. The reasoning is covered in depth in our <a href="/blog/metadata-only-compliance/">metadata-only compliance</a> deep dive.</li>
         <li><strong>The TCCE engine.</strong> A sequential pipeline — Threat assessment, Control mapping, Compliance evaluation, Evidence linking — in which each stage is independently testable and auditable. See the <a href="/glossary/tcce/">TCCE glossary entry</a> for the full breakdown.</li>
         <li><strong>Standards-native inventory.</strong> Every AI system is described by an ML-BOM aligned with CycloneDX (which has supported ML-BOMs since v1.5) and SPDX, threat profiles are mapped to MITRE ATLAS, and controls are drawn from an ISO/IEC 42001 library with gap analysis and compliance posture reporting.</li>
-        <li><strong>Post-quantum evidence integrity.</strong> Every artifact is signed with CRYSTALS-Dilithium (NIST FIPS 204, also known as ML-DSA), hashed with SHA-3, and anchored in a Merkle tree. Verification requires only public keys — an auditor never needs access to your systems.</li>
+        <li><strong>Post-quantum evidence integrity.</strong> Every artifact is signed with ML-DSA (NIST FIPS 204), hashed with SHA-3, and anchored in a Merkle tree. Verification requires only public keys — an auditor never needs access to your systems.</li>
       </ul>
       <p>The product surfaces are a React dashboard, an ML-BOM Explorer, and a cryptographically verified audit trail, backed by FastAPI and PostgreSQL. SecureGRC is deliberately narrow: it does not do consent management, DSARs, privacy assessments, or general third-party risk, and it does not pretend to.</p>
 
@@ -335,7 +335,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
           </tr>
           <tr>
             <td>Evidence integrity</td>
-            <td class="yes">CRYSTALS-Dilithium (FIPS 204) signatures, SHA-3 hashing, Merkle-tree anchoring; public-key verifiable</td>
+            <td class="yes">ML-DSA (FIPS 204) signatures, SHA-3 hashing, Merkle-tree anchoring; public-key verifiable</td>
             <td>Conventional audit logs and access-controlled records</td>
           </tr>
           <tr>
@@ -388,7 +388,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       <h2>How do the platforms differ on evidence integrity?</h2>
       <p>This is SecureGRC's core differentiator, so it deserves scrutiny rather than slogans.</p>
       <p>Most GRC platforms — OneTrust included — establish evidence trustworthiness operationally: role-based access, audit logs, timestamps, vendor attestations. That model works, but its guarantees are only as strong as the platform's own operational security, and verifying evidence generally means trusting or auditing the platform itself.</p>
-      <p>SecureGRC's model is cryptographic. Every artifact the TCCE pipeline produces — threat profiles, control mappings, evaluation results, linked evidence — is hashed with SHA-3, signed with CRYSTALS-Dilithium, and anchored in a Merkle tree. Three properties follow:</p>
+      <p>SecureGRC's model is cryptographic. Every artifact the TCCE pipeline produces — threat profiles, control mappings, evaluation results, linked evidence — is hashed with SHA-3, signed with ML-DSA, and anchored in a Merkle tree. Three properties follow:</p>
       <ul>
         <li><strong>Independent verifiability.</strong> Anyone holding the public keys can confirm an artifact is authentic and unmodified — no platform access, no trust in SecureGRC's operations required.</li>
         <li><strong>Tamper evidence.</strong> Altering any historical artifact breaks the Merkle chain visibly. The audit trail cannot be quietly rewritten, even by an insider.</li>
@@ -434,7 +434,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       <details class="faq-item">
         <summary>What does SecureGRC do that OneTrust does not?</summary>
         <div class="faq-body">
-          <p>SecureGRC generates ML-BOMs aligned with CycloneDX and SPDX, maps each AI system's threat profile to MITRE ATLAS, and signs every compliance artifact with CRYSTALS-Dilithium (NIST FIPS 204) post-quantum signatures, hashed with SHA-3 and anchored in a Merkle tree so evidence is verifiable with public keys alone. Its analysis is also metadata-only: model weights, training data, and proprietary IP never enter the platform. None of these are advertised capabilities of OneTrust's AI Governance module.</p>
+          <p>SecureGRC generates ML-BOMs aligned with CycloneDX and SPDX, maps each AI system's threat profile to MITRE ATLAS, and signs every compliance artifact with ML-DSA (NIST FIPS 204) post-quantum signatures, hashed with SHA-3 and anchored in a Merkle tree so evidence is verifiable with public keys alone. Its analysis is also metadata-only: model weights, training data, and proprietary IP never enter the platform. None of these are advertised capabilities of OneTrust's AI Governance module.</p>
         </div>
       </details>
 
@@ -455,7 +455,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       <details class="faq-item">
         <summary>Why do post-quantum signatures matter for compliance evidence?</summary>
         <div class="faq-body">
-          <p>Compliance evidence must stay verifiable for multi-year retention windows, and signatures made with classical algorithms today may become forgeable once large-scale quantum computers arrive. NIST finalized FIPS 204 (ML-DSA, based on CRYSTALS-Dilithium) in August 2024 precisely for this transition. SecureGRC signs every artifact with CRYSTALS-Dilithium, hashes with SHA-3, and anchors records in a Merkle tree, so an audit trail written today remains trustworthy at the end of its retention period.</p>
+          <p>Compliance evidence must stay verifiable for multi-year retention windows, and signatures made with classical algorithms today may become forgeable once large-scale quantum computers arrive. NIST finalized FIPS 204 (ML-DSA, based on CRYSTALS-Dilithium) in August 2024 precisely for this transition. SecureGRC signs every artifact with ML-DSA, hashes with SHA-3, and anchors records in a Merkle tree, so an audit trail written today remains trustworthy at the end of its retention period.</p>
         </div>
       </details>
 
@@ -509,7 +509,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       </div>
       <div class="footer-meta">
         <span>© 2026 SecureGRC · securegrc.io</span>
-        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+        <span>ISO/IEC 42001, ML-DSA (FIPS 204)</span>
       </div>
     </div>
   </footer>

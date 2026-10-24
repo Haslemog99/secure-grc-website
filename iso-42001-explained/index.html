@@ -235,9 +235,9 @@
     }
   
 /* display type */
-h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em}
+h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
 .site-nav a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.01em}
-.cta a.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px}
+.cta a.btn{font-family:'Inter',system-ui,sans-serif;font-size:14px}
 
 </style>
   <link rel="stylesheet" href="/assets/site.css" />
@@ -394,7 +394,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
         <li><strong>A sequential, auditable pipeline.</strong> The <a href="/glossary/tcce/">TCCE Engine</a> runs threat assessment, control mapping, compliance evaluation, and evidence linking as discrete stages, so every conclusion in a compliance report can be traced back through the exact stage that produced it.</li>
         <li><strong>An ISO 42001 control library with gap analysis.</strong> AI systems are assessed against ISO/IEC 42001 control themes, producing a compliance posture report and a concrete gap list, the phase-1 artifact of the certification journey described above.</li>
         <li><strong>Metadata-only analysis.</strong> Model weights, training data, and proprietary IP never enter the platform; all analysis runs on extracted metadata, which also keeps the compliance tool itself out of your AI risk surface. The reasoning behind this architecture is covered in <a href="/blog/metadata-only-compliance/">our metadata-only compliance deep dive</a>.</li>
-        <li><strong>Tamper-evident, post-quantum evidence.</strong> Every artifact is signed with CRYSTALS-Dilithium (NIST FIPS 204, finalized in August 2024), hashed with SHA-3, and anchored in a Merkle tree, so an auditor can verify integrity using only public keys. How that works, and why quantum-safe signatures matter for long-lived audit records, is explained in our <a href="/quantum-safe-compliance/">quantum-safe compliance guide</a>.</li>
+        <li><strong>Tamper-evident, post-quantum evidence.</strong> Every artifact is signed with ML-DSA (NIST FIPS 204, finalized in August 2024), hashed with SHA-3, and anchored in a Merkle tree, so an auditor can verify integrity using only public keys. How that works, and why quantum-safe signatures matter for long-lived audit records, is explained in our <a href="/quantum-safe-compliance/">quantum-safe compliance guide</a>.</li>
       </ul>
       <p>SecureGRC also generates <a href="/what-is-ml-bom/">ML-BOMs aligned with CycloneDX and SPDX</a> to serve as the asset-inventory evidence Annex A themes call for, and maps threat profiles to MITRE ATLAS so risk assessments are grounded in a recognized adversarial-threat knowledge base. Incumbent platforms cover ISO 42001 as one module among hundreds of regulations; a comparison of the purpose-built versus breadth-first approach is in <a href="/vs/onetrust/">SecureGRC vs OneTrust</a>. For everything else, our <a href="/faq/">FAQ</a> covers the platform in detail.</p>
 
@@ -473,7 +473,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       </div>
       <div class="footer-meta">
         <span>© 2026 SecureGRC · securegrc.io</span>
-        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+        <span>ISO/IEC 42001, ML-DSA (FIPS 204)</span>
       </div>
     </div>
   </footer>

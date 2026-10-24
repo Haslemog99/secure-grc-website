@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Metadata-Only AI Compliance: Govern Without Exposing IP</title>
-  <meta name="description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence." />
+  <meta name="description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and ML-DSA-signed verifiable evidence." />
   <link rel="canonical" href="https://www.securegrc.io/blog/metadata-only-compliance/" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
@@ -20,7 +20,7 @@
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="SecureGRC" />
   <meta property="og:title" content="Metadata-Only AI Compliance: Govern Without Exposing IP" />
-  <meta property="og:description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence." />
+  <meta property="og:description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and ML-DSA-signed verifiable evidence." />
   <meta property="og:url" content="https://www.securegrc.io/blog/metadata-only-compliance/" />
   <meta property="og:image" content="https://www.securegrc.io/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -29,7 +29,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Metadata-Only AI Compliance: Govern Without Exposing IP" />
-  <meta name="twitter:description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence." />
+  <meta name="twitter:description" content="How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and ML-DSA-signed verifiable evidence." />
   <meta name="twitter:image" content="https://www.securegrc.io/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,7 +60,7 @@
       "@type": "BlogPosting",
       "@id": "https://www.securegrc.io/blog/metadata-only-compliance/#article",
       "headline": "Metadata-Only AI Compliance: Govern Models Without Exposing IP",
-      "description": "How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and Dilithium-signed verifiable evidence.",
+      "description": "How metadata-only architecture proves AI compliance without ingesting model weights or training data — ML-BOMs, TCCE, and ML-DSA-signed verifiable evidence.",
       "url": "https://www.securegrc.io/blog/metadata-only-compliance/",
       "mainEntityOfPage": "https://www.securegrc.io/blog/metadata-only-compliance/",
       "datePublished": "2026-07-17",
@@ -97,7 +97,7 @@
           "name": "If the platform never saw the model, why should an auditor trust the results?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with CRYSTALS-Dilithium (NIST FIPS 204, ML-DSA), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems."
+            "text": "Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with ML-DSA (NIST FIPS 204), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems."
           }
         },
         {
@@ -222,9 +222,9 @@
     }
   
 /* display type */
-h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em}
+h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
 .site-nav a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.01em}
-.cta a.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px}
+.cta a.btn{font-family:'Inter',system-ui,sans-serif;font-size:14px}
 
 </style>
   <link rel="stylesheet" href="/assets/site.css" />
@@ -307,14 +307,14 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       <p>The ML-BOM feeds SecureGRC's <a href="/glossary/tcce/">TCCE engine</a> — a sequential pipeline of <strong>Threat assessment → Control mapping → Compliance evaluation → Evidence linking</strong>. Threat assessment derives an adversarial threat profile mapped to MITRE ATLAS from the system's architecture and exposure. Control mapping connects those threats and the organization's obligations to the ISO/IEC 42001 control library. Compliance evaluation scores the current posture against those controls and surfaces gaps. Evidence linking binds every conclusion to the specific metadata that supports it. Because the stages are sequential and independently testable, an auditor can inspect each hand-off — which threats produced which control requirements, which metadata satisfied which control — rather than trusting an opaque score.</p>
 
       <h3>4. Signed, anchored evidence</h3>
-      <p>Every artifact the pipeline emits — ML-BOMs, threat profiles, mappings, gap analyses, posture reports — is hashed with SHA-3, signed with CRYSTALS-Dilithium (the lattice-based signature scheme NIST standardized as ML-DSA in FIPS 204, August 2024), and anchored into a Merkle tree. The result is a <a href="/quantum-safe-compliance/">quantum-safe evidence chain</a>: tamper-evident today, and still verifiable at the end of a ten-year retention window, after the classical signature algorithms have aged out.</p>
+      <p>Every artifact the pipeline emits — ML-BOMs, threat profiles, mappings, gap analyses, posture reports — is hashed with SHA-3, signed with ML-DSA (the lattice-based signature scheme NIST standardized as ML-DSA in FIPS 204, August 2024), and anchored into a Merkle tree. The result is a <a href="/quantum-safe-compliance/">quantum-safe evidence chain</a>: tamper-evident today, and still verifiable at the end of a ten-year retention window, after the classical signature algorithms have aged out.</p>
 
       <h2>If you never saw the model, why should anyone trust the audit?</h2>
       <p>This is the objection that deserves the most respect, so take it at full strength: a platform that never touches the artifact is, by construction, trusting the metadata it is given. Doesn't that just relocate the trust problem?</p>
       <p>It relocates it, yes — to a place where it can actually be solved. Consider what "trust" means for the artifact-ingesting alternative. The vendor holds your weights and tells you its analysis is correct; you trust its models, its pipeline, its access controls, and its database, none of which you can inspect. The audit's integrity rests on the operator's word. That is a trust problem with no solution other than hope and contract law.</p>
       <p>Metadata-only architecture replaces that with two verifiable guarantees:</p>
       <ul>
-        <li><strong>The evidence chain is cryptographically closed.</strong> Every artifact is Dilithium-signed and Merkle-anchored at creation. An auditor holding the artifact, its signature, and its inclusion proof verifies both — using <em>public keys alone</em>. No SecureGRC account, no proprietary verifier, no network call, no dependence on the platform's continued existence or honesty. If any record was altered after the fact, the arithmetic fails. The platform is mathematically incapable of quietly rewriting its own audit trail.</li>
+        <li><strong>The evidence chain is cryptographically closed.</strong> Every artifact is ML-DSA-signed and Merkle-anchored at creation. An auditor holding the artifact, its signature, and its inclusion proof verifies both — using <em>public keys alone</em>. No SecureGRC account, no proprietary verifier, no network call, no dependence on the platform's continued existence or honesty. If any record was altered after the fact, the arithmetic fails. The platform is mathematically incapable of quietly rewriting its own audit trail.</li>
         <li><strong>The claims are grounded and re-derivable.</strong> Because extraction runs in the customer's environment against the customer's own systems of record, every metadata claim in the ML-BOM traces to a source the auditor can independently check — the training manifest, the eval report, the lockfile. The TCCE pipeline then links each compliance conclusion to the specific metadata supporting it. An auditor who doubts a claim doesn't have to trust SecureGRC; they re-derive it at the source, on-site, without any artifact ever having traveled.</li>
       </ul>
       <p>Notice what this does to the original question. "Why trust an audit from a platform that never saw the model?" becomes "why trust an audit you can verify yourself?" — which is no longer an objection. Traditional audits ask you to trust the auditor because they saw everything. Cryptographically verified metadata audits ask you to trust no one, because everything material is checkable. Between those two, the second is the stronger assurance model, not the weaker one.</p>
@@ -332,7 +332,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
           <tr><td>Vendor breach blast radius</td><td class="yes">Metadata about models — descriptive, non-executable, non-reconstructive</td><td class="no">Concentrated store of many customers' models and data; a single high-value target</td></tr>
           <tr><td>Procurement and security review</td><td class="yes">Standard SaaS review; DPA covers metadata only</td><td class="no">IP counsel, data-transfer analysis, breach-liability negotiation; quarters of delay</td></tr>
           <tr><td>Cross-border and data residency</td><td class="yes">Artifacts never move, so residency constraints stay satisfied by default</td><td class="warn">Artifact transfer may trigger GDPR, sectoral, or export-control analysis</td></tr>
-          <tr><td>Verifiability of evidence</td><td class="yes">Dilithium-signed, SHA-3 hashed, Merkle-anchored; verifiable with public keys alone</td><td class="no">Platform database as the record; integrity rests on operator trust</td></tr>
+          <tr><td>Verifiability of evidence</td><td class="yes">ML-DSA-signed, SHA-3 hashed, Merkle-anchored; verifiable with public keys alone</td><td class="no">Platform database as the record; integrity rests on operator trust</td></tr>
           <tr><td>Third-party and vendor-model audits</td><td class="yes">Vendors share signed ML-BOMs without disclosing the model</td><td class="no">Requires vendors to hand artifacts to your tooling — usually a non-starter</td></tr>
         </tbody>
       </table>
@@ -364,7 +364,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
 
       <details class="faq-item">
         <summary>If the platform never saw the model, why should an auditor trust the results?</summary>
-        <div class="faq-body"><p>Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with CRYSTALS-Dilithium (NIST FIPS 204, ML-DSA), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems.</p></div>
+        <div class="faq-body"><p>Because trust rests on cryptography rather than on the platform. Every artifact SecureGRC produces — ML-BOMs, threat profiles, control mappings, gap analyses — is hashed with SHA-3, signed with ML-DSA (NIST FIPS 204), and anchored in a Merkle tree. An auditor verifies the signature and the Merkle inclusion proof using public keys alone: no platform account, no proprietary tooling, no reliance on SecureGRC's database. The evidence chain proves what metadata was assessed, when, and that nothing was altered afterward, and any claim can be re-derived from the customer's own systems.</p></div>
       </details>
 
       <details class="faq-item">
@@ -374,7 +374,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
 
       <aside class="cta">
         <h2>Governance that never asks for the model</h2>
-        <p>SecureGRC is early-stage and purpose-built: metadata-only by architecture, ISO/IEC 42001-aligned, with every artifact Dilithium-signed and publicly verifiable. Early access opens in 2026.</p>
+        <p>SecureGRC is early-stage and purpose-built: metadata-only by architecture, ISO/IEC 42001-aligned, with every artifact ML-DSA-signed and publicly verifiable. Request a demo to see it on your own models.</p>
         <a class="btn lead-cta" data-source="demo-cta" href="mailto:hello@securegrc.io?subject=Request%20a%20Demo">Request a demo</a>
       </aside>
     </article>
@@ -415,7 +415,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       </div>
       <div class="footer-meta">
         <span>© 2026 SecureGRC · securegrc.io</span>
-        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+        <span>ISO/IEC 42001, ML-DSA (FIPS 204)</span>
       </div>
     </div>
   </footer>

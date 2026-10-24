@@ -113,7 +113,7 @@
           "name": "Why does post-quantum cryptography matter for compliance evidence?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because compliance evidence must stay verifiable for years, sometimes a decade or more, and classical digital signatures are exactly what a future quantum computer is expected to break. Records signed today with classical algorithms could become unverifiable — or forgeable — within their own retention window. SecureGRC signs every artifact with CRYSTALS-Dilithium, the lattice-based signature scheme standardized by NIST as FIPS 204 (ML-DSA) in August 2024, hashes it with SHA-3, and anchors it in a Merkle tree, so evidence remains verifiable with public keys alone."
+            "text": "Because compliance evidence must stay verifiable for years, sometimes a decade or more, and classical digital signatures are exactly what a future quantum computer is expected to break. Records signed today with classical algorithms could become forgeable within their own retention window, at which point a valid signature no longer proves a record is genuine. SecureGRC signs every artifact with ML-DSA, the lattice-based signature scheme standardized by NIST as FIPS 204 (ML-DSA) in August 2024, hashes it with SHA-3, and anchors it in a Merkle tree, so evidence remains verifiable with public keys alone."
           }
         },
         {
@@ -238,9 +238,9 @@
     }
   
 /* display type */
-h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em}
+h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
 .site-nav a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.01em}
-.cta a.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px}
+.cta a.btn{font-family:'Inter',system-ui,sans-serif;font-size:14px}
 
 </style>
   <link rel="stylesheet" href="/assets/site.css" />
@@ -297,7 +297,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
 
       <h2>What is SecureGRC?</h2>
       <p>SecureGRC is a quantum-safe AI compliance automation platform, currently an MVP in early access in 2026. It is deliberately narrow where incumbents are broad. Instead of an all-purpose governance suite, it runs one pipeline — the <a href="/glossary/tcce/">TCCE engine</a> — through four sequential, independently testable and auditable stages: <strong>Threat assessment</strong> (profiling each AI system against MITRE ATLAS adversarial tactics and techniques), <strong>Control mapping</strong> (connecting those threats to an ISO/IEC 42001 control library), <strong>Compliance evaluation</strong> (gap analysis and compliance posture reporting), and <strong>Evidence linking</strong> (binding every satisfied control to verifiable artifacts).</p>
-      <p>Two architectural decisions define the product. First, <strong>metadata-only analysis</strong>: model weights, training data, and proprietary IP never enter SecureGRC. Everything the platform computes is derived from extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in a <a href="/what-is-ml-bom/">Machine Learning Bill of Materials</a> aligned with the CycloneDX (which has supported ML-BOMs since v1.5) and SPDX standards. Second, <strong>post-quantum evidence integrity</strong>: every artifact is signed with CRYSTALS-Dilithium (standardized by NIST as FIPS 204, also known as ML-DSA, in August 2024), hashed with SHA-3, and anchored in a Merkle tree. An auditor or regulator can verify the entire evidence chain with public keys alone.</p>
+      <p>Two architectural decisions define the product. First, <strong>metadata-only analysis</strong>: model weights, training data, and proprietary IP never enter SecureGRC. Everything the platform computes is derived from extracted metadata — architecture descriptors, dataset provenance, dependency and deployment context — captured in a <a href="/what-is-ml-bom/">Machine Learning Bill of Materials</a> aligned with the CycloneDX (which has supported ML-BOMs since v1.5) and SPDX standards. Second, <strong>post-quantum evidence integrity</strong>: every artifact is signed with ML-DSA (standardized by NIST as FIPS 204, also known as ML-DSA, in August 2024), hashed with SHA-3, and anchored in a Merkle tree. An auditor or regulator can verify the entire evidence chain with public keys alone.</p>
       <p>The product surfaces are a React dashboard, an ML-BOM Explorer, and a cryptographically verified audit trail, on a FastAPI and PostgreSQL backend. SecureGRC is honest about its stage: it is new, it has no decade of enterprise deployments behind it, and it is not trying to be a broad governance suite. It is purpose-built for one job — producing threat-mapped, control-linked, cryptographically verifiable ISO/IEC 42001 compliance evidence from metadata alone.</p>
 
       <h2>How do SecureGRC and Holistic AI compare feature by feature?</h2>
@@ -349,7 +349,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
           </tr>
           <tr>
             <td>Post-quantum signed evidence</td>
-            <td><span class="yes">Yes</span> — CRYSTALS-Dilithium (FIPS 204), SHA-3, Merkle-anchored</td>
+            <td><span class="yes">Yes</span> — ML-DSA (FIPS 204), SHA-3, Merkle-anchored</td>
             <td><span class="no">Not documented</span></td>
           </tr>
           <tr>
@@ -379,7 +379,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
         <li><strong>Your models cannot leave your environment.</strong> SecureGRC's <a href="/blog/metadata-only-compliance/">metadata-only architecture</a> means weights, training data, and proprietary IP never enter the platform — the compliance workflow runs entirely on extracted metadata. For frontier labs, defense contractors, and IP-sensitive enterprises, this removes the biggest blocker to adopting any compliance tool.</li>
         <li><strong>You need standards-aligned ML-BOMs.</strong> SecureGRC generates Machine Learning Bills of Materials aligned with CycloneDX and SPDX as a first-class artifact, browsable in the ML-BOM Explorer — the supply-chain transparency format customers and regulators increasingly request.</li>
         <li><strong>You want threat-driven compliance, not checklist compliance.</strong> Every ISO/IEC 42001 control mapping starts from a MITRE ATLAS threat profile, so gap analysis answers "which named adversary behaviors are we exposed to?" — see our <a href="/iso-42001-vs-mitre-atlas/">ATLAS-to-ISO-42001 crosswalk</a> for how that mapping works.</li>
-        <li><strong>Your evidence must outlive today's cryptography.</strong> Compliance records retained for five to ten years will live into the era of cryptographically relevant quantum computers. SecureGRC signs everything with FIPS 204 CRYSTALS-Dilithium now, so the audit trail stays verifiable — and forgery-resistant — for its whole retention window.</li>
+        <li><strong>Your evidence must outlive today's cryptography.</strong> Compliance records retained for five to ten years will live into the era of cryptographically relevant quantum computers. SecureGRC signs everything with FIPS 204 ML-DSA now, so the audit trail stays verifiable — and forgery-resistant — for its whole retention window.</li>
         <li><strong>ISO/IEC 42001 is your anchor standard.</strong> If your program centers on the AI management system standard — increasingly the organizational backbone for EU AI Act readiness — SecureGRC's control library, gap analysis, and posture reporting are built around it specifically. Our guide to <a href="/iso-42001-explained/">ISO/IEC 42001</a> explains the standard in depth.</li>
       </ul>
 
@@ -387,7 +387,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       <p>Most governance platforms treat evidence storage as a solved problem: documents in a database, maybe classically signed, access-controlled and logged. That is fine until you consider the lifespan of compliance evidence. An ISO/IEC 42001 certification cycle, an EU AI Act conformity file, or a regulator's records-retention requirement can keep an artifact legally significant for a decade. Classical signature schemes such as RSA and ECDSA are precisely the algorithms a sufficiently capable quantum computer is expected to break — which means evidence signed with them today could become forgeable within its own retention window. An adversary, or a motivated litigant, could then manufacture "historical" records indistinguishable from real ones.</p>
       <p>SecureGRC's answer is to make evidence integrity quantum-resistant from day one:</p>
       <ul>
-        <li><strong>CRYSTALS-Dilithium signatures.</strong> Every artifact — threat profile, control mapping, evaluation result, ML-BOM — is signed with the lattice-based scheme NIST standardized as FIPS 204 (ML-DSA) in August 2024.</li>
+        <li><strong>ML-DSA signatures.</strong> Every artifact — threat profile, control mapping, evaluation result, ML-BOM — is signed with the lattice-based scheme NIST standardized as FIPS 204 (ML-DSA) in August 2024.</li>
         <li><strong>SHA-3 hashing.</strong> Artifact contents are digested with SHA-3, giving conservative security margins against both classical and quantum attacks on hash functions.</li>
         <li><strong>Merkle tree anchoring.</strong> Signed hashes are anchored in a Merkle tree, so tampering with any single artifact breaks the chain visibly, and any artifact's inclusion can be proven independently.</li>
         <li><strong>Public-key-only verification.</strong> A third party — auditor, regulator, customer — verifies the entire trail with public keys alone. No SecureGRC account, no platform trust, no access to your systems required.</li>
@@ -437,7 +437,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       <details class="faq-item">
         <summary>Why does post-quantum cryptography matter for compliance evidence?</summary>
         <div class="faq-body">
-          <p>Because compliance evidence must stay verifiable for years, sometimes a decade or more, and classical digital signatures are exactly what a future quantum computer is expected to break. Records signed today with classical algorithms could become unverifiable — or forgeable — within their own retention window. SecureGRC signs every artifact with CRYSTALS-Dilithium, the lattice-based signature scheme standardized by NIST as FIPS 204 (ML-DSA) in August 2024, hashes it with SHA-3, and anchors it in a Merkle tree, so evidence remains verifiable with public keys alone.</p>
+          <p>Because compliance evidence must stay verifiable for years, sometimes a decade or more, and classical digital signatures are exactly what a future quantum computer is expected to break. Records signed today with classical algorithms could become forgeable within their own retention window, at which point a valid signature no longer proves a record is genuine. SecureGRC signs every artifact with ML-DSA, the lattice-based signature scheme standardized by NIST as FIPS 204 (ML-DSA) in August 2024, hashes it with SHA-3, and anchors it in a Merkle tree, so evidence remains verifiable with public keys alone.</p>
         </div>
       </details>
 
@@ -491,7 +491,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       </div>
       <div class="footer-meta">
         <span>© 2026 SecureGRC · securegrc.io</span>
-        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+        <span>ISO/IEC 42001, ML-DSA (FIPS 204)</span>
       </div>
     </div>
   </footer>

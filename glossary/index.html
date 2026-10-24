@@ -198,9 +198,9 @@
     .hub-defs dd{margin:4px 0 0;opacity:.85;font-size:15px;line-height:1.65}
   
 /* display type */
-h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em}
+h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
 .site-nav a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.01em}
-.cta a.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px}
+.cta a.btn{font-family:'Inter',system-ui,sans-serif;font-size:14px}
 
 </style>
   <link rel="stylesheet" href="/assets/site.css" />
@@ -260,8 +260,8 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
         <dd>The first certifiable AI management system standard, published in 2023. It defines an auditable management system for AI, with Annex A controls covering the AI lifecycle. <a href="/iso-42001-explained/">Full guide →</a></dd>
         <dt>MITRE ATLAS</dt>
         <dd>A knowledge base of adversarial tactics and techniques against machine learning systems, structured like ATT&amp;CK. Mapping ATLAS tactics onto ISO 42001 control themes turns a threat model into a control obligation. <a href="/iso-42001-vs-mitre-atlas/">See the crosswalk →</a></dd>
-        <dt>CRYSTALS-Dilithium (FIPS 204 / ML-DSA)</dt>
-        <dd>The NIST-standardised post-quantum digital signature algorithm. Signing compliance evidence with it means the signature remains verifiable even once a cryptographically relevant quantum computer exists. <a href="/quantum-safe-compliance/">Why it matters →</a></dd>
+        <dt>ML-DSA (FIPS 204), formerly CRYSTALS-Dilithium</dt>
+        <dd>The NIST-standardised post-quantum digital signature algorithm, derived from the CRYSTALS-Dilithium competition entry with changes that make the two incompatible. Evidence signed with it cannot be forged by a cryptographically relevant quantum computer, unlike evidence signed with RSA or ECDSA. <a href="/quantum-safe-compliance/">Why it matters →</a></dd>
         <dt>Harvest-now-decrypt-later</dt>
         <dd>The practice of capturing encrypted or signed data today in order to break it once quantum capability arrives. It is the reason long-lived audit evidence needs post-quantum signatures now rather than later. <a href="/quantum-safe-compliance/">Full explanation →</a></dd>
         <dt>Metadata-only architecture</dt>
@@ -311,7 +311,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       </div>
       <div class="footer-meta">
         <span>© 2026 SecureGRC · securegrc.io</span>
-        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+        <span>ISO/IEC 42001, ML-DSA (FIPS 204)</span>
       </div>
     </div>
   </footer>

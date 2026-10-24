@@ -104,7 +104,7 @@
           "name": "Is TCCE an official industry standard?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. TCCE is a named pipeline architecture introduced by SecureGRC, not a standard published by ISO, NIST, or MITRE. It is better understood as an opinionated way of composing existing standards: threat profiles are mapped to MITRE ATLAS, controls are drawn from an ISO/IEC 42001 control library, and evidence is signed using FIPS 204 (ML-DSA / CRYSTALS-Dilithium). The framework's value is the enforced ordering and traceability, not a new compliance vocabulary."
+            "text": "No. TCCE is a named pipeline architecture introduced by SecureGRC, not a standard published by ISO, NIST, or MITRE. It is better understood as an opinionated way of composing existing standards: threat profiles are mapped to MITRE ATLAS, controls are drawn from an ISO/IEC 42001 control library, and evidence is signed using FIPS 204 (ML-DSA). The framework's value is the enforced ordering and traceability, not a new compliance vocabulary."
           }
         },
         {
@@ -253,9 +253,9 @@
     }
   
 /* display type */
-h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em}
+h1,h2{font-family:'Space Grotesk','Inter',system-ui,sans-serif;letter-spacing:-0.02em}
 .site-nav a{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:0.01em}
-.cta a.btn{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:13px}
+.cta a.btn{font-family:'Inter',system-ui,sans-serif;font-size:14px}
 
 </style>
   <link rel="stylesheet" href="/assets/site.css" />
@@ -298,7 +298,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
         <p class="subtitle">The definition of TCCE — a four-stage sequential AI compliance pipeline where threats ground controls, controls ground compliance claims, and every claim terminates in cryptographically signed evidence.</p>
       </header>
 
-      <p class="lead"><strong>TCCE</strong> (Threat, Control, Compliance, Evidence) is a <strong>sequential AI compliance pipeline</strong> that processes an AI system in four ordered stages: <strong>threat assessment → control mapping → compliance evaluation → evidence linking</strong>. Each stage consumes the previous stage's output and produces an auditable artifact of its own: threat assessment turns model metadata into a MITRE ATLAS-mapped threat profile, control mapping selects ISO/IEC 42001 controls that answer those threats, compliance evaluation runs gap analysis and posture scoring against the mapped controls, and evidence linking binds every conclusion to artifacts signed with CRYSTALS-Dilithium and anchored in a Merkle tree.</p>
+      <p class="lead"><strong>TCCE</strong> (Threat, Control, Compliance, Evidence) is a <strong>sequential AI compliance pipeline</strong> that processes an AI system in four ordered stages: <strong>threat assessment → control mapping → compliance evaluation → evidence linking</strong>. Each stage consumes the previous stage's output and produces an auditable artifact of its own: threat assessment turns model metadata into a MITRE ATLAS-mapped threat profile, control mapping selects ISO/IEC 42001 controls that answer those threats, compliance evaluation runs gap analysis and posture scoring against the mapped controls, and evidence linking binds every conclusion to artifacts signed with ML-DSA and anchored in a Merkle tree.</p>
 
       <p>The term names both the methodology and its implementation, the <strong>TCCE Engine</strong> — the core pipeline inside SecureGRC, an early-stage, purpose-built quantum-safe AI compliance platform. TCCE is not an ISO or NIST standard; it is a pipeline architecture that composes existing standards (MITRE ATLAS, ISO/IEC 42001, FIPS 204) into a single traceable chain. This page defines the framework, explains why the stage ordering is load-bearing, walks through each stage's inputs and outputs, and compares TCCE against generic GRC workflows.</p>
 
@@ -313,7 +313,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
  │  THREAT  │ ───▶ │ CONTROL  │ ───▶ │ COMPLIANCE │ ───▶ │ EVIDENCE │
  │  assess  │      │   map    │      │  evaluate  │      │   link   │
  └──────────┘      └──────────┘      └────────────┘      └──────────┘
-  MITRE ATLAS       ISO 42001         gap analysis        Dilithium-signed,
+  MITRE ATLAS       ISO 42001         gap analysis        ML-DSA-signed,
   threat profile    control set       + posture score     Merkle-anchored</pre>
 
       <p>Three design decisions define the framework:</p>
@@ -383,7 +383,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       <p>Because the evaluation runs against threat-justified controls, its outputs inherit the traceability of the earlier stages. A gap is never just "control X is missing"; it is "control X, mapped from threats Y and Z, is not yet operating" — which is also why TCCE gap analyses double as prioritization inputs: gaps that trace to more or nastier threats surface first. Posture scoring gives governance teams and the SecureGRC dashboard a longitudinal signal: re-running the pipeline after remediation shows the score moving for reasons the chain can explain.</p>
 
       <h2>What happens in the evidence linking stage?</h2>
-      <p>Evidence linking is the stage that turns conclusions into proof. Every artifact the pipeline produced — the threat profile, the control mapping, the gap analysis, the posture report, and generated <a href="/what-is-ml-bom/">ML-BOMs</a> aligned with CycloneDX (which has supported ML-BOMs since v1.5) and SPDX — is hashed with <strong>SHA-3</strong>, signed with <strong>CRYSTALS-Dilithium</strong> (ML-DSA, NIST FIPS 204, finalized August 2024), and anchored into a <strong>Merkle tree</strong>. Each compliance claim is then linked to the signed artifacts that support it, forming a verified audit trail.</p>
+      <p>Evidence linking is the stage that turns conclusions into proof. Every artifact the pipeline produced — the threat profile, the control mapping, the gap analysis, the posture report, and generated <a href="/what-is-ml-bom/">ML-BOMs</a> aligned with CycloneDX (which has supported ML-BOMs since v1.5) and SPDX — is hashed with <strong>SHA-3</strong>, signed with <strong>ML-DSA</strong> (NIST FIPS 204, finalized August 2024), and anchored into a <strong>Merkle tree</strong>. Each compliance claim is then linked to the signed artifacts that support it, forming a verified audit trail.</p>
 
       <table>
         <thead>
@@ -391,12 +391,12 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
         </thead>
         <tbody>
           <tr><td>Inputs</td><td>All upstream artifacts: threat profile, control mapping, gap analysis, posture report, ML-BOMs.</td></tr>
-          <tr><td>Outputs</td><td>A cryptographically verified audit trail: SHA-3 hashes, Dilithium (FIPS 204) signatures, and Merkle inclusion proofs binding each claim to its evidence.</td></tr>
+          <tr><td>Outputs</td><td>A cryptographically verified audit trail: SHA-3 hashes, ML-DSA (FIPS 204) signatures, and Merkle inclusion proofs binding each claim to its evidence.</td></tr>
           <tr><td>Verified by</td><td>Anyone holding the public keys — auditors, regulators, customers — with no access to SecureGRC required.</td></tr>
         </tbody>
       </table>
 
-      <p>Two properties of this stage deserve emphasis. First, verification requires <strong>only public keys</strong>: an auditor checks a Dilithium signature and a Merkle inclusion proof offline, against a public FIPS specification, without trusting or even contacting the platform. Second, the signatures are post-quantum: because compliance evidence must stay trustworthy for retention windows of many years, signing it with algorithms a future quantum computer could break would give it an expiry date. The full rationale — including why lattice signatures and SHA-3 were chosen — is covered in <a href="/quantum-safe-compliance/">quantum-safe compliance</a>.</p>
+      <p>Two properties of this stage deserve emphasis. First, verification requires <strong>only public keys</strong>: an auditor checks an ML-DSA signature and a Merkle inclusion proof offline, against a public FIPS specification, without trusting or even contacting the platform. Second, the signatures are post-quantum: because compliance evidence must stay trustworthy for retention windows of many years, signing it with algorithms a future quantum computer could break would give it an expiry date. The full rationale — including why lattice signatures and SHA-3 were chosen — is covered in <a href="/quantum-safe-compliance/">quantum-safe compliance</a>.</p>
 
       <h2>Why does it matter that each TCCE stage is independently testable?</h2>
       <p>Monolithic compliance processes fail monolithically. When threat analysis, control selection, scoring, and evidence gathering happen as one undifferentiated exercise, an error found anywhere casts doubt everywhere — and the only remedy is redoing the whole assessment. TCCE's stage boundaries exist to prevent exactly that, and they pay off in four specific ways:</p>
@@ -419,7 +419,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
           <tr><td>Starting point</td><td>Control checklist or framework template</td><td class="yes">Threat assessment from model metadata, mapped to MITRE ATLAS</td></tr>
           <tr><td>Ordering</td><td>Loosely ordered; stages blur and run ad hoc</td><td class="yes">Strict sequence: Threat → Control → Compliance → Evidence</td></tr>
           <tr><td>Control selection rationale</td><td>Implied by the chosen framework template</td><td class="yes">Explicit: every control links to the threats that justified it</td></tr>
-          <tr><td>Evidence form</td><td>Screenshots, spreadsheets, attached documents</td><td class="yes">SHA-3-hashed, Dilithium-signed, Merkle-anchored artifacts</td></tr>
+          <tr><td>Evidence form</td><td>Screenshots, spreadsheets, attached documents</td><td class="yes">SHA-3-hashed, ML-DSA-signed, Merkle-anchored artifacts</td></tr>
           <tr><td>Evidence verification</td><td>Trust the platform's database and access logs</td><td class="yes">Independent, offline, public-key-only verification</td></tr>
           <tr><td>Traceability</td><td>Cross-references maintained manually; orphan paperwork is common</td><td class="yes">Claim → control → threat → metadata, machine-checkable end to end</td></tr>
           <tr><td>Auditability</td><td>Whole-program review; errors cast doubt broadly</td><td class="yes">Per-stage testing and replay; failures localize</td></tr>
@@ -440,7 +440,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
 
       <details class="faq-item">
         <summary>Is TCCE an official industry standard?</summary>
-        <div class="faq-body"><p>No. TCCE is a named pipeline architecture introduced by SecureGRC, not a standard published by ISO, NIST, or MITRE. It is better understood as an opinionated way of composing existing standards: threat profiles are mapped to MITRE ATLAS, controls are drawn from an ISO/IEC 42001 control library, and evidence is signed using FIPS 204 (ML-DSA / CRYSTALS-Dilithium). The framework's value is the enforced ordering and traceability, not a new compliance vocabulary.</p></div>
+        <div class="faq-body"><p>No. TCCE is a named pipeline architecture introduced by SecureGRC, not a standard published by ISO, NIST, or MITRE. It is better understood as an opinionated way of composing existing standards: threat profiles are mapped to MITRE ATLAS, controls are drawn from an ISO/IEC 42001 control library, and evidence is signed using FIPS 204 (ML-DSA). The framework's value is the enforced ordering and traceability, not a new compliance vocabulary.</p></div>
       </details>
 
       <details class="faq-item">
@@ -465,7 +465,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
 
       <aside class="cta">
         <h2>See the TCCE Engine run</h2>
-        <p>SecureGRC's TCCE Engine takes model metadata from threat profile to Dilithium-signed evidence — every stage auditable, every claim provable. Early access opens in 2026.</p>
+        <p>SecureGRC's TCCE Engine takes model metadata from threat profile to ML-DSA-signed evidence — every stage auditable, every claim provable. Request a demo to see it on your own models.</p>
         <a class="btn lead-cta" data-source="demo-cta" href="mailto:hello@securegrc.io?subject=Request%20a%20Demo">Request a demo</a>
       </aside>
     </article>
@@ -506,7 +506,7 @@ h1,h2{font-family:'JetBrains Mono',ui-monospace,monospace;letter-spacing:-0.03em
       </div>
       <div class="footer-meta">
         <span>© 2026 SecureGRC · securegrc.io</span>
-        <span>ISO 42001 · CRYSTALS-Dilithium · FIPS 204</span>
+        <span>ISO/IEC 42001, ML-DSA (FIPS 204)</span>
       </div>
     </div>
   </footer>
